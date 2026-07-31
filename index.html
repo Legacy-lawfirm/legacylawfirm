@@ -40,6 +40,7 @@
     body[dir="ltr"] .social-btn { flex-direction: row-reverse; }
     body[dir="ltr"] .float-whatsapp { left: auto; right: 24px; }
     body[dir="ltr"] .scroll-top { right: auto; left: 24px; }
+    body[dir="ltr"] .features-list { padding-right: 0; padding-left: 20px; }
 
     /* Navbar */
     .navbar {
@@ -85,7 +86,12 @@
 
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy-mid) 100%);
+      /* 👇 ضع رابط صورة الخلفية هنا */
+      background-image: url('رابط_صورتك_هنا');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      background-color: rgba(10, 22, 40, 0.85); /* طبقة شفافة عشان النص يبان */
       padding: 100px 32px; text-align: center;
       position: relative; overflow: hidden;
     }
@@ -100,7 +106,7 @@
       margin-bottom: 16px; position: relative; z-index: 1;
     }
     .hero p {
-      color: rgba(255,255,255,0.7); font-size: 20px;
+      color: rgba(255,255,255,0.85); font-size: 20px;
       max-width: 600px; margin: 0 auto; position: relative; z-index: 1;
     }
     .hero-divider {
@@ -109,7 +115,7 @@
     }
 
     /* Sections */
-    .section { padding: 80px 32px; max-width: 900px; margin: 0 auto; }
+    .section { padding: 80px 32px; max-width: 1100px; margin: 0 auto; }
     .section-title {
       color: var(--navy); font-size: 32px; font-weight: 700;
       margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
@@ -138,6 +144,7 @@
       border: 1px solid rgba(201,162,39,0.2);
       border-radius: 12px; padding: 28px;
       transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
     }
     .service-card:hover {
       transform: translateY(-6px);
@@ -152,6 +159,60 @@
     }
     .service-card p {
       color: #555; font-size: 15px; line-height: 1.9; text-align: justify;
+      margin-bottom: 12px;
+    }
+    .features-list {
+      list-style: none; padding: 0; margin: 8px 0 0 0;
+    }
+    .features-list li {
+      padding: 6px 0 6px 24px;
+      position: relative;
+      font-size: 14px;
+      color: #444;
+      border-bottom: 1px solid rgba(201,162,39,0.1);
+    }
+    .features-list li:last-child { border-bottom: none; }
+    .features-list li::before {
+      content: "▸";
+      color: var(--gold);
+      position: absolute;
+      right: 0;
+      font-weight: bold;
+    }
+    body[dir="ltr"] .features-list li { padding: 6px 24px 6px 0; }
+    body[dir="ltr"] .features-list li::before { right: auto; left: 0; }
+
+    /* Consultant Section */
+    .consultant-box {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      border-radius: 16px; padding: 48px; margin-top: 16px;
+      border: 1px solid var(--gold);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .consultant-box h3 {
+      color: var(--gold-light); font-size: 28px; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .consultant-box .main-desc {
+      color: rgba(255,255,255,0.9); font-size: 17px; line-height: 1.9;
+      margin-bottom: 24px; text-align: justify;
+    }
+    .consultant-features {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .consultant-features .item {
+      background: rgba(255,255,255,0.06);
+      padding: 16px 20px; border-radius: 10px;
+      border-right: 4px solid var(--gold);
+      color: rgba(255,255,255,0.9);
+    }
+    body[dir="ltr"] .consultant-features .item { border-right: none; border-left: 4px solid var(--gold); }
+    .consultant-features .item strong {
+      color: var(--gold-light);
+      display: block; font-size: 16px; margin-bottom: 4px;
+    }
+    .consultant-features .item span {
+      font-size: 15px; opacity: 0.9;
     }
 
     /* Vision section */
@@ -168,7 +229,7 @@
     /* Contact section */
     .contact-section {
       background: var(--gold-bg); border-radius: 12px;
-      padding: 56px 32px; margin: 40px auto; max-width: 900px;
+      padding: 56px 32px; margin: 40px auto; max-width: 1100px;
       border: 1px solid rgba(201,162,39,0.2);
     }
     .contact-grid {
@@ -218,7 +279,7 @@
     }
     .footer p { margin-bottom: 6px; }
 
-    /* Floating WhatsApp button */
+    /* Floating WhatsApp */
     .float-whatsapp {
       position: fixed; bottom: 24px; left: 24px;
       width: 60px; height: 60px; border-radius: 50%;
@@ -258,16 +319,16 @@
       .services-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .vision-box { padding: 28px; }
+      .consultant-box { padding: 24px; }
       .lang-switcher { order: -1; }
     }
   </style>
-<base target="_blank">
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar">
-    <div class="logo-area">
+  <div class="logo-area">
     <img src="https://i.postimg.cc/7YXGKynb/Whats-App-Image-2026-07-29-at-6-12-18-PM.jpg" 
          alt="Legacy Law Firm Logo" 
          style="width:48px; height:48px; border-radius:8px; object-fit:contain;">
@@ -276,6 +337,7 @@
   <div class="nav-links">
     <a href="#about" data-key="nav-about">من نحن</a>
     <a href="#services" data-key="nav-services">خدماتنا</a>
+    <a href="#consultant" data-key="nav-consultant">مستشارك القانوني</a>
     <a href="#vision" data-key="nav-vision">رؤيتنا</a>
     <a href="#contact" data-key="nav-contact">تواصل معنا</a>
   </div>
@@ -297,7 +359,7 @@
 <section class="section" id="about">
   <h2 class="section-title">
     <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
     </svg>
     <span data-key="about-title">من نحن؟</span>
   </h2>
@@ -305,7 +367,7 @@
     <span data-key="about-subtitle">عن المكتب</span>
   </div>
   <p class="section-body" data-key="about-body">
-    نحن مكتب محاماة واستشارات قانونية انطلق برؤية معاصرة وفكر قانوني متطور لتقديم استشارات وحلول متكاملة للأفراد والشركات. ندمج بين الخبرة العميقة والسرعة والمرونة لنواكب وتيرة الأعمال الحديثة ونضمن حماية مصالح عملائنا وبناء شراكات نجاح مستدامة؛ حيث نقدم مظلة حماية قانونية شاملة واستشارات ذكية تلبي تطلعات الكيانات المحلية والدولية على حد سواء.
+    نحن مكتب محاماة واستشارات قانونية انطلق برؤية معاصرة وفكر قانوني متطور لتقديم استشارات وحلول متكاملة للأفراد والشركات. ندمج بين الخبرة العميقة والسرعة والمرونة لنواكب وتيرة الأعمال الحديثة ونضمن حماية مصالح عملائنا وبناء شراكات نجاح مستدامة؛ حيث نقدم مظلة حماية قانونية شاملة واستشارات ذكية تلبي تطلعات الكيانات المحلية والدولية على حد سواء. يمتد نطاق أعمالنا ليشمل منظومة متكاملة من الحلول؛ ونتميز باحترافية استثنائية في قطاع خدمات الشركات والاستثمار بدءاً من تقديم الدعم التأسيسي خطوة بخطوة لكافة أشكال المنشآت، مروراً بإدارة وتوجيه عمليات إعادة الهيكلة المعقدة والدمج والاستحواذ وتعديل الأشكال القانونية للشركات، وصولاً إلى إجراءات تصفية الشركات بكل سلاسة وموثوقية، مع تقديم حماية حازمة لحقوق الملكية الفكرية وبراءات الاختراع والعلامات التجارية التي تضمن استمرار الاستثمارات الحديثة. وكشريك قانوني موثوق لشؤون الأجانب والمعاملات الدولية، نمتلك المعرفة الإجرائية الدقيقة لإنهاء قضايا الجنسية، استخراج الإقامات، وتوثيق المعاملات الرسمية وعقود الزواج للأجانب، إلى جانب صياغة ومراجعة العقود الدولية والاتفاقيات العابرة للحدود بأعلى معايير الحماية القانونية الصارمة ضد المخاطر التجارية. وعلى صعيد التقاضي والدفاع، يضم المكتب تخصصات نوعية متطورة تضمن التمثيل القانوني الحازم أمام كافة المحاكم؛ ونمتلك ريادة خاصة في قضايا الجنايات والأمن السيبراني ومكافحة الجرائم الإلكترونية وحماية البيانات الرقمية، بالإضافة إلى خبرتنا العميقة في إدارة النزاعات وحماية الاستثمارات في قطاع العقارات والجمارك، وصياغة العقود وإدارة الالتزامات في القانون المدني، فضلاً عن تنظيم العلاقات التعاقدية وحل النزاعات العمالية لحفظ حقوق أطراف العمل، وتقديم الدعم المتكامل في قضايا محاكم الأسرة والأحوال الشخصية، ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.
   </p>
 </section>
 
@@ -322,18 +384,24 @@
   </div>
 
   <div class="services-grid">
+    <!-- Card 1: Corporate -->
     <div class="service-card">
       <h3>
         <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
           <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
         </svg>
-        <span data-key="svc1-title">خدمات الشركات والاستثمار</span>
+        <span data-key="svc1-title">قطاع الشركات والاستثمار</span>
       </h3>
-      <p data-key="svc1-body">
-        يمتد نطاق أعمالنا ليشمل منظومة متكاملة من الحلول؛ ونتميز باحترافية استثنائية في قطاع خدمات الشركات والاستثمار بدءاً من تقديم الدعم التأسيسي خطوة بخطوة لكافة أشكال المنشآت، مروراً بإدارة وتوجيه عمليات إعادة الهيكلة المعقدة والدمج والاستحواذ وتعديل الأشكال القانونية للشركات، وصولاً إلى إجراءات تصفية الشركات بكل سلاسة وموثوقية، مع تقديم حماية حازمة لحقوق الملكية الفكرية وبراءات الاختراع والعلامات التجارية التي تضمن استمرار الاستثمارات الحديثة.
-      </p>
+      <p data-key="svc1-desc">حلول قانونية متكاملة للشركات في جميع مراحلها.</p>
+      <ul class="features-list">
+        <li data-key="svc1-f1">تأسيس الشركات والمنشآت</li>
+        <li data-key="svc1-f2">إعادة الهيكلة والدمج والاستحواذ (M&A)</li>
+        <li data-key="svc1-f3">حماية الملكية الفكرية</li>
+        <li data-key="svc1-f4">التصفية القانونية للشركات</li>
+      </ul>
     </div>
 
+    <!-- Card 2: Foreign Affairs -->
     <div class="service-card">
       <h3>
         <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
@@ -341,21 +409,61 @@
         </svg>
         <span data-key="svc2-title">شؤون الأجانب والمعاملات الدولية</span>
       </h3>
-      <p data-key="svc2-body">
-        وكشريك قانوني موثوق لشؤون الأجانب والمعاملات الدولية، نمتلك المعرفة الإجرائية الدقيقة لإنهاء قضايا الجنسية، استخراج الإقامات، وتوثيق المعاملات الرسمية وعقود الزواج للأجانب، إلى جانب صياغة ومراجعة العقود الدولية والاتفاقيات العابرة للحدود بأعلى معايير الحماية القانونية الصارمة ضد المخاطر التجارية.
-      </p>
+      <p data-key="svc2-desc">خدمات قانونية متخصصة للأفراد والشركات الدولية.</p>
+      <ul class="features-list">
+        <li data-key="svc2-f1">معاملات الأجانب والجنسية (Immigration)</li>
+        <li data-key="svc2-f2">توثيق الأحوال الشخصية وزواج الأجانب</li>
+        <li data-key="svc2-f3">العقود والاتفاقيات الدولية</li>
+      </ul>
     </div>
 
+    <!-- Card 3: Litigation -->
     <div class="service-card">
       <h3>
         <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
           <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
         </svg>
-        <span data-key="svc3-title">التقاضي والدفاع</span>
+        <span data-key="svc3-title">قطاعات التقاضي والدفاع</span>
       </h3>
-      <p data-key="svc3-body">
-        وعلى صعيد التقاضي والدفاع، يضم المكتب تخصصات نوعية متطورة تضمن التمثيل القانوني الحازم أمام كافة المحاكم؛ ونمتلك ريادة خاصة في قضايا الجنايات والأمن السيبراني ومكافحة الجرائم الإلكترونية وحماية البيانات الرقمية، بالإضافة إلى خبرتنا العميقة في إدارة النزاعات وحماية الاستثمارات في قطاع العقارات والجمارك، وصياغة العقود وإدارة الالتزامات في القانون المدني، فضلاً عن تنظيم العلاقات التعاقدية وحل النزاعات العمالية لحفظ حقوق أطراف العمل، وتقديم الدعم المتكامل في قضايا محاكم الأسرة والأحوال الشخصية.
-      </p>
+      <p data-key="svc3-desc">تمثيل قانوني حازم أمام كافة المحاكم والهيئات القضائية.</p>
+      <ul class="features-list">
+        <li data-key="svc3-f1">الجنايات والأمن السيبراني والجرائم الإلكترونية</li>
+        <li data-key="svc3-f2">العقارات والجمارك</li>
+        <li data-key="svc3-f3">القانون المدني والمنازعات المدنية</li>
+        <li data-key="svc3-f4">قضايا العمال والمنازعات العمالية</li>
+        <li data-key="svc3-f5">قضايا الأسرة والأحوال الشخصية</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Consultant Section -->
+<section class="section" id="consultant">
+  <h2 class="section-title">
+    <span style="font-size: 32px;">💡</span>
+    <span data-key="consultant-title">مستشارك القانوني</span>
+  </h2>
+  <div class="section-subtitle">
+    <span data-key="consultant-subtitle">استشارات فورية وحلول قانونية سريعة</span>
+  </div>
+
+  <div class="consultant-box">
+    <h3>
+      <span>💼</span> 
+      <span data-key="consultant-head">مستشارك القانوني</span>
+    </h3>
+    <p class="main-desc" data-key="consultant-desc">
+      اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً، أو تواصل معنا مباشرة عبر الواتس آب أو البريد الإلكتروني.
+    </p>
+    <div class="consultant-features">
+      <div class="item">
+        <strong data-key="consultant-free-title">🔍 تقييم مبدئي مجاني</strong>
+        <span data-key="consultant-free-desc">مراجعة شكواك وتحديد موقفها الأولي مجانية تماماً وبدون أي تكاليف.</span>
+      </div>
+      <div class="item">
+        <strong data-key="consultant-deep-title">📋 استشارة متعمقة</strong>
+        <span data-key="consultant-deep-desc">في حال رغبتك في الحصول على تقرير قانوني مفصل، سيتم توضيح الرسوم المقررة وطرق السداد المتاحة.</span>
+      </div>
     </div>
   </div>
 </section>
@@ -418,10 +526,10 @@
       <div>
         <div class="label" data-key="lbl-address">العنوان</div>
         <div class="address-lines">
-          <strong>المقر الرئيسي:</strong><br>
-          ميدان الدهار - شارع اللواء سليمان مظهر، الغردقة، مصر<br><br>
-          <strong>فرع القاهرة:</strong><br>
-          مدينة بدر، القاهرة، مصر
+          <strong data-key="address-main-label">المقر الرئيسي:</strong><br>
+          <span data-key="address-main">ميدان الدهار - شارع اللواء سليمان مظهر، الغردقة، مصر</span><br><br>
+          <strong data-key="address-branch-label">فرع القاهرة:</strong><br>
+          <span data-key="address-branch">مدينة بدر، القاهرة، مصر</span>
         </div>
       </div>
     </div>
@@ -451,14 +559,7 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       <span data-key="social-li">لينكد إن</span>
     </a>
-    <a href="https://x.com/legacylwfirm" target="_blank" class="social-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      <span data-key="social-x">إكس (تويتر)</span>
-    </a>
-    <a href="https://wa.me/201550305902" target="_blank" class="social-btn" style="background:#25d366; border-color:#25d366; color:white;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      <span data-key="social-wa">واتساب</span>
-    </a>
+    <!-- تم حذف تويتر (X) بناءً على طلبك -->
   </div>
 </section>
 
@@ -486,113 +587,200 @@
   // ===================== TRANSLATIONS =====================
   const translations = {
     ar: {
+      // Nav
       "nav-about": "من نحن",
       "nav-services": "خدماتنا",
+      "nav-consultant": "مستشارك القانوني",
       "nav-vision": "رؤيتنا",
       "nav-contact": "تواصل معنا",
       "hero-subtitle": "مكتب محاماة واستشارات قانونية برؤية معاصرة وفكر قانوني متطور",
+      
+      // About
       "about-title": "من نحن؟",
       "about-subtitle": "عن المكتب",
-      "about-body": "نحن مكتب محاماة واستشارات قانونية انطلق برؤية معاصرة وفكر قانوني متطور لتقديم استشارات وحلول متكاملة للأفراد والشركات. ندمج بين الخبرة العميقة والسرعة والمرونة لنواكب وتيرة الأعمال الحديثة ونضمن حماية مصالح عملائنا وبناء شراكات نجاح مستدامة؛ حيث نقدم مظلة حماية قانونية شاملة واستشارات ذكية تلبي تطلعات الكيانات المحلية والدولية على حد سواء.",
+      "about-body": "نحن مكتب محاماة واستشارات قانونية انطلق برؤية معاصرة وفكر قانوني متطور لتقديم استشارات وحلول متكاملة للأفراد والشركات. ندمج بين الخبرة العميقة والسرعة والمرونة لنواكب وتيرة الأعمال الحديثة ونضمن حماية مصالح عملائنا وبناء شراكات نجاح مستدامة؛ حيث نقدم مظلة حماية قانونية شاملة واستشارات ذكية تلبي تطلعات الكيانات المحلية والدولية على حد سواء. يمتد نطاق أعمالنا ليشمل منظومة متكاملة من الحلول؛ ونتميز باحترافية استثنائية في قطاع خدمات الشركات والاستثمار بدءاً من تقديم الدعم التأسيسي خطوة بخطوة لكافة أشكال المنشآت، مروراً بإدارة وتوجيه عمليات إعادة الهيكلة المعقدة والدمج والاستحواذ وتعديل الأشكال القانونية للشركات، وصولاً إلى إجراءات تصفية الشركات بكل سلاسة وموثوقية، مع تقديم حماية حازمة لحقوق الملكية الفكرية وبراءات الاختراع والعلامات التجارية التي تضمن استمرار الاستثمارات الحديثة. وكشريك قانوني موثوق لشؤون الأجانب والمعاملات الدولية، نمتلك المعرفة الإجرائية الدقيقة لإنهاء قضايا الجنسية، استخراج الإقامات، وتوثيق المعاملات الرسمية وعقود الزواج للأجانب، إلى جانب صياغة ومراجعة العقود الدولية والاتفاقيات العابرة للحدود بأعلى معايير الحماية القانونية الصارمة ضد المخاطر التجارية. وعلى صعيد التقاضي والدفاع، يضم المكتب تخصصات نوعية متطورة تضمن التمثيل القانوني الحازم أمام كافة المحاكم؛ ونمتلك ريادة خاصة في قضايا الجنايات والأمن السيبراني ومكافحة الجرائم الإلكترونية وحماية البيانات الرقمية، بالإضافة إلى خبرتنا العميقة في إدارة النزاعات وحماية الاستثمارات في قطاع العقارات والجمارك، وصياغة العقود وإدارة الالتزامات في القانون المدني، فضلاً عن تنظيم العلاقات التعاقدية وحل النزاعات العمالية لحفظ حقوق أطراف العمل، وتقديم الدعم المتكامل في قضايا محاكم الأسرة والأحوال الشخصية، ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.",
+
+      // Services
       "services-title": "خدماتنا القانونية",
       "services-subtitle": "مجالات تخصصنا",
-      "svc1-title": "خدمات الشركات والاستثمار",
-      "svc1-body": "يمتد نطاق أعمالنا ليشمل منظومة متكاملة من الحلول؛ ونتميز باحترافية استثنائية في قطاع خدمات الشركات والاستثمار بدءاً من تقديم الدعم التأسيسي خطوة بخطوة لكافة أشكال المنشآت، مروراً بإدارة وتوجيه عمليات إعادة الهيكلة المعقدة والدمج والاستحواذ وتعديل الأشكال القانونية للشركات، وصولاً إلى إجراءات تصفية الشركات بكل سلاسة وموثوقية، مع تقديم حماية حازمة لحقوق الملكية الفكرية وبراءات الاختراع والعلامات التجارية التي تضمن استمرار الاستثمارات الحديثة.",
+      "svc1-title": "قطاع الشركات والاستثمار",
+      "svc1-desc": "حلول قانونية متكاملة للشركات في جميع مراحلها.",
+      "svc1-f1": "تأسيس الشركات والمنشآت",
+      "svc1-f2": "إعادة الهيكلة والدمج والاستحواذ (M&A)",
+      "svc1-f3": "حماية الملكية الفكرية",
+      "svc1-f4": "التصفية القانونية للشركات",
       "svc2-title": "شؤون الأجانب والمعاملات الدولية",
-      "svc2-body": "وكشريك قانوني موثوق لشؤون الأجانب والمعاملات الدولية، نمتلك المعرفة الإجرائية الدقيقة لإنهاء قضايا الجنسية، استخراج الإقامات، وتوثيق المعاملات الرسمية وعقود الزواج للأجانب، إلى جانب صياغة ومراجعة العقود الدولية والاتفاقيات العابرة للحدود بأعلى معايير الحماية القانونية الصارمة ضد المخاطر التجارية.",
-      "svc3-title": "التقاضي والدفاع",
-      "svc3-body": "وعلى صعيد التقاضي والدفاع، يضم المكتب تخصصات نوعية متطورة تضمن التمثيل القانوني الحازم أمام كافة المحاكم؛ ونمتلك ريادة خاصة في قضايا الجنايات والأمن السيبراني ومكافحة الجرائم الإلكترونية وحماية البيانات الرقمية، بالإضافة إلى خبرتنا العميقة في إدارة النزاعات وحماية الاستثمارات في قطاع العقارات والجمارك، وصياغة العقود وإدارة الالتزامات في القانون المدني، فضلاً عن تنظيم العلاقات التعاقدية وحل النزاعات العمالية لحفظ حقوق أطراف العمل، وتقديم الدعم المتكامل في قضايا محاكم الأسرة والأحوال الشخصية.",
+      "svc2-desc": "خدمات قانونية متخصصة للأفراد والشركات الدولية.",
+      "svc2-f1": "معاملات الأجانب والجنسية (Immigration)",
+      "svc2-f2": "توثيق الأحوال الشخصية وزواج الأجانب",
+      "svc2-f3": "العقود والاتفاقيات الدولية",
+      "svc3-title": "قطاعات التقاضي والدفاع",
+      "svc3-desc": "تمثيل قانوني حازم أمام كافة المحاكم والهيئات القضائية.",
+      "svc3-f1": "الجنايات والأمن السيبراني والجرائم الإلكترونية",
+      "svc3-f2": "العقارات والجمارك",
+      "svc3-f3": "القانون المدني والمنازعات المدنية",
+      "svc3-f4": "قضايا العمال والمنازعات العمالية",
+      "svc3-f5": "قضايا الأسرة والأحوال الشخصية",
+
+      // Consultant
+      "consultant-title": "مستشارك القانوني",
+      "consultant-subtitle": "استشارات فورية وحلول قانونية سريعة",
+      "consultant-head": "مستشارك القانوني",
+      "consultant-desc": "اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً، أو تواصل معنا مباشرة عبر الواتس آب أو البريد الإلكتروني.",
+      "consultant-free-title": "🔍 تقييم مبدئي مجاني",
+      "consultant-free-desc": "مراجعة شكواك وتحديد موقفها الأولي مجانية تماماً وبدون أي تكاليف.",
+      "consultant-deep-title": "📋 استشارة متعمقة",
+      "consultant-deep-desc": "في حال رغبتك في الحصول على تقرير قانوني مفصل، سيتم توضيح الرسوم المقررة وطرق السداد المتاحة.",
+
+      // Vision
       "vision-title": "رؤيتنا",
       "vision-subtitle": "رسالتنا المستقبلية",
       "vision-body": "نؤمن بأن الريادة في عالم القانون لا تُقاس بالزمن أو الأقدمية، بل بالحلول الفعالة والدقة المتناهية التي تواكب العصر؛ لذلك ندمج بين الخبرة القانونية العميقة والسرعة والمرونة لنواكب الوتيرة المتسارعة لقطاعات الأعمال الحديثة ونضمن لعملائنا الاستقرار والاستدامة وتحقيق أهدافهم الاستراتيجية بأمان مطلق. إن التزامنا الراسخ بصناعة الحلول القانونية المبتكرة والمخصصة لكل عميل هو الركيزة الأساسية التي نبني عليها علاقاتنا المهنية، لنتجاوز المفهوم التقليدي للمحاماة ونصبح الشريك الاستراتيجي الموثوق الذي يمهد لك طريق النجاح ويحميك من كافة المخاطر القانونية قبل حدوثها.",
+
+      // Contact
       "contact-title": "تواصل معنا",
       "contact-subtitle": "نحن هنا لمساعدتك",
       "lbl-email": "البريد الإلكتروني",
       "lbl-phone": "رقم الهاتف",
       "lbl-address": "العنوان",
-      "val-address": "القاهرة، مصر",
+      "address-main-label": "المقر الرئيسي:",
+      "address-main": "ميدان الدهار - شارع اللواء سليمان مظهر، الغردقة، مصر",
+      "address-branch-label": "فرع القاهرة:",
+      "address-branch": "مدينة بدر، القاهرة، مصر",
       "lbl-hours": "ساعات العمل",
-      "val-hours": "الأحد - الخميس: 9 ص - 5 م",
+      "val-hours": "السبت - الخميس: 9 ص - 5 م",
       "social-title": "تابعنا على السوشيال ميديا",
       "social-fb": "فيسبوك",
       "social-ig": "إنستجرام",
       "social-li": "لينكد إن",
-      "social-x": "إكس (تويتر)",
-      "social-wa": "واتساب",
       "footer-line1": "ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.",
       "footer-line2": "© 2025 Legacy Law Firm - جميع الحقوق محفوظة"
     },
     en: {
       "nav-about": "About Us",
-      "nav-services": "Services",
+      "nav-services": "Our Services",
+      "nav-consultant": "Legal Advisor",
       "nav-vision": "Our Vision",
       "nav-contact": "Contact Us",
-      "hero-subtitle": "A law firm & legal consultancy with a modern vision and advanced legal thinking",
+      "hero-subtitle": "A law firm with a modern vision and advanced legal thinking",
+      
       "about-title": "Who Are We?",
       "about-subtitle": "About the Firm",
-      "about-body": "We are a law firm and legal consultancy launched with a contemporary vision and advanced legal thinking to provide comprehensive consultations and solutions for individuals and companies. We combine deep expertise with speed and flexibility to keep pace with modern business dynamics and ensure the protection of our clients' interests while building sustainable success partnerships. We offer a comprehensive legal protection umbrella and smart consultations that meet the aspirations of both local and international entities alike.",
+      "about-body": "We are a law firm and legal consultancy launched with a contemporary vision and advanced legal thinking to provide comprehensive consultations and solutions for individuals and companies. We combine deep expertise with speed and flexibility to keep pace with modern business dynamics and ensure the protection of our clients' interests while building sustainable success partnerships. We offer a comprehensive legal protection umbrella and smart consultations that meet the aspirations of both local and international entities alike. Our scope of work extends to include a comprehensive ecosystem of solutions. We excel with exceptional professionalism in the corporate and investment sector, starting from step-by-step foundational support for all types of establishments, through managing and guiding complex restructuring processes, mergers, acquisitions, and legal form modifications, to smooth and reliable company liquidation procedures, while providing robust protection for intellectual property rights, patents, and trademarks that ensure the continuity of modern investments. As a trusted legal partner for foreign affairs and international transactions, we possess precise procedural knowledge for resolving nationality cases, extracting residencies, and documenting official transactions and marriage contracts for foreigners, alongside drafting and reviewing international contracts and cross-border agreements with the highest standards of stringent legal protection against commercial risks. In the field of litigation and defense, our firm encompasses advanced specialized practices that ensure firm legal representation before all courts. We hold particular leadership in criminal cases, cybersecurity, combating cybercrimes, and digital data protection, in addition to our deep expertise in managing disputes and protecting investments in real estate and customs sectors, drafting contracts and managing obligations in civil law, as well as regulating contractual relationships and resolving labor disputes to preserve the rights of all parties, and providing comprehensive support in family courts and personal status cases. We are always committed to meticulous detail to remain the legal fortress and strategic advisor that grants you peace of mind and success.",
+
       "services-title": "Our Legal Services",
       "services-subtitle": "Areas of Expertise",
-      "svc1-title": "Corporate & Investment Services",
-      "svc1-body": "Our scope of work extends to include a comprehensive ecosystem of solutions. We excel with exceptional professionalism in the corporate and investment sector, starting from step-by-step foundational support for all types of establishments, through managing and guiding complex restructuring processes, mergers, acquisitions, and legal form modifications, to smooth and reliable company liquidation procedures, while providing robust protection for intellectual property rights, patents, and trademarks that ensure the continuity of modern investments.",
+      "svc1-title": "Corporate & Investment Law",
+      "svc1-desc": "Integrated legal solutions for companies at all stages.",
+      "svc1-f1": "Company Formation & Establishment",
+      "svc1-f2": "Mergers & Acquisitions (M&A)",
+      "svc1-f3": "Intellectual Property Protection",
+      "svc1-f4": "Corporate Liquidation",
       "svc2-title": "Foreign Affairs & International Transactions",
-      "svc2-body": "As a trusted legal partner for foreign affairs and international transactions, we possess precise procedural knowledge for resolving nationality cases, extracting residencies, and documenting official transactions and marriage contracts for foreigners, alongside drafting and reviewing international contracts and cross-border agreements with the highest standards of stringent legal protection against commercial risks.",
+      "svc2-desc": "Specialized legal services for individuals and international companies.",
+      "svc2-f1": "Immigration & Nationality Services",
+      "svc2-f2": "Foreign Marriage & Personal Status Registration",
+      "svc2-f3": "International Contracts & Agreements",
       "svc3-title": "Litigation & Defense",
-      "svc3-body": "In the field of litigation and defense, our firm encompasses advanced specialized practices that ensure firm legal representation before all courts. We hold particular leadership in criminal cases, cybersecurity, combating cybercrimes, and digital data protection, in addition to our deep expertise in managing disputes and protecting investments in real estate and customs sectors, drafting contracts and managing obligations in civil law, as well as regulating contractual relationships and resolving labor disputes to preserve the rights of all parties, and providing comprehensive support in family courts and personal status cases.",
+      "svc3-desc": "Strong legal representation before all courts and judicial bodies.",
+      "svc3-f1": "Criminal Law & Cybercrime Defense",
+      "svc3-f2": "Real Estate & Customs Law",
+      "svc3-f3": "Civil Law & Litigation",
+      "svc3-f4": "Labor & Employment Law",
+      "svc3-f5": "Family Law & Personal Status Cases",
+
+      "consultant-title": "Your Legal Advisor",
+      "consultant-subtitle": "Immediate consultations and quick legal solutions",
+      "consultant-head": "Your Legal Advisor",
+      "consultant-desc": "Write your issue and our team will study it and respond to you immediately, or contact us directly via WhatsApp or email.",
+      "consultant-free-title": "🔍 Free Initial Assessment",
+      "consultant-free-desc": "Reviewing your complaint and determining its initial status is completely free and without any costs.",
+      "consultant-deep-title": "📋 In-Depth Consultation",
+      "consultant-deep-desc": "If you wish to obtain a detailed legal report, the applicable fees and available payment methods will be clarified.",
+
       "vision-title": "Our Vision",
       "vision-subtitle": "Our Future Mission",
       "vision-body": "We believe that leadership in the legal world is not measured by time or seniority, but by effective solutions and meticulous precision that keep pace with the era. Therefore, we combine deep legal expertise with speed and flexibility to match the rapid pace of modern business sectors and ensure our clients' stability, sustainability, and the achievement of their strategic goals with absolute safety. Our steadfast commitment to crafting innovative and customized legal solutions for each client is the cornerstone upon which we build our professional relationships, transcending the traditional concept of legal practice to become the trusted strategic partner that paves your path to success and protects you from all legal risks before they occur.",
+
       "contact-title": "Contact Us",
       "contact-subtitle": "We are here to help you",
       "lbl-email": "Email",
       "lbl-phone": "Phone Number",
       "lbl-address": "Address",
-      "val-address": "Cairo, Egypt",
+      "address-main-label": "Headquarters:",
+      "address-main": "El Dahar Square - Suleiman Mazhar St., Hurghada, Egypt",
+      "address-branch-label": "Cairo Branch:",
+      "address-branch": "Badr City, Cairo, Egypt",
       "lbl-hours": "Working Hours",
       "val-hours": "Sun - Thu: 9 AM - 5 PM",
       "social-title": "Follow Us on Social Media",
       "social-fb": "Facebook",
       "social-ig": "Instagram",
       "social-li": "LinkedIn",
-      "social-x": "X (Twitter)",
-      "social-wa": "WhatsApp",
       "footer-line1": "Always committed to meticulous detail to remain the legal fortress and strategic advisor that grants you peace of mind and success.",
       "footer-line2": "© 2025 Legacy Law Firm - All Rights Reserved"
     },
     de: {
       "nav-about": "Über Uns",
-      "nav-services": "Leistungen",
+      "nav-services": "Unsere Leistungen",
+      "nav-consultant": "Rechtsberater",
       "nav-vision": "Unsere Vision",
       "nav-contact": "Kontakt",
-      "hero-subtitle": "Eine Anwaltskanzlei & Rechtsberatung mit moderner Vision und fortschrittlichem Rechtsdenken",
+      "hero-subtitle": "Eine Anwaltskanzlei mit moderner Vision und fortschrittlichem Rechtsdenken",
+      
       "about-title": "Wer sind wir?",
       "about-subtitle": "Über die Kanzlei",
-      "about-body": "Wir sind eine Anwaltskanzlei und Rechtsberatung, die mit einer zeitgemäßen Vision und einem fortschrittlichen Rechtsdenken gestartet ist, um umfassende Beratungen und Lösungen für Einzelpersonen und Unternehmen bereitzustellen. Wir vereinen tiefe Expertise mit Schnelligkeit und Flexibilität, um mit den Dynamiken des modernen Geschäftslebens Schritt zu halten und den Schutz der Interessen unserer Mandanten sowie den Aufbau nachhaltiger Erfolgspartnerschaften zu gewährleisten. Wir bieten einen umfassenden rechtlichen Schutzschirm und intelligente Beratungen, die die Bestrebungen sowohl lokaler als auch internationaler Einheiten gleichermaßen erfüllen.",
+      "about-body": "Wir sind eine Anwaltskanzlei und Rechtsberatung mit einer zeitgemäßen Vision und einem fortschrittlichen Rechtsdenken, die umfassende Beratungen und Lösungen für Einzelpersonen und Unternehmen bereitstellt. Wir vereinen tiefe Expertise mit Schnelligkeit und Flexibilität, um mit den Dynamiken des modernen Geschäftslebens Schritt zu halten und den Schutz der Interessen unserer Mandanten sowie den Aufbau nachhaltiger Erfolgspartnerschaften zu gewährleisten. Wir bieten einen umfassenden rechtlichen Schutzschirm und intelligente Beratungen, die die Bestrebungen sowohl lokaler als auch internationaler Einheiten gleichermaßen erfüllen. Unser Tätigkeitsbereich erstreckt sich auf ein umfassendes Ökosystem von Lösungen. Wir zeichnen uns durch außergewöhnliche Professionalität im Unternehmens- und Investitionssektor aus, beginnend mit schrittweiser Gründungsunterstützung für alle Arten von Einrichtungen, über die Leitung komplexer Restrukturierungsprozesse, Fusionen, Übernahmen und Rechtsformänderungen, bis hin zu reibungslosen und zuverlässigen Unternehmensliquidationsverfahren, während wir einen robusten Schutz für geistige Eigentumsrechte, Patente und Marken bieten. Als vertrauenswürdiger Rechtspartner für Ausländerangelegenheiten und internationale Transaktionen verfügen wir über präzises Verfahrenswissen für die Klärung von Staatsangehörigkeitsfragen, die Beantragung von Aufenthaltstiteln sowie die Beglaubigung offizieller Transaktionen und Eheverträge für Ausländer, zusammen mit der Erstellung und Prüfung internationaler Verträge und grenzüberschreitender Vereinbarungen. Im Bereich der Prozessführung und Verteidigung umfasst unsere Kanzlei fortschrittliche Spezialisierungen, die eine entschiedene rechtliche Vertretung vor allen Gerichten gewährleisten. Wir besitzen eine besondere Führungsposition in Strafsachen, Cybersicherheit und digitalem Datenschutz, ergänzt durch unsere tiefe Expertise in der Streitbeilegung, dem Schutz von Investitionen in Immobilien und Zoll, der Vertragserstellung und der Lösung von Arbeitsstreitigkeiten sowie der umfassenden Unterstützung in Familiengerichten. Wir sind immer dem akribischen Detail verpflichtet, um die rechtliche Festung und der strategische Berater zu bleiben, der Ihnen Ruhe und Erfolg schenkt.",
+
       "services-title": "Unsere Rechtsdienstleistungen",
       "services-subtitle": "Fachgebiete",
-      "svc1-title": "Unternehmens- & Investitionsdienstleistungen",
-      "svc1-body": "Unser Tätigkeitsbereich erstreckt sich auf ein umfassendes Ökosystem von Lösungen. Wir zeichnen uns durch außergewöhnliche Professionalität im Unternehmens- und Investitionssektor aus, beginnend mit schrittweiser Gründungsunterstützung für alle Arten von Einrichtungen, über die Leitung und Steuerung komplexer Restrukturierungsprozesse, Fusionen, Übernahmen und Rechtsformänderungen, bis hin zu reibungslosen und zuverlässigen Unternehmensliquidationsverfahren, während wir einen robusten Schutz für geistige Eigentumsrechte, Patente und Marken bieten, der die Kontinuität moderner Investitionen sicherstellt.",
+      "svc1-title": "Unternehmens- & Investitionsrecht",
+      "svc1-desc": "Integrierte Rechtslösungen für Unternehmen in allen Phasen.",
+      "svc1-f1": "Unternehmensgründung & -errichtung",
+      "svc1-f2": "Fusionen & Übernahmen (M&A)",
+      "svc1-f3": "Schutz geistigen Eigentums",
+      "svc1-f4": "Unternehmensliquidation",
       "svc2-title": "Ausländerangelegenheiten & Internationale Transaktionen",
-      "svc2-body": "Als vertrauenswürdiger Rechtspartner für Ausländerangelegenheiten und internationale Transaktionen verfügen wir über präzises Verfahrenswissen für die Klärung von Staatsangehörigkeitsfragen, die Beantragung von Aufenthaltstiteln sowie die Beglaubigung offizieller Transaktionen und Eheverträge für Ausländer, zusammen mit der Erstellung und Prüfung internationaler Verträge und grenzüberschreitender Vereinbarungen nach höchsten Standards des strengen Rechtsschutzes gegen kommerzielle Risiken.",
+      "svc2-desc": "Spezialisierte Rechtsdienstleistungen für Einzelpersonen und internationale Unternehmen.",
+      "svc2-f1": "Einwanderungs- & Staatsangehörigkeitsdienste",
+      "svc2-f2": "Eheregistrierung & Personenstand für Ausländer",
+      "svc2-f3": "Internationale Verträge & Vereinbarungen",
       "svc3-title": "Prozessführung & Verteidigung",
-      "svc3-body": "Im Bereich der Prozessführung und Verteidigung umfasst unsere Kanzlei fortschrittliche Spezialisierungen, die eine entschiedene rechtliche Vertretung vor allen Gerichten gewährleisten. Wir besitzen eine besondere Führungsposition in Strafsachen, Cybersicherheit, der Bekämpfung von Cyberkriminalität und dem Schutz digitaler Daten, ergänzt durch unsere tiefe Expertise in der Streitbeilegung und dem Schutz von Investitionen in den Bereichen Immobilien und Zoll, der Vertragserstellung und Verwaltung von Verpflichtungen im Zivilrecht, sowie der Regulierung vertraglicher Beziehungen und der Lösung von Arbeitsstreitigkeiten zum Schutz der Rechte aller Parteien, und der umfassenden Unterstützung in Familiengerichten und Angelegenheiten des persönlichen Status.",
+      "svc3-desc": "Entschiedene rechtliche Vertretung vor allen Gerichten und Justizbehörden.",
+      "svc3-f1": "Strafrecht & Cyberkriminalität",
+      "svc3-f2": "Immobilien- & Zollrecht",
+      "svc3-f3": "Zivilrecht & Zivilprozesse",
+      "svc3-f4": "Arbeitsrecht & Arbeitsstreitigkeiten",
+      "svc3-f5": "Familienrecht & Personenstandsfälle",
+
+      "consultant-title": "Ihr Rechtsberater",
+      "consultant-subtitle": "Sofortberatung und schnelle Rechtslösungen",
+      "consultant-head": "Ihr Rechtsberater",
+      "consultant-desc": "Schreiben Sie Ihr Anliegen und unser Team wird es prüfen und Ihnen umgehend antworten, oder kontaktieren Sie uns direkt per WhatsApp oder E-Mail.",
+      "consultant-free-title": "🔍 Kostenlose Ersteinschätzung",
+      "consultant-free-desc": "Die Prüfung Ihrer Beschwerde und die Bestimmung ihres ersten Status sind völlig kostenlos und ohne jegliche Gebühren.",
+      "consultant-deep-title": "📋 Vertiefte Beratung",
+      "consultant-deep-desc": "Falls Sie einen detaillierten Rechtsbericht wünschen, werden die anfallenden Gebühren und verfügbaren Zahlungsmethoden erläutert.",
+
       "vision-title": "Unsere Vision",
       "vision-subtitle": "Unsere zukünftige Mission",
       "vision-body": "Wir glauben, dass Führung in der Rechtswelt nicht an Zeit oder Dienstalter gemessen wird, sondern an effektiven Lösungen und akribischer Präzision, die mit der Zeit Schritt halten. Daher vereinen wir tiefe Rechtsexpertise mit Schnelligkeit und Flexibilität, um mit dem rasanten Tempo moderner Geschäftsbereiche mitzuhalten und unseren Mandanten Stabilität, Nachhaltigkeit und die Erreichung ihrer strategischen Ziele mit absoluter Sicherheit zu garantieren. Unser festes Engagement für die Entwicklung innovativer und maßgeschneiderter Rechtslösungen für jeden Mandanten ist der Grundstein, auf dem wir unsere beruflichen Beziehungen aufbauen, um das traditionelle Konzept der Rechtsausübung zu überschreiten und der vertrauenswürdige strategische Partner zu werden, der Ihren Weg zum Erfolg ebnet und Sie vor allen rechtlichen Risiken schützt, bevor sie eintreten.",
+
       "contact-title": "Kontaktieren Sie uns",
       "contact-subtitle": "Wir sind hier, um Ihnen zu helfen",
       "lbl-email": "E-Mail",
       "lbl-phone": "Telefonnummer",
       "lbl-address": "Adresse",
-      "val-address": "Kairo, Ägypten",
-      "lbl-hours": "Öffnungszeiten",
+      "address-main-label": "Hauptsitz:",
+      "address-main": "El Dahar Platz - Suleiman Mazhar Str., Hurghada, Ägypten",
+      "address-branch-label": "Zweigstelle Kairo:",
+      "address-branch": "Badr City, Kairo, Ägypten",
+      "lbl-hours": "Arbeitszeiten",
       "val-hours": "So - Do: 9:00 - 17:00 Uhr",
       "social-title": "Folgen Sie uns in den sozialen Medien",
       "social-fb": "Facebook",
       "social-ig": "Instagram",
       "social-li": "LinkedIn",
-      "social-x": "X (Twitter)",
-      "social-wa": "WhatsApp",
       "footer-line1": "Immer verpflichtet gegenüber akribischer Detailgenauigkeit, um die rechtliche Festung und der strategische Berater zu bleiben, der Ihnen Ruhe und Erfolg schenkt.",
       "footer-line2": "© 2025 Legacy Law Firm - Alle Rechte vorbehalten"
     }
