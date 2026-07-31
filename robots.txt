@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://legacy-lawfirm.github.io/legacylawfirm/sitemap.xml
