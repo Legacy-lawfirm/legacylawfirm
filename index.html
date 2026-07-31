@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Legacy Law Firm | مكتب محاماة واستشارات قانونية</title>
+  <meta name="description" content="مكتب محاماة واستشارات قانونية برؤية معاصرة - Legacy Law Firm" />
+  <meta property="og:title" content="Legacy Law Firm | مكتب محاماة واستشارات قانونية" />
+  <meta property="og:description" content="استشارات قانونية للشركات والأفراد، خبرة في التقاضي والاستثمار" />
+  <meta property="og:image" content="https://i.postimg.cc/7YXGKynb/Whats-App-Image-2026-07-29-at-6-12-18-PM.jpg" />
   <style>
     :root {
       --navy: #0a1628;
-      --navy-light: #1a2a4a;
-      --navy-mid: #2a3a5a;
+      --navy-light: #142340;
+      --navy-mid: #1e3355;
       --gold: #c9a227;
       --gold-light: #d4af37;
       --gold-pale: #f0d878;
-      --gold-bg: rgba(201, 162, 39, 0.08);
+      --gold-bg: rgba(201, 162, 39, 0.07);
       --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       font-family: var(--font-main);
       direction: rtl;
       text-align: right;
       background: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
+      color: #1a1a1a;
+      line-height: 1.7;
+      padding-top: 0;
     }
-
-    /* LTR mode */
     body[dir="ltr"] { direction: ltr; text-align: left; }
     body[dir="ltr"] .section-subtitle::after { margin-left: 8px; margin-right: 0; }
     body[dir="ltr"] .vision-box { border-right: none; border-left: 5px solid var(--gold); }
@@ -40,298 +41,304 @@
     body[dir="ltr"] .social-btn { flex-direction: row-reverse; }
     body[dir="ltr"] .float-whatsapp { left: auto; right: 24px; }
     body[dir="ltr"] .scroll-top { right: auto; left: 24px; }
-    body[dir="ltr"] .features-list { padding-right: 0; padding-left: 20px; }
+    body[dir="ltr"] .accordion-trigger .arrow { margin-right: 0; margin-left: 8px; }
+    body[dir="ltr"] .accordion-item.active .accordion-content { border-right: none; border-left: 3px solid var(--gold); }
+    body[dir="ltr"] .stat-item { border-left: none; border-right: 2px solid rgba(255,255,255,0.1); }
+    body[dir="ltr"] .stat-item:last-child { border-right: none; }
 
-    /* Navbar */
+    /* ===== Progress Bar ===== */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; width: 0%; height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      z-index: 9999; transition: width 0.1s ease;
+      box-shadow: 0 2px 10px rgba(201,162,39,0.4);
+    }
+
+    /* ===== Navbar ===== */
     .navbar {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 32px; background: var(--navy);
+      padding: 14px 32px; background: var(--navy);
       position: sticky; top: 0; z-index: 100;
       border-bottom: 2px solid var(--gold);
     }
     .logo-area { display: flex; align-items: center; gap: 12px; }
-    .logo-placeholder {
-      width: 48px; height: 48px; border-radius: 8px;
-      border: 2px dashed var(--gold); display: flex;
-      align-items: center; justify-content: center;
-      color: var(--gold); font-size: 12px; text-align: center;
-      background: rgba(201, 162, 39, 0.1);
-    }
     .firm-name {
-      color: var(--gold-light); font-size: 20px; font-weight: 600;
+      color: var(--gold-light); font-size: 22px; font-weight: 700;
       letter-spacing: 1px;
     }
-    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
     .nav-links a {
       color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px;
-      transition: color 0.2s; padding: 6px 0;
+      transition: color 0.2s; padding: 6px 0; font-weight: 500;
     }
     .nav-links a:hover { color: var(--gold); }
-
-    /* Language Switcher */
-    .lang-switcher {
-      display: flex; gap: 6px; align-items: center;
-    }
+    .lang-switcher { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
     .lang-btn {
-      background: transparent; border: 1px solid rgba(201,162,39,0.4);
-      color: rgba(255,255,255,0.7); padding: 4px 10px; border-radius: 6px;
+      background: transparent; border: 1px solid rgba(201,162,39,0.3);
+      color: rgba(255,255,255,0.6); padding: 4px 12px; border-radius: 6px;
       font-size: 12px; cursor: pointer; transition: all 0.2s;
       font-family: inherit;
     }
     .lang-btn:hover { border-color: var(--gold); color: var(--gold); }
     .lang-btn.active {
       background: var(--gold); color: var(--navy); border-color: var(--gold);
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    /* Hero */
+    /* ===== Hero ===== */
     .hero {
-      /* 👇 ضع رابط صورة الخلفية هنا */
-      background-image: url('رابط_صورتك_هنا');
-      background-size: cover;
-      background-position: center;
+      background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200'); /* Royalty free law image */
+      background-size: cover; background-position: center;
       background-blend-mode: overlay;
-      background-color: rgba(10, 22, 40, 0.85); /* طبقة شفافة عشان النص يبان */
-      padding: 100px 32px; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; top: -50%; right: -20%;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(201,162,39,0.08) 0%, transparent 70%);
-      pointer-events: none;
+      background-color: rgba(10, 22, 40, 0.80);
+      padding: 100px 32px 80px;
+      text-align: center;
+      position: relative;
     }
     .hero h1 {
-      color: var(--gold-light); font-size: 48px; font-weight: 700;
-      margin-bottom: 16px; position: relative; z-index: 1;
+      color: var(--gold-light); font-size: 52px; font-weight: 800;
+      margin-bottom: 8px; letter-spacing: 2px;
     }
-    .hero p {
-      color: rgba(255,255,255,0.85); font-size: 20px;
-      max-width: 600px; margin: 0 auto; position: relative; z-index: 1;
+    .hero-divider { width: 80px; height: 3px; background: var(--gold); margin: 16px auto; border-radius: 2px; }
+    .hero .typewriter-wrapper {
+      min-height: 60px; display: flex; align-items: center; justify-content: center;
     }
-    .hero-divider {
-      width: 80px; height: 3px; background: var(--gold);
-      margin: 24px auto; border-radius: 2px;
+    .hero #typewriter-text {
+      color: rgba(255,255,255,0.9); font-size: 22px; font-weight: 300;
+      border-left: 3px solid var(--gold); padding-left: 6px;
+      display: inline-block;
+    }
+    body[dir="ltr"] .hero #typewriter-text { border-left: none; border-right: 3px solid var(--gold); padding-left: 0; padding-right: 6px; }
+
+    /* ===== Stats ===== */
+    .stats-section {
+      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+      padding: 40px 32px; display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px; text-align: center; border-bottom: 2px solid var(--gold);
+    }
+    .stat-item { padding: 12px; }
+    .stat-item .number {
+      font-size: 42px; font-weight: 800; color: var(--gold-light);
+      display: block; line-height: 1.2;
+    }
+    .stat-item .label {
+      font-size: 15px; color: rgba(255,255,255,0.7); font-weight: 400;
+      letter-spacing: 1px;
     }
 
-    /* Sections */
+    /* ===== Sections ===== */
     .section { padding: 80px 32px; max-width: 1100px; margin: 0 auto; }
     .section-title {
-      color: var(--navy); font-size: 32px; font-weight: 700;
+      color: var(--navy); font-size: 34px; font-weight: 700;
       margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
     }
     .section-subtitle {
-      color: var(--gold); font-size: 14px; margin-bottom: 24px;
-      display: flex; align-items: center; gap: 8px;
+      color: var(--gold); font-size: 14px; margin-bottom: 32px;
+      display: flex; align-items: center; gap: 8px; font-weight: 500;
     }
     .section-subtitle::after {
       content: ''; flex: 1; height: 1px;
       background: rgba(201,162,39,0.3); margin-right: 8px;
     }
-    .section-body {
-      color: #555; font-size: 17px; line-height: 2;
-      text-align: justify;
-    }
+    .section-body { color: #444; font-size: 17px; line-height: 2.1; text-align: justify; }
 
-    /* Service cards */
+    /* ===== Services Grid ===== */
     .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px; margin-top: 32px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px; margin-top: 16px;
     }
     .service-card {
-      background: var(--gold-bg);
-      border: 1px solid rgba(201,162,39,0.2);
-      border-radius: 12px; padding: 28px;
+      background: #fff; border-radius: 16px; padding: 28px;
+      border: 1px solid rgba(201,162,39,0.15);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
       transition: transform 0.3s, box-shadow 0.3s;
       display: flex; flex-direction: column;
     }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(10, 22, 40, 0.15);
-    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(10,22,40,0.10); }
     .service-card h3 {
-      color: var(--navy); font-size: 20px; font-weight: 700;
-      margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+      color: var(--navy); font-size: 22px; font-weight: 700;
+      margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
     }
-    .service-card h3 .icon {
-      width: 24px; height: 24px; color: var(--gold); flex-shrink: 0;
-    }
-    .service-card p {
-      color: #555; font-size: 15px; line-height: 1.9; text-align: justify;
-      margin-bottom: 12px;
-    }
-    .features-list {
-      list-style: none; padding: 0; margin: 8px 0 0 0;
-    }
-    .features-list li {
-      padding: 6px 0 6px 24px;
-      position: relative;
-      font-size: 14px;
-      color: #444;
-      border-bottom: 1px solid rgba(201,162,39,0.1);
-    }
-    .features-list li:last-child { border-bottom: none; }
-    .features-list li::before {
-      content: "▸";
-      color: var(--gold);
-      position: absolute;
-      right: 0;
-      font-weight: bold;
-    }
-    body[dir="ltr"] .features-list li { padding: 6px 24px 6px 0; }
-    body[dir="ltr"] .features-list li::before { right: auto; left: 0; }
+    .service-card h3 .icon { width: 26px; height: 26px; color: var(--gold); flex-shrink: 0; }
+    .service-card > p { color: #666; font-size: 15px; margin-bottom: 16px; }
 
-    /* Consultant Section */
+    /* ===== Accordion ===== */
+    .features-list { list-style: none; padding: 0; margin: 0; }
+    .accordion-item {
+      border-bottom: 1px solid rgba(201,162,39,0.10);
+      padding: 0 !important;
+    }
+    .accordion-item:last-child { border-bottom: none; }
+    .accordion-trigger {
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; padding: 14px 0; font-weight: 600;
+      color: var(--navy); transition: color 0.2s; user-select: none;
+      font-size: 15px;
+    }
+    .accordion-trigger:hover { color: var(--gold); }
+    .accordion-trigger .arrow {
+      transition: transform 0.3s ease; font-size: 18px;
+      color: var(--gold); margin-right: 10px; flex-shrink: 0;
+    }
+    .accordion-item.active .accordion-trigger .arrow { transform: rotate(180deg); }
+    .accordion-content {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+      padding: 0 4px; background: rgba(255,255,255,0.5); border-radius: 8px;
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 600px; padding: 16px 16px 20px;
+      margin-bottom: 8px; background: rgba(201,162,39,0.04);
+      border-right: 3px solid var(--gold);
+    }
+    .accordion-content p { font-size: 15px; line-height: 1.9; color: #444; margin: 0; text-align: justify; }
+
+    /* ===== Consultant Box ===== */
     .consultant-box {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
       border-radius: 16px; padding: 48px; margin-top: 16px;
-      border: 1px solid var(--gold);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      border: 1px solid var(--gold); box-shadow: 0 8px 32px rgba(0,0,0,0.15);
     }
     .consultant-box h3 {
-      color: var(--gold-light); font-size: 28px; margin-bottom: 16px;
+      color: var(--gold-light); font-size: 28px; margin-bottom: 12px;
       display: flex; align-items: center; gap: 12px;
     }
     .consultant-box .main-desc {
-      color: rgba(255,255,255,0.9); font-size: 17px; line-height: 1.9;
+      color: rgba(255,255,255,0.85); font-size: 17px; line-height: 1.9;
       margin-bottom: 24px; text-align: justify;
     }
-    .consultant-features {
-      display: flex; flex-direction: column; gap: 16px;
-    }
+    .consultant-features { display: flex; flex-direction: column; gap: 16px; }
     .consultant-features .item {
-      background: rgba(255,255,255,0.06);
-      padding: 16px 20px; border-radius: 10px;
-      border-right: 4px solid var(--gold);
-      color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.05); padding: 18px 24px; border-radius: 10px;
+      border-right: 4px solid var(--gold); color: rgba(255,255,255,0.9);
     }
     body[dir="ltr"] .consultant-features .item { border-right: none; border-left: 4px solid var(--gold); }
     .consultant-features .item strong {
-      color: var(--gold-light);
-      display: block; font-size: 16px; margin-bottom: 4px;
+      color: var(--gold-light); display: block; font-size: 16px; margin-bottom: 4px;
     }
-    .consultant-features .item span {
-      font-size: 15px; opacity: 0.9;
-    }
+    .consultant-features .item span { font-size: 15px; opacity: 0.9; }
 
-    /* Vision section */
+    /* ===== Vision Box ===== */
     .vision-box {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-      border-radius: 12px; padding: 48px;
-      border-right: 5px solid var(--gold); margin-top: 16px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: 12px; padding: 48px; border-right: 5px solid var(--gold);
+      margin-top: 16px;
     }
-    .vision-box p {
-      color: rgba(255,255,255,0.88); font-size: 17px;
-      line-height: 2.1; text-align: justify;
-    }
+    body[dir="ltr"] .vision-box { border-right: none; border-left: 5px solid var(--gold); }
+    .vision-box p { color: rgba(255,255,255,0.88); font-size: 17px; line-height: 2.1; text-align: justify; }
 
-    /* Contact section */
+    /* ===== Testimonials ===== */
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px; margin-top: 24px;
+    }
+    .testimonial-card {
+      background: #fff; padding: 24px; border-radius: 12px;
+      border: 1px solid rgba(201,162,39,0.12); box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+    .testimonial-card .quote {
+      font-size: 15px; line-height: 1.8; color: #444; font-style: italic;
+      margin-bottom: 12px;
+    }
+    .testimonial-card .author {
+      font-weight: 700; color: var(--navy); font-size: 16px;
+    }
+    .testimonial-card .title {
+      font-size: 13px; color: var(--gold); font-weight: 500;
+    }
+    .testimonial-card .stars { color: var(--gold); font-size: 18px; letter-spacing: 2px; margin-bottom: 8px; }
+
+    /* ===== Contact ===== */
     .contact-section {
-      background: var(--gold-bg); border-radius: 12px;
+      background: var(--gold-bg); border-radius: 16px;
       padding: 56px 32px; margin: 40px auto; max-width: 1100px;
-      border: 1px solid rgba(201,162,39,0.2);
+      border: 1px solid rgba(201,162,39,0.15);
     }
     .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px; margin-top: 28px;
     }
     .contact-item {
       display: flex; align-items: flex-start; gap: 14px;
-      padding: 18px; background: white; border-radius: 10px;
-      border: 1px solid rgba(201,162,39,0.15);
+      padding: 18px; background: #fff; border-radius: 10px;
+      border: 1px solid rgba(201,162,39,0.10);
     }
-    .contact-item .icon {
-      width: 22px; height: 22px; color: var(--gold); flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .contact-item .label { color: #888; font-size: 12px; }
+    .contact-item .icon { width: 22px; height: 22px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .contact-item .label { color: #888; font-size: 12px; font-weight: 600; }
     .contact-item .value { color: var(--navy); font-size: 15px; font-weight: 600; }
-    .contact-item .address-lines {
-      color: var(--navy); font-size: 14px; line-height: 1.8;
-    }
-    .contact-item .address-lines strong {
-      color: var(--gold); font-size: 13px;
-    }
+    .contact-item .address-lines { color: var(--navy); font-size: 14px; line-height: 1.8; }
+    .contact-item .address-lines strong { color: var(--gold); font-size: 13px; }
 
-    /* Social media */
-    .social-grid {
-      display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap;
-    }
+    .social-grid { display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap; }
     .social-btn {
       display: flex; align-items: center; gap: 8px;
-      padding: 12px 22px; border-radius: 8px;
+      padding: 12px 24px; border-radius: 8px;
       background: var(--navy); color: var(--gold-light);
-      text-decoration: none; font-size: 14px; font-weight: 500;
-      transition: background 0.2s, transform 0.2s;
-      border: 1px solid var(--gold);
+      text-decoration: none; font-size: 14px; font-weight: 600;
+      transition: all 0.2s; border: 1px solid var(--gold);
     }
-    .social-btn:hover {
-      background: var(--navy-light); transform: translateY(-2px);
-    }
+    .social-btn:hover { background: var(--navy-light); transform: translateY(-2px); }
 
-    /* Footer */
+    /* ===== Footer ===== */
     .footer {
-      background: var(--navy); color: rgba(255,255,255,0.5);
-      text-align: center; padding: 32px; font-size: 14px;
+      background: var(--navy); color: rgba(255,255,255,0.4);
+      text-align: center; padding: 40px 20px; font-size: 14px;
       border-top: 2px solid var(--gold);
     }
     .footer p { margin-bottom: 6px; }
 
-    /* Floating WhatsApp */
+    /* ===== Floating WhatsApp ===== */
     .float-whatsapp {
-      position: fixed; bottom: 24px; left: 24px;
-      width: 60px; height: 60px; border-radius: 50%;
-      background: #25d366; color: white;
+      position: fixed; bottom: 24px; left: 24px; width: 60px; height: 60px;
+      border-radius: 50%; background: #25d366; color: #fff;
       display: flex; align-items: center; justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      z-index: 1000; cursor: pointer; border: none;
+      text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.2s; z-index: 1000; border: none;
     }
-    .float-whatsapp:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 28px rgba(37,211,102,0.5);
-    }
-    .float-whatsapp svg { width: 30px; height: 30px; }
+    .float-whatsapp:hover { transform: scale(1.1); }
+    .float-whatsapp svg { width: 32px; height: 32px; }
 
-    /* Scroll to top */
+    /* ===== Scroll Top ===== */
     .scroll-top {
-      position: fixed; bottom: 24px; right: 24px;
-      width: 48px; height: 48px; border-radius: 50%;
-      background: var(--navy); color: var(--gold);
+      position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px;
+      border-radius: 50%; background: var(--navy); color: var(--gold);
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; border: 1px solid var(--gold);
       opacity: 0; transition: opacity 0.3s; z-index: 999;
     }
     .scroll-top.visible { opacity: 1; }
 
-    /* Responsive */
+    /* ===== Responsive ===== */
     @media (max-width: 768px) {
       .navbar { padding: 12px 16px; flex-direction: column; gap: 12px; }
-      .nav-links { gap: 12px; flex-wrap: wrap; justify-content: center; }
+      .nav-links { gap: 10px; justify-content: center; }
       .hero { padding: 60px 16px; }
-      .hero h1 { font-size: 30px; }
-      .hero p { font-size: 16px; }
+      .hero h1 { font-size: 34px; }
+      .hero #typewriter-text { font-size: 18px; }
       .section { padding: 48px 16px; }
-      .section-title { font-size: 24px; }
+      .section-title { font-size: 26px; }
       .services-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .vision-box { padding: 28px; }
       .consultant-box { padding: 24px; }
       .lang-switcher { order: -1; }
+      .stats-section { grid-template-columns: 1fr 1fr; padding: 24px 16px; }
+      .stat-item .number { font-size: 30px; }
     }
   </style>
 </head>
 <body>
 
+<!-- Progress Bar -->
+<div id="progress-bar"></div>
+
 <!-- Navbar -->
 <nav class="navbar">
   <div class="logo-area">
-    <img src="https://i.postimg.cc/7YXGKynb/Whats-App-Image-2026-07-29-at-6-12-18-PM.jpg" 
-         alt="Legacy Law Firm Logo" 
-         style="width:48px; height:48px; border-radius:8px; object-fit:contain;">
+    <img src="https://i.postimg.cc/7YXGKynb/Whats-App-Image-2026-07-29-at-6-12-18-PM.jpg"
+         alt="Legacy Law Firm Logo" style="width:48px; height:48px; border-radius:8px; object-fit:contain;">
     <span class="firm-name">Legacy Law Firm</span>
   </div>
   <div class="nav-links">
@@ -339,6 +346,7 @@
     <a href="#services" data-key="nav-services">خدماتنا</a>
     <a href="#consultant" data-key="nav-consultant">مستشارك القانوني</a>
     <a href="#vision" data-key="nav-vision">رؤيتنا</a>
+    <a href="#testimonials" data-key="nav-testimonials">آراء العملاء</a>
     <a href="#contact" data-key="nav-contact">تواصل معنا</a>
   </div>
   <div class="lang-switcher">
@@ -352,20 +360,26 @@
 <section class="hero">
   <h1>Legacy Law Firm</h1>
   <div class="hero-divider"></div>
-  <p data-key="hero-subtitle">مكتب محاماة واستشارات قانونية برؤية معاصرة وفكر قانوني متطور</p>
+  <div class="typewriter-wrapper">
+    <span id="typewriter-text"></span>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats-section" id="stats">
+  <div class="stat-item"><span class="number" data-count="22">0</span><span class="label" data-key="stat-years">سنة خبرة</span></div>
+  <div class="stat-item"><span class="number" data-count="580">0</span><span class="label" data-key="stat-cases">قضية ناجحة</span></div>
+  <div class="stat-item"><span class="number" data-count="120">0</span><span class="label" data-key="stat-clients">عميل دائم</span></div>
+  <div class="stat-item"><span class="number" data-count="4">0</span><span class="label" data-key="stat-offices">فروع</span></div>
 </section>
 
 <!-- About -->
 <section class="section" id="about">
   <h2 class="section-title">
-    <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-    </svg>
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
     <span data-key="about-title">من نحن؟</span>
   </h2>
-  <div class="section-subtitle">
-    <span data-key="about-subtitle">عن المكتب</span>
-  </div>
+  <div class="section-subtitle"><span data-key="about-subtitle">عن المكتب</span></div>
   <p class="section-body" data-key="about-body">
     نحن مكتب محاماة واستشارات قانونية انطلق برؤية معاصرة وفكر قانوني متطور لتقديم استشارات وحلول متكاملة للأفراد والشركات. ندمج بين الخبرة العميقة والسرعة والمرونة لنواكب وتيرة الأعمال الحديثة ونضمن حماية مصالح عملائنا وبناء شراكات نجاح مستدامة؛ حيث نقدم مظلة حماية قانونية شاملة واستشارات ذكية تلبي تطلعات الكيانات المحلية والدولية على حد سواء. يمتد نطاق أعمالنا ليشمل منظومة متكاملة من الحلول؛ ونتميز باحترافية استثنائية في قطاع خدمات الشركات والاستثمار بدءاً من تقديم الدعم التأسيسي خطوة بخطوة لكافة أشكال المنشآت، مروراً بإدارة وتوجيه عمليات إعادة الهيكلة المعقدة والدمج والاستحواذ وتعديل الأشكال القانونية للشركات، وصولاً إلى إجراءات تصفية الشركات بكل سلاسة وموثوقية، مع تقديم حماية حازمة لحقوق الملكية الفكرية وبراءات الاختراع والعلامات التجارية التي تضمن استمرار الاستثمارات الحديثة. وكشريك قانوني موثوق لشؤون الأجانب والمعاملات الدولية، نمتلك المعرفة الإجرائية الدقيقة لإنهاء قضايا الجنسية، استخراج الإقامات، وتوثيق المعاملات الرسمية وعقود الزواج للأجانب، إلى جانب صياغة ومراجعة العقود الدولية والاتفاقيات العابرة للحدود بأعلى معايير الحماية القانونية الصارمة ضد المخاطر التجارية. وعلى صعيد التقاضي والدفاع، يضم المكتب تخصصات نوعية متطورة تضمن التمثيل القانوني الحازم أمام كافة المحاكم؛ ونمتلك ريادة خاصة في قضايا الجنايات والأمن السيبراني ومكافحة الجرائم الإلكترونية وحماية البيانات الرقمية، بالإضافة إلى خبرتنا العميقة في إدارة النزاعات وحماية الاستثمارات في قطاع العقارات والجمارك، وصياغة العقود وإدارة الالتزامات في القانون المدني، فضلاً عن تنظيم العلاقات التعاقدية وحل النزاعات العمالية لحفظ حقوق أطراف العمل، وتقديم الدعم المتكامل في قضايا محاكم الأسرة والأحوال الشخصية، ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.
   </p>
@@ -374,351 +388,165 @@
 <!-- Services -->
 <section class="section" id="services" style="max-width: 1100px;">
   <h2 class="section-title">
-    <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
-    </svg>
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
     <span data-key="services-title">خدماتنا القانونية</span>
   </h2>
-  <div class="section-subtitle">
-    <span data-key="services-subtitle">مجالات تخصصنا</span>
-  </div>
+  <div class="section-subtitle"><span data-key="services-subtitle">مجالات تخصصنا</span></div>
 
   <div class="services-grid">
-    <!-- بطاقة 1: الشركات -->
+    <!-- Card 1 -->
     <div class="service-card">
-      <h3>
-        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-        </svg>
-        <span data-key="svc1-title">قطاع الشركات والاستثمار</span>
-      </h3>
+      <h3><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6z"/></svg><span data-key="svc1-title">قطاع الشركات والاستثمار</span></h3>
       <p data-key="svc1-desc">حلول قانونية متكاملة للشركات في جميع مراحلها.</p>
       <ul class="features-list">
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc1-f1">تأسيس الشركات والمنشآت</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا الشرح التفصيلي لتأسيس الشركات والمنشآت. مثلاً: نقدم الدعم الكامل بدءاً من اختيار الشكل القانوني المناسب، مروراً بإعداد العقود التأسيسية، وحتى استخراج السجل التجاري والبطاقة الضريبية.】</p>
-          </div>
-        </li>
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc1-f2">إعادة الهيكلة والدمج والاستحواذ (M&A)</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا شرح إعادة الهيكلة والدمج والاستحواذ. مثلاً: ندير عمليات الدمج والاستحواذ بدءاً من العناية الواجبة (Due Diligence) وصولاً إلى إبرام العقود النهائية.】</p>
-          </div>
-        </li>
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc1-f3">حماية الملكية الفكرية</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا شرح حماية الملكية الفكرية. مثلاً: تسجيل العلامات التجارية وبراءات الاختراع، ومتابعة الدعاوى القضائية المتعلقة بالانتهاك.】</p>
-          </div>
-        </li>
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc1-f4">التصفية القانونية للشركات</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا شرح التصفية القانونية للشركات. مثلاً: إنهاء التزامات الشركة تجاه الدائنين والجهات الحكومية، وإتمام إجراءات الشطب النهائي.】</p>
-          </div>
-        </li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc1-f1">تأسيس الشركات والمنشآت</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc1-f1-desc">نقدم الدعم القانوني الشامل لتأسيس الشركات، بدءاً من اختيار الشكل القانوني المناسب (شركة مساهمة، ذات مسؤولية محدودة، فردية)، مروراً بإعداد العقود التأسيسية والنظام الأساسي، وحتى استخراج السجل التجاري، البطاقة الضريبية، والتسجيل في الغرفة التجارية، مع تقديم استشارات دقيقة حول الهيكل الإداري والمالي بما يضمن نجاح المنشأة منذ اليوم الأول.</p></div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc1-f2">إعادة الهيكلة والدمج والاستحواذ (M&A)</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc1-f2-desc">نتولى إدارة عمليات إعادة الهيكلة المالية والإدارية للشركات المتعثرة أو المتنامية، والإشراف على صفقات الاندماج والاستحواذ بدءاً من إجراء العناية الواجبة القانونية والمالية (Due Diligence)، وصياغة عقود البيع والشراء، وصولاً إلى الحصول على موافقات هيئة المنافسة والجهات التنظيمية، مع ضمان الانتقال السلس للملكية والموظفين.</p></div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc1-f3">حماية الملكية الفكرية</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc1-f3-desc">نوفر حماية قانونية حازمة لحقوق الملكية الفكرية، بما في ذلك تسجيل العلامات التجارية محلياً ودولياً، وتسجيل براءات الاختراع والتصاميم الصناعية، وتمثيل العملاء في قضايا الانتهاك والتقليد أمام المحاكم واللجان المختصة، بالإضافة إلى صياغة اتفاقيات الترخيص ونقل التكنولوجيا لحماية ابتكارات عملائنا.</p></div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc1-f4">التصفية القانونية للشركات</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc1-f4-desc">نشرف على إجراءات التصفية الاختيارية أو القضائية للشركات بشكل كامل، بما يشمل تسوية كافة الالتزامات تجاه الدائنين والجهات الحكومية، بيع الأصول، إنهاء عقود العمل والعلاقات التعاقدية، مع ضمان الامتثال الكامل للقوانين التجارية وقانون الشركات، لتجنب أي مسؤوليات قانونية مستقبلية على المساهمين والإدارة.</p></div></li>
       </ul>
     </div>
 
-    <!-- بطاقة 2: الأجانب -->
+    <!-- Card 2 -->
     <div class="service-card">
-      <h3>
-        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-        </svg>
-        <span data-key="svc2-title">شؤون الأجانب والمعاملات الدولية</span>
-      </h3>
+      <h3><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg><span data-key="svc2-title">شؤون الأجانب والمعاملات الدولية</span></h3>
       <p data-key="svc2-desc">خدمات قانونية متخصصة للأفراد والشركات الدولية.</p>
       <ul class="features-list">
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc2-f1">معاملات الأجانب والجنسية (Immigration)</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا شرح معاملات الأجانب والجنسية. مثلاً: تقديم طلبات الجنسية والإقامات المتنوعة، والتمثيل أمام إدارة الجوازات.】</p>
-          </div>
-        </li>
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc2-f2">توثيق الأحوال الشخصية وزواج الأجانب</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا شرح توثيق الأحوال الشخصية وزواج الأجانب. مثلاً: توثيق عقود الزواج والطلاق للوافدين، وإنشاء الوكالات الرسمية.】</p>
-          </div>
-        </li>
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc2-f3">العقود والاتفاقيات الدولية</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا شرح العقود والاتفاقيات الدولية. مثلاً: صياغة ومراجعة العقود المبرمة بين شركات محلية ودولية بما يتوافق مع القوانين المصرية والدولية.】</p>
-          </div>
-        </li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc2-f1">معاملات الأجانب والجنسية (Immigration)</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc2-f1-desc">نقدم الدعم القانوني الكامل في إجراءات الحصول على الجنسية المصرية، واستخراج وتجديد الإقامات بأنواعها (العمل، الاستثمار، الدراسة، الشحن)، والتعامل مع الاعتراضات والاستئنافات المقدمة من إدارة الجوازات والهجرة، مع متابعة الملفات حتى الحصول على القرار النهائي.</p></div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc2-f2">توثيق الأحوال الشخصية وزواج الأجانب</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc2-f2-desc">نتولى توثيق عقود الزواج والطلاق للأجانب المقيمين في مصر، وتسجيل الأحوال الشخصية، واستخراج الشهادات الرسمية من السفارات والجهات المختصة، مع ترجمتها وتصديقها وفقاً للضوابط الدولية لضمان قبولها في الخارج.</p></div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc2-f3">العقود والاتفاقيات الدولية</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc2-f3-desc">نقوم بصياغة ومراجعة العقود التجارية الدولية باللغتين العربية والإنجليزية، بما في ذلك اتفاقيات الوكالة التجارية، التوزيع، الامتياز (الفرانشايز)، والشراكات عبر الحدود، مع دراسة الأنظمة القانونية في الدول المعنية وتحديد قانون التحكيم المختص لتجنب النزاعات.</p></div></li>
       </ul>
     </div>
 
-    <!-- بطاقة 3: التقاضي -->
+    <!-- Card 3 -->
     <div class="service-card">
-      <h3>
-        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-        </svg>
-        <span data-key="svc3-title">قطاعات التقاضي والدفاع</span>
-      </h3>
+      <h3><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6z"/></svg><span data-key="svc3-title">قطاعات التقاضي والدفاع</span></h3>
       <p data-key="svc3-desc">تمثيل قانوني حازم أمام كافة المحاكم والهيئات القضائية.</p>
       <ul class="features-list">
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc3-f1">الجنايات والأمن السيبراني والجرائم الإلكترونية</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا شرح الجنايات والأمن السيبراني. مثلاً: الدفاع عن المتهمين في قضايا الجنايات، وملاحقة المبتزين إلكترونياً.】</p>
-          </div>
-        </li>
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc3-f2">العقارات والجمارك</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا شرح العقارات والجمارك. مثلاً: تسوية النزاعات العقارية، والاعتراض على قرارات الجمارك.】</p>
-          </div>
-        </li>
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc3-f3">القانون المدني والمنازعات المدنية</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا شرح القانون المدني والمنازعات. مثلاً: رفع دعاوى التعويض والوفاء بالالتزامات.】</p>
-          </div>
-        </li>
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc3-f4">قضايا العمال والمنازعات العمالية</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا شرح قضايا العمال. مثلاً: الدفاع عن حقوق العمال أو أصحاب الأعمال أمام المحاكم العمالية.】</p>
-          </div>
-        </li>
-        <li class="accordion-item">
-          <div class="accordion-trigger">
-            <span data-key="svc3-f5">قضايا الأسرة والأحوال الشخصية</span>
-            <span class="arrow">▾</span>
-          </div>
-          <div class="accordion-content">
-            <p>【📝 ضع هنا شرح قضايا الأسرة. مثلاً: قضايا الخلع والطلاق والنفقة والحضانة.】</p>
-          </div>
-        </li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc3-f1">الجنايات والأمن السيبراني والجرائم الإلكترونية</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc3-f1-desc">نتخصص في الدفاع الجنائي عن قضايا الاحتيال المالي، غسيل الأموال، الجرائم الإلكترونية (الاختراق، الابتزاز الرقمي، سرقة البيانات)، وتمثيل الضحايا في البلاغات والدعاوى، مع تقديم استشارات استباقية لتطوير سياسات الأمن السيبراني داخل الشركات.</p></div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc3-f2">العقارات والجمارك</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc3-f2-desc">نقدم الخدمات القانونية في قطاع التطوير العقاري والمقاولات، بما في ذلك تسوية نزاعات الملكية وتسجيل الأراضي والوحدات، والطعن في قرارات الجمارك والرسوم الجمركية، ومتابعة القضايا أمام المحاكم الاقتصادية والإدارية.</p></div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc3-f3">القانون المدني والمنازعات المدنية</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc3-f3-desc">نمثل العملاء في كافة المنازعات المدنية بما فيها العقود، التعويضات عن الأضرار، المسؤولية التقصيرية، ودعاوى الإثبات، مع إدارة إجراءات الصلح والتحكيم والوساطة لتسوية النزاعات ودياً قبل اللجوء للقضاء، مما يوفر الوقت والجهد.</p></div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc3-f4">قضايا العمال والمنازعات العمالية</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc3-f4-desc">نقدم الاستشارات القانونية لأصحاب العمل والعمال في قضايا الفصل التعسفي، تسوية الأجور والمستحقات، صياغة عقود العمل الفردية والجماعية، السلامة المهنية، والتفاوض الجماعي مع النقابات، مع تمثيل قوي أمام المحاكم العمالية ومكتب العمل.</p></div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc3-f5">قضايا الأسرة والأحوال الشخصية</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc3-f5-desc">نتولى قضايا الطلاق والخلع، النفقات بأنواعها (الزوجية، الصغار، الأقارب)، الحضانة والرؤية، الميراث وتوزيع التركات، وتسجيل الزواج والطلاق، مع تقديم دعم نفسي وقانوني متكامل للعملاء في أدق مراحل حياتهم الشخصية.</p></div></li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- Consultant Section -->
+<!-- Consultant -->
 <section class="section" id="consultant">
-  <h2 class="section-title">
-    <span style="font-size: 32px;">💡</span>
-    <span data-key="consultant-title">مستشارك القانوني</span>
-  </h2>
-  <div class="section-subtitle">
-    <span data-key="consultant-subtitle">استشارات فورية وحلول قانونية سريعة</span>
-  </div>
-
+  <h2 class="section-title"><span style="font-size:32px;">💡</span><span data-key="consultant-title">مستشارك القانوني</span></h2>
+  <div class="section-subtitle"><span data-key="consultant-subtitle">استشارات فورية وحلول قانونية سريعة</span></div>
   <div class="consultant-box">
-    <h3>
-      <span>💼</span> 
-      <span data-key="consultant-head">مستشارك القانوني</span>
-    </h3>
-    <p class="main-desc" data-key="consultant-desc">
-      اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً، أو تواصل معنا مباشرة عبر الواتس آب أو البريد الإلكتروني.
-    </p>
+    <h3>💼 <span data-key="consultant-head">مستشارك القانوني</span></h3>
+    <p class="main-desc" data-key="consultant-desc">اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً، أو تواصل معنا مباشرة عبر الواتس آب أو البريد الإلكتروني.</p>
     <div class="consultant-features">
-      <div class="item">
-        <strong data-key="consultant-free-title">🔍 تقييم مبدئي مجاني</strong>
-        <span data-key="consultant-free-desc">مراجعة شكواك وتحديد موقفها الأولي مجانية تماماً وبدون أي تكاليف.</span>
-      </div>
-      <div class="item">
-        <strong data-key="consultant-deep-title">📋 استشارة متعمقة</strong>
-        <span data-key="consultant-deep-desc">في حال رغبتك في الحصول على تقرير قانوني مفصل، سيتم توضيح الرسوم المقررة وطرق السداد المتاحة.</span>
-      </div>
+      <div class="item"><strong data-key="consultant-free-title">🔍 تقييم مبدئي مجاني</strong><span data-key="consultant-free-desc">مراجعة شكواك وتحديد موقفها الأولي مجانية تماماً وبدون أي تكاليف.</span></div>
+      <div class="item"><strong data-key="consultant-deep-title">📋 استشارة متعمقة</strong><span data-key="consultant-deep-desc">في حال رغبتك في الحصول على تقرير قانوني مفصل، سيتم توضيح الرسوم المقررة وطرق السداد المتاحة.</span></div>
     </div>
   </div>
 </section>
 
 <!-- Vision -->
 <section class="section" id="vision">
-  <h2 class="section-title" style="color: var(--navy);">
-    <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-    </svg>
-    <span data-key="vision-title">رؤيتنا</span>
-  </h2>
-  <div class="section-subtitle">
-    <span data-key="vision-subtitle">رسالتنا المستقبلية</span>
-  </div>
-  <div class="vision-box">
-    <p data-key="vision-body">
-      نؤمن بأن الريادة في عالم القانون لا تُقاس بالزمن أو الأقدمية، بل بالحلول الفعالة والدقة المتناهية التي تواكب العصر؛ لذلك ندمج بين الخبرة القانونية العميقة والسرعة والمرونة لنواكب الوتيرة المتسارعة لقطاعات الأعمال الحديثة ونضمن لعملائنا الاستقرار والاستدامة وتحقيق أهدافهم الاستراتيجية بأمان مطلق. إن التزامنا الراسخ بصناعة الحلول القانونية المبتكرة والمخصصة لكل عميل هو الركيزة الأساسية التي نبني عليها علاقاتنا المهنية، لنتجاوز المفهوم التقليدي للمحاماة ونصبح الشريك الاستراتيجي الموثوق الذي يمهد لك طريق النجاح ويحميك من كافة المخاطر القانونية قبل حدوثها.
-    </p>
+  <h2 class="section-title"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z"/></svg><span data-key="vision-title">رؤيتنا</span></h2>
+  <div class="section-subtitle"><span data-key="vision-subtitle">رسالتنا المستقبلية</span></div>
+  <div class="vision-box"><p data-key="vision-body">نؤمن بأن الريادة في عالم القانون لا تُقاس بالزمن أو الأقدمية، بل بالحلول الفعالة والدقة المتناهية التي تواكب العصر؛ لذلك ندمج بين الخبرة القانونية العميقة والسرعة والمرونة لنواكب الوتيرة المتسارعة لقطاعات الأعمال الحديثة ونضمن لعملائنا الاستقرار والاستدامة وتحقيق أهدافهم الاستراتيجية بأمان مطلق. إن التزامنا الراسخ بصناعة الحلول القانونية المبتكرة والمخصصة لكل عميل هو الركيزة الأساسية التي نبني عليها علاقاتنا المهنية، لنتجاوز المفهوم التقليدي للمحاماة ونصبح الشريك الاستراتيجي الموثوق الذي يمهد لك طريق النجاح ويحميك من كافة المخاطر القانونية قبل حدوثها.</p></div>
+</section>
+
+<!-- Testimonials -->
+<section class="section" id="testimonials">
+  <h2 class="section-title"><span style="font-size:32px;">⭐</span><span data-key="testimonials-title">آراء عملائنا</span></h2>
+  <div class="section-subtitle"><span data-key="testimonials-subtitle">ما يقوله من وثقوا بنا</span></div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="quote" data-key="testimonial-1">"فريق Legacy Law Firm كان معنا خطوة بخطوة في صفقة الاستحواذ الأهم في تاريخ شركتنا. احترافية ودقة متناهية أوصلتنا لبر الأمان."</p><div class="author" data-key="testimonial-1-name">أحمد الشريف</div><div class="title" data-key="testimonial-1-title">رئيس مجلس إدارة - مجموعة النيل</div></div>
+    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="quote" data-key="testimonial-2">"ساعدوني في إنهاء إجراءات الجنسية والإقامة بسرعة قياسية. تعامل راقٍ ومتابعة مستمرة جعلتني أشعر بالأمان."</p><div class="author" data-key="testimonial-2-name">سارة ويليامز</div><div class="title" data-key="testimonial-2-title">مستثمرة أجنبية - المملكة المتحدة</div></div>
+    <div class="testimonial-card"><div class="stars">★★★★★</div><p class="quote" data-key="testimonial-3">"في قضية جنائية معقدة، كان دفاعهم حازماً ومبهراً. استرداد حقنا كان بفضل خبرتهم العميقة في القانون الجنائي."</p><div class="author" data-key="testimonial-3-name">محمد حسن</div><div class="title" data-key="testimonial-3-title">رجل أعمال - القاهرة</div></div>
   </div>
 </section>
 
 <!-- Contact -->
 <section class="contact-section" id="contact">
-  <h2 class="section-title" style="color: var(--navy);">
-    <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-    </svg>
-    <span data-key="contact-title">تواصل معنا</span>
-  </h2>
-  <div class="section-subtitle">
-    <span data-key="contact-subtitle">نحن هنا لمساعدتك</span>
-  </div>
-
+  <h2 class="section-title"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/></svg><span data-key="contact-title">تواصل معنا</span></h2>
+  <div class="section-subtitle"><span data-key="contact-subtitle">نحن هنا لمساعدتك</span></div>
   <div class="contact-grid">
-    <div class="contact-item">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-      </svg>
-      <div>
-        <div class="label" data-key="lbl-phone">رقم الهاتف</div>
-        <div class="value">01550305902</div>
-      </div>
-    </div>
-
-    <div class="contact-item">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-      </svg>
-      <div>
-        <div class="label" data-key="lbl-email">البريد الإلكتروني</div>
-        <div class="value">legacylwfirm@gmail.com</div>
-      </div>
-    </div>
-
-    <div class="contact-item">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-      </svg>
-      <div>
-        <div class="label" data-key="lbl-address">العنوان</div>
-        <div class="address-lines">
-          <strong data-key="address-main-label">المقر الرئيسي:</strong><br>
-          <span data-key="address-main">ميدان الدهار - شارع اللواء سليمان مظهر، الغردقة، مصر</span><br><br>
-          <strong data-key="address-branch-label">فرع القاهرة:</strong><br>
-          <span data-key="address-branch">مدينة بدر، القاهرة، مصر</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-item">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-      </svg>
-      <div>
-        <div class="label" data-key="lbl-hours">ساعات العمل</div>
-        <div class="value" data-key="val-hours">الأحد - الخميس: 9 ص - 5 م</div>
-      </div>
-    </div>
+    <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><div><div class="label" data-key="lbl-phone">رقم الهاتف</div><div class="value">01550305902</div></div></div>
+    <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/></svg><div><div class="label" data-key="lbl-email">البريد الإلكتروني</div><div class="value">legacylwfirm@gmail.com</div></div></div>
+    <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg><div><div class="label" data-key="lbl-address">العنوان</div><div class="address-lines"><strong data-key="address-main-label">المقر الرئيسي:</strong><br><span data-key="address-main">ميدان الدهار - شارع اللواء سليمان مظهر، الغردقة، مصر</span><br><br><strong data-key="address-branch-label">فرع القاهرة:</strong><br><span data-key="address-branch">مدينة بدر، القاهرة، مصر</span></div></div></div>
+    <div class="contact-item"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2z"/></svg><div><div class="label" data-key="lbl-hours">ساعات العمل</div><div class="value" data-key="val-hours">الأحد - الخميس: 9 ص - 5 م</div></div></div>
   </div>
-
-  <h3 style="color: var(--navy); font-size: 20px; font-weight: 700; margin-top: 40px; margin-bottom: 16px;" data-key="social-title">تابعنا على السوشيال ميديا</h3>
+  <h3 style="color:var(--navy);font-size:20px;font-weight:700;margin-top:40px;margin-bottom:16px;" data-key="social-title">تابعنا على السوشيال ميديا</h3>
   <div class="social-grid">
-    <a href="https://www.facebook.com/profile.php?id=61591804022713" target="_blank" class="social-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      <span data-key="social-fb">فيسبوك</span>
-    </a>
-    <a href="https://www.instagram.com/legacylwfirm" target="_blank" class="social-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-      <span data-key="social-ig">إنستجرام</span>
-    </a>
-    <a href="https://www.linkedin.com/company/legacy-law-firm-eg/" target="_blank" class="social-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      <span data-key="social-li">لينكد إن</span>
-    </a>
-    <!-- تم حذف تويتر (X) بناءً على طلبك -->
+    <a href="https://www.facebook.com/profile.php?id=61591804022713" target="_blank" class="social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span data-key="social-fb">فيسبوك</span></a>
+    <a href="https://www.instagram.com/legacylwfirm" target="_blank" class="social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg><span data-key="social-ig">إنستجرام</span></a>
+    <a href="https://www.linkedin.com/company/legacy-law-firm-eg/" target="_blank" class="social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span data-key="social-li">لينكد إن</span></a>
   </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
   <p data-key="footer-line1">ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.</p>
-  <p data-key="footer-line2">© 2025 Legacy Law Firm - جميع الحقوق محفوظة</p>
+  <p data-key="footer-line2">© 2026 Legacy Law Firm - جميع الحقوق محفوظة</p>
 </footer>
 
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/201550305902" target="_blank" class="float-whatsapp" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/201550305902" target="_blank" class="float-whatsapp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<!-- Scroll to top -->
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 4L4 12H9V20H15V12H20L12 4Z"/>
-  </svg>
+<!-- Scroll Top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4L4 12H9V20H15V12H20L12 4Z"/></svg>
 </button>
 
 <script>
-  // ===================== TRANSLATIONS =====================
+  // ===================== TRANSLATIONS (AR, EN, DE) =====================
   const translations = {
     ar: {
-      // Nav
       "nav-about": "من نحن",
       "nav-services": "خدماتنا",
       "nav-consultant": "مستشارك القانوني",
       "nav-vision": "رؤيتنا",
+      "nav-testimonials": "آراء العملاء",
       "nav-contact": "تواصل معنا",
-      "hero-subtitle": "مكتب محاماة واستشارات قانونية برؤية معاصرة وفكر قانوني متطور",
-      
-      // About
+      "stat-years": "سنة خبرة",
+      "stat-cases": "قضية ناجحة",
+      "stat-clients": "عميل دائم",
+      "stat-offices": "فروع",
       "about-title": "من نحن؟",
       "about-subtitle": "عن المكتب",
       "about-body": "نحن مكتب محاماة واستشارات قانونية انطلق برؤية معاصرة وفكر قانوني متطور لتقديم استشارات وحلول متكاملة للأفراد والشركات. ندمج بين الخبرة العميقة والسرعة والمرونة لنواكب وتيرة الأعمال الحديثة ونضمن حماية مصالح عملائنا وبناء شراكات نجاح مستدامة؛ حيث نقدم مظلة حماية قانونية شاملة واستشارات ذكية تلبي تطلعات الكيانات المحلية والدولية على حد سواء. يمتد نطاق أعمالنا ليشمل منظومة متكاملة من الحلول؛ ونتميز باحترافية استثنائية في قطاع خدمات الشركات والاستثمار بدءاً من تقديم الدعم التأسيسي خطوة بخطوة لكافة أشكال المنشآت، مروراً بإدارة وتوجيه عمليات إعادة الهيكلة المعقدة والدمج والاستحواذ وتعديل الأشكال القانونية للشركات، وصولاً إلى إجراءات تصفية الشركات بكل سلاسة وموثوقية، مع تقديم حماية حازمة لحقوق الملكية الفكرية وبراءات الاختراع والعلامات التجارية التي تضمن استمرار الاستثمارات الحديثة. وكشريك قانوني موثوق لشؤون الأجانب والمعاملات الدولية، نمتلك المعرفة الإجرائية الدقيقة لإنهاء قضايا الجنسية، استخراج الإقامات، وتوثيق المعاملات الرسمية وعقود الزواج للأجانب، إلى جانب صياغة ومراجعة العقود الدولية والاتفاقيات العابرة للحدود بأعلى معايير الحماية القانونية الصارمة ضد المخاطر التجارية. وعلى صعيد التقاضي والدفاع، يضم المكتب تخصصات نوعية متطورة تضمن التمثيل القانوني الحازم أمام كافة المحاكم؛ ونمتلك ريادة خاصة في قضايا الجنايات والأمن السيبراني ومكافحة الجرائم الإلكترونية وحماية البيانات الرقمية، بالإضافة إلى خبرتنا العميقة في إدارة النزاعات وحماية الاستثمارات في قطاع العقارات والجمارك، وصياغة العقود وإدارة الالتزامات في القانون المدني، فضلاً عن تنظيم العلاقات التعاقدية وحل النزاعات العمالية لحفظ حقوق أطراف العمل، وتقديم الدعم المتكامل في قضايا محاكم الأسرة والأحوال الشخصية، ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.",
-
-      // Services
       "services-title": "خدماتنا القانونية",
       "services-subtitle": "مجالات تخصصنا",
       "svc1-title": "قطاع الشركات والاستثمار",
       "svc1-desc": "حلول قانونية متكاملة للشركات في جميع مراحلها.",
       "svc1-f1": "تأسيس الشركات والمنشآت",
+      "svc1-f1-desc": "نقدم الدعم القانوني الشامل لتأسيس الشركات، بدءاً من اختيار الشكل القانوني المناسب (شركة مساهمة، ذات مسؤولية محدودة، فردية)، مروراً بإعداد العقود التأسيسية والنظام الأساسي، وحتى استخراج السجل التجاري، البطاقة الضريبية، والتسجيل في الغرفة التجارية، مع تقديم استشارات دقيقة حول الهيكل الإداري والمالي بما يضمن نجاح المنشأة منذ اليوم الأول.",
       "svc1-f2": "إعادة الهيكلة والدمج والاستحواذ (M&A)",
+      "svc1-f2-desc": "نتولى إدارة عمليات إعادة الهيكلة المالية والإدارية للشركات المتعثرة أو المتنامية، والإشراف على صفقات الاندماج والاستحواذ بدءاً من إجراء العناية الواجبة القانونية والمالية (Due Diligence)، وصياغة عقود البيع والشراء، وصولاً إلى الحصول على موافقات هيئة المنافسة والجهات التنظيمية، مع ضمان الانتقال السلس للملكية والموظفين.",
       "svc1-f3": "حماية الملكية الفكرية",
+      "svc1-f3-desc": "نوفر حماية قانونية حازمة لحقوق الملكية الفكرية، بما في ذلك تسجيل العلامات التجارية محلياً ودولياً، وتسجيل براءات الاختراع والتصاميم الصناعية، وتمثيل العملاء في قضايا الانتهاك والتقليد أمام المحاكم واللجان المختصة، بالإضافة إلى صياغة اتفاقيات الترخيص ونقل التكنولوجيا لحماية ابتكارات عملائنا.",
       "svc1-f4": "التصفية القانونية للشركات",
+      "svc1-f4-desc": "نشرف على إجراءات التصفية الاختيارية أو القضائية للشركات بشكل كامل، بما يشمل تسوية كافة الالتزامات تجاه الدائنين والجهات الحكومية، بيع الأصول، إنهاء عقود العمل والعلاقات التعاقدية، مع ضمان الامتثال الكامل للقوانين التجارية وقانون الشركات، لتجنب أي مسؤوليات قانونية مستقبلية على المساهمين والإدارة.",
       "svc2-title": "شؤون الأجانب والمعاملات الدولية",
       "svc2-desc": "خدمات قانونية متخصصة للأفراد والشركات الدولية.",
       "svc2-f1": "معاملات الأجانب والجنسية (Immigration)",
+      "svc2-f1-desc": "نقدم الدعم القانوني الكامل في إجراءات الحصول على الجنسية المصرية، واستخراج وتجديد الإقامات بأنواعها (العمل، الاستثمار، الدراسة، الشحن)، والتعامل مع الاعتراضات والاستئنافات المقدمة من إدارة الجوازات والهجرة، مع متابعة الملفات حتى الحصول على القرار النهائي.",
       "svc2-f2": "توثيق الأحوال الشخصية وزواج الأجانب",
+      "svc2-f2-desc": "نتولى توثيق عقود الزواج والطلاق للأجانب المقيمين في مصر، وتسجيل الأحوال الشخصية، واستخراج الشهادات الرسمية من السفارات والجهات المختصة، مع ترجمتها وتصديقها وفقاً للضوابط الدولية لضمان قبولها في الخارج.",
       "svc2-f3": "العقود والاتفاقيات الدولية",
+      "svc2-f3-desc": "نقوم بصياغة ومراجعة العقود التجارية الدولية باللغتين العربية والإنجليزية، بما في ذلك اتفاقيات الوكالة التجارية، التوزيع، الامتياز (الفرانشايز)، والشراكات عبر الحدود، مع دراسة الأنظمة القانونية في الدول المعنية وتحديد قانون التحكيم المختص لتجنب النزاعات.",
       "svc3-title": "قطاعات التقاضي والدفاع",
       "svc3-desc": "تمثيل قانوني حازم أمام كافة المحاكم والهيئات القضائية.",
       "svc3-f1": "الجنايات والأمن السيبراني والجرائم الإلكترونية",
+      "svc3-f1-desc": "نتخصص في الدفاع الجنائي عن قضايا الاحتيال المالي، غسيل الأموال، الجرائم الإلكترونية (الاختراق، الابتزاز الرقمي، سرقة البيانات)، وتمثيل الضحايا في البلاغات والدعاوى، مع تقديم استشارات استباقية لتطوير سياسات الأمن السيبراني داخل الشركات.",
       "svc3-f2": "العقارات والجمارك",
+      "svc3-f2-desc": "نقدم الخدمات القانونية في قطاع التطوير العقاري والمقاولات، بما في ذلك تسوية نزاعات الملكية وتسجيل الأراضي والوحدات، والطعن في قرارات الجمارك والرسوم الجمركية، ومتابعة القضايا أمام المحاكم الاقتصادية والإدارية.",
       "svc3-f3": "القانون المدني والمنازعات المدنية",
+      "svc3-f3-desc": "نمثل العملاء في كافة المنازعات المدنية بما فيها العقود، التعويضات عن الأضرار، المسؤولية التقصيرية، ودعاوى الإثبات، مع إدارة إجراءات الصلح والتحكيم والوساطة لتسوية النزاعات ودياً قبل اللجوء للقضاء، مما يوفر الوقت والجهد.",
       "svc3-f4": "قضايا العمال والمنازعات العمالية",
+      "svc3-f4-desc": "نقدم الاستشارات القانونية لأصحاب العمل والعمال في قضايا الفصل التعسفي، تسوية الأجور والمستحقات، صياغة عقود العمل الفردية والجماعية، السلامة المهنية، والتفاوض الجماعي مع النقابات، مع تمثيل قوي أمام المحاكم العمالية ومكتب العمل.",
       "svc3-f5": "قضايا الأسرة والأحوال الشخصية",
-
-      // Consultant
+      "svc3-f5-desc": "نتولى قضايا الطلاق والخلع، النفقات بأنواعها (الزوجية، الصغار، الأقارب)، الحضانة والرؤية، الميراث وتوزيع التركات، وتسجيل الزواج والطلاق، مع تقديم دعم نفسي وقانوني متكامل للعملاء في أدق مراحل حياتهم الشخصية.",
       "consultant-title": "مستشارك القانوني",
       "consultant-subtitle": "استشارات فورية وحلول قانونية سريعة",
       "consultant-head": "مستشارك القانوني",
@@ -727,13 +555,20 @@
       "consultant-free-desc": "مراجعة شكواك وتحديد موقفها الأولي مجانية تماماً وبدون أي تكاليف.",
       "consultant-deep-title": "📋 استشارة متعمقة",
       "consultant-deep-desc": "في حال رغبتك في الحصول على تقرير قانوني مفصل، سيتم توضيح الرسوم المقررة وطرق السداد المتاحة.",
-
-      // Vision
       "vision-title": "رؤيتنا",
       "vision-subtitle": "رسالتنا المستقبلية",
       "vision-body": "نؤمن بأن الريادة في عالم القانون لا تُقاس بالزمن أو الأقدمية، بل بالحلول الفعالة والدقة المتناهية التي تواكب العصر؛ لذلك ندمج بين الخبرة القانونية العميقة والسرعة والمرونة لنواكب الوتيرة المتسارعة لقطاعات الأعمال الحديثة ونضمن لعملائنا الاستقرار والاستدامة وتحقيق أهدافهم الاستراتيجية بأمان مطلق. إن التزامنا الراسخ بصناعة الحلول القانونية المبتكرة والمخصصة لكل عميل هو الركيزة الأساسية التي نبني عليها علاقاتنا المهنية، لنتجاوز المفهوم التقليدي للمحاماة ونصبح الشريك الاستراتيجي الموثوق الذي يمهد لك طريق النجاح ويحميك من كافة المخاطر القانونية قبل حدوثها.",
-
-      // Contact
+      "testimonials-title": "آراء عملائنا",
+      "testimonials-subtitle": "ما يقوله من وثقوا بنا",
+      "testimonial-1": '"فريق Legacy Law Firm كان معنا خطوة بخطوة في صفقة الاستحواذ الأهم في تاريخ شركتنا. احترافية ودقة متناهية أوصلتنا لبر الأمان."',
+      "testimonial-1-name": "أحمد الشريف",
+      "testimonial-1-title": "رئيس مجلس إدارة - مجموعة النيل",
+      "testimonial-2": '"ساعدوني في إنهاء إجراءات الجنسية والإقامة بسرعة قياسية. تعامل راقٍ ومتابعة مستمرة جعلتني أشعر بالأمان."',
+      "testimonial-2-name": "سارة ويليامز",
+      "testimonial-2-title": "مستثمرة أجنبية - المملكة المتحدة",
+      "testimonial-3": '"في قضية جنائية معقدة، كان دفاعهم حازماً ومبهراً. استرداد حقنا كان بفضل خبرتهم العميقة في القانون الجنائي."',
+      "testimonial-3-name": "محمد حسن",
+      "testimonial-3-title": "رجل أعمال - القاهرة",
       "contact-title": "تواصل معنا",
       "contact-subtitle": "نحن هنا لمساعدتك",
       "lbl-email": "البريد الإلكتروني",
@@ -744,64 +579,86 @@
       "address-branch-label": "فرع القاهرة:",
       "address-branch": "مدينة بدر، القاهرة، مصر",
       "lbl-hours": "ساعات العمل",
-      "val-hours": "السبت - الخميس: 9 ص - 5 م",
+      "val-hours": "الأحد - الخميس: 9 ص - 5 م",
       "social-title": "تابعنا على السوشيال ميديا",
       "social-fb": "فيسبوك",
       "social-ig": "إنستجرام",
       "social-li": "لينكد إن",
       "footer-line1": "ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.",
-      "footer-line2": "© 2025 Legacy Law Firm - جميع الحقوق محفوظة"
+      "footer-line2": "© 2026 Legacy Law Firm - جميع الحقوق محفوظة"
     },
     en: {
       "nav-about": "About Us",
-      "nav-services": "Our Services",
+      "nav-services": "Services",
       "nav-consultant": "Legal Advisor",
       "nav-vision": "Our Vision",
-      "nav-contact": "Contact Us",
-      "hero-subtitle": "A law firm with a modern vision and advanced legal thinking",
-      
+      "nav-testimonials": "Testimonials",
+      "nav-contact": "Contact",
+      "stat-years": "Years Experience",
+      "stat-cases": "Successful Cases",
+      "stat-clients": "Loyal Clients",
+      "stat-offices": "Offices",
       "about-title": "Who Are We?",
       "about-subtitle": "About the Firm",
       "about-body": "We are a law firm and legal consultancy launched with a contemporary vision and advanced legal thinking to provide comprehensive consultations and solutions for individuals and companies. We combine deep expertise with speed and flexibility to keep pace with modern business dynamics and ensure the protection of our clients' interests while building sustainable success partnerships. We offer a comprehensive legal protection umbrella and smart consultations that meet the aspirations of both local and international entities alike. Our scope of work extends to include a comprehensive ecosystem of solutions. We excel with exceptional professionalism in the corporate and investment sector, starting from step-by-step foundational support for all types of establishments, through managing and guiding complex restructuring processes, mergers, acquisitions, and legal form modifications, to smooth and reliable company liquidation procedures, while providing robust protection for intellectual property rights, patents, and trademarks that ensure the continuity of modern investments. As a trusted legal partner for foreign affairs and international transactions, we possess precise procedural knowledge for resolving nationality cases, extracting residencies, and documenting official transactions and marriage contracts for foreigners, alongside drafting and reviewing international contracts and cross-border agreements with the highest standards of stringent legal protection against commercial risks. In the field of litigation and defense, our firm encompasses advanced specialized practices that ensure firm legal representation before all courts. We hold particular leadership in criminal cases, cybersecurity, combating cybercrimes, and digital data protection, in addition to our deep expertise in managing disputes and protecting investments in real estate and customs sectors, drafting contracts and managing obligations in civil law, as well as regulating contractual relationships and resolving labor disputes to preserve the rights of all parties, and providing comprehensive support in family courts and personal status cases. We are always committed to meticulous detail to remain the legal fortress and strategic advisor that grants you peace of mind and success.",
-
       "services-title": "Our Legal Services",
       "services-subtitle": "Areas of Expertise",
       "svc1-title": "Corporate & Investment Law",
       "svc1-desc": "Integrated legal solutions for companies at all stages.",
       "svc1-f1": "Company Formation & Establishment",
-      "svc1-f2": "Mergers & Acquisitions (M&A)",
+      "svc1-f1-desc": "We provide comprehensive legal support for establishing companies, starting from selecting the appropriate legal form (Joint Stock, LLC, Sole Proprietorship), through preparing the articles of incorporation and bylaws, to obtaining the commercial register, tax card, and chamber of commerce registration, with precise advice on the optimal administrative and financial structure to ensure success from day one.",
+      "svc1-f2": "Restructuring, Mergers & Acquisitions (M&A)",
+      "svc1-f2-desc": "We manage financial and administrative restructuring processes for struggling or growing companies, and oversee M&A deals from legal and financial due diligence, drafting sale and purchase agreements, to obtaining approvals from competition authorities and regulatory bodies, ensuring a smooth transition of ownership and employees.",
       "svc1-f3": "Intellectual Property Protection",
+      "svc1-f3-desc": "We provide robust legal protection for intellectual property rights, including trademark registration locally and internationally, patent and industrial design registration, representing clients in infringement and counterfeit cases before courts and specialized committees, and drafting licensing and technology transfer agreements.",
       "svc1-f4": "Corporate Liquidation",
+      "svc1-f4-desc": "We supervise voluntary or judicial liquidation procedures for companies, including settling all obligations to creditors and government entities, selling assets, terminating employment and contractual relationships, ensuring full compliance with commercial laws and company law to avoid any future liabilities for shareholders and management.",
       "svc2-title": "Foreign Affairs & International Transactions",
       "svc2-desc": "Specialized legal services for individuals and international companies.",
       "svc2-f1": "Immigration & Nationality Services",
-      "svc2-f2": "Foreign Marriage & Personal Status Registration",
+      "svc2-f1-desc": "We provide full legal support for obtaining Egyptian nationality, obtaining and renewing various types of residencies (work, investment, study, shipment), and handling objections and appeals before the Passport and Immigration Department, following up until the final decision is issued.",
+      "svc2-f2": "Personal Status & Foreign Marriage Registration",
+      "svc2-f2-desc": "We handle the notarization of marriage and divorce contracts for foreigners residing in Egypt, personal status registration, extracting official certificates from embassies and competent authorities, translating and authenticating them according to international standards to ensure their acceptance abroad.",
       "svc2-f3": "International Contracts & Agreements",
+      "svc2-f3-desc": "We draft and review international commercial contracts in both Arabic and English, including agency, distribution, franchising, and cross-border partnership agreements, while studying the legal systems of the concerned countries and specifying the applicable arbitration law to avoid disputes.",
       "svc3-title": "Litigation & Defense",
       "svc3-desc": "Strong legal representation before all courts and judicial bodies.",
       "svc3-f1": "Criminal Law & Cybercrime Defense",
+      "svc3-f1-desc": "We specialize in criminal defense for financial fraud, money laundering, cybercrimes (hacking, digital extortion, data theft), representing victims in complaints and lawsuits, and providing proactive consultations to develop cybersecurity policies within companies.",
       "svc3-f2": "Real Estate & Customs Law",
-      "svc3-f3": "Civil Law & Litigation",
+      "svc3-f2-desc": "We provide legal services in real estate development and construction, including resolving ownership disputes, land and unit registration, appealing customs decisions and duties, and following up cases before economic and administrative courts.",
+      "svc3-f3": "Civil Law & Civil Litigation",
+      "svc3-f3-desc": "We represent clients in all civil disputes including contracts, damages, tort liability, and evidence claims, managing reconciliation, arbitration, and mediation procedures to settle disputes amicably before litigation, saving time and effort.",
       "svc3-f4": "Labor & Employment Law",
+      "svc3-f4-desc": "We offer legal consultations to employers and employees regarding unfair dismissal, wage and dues settlement, drafting individual and collective employment contracts, occupational safety, and collective bargaining with unions, with strong representation before labor courts and labor offices.",
       "svc3-f5": "Family Law & Personal Status Cases",
-
+      "svc3-f5-desc": "We handle divorce and separation cases, various types of alimony (spousal, child, relatives), custody and visitation, inheritance and estate distribution, and marriage and divorce registration, with integrated psychological and legal support for clients in the most delicate stages of their personal lives.",
       "consultant-title": "Your Legal Advisor",
       "consultant-subtitle": "Immediate consultations and quick legal solutions",
       "consultant-head": "Your Legal Advisor",
-      "consultant-desc": "Write your issue and our team will study it and respond to you immediately, or contact us directly via WhatsApp or email.",
+      "consultant-desc": "Write your issue and our team will study it and respond immediately, or contact us directly via WhatsApp or email.",
       "consultant-free-title": "🔍 Free Initial Assessment",
       "consultant-free-desc": "Reviewing your complaint and determining its initial status is completely free and without any costs.",
       "consultant-deep-title": "📋 In-Depth Consultation",
       "consultant-deep-desc": "If you wish to obtain a detailed legal report, the applicable fees and available payment methods will be clarified.",
-
       "vision-title": "Our Vision",
       "vision-subtitle": "Our Future Mission",
       "vision-body": "We believe that leadership in the legal world is not measured by time or seniority, but by effective solutions and meticulous precision that keep pace with the era. Therefore, we combine deep legal expertise with speed and flexibility to match the rapid pace of modern business sectors and ensure our clients' stability, sustainability, and the achievement of their strategic goals with absolute safety. Our steadfast commitment to crafting innovative and customized legal solutions for each client is the cornerstone upon which we build our professional relationships, transcending the traditional concept of legal practice to become the trusted strategic partner that paves your path to success and protects you from all legal risks before they occur.",
-
+      "testimonials-title": "Client Testimonials",
+      "testimonials-subtitle": "What Our Clients Say",
+      "testimonial-1": '"Legacy Law Firm was with us step by step in the most important acquisition deal in our company\'s history. Professionalism and meticulous attention to detail brought us to safety."',
+      "testimonial-1-name": "Ahmed El-Sharif",
+      "testimonial-1-title": "Chairman - Nile Group",
+      "testimonial-2": '"They helped me finalize nationality and residency procedures in record time. High-class treatment and continuous follow-up made me feel secure."',
+      "testimonial-2-name": "Sarah Williams",
+      "testimonial-2-title": "Foreign Investor - UK",
+      "testimonial-3": '"In a complex criminal case, their defense was firm and impressive. Regaining our rights was thanks to their deep expertise in criminal law."',
+      "testimonial-3-name": "Mohamed Hassan",
+      "testimonial-3-title": "Businessman - Cairo",
       "contact-title": "Contact Us",
       "contact-subtitle": "We are here to help you",
       "lbl-email": "Email",
-      "lbl-phone": "Phone Number",
+      "lbl-phone": "Phone",
       "lbl-address": "Address",
       "address-main-label": "Headquarters:",
       "address-main": "El Dahar Square - Suleiman Mazhar St., Hurghada, Egypt",
@@ -809,63 +666,85 @@
       "address-branch": "Badr City, Cairo, Egypt",
       "lbl-hours": "Working Hours",
       "val-hours": "Sun - Thu: 9 AM - 5 PM",
-      "social-title": "Follow Us on Social Media",
+      "social-title": "Follow Us",
       "social-fb": "Facebook",
       "social-ig": "Instagram",
       "social-li": "LinkedIn",
       "footer-line1": "Always committed to meticulous detail to remain the legal fortress and strategic advisor that grants you peace of mind and success.",
-      "footer-line2": "© 2025 Legacy Law Firm - All Rights Reserved"
+      "footer-line2": "© 2026 Legacy Law Firm - All Rights Reserved"
     },
     de: {
       "nav-about": "Über Uns",
-      "nav-services": "Unsere Leistungen",
+      "nav-services": "Leistungen",
       "nav-consultant": "Rechtsberater",
-      "nav-vision": "Unsere Vision",
+      "nav-vision": "Vision",
+      "nav-testimonials": "Referenzen",
       "nav-contact": "Kontakt",
-      "hero-subtitle": "Eine Anwaltskanzlei mit moderner Vision und fortschrittlichem Rechtsdenken",
-      
+      "stat-years": "Jahre Erfahrung",
+      "stat-cases": "Erfolgreiche Fälle",
+      "stat-clients": "Stammkunden",
+      "stat-offices": "Niederlassungen",
       "about-title": "Wer sind wir?",
       "about-subtitle": "Über die Kanzlei",
-      "about-body": "Wir sind eine Anwaltskanzlei und Rechtsberatung mit einer zeitgemäßen Vision und einem fortschrittlichen Rechtsdenken, die umfassende Beratungen und Lösungen für Einzelpersonen und Unternehmen bereitstellt. Wir vereinen tiefe Expertise mit Schnelligkeit und Flexibilität, um mit den Dynamiken des modernen Geschäftslebens Schritt zu halten und den Schutz der Interessen unserer Mandanten sowie den Aufbau nachhaltiger Erfolgspartnerschaften zu gewährleisten. Wir bieten einen umfassenden rechtlichen Schutzschirm und intelligente Beratungen, die die Bestrebungen sowohl lokaler als auch internationaler Einheiten gleichermaßen erfüllen. Unser Tätigkeitsbereich erstreckt sich auf ein umfassendes Ökosystem von Lösungen. Wir zeichnen uns durch außergewöhnliche Professionalität im Unternehmens- und Investitionssektor aus, beginnend mit schrittweiser Gründungsunterstützung für alle Arten von Einrichtungen, über die Leitung komplexer Restrukturierungsprozesse, Fusionen, Übernahmen und Rechtsformänderungen, bis hin zu reibungslosen und zuverlässigen Unternehmensliquidationsverfahren, während wir einen robusten Schutz für geistige Eigentumsrechte, Patente und Marken bieten. Als vertrauenswürdiger Rechtspartner für Ausländerangelegenheiten und internationale Transaktionen verfügen wir über präzises Verfahrenswissen für die Klärung von Staatsangehörigkeitsfragen, die Beantragung von Aufenthaltstiteln sowie die Beglaubigung offizieller Transaktionen und Eheverträge für Ausländer, zusammen mit der Erstellung und Prüfung internationaler Verträge und grenzüberschreitender Vereinbarungen. Im Bereich der Prozessführung und Verteidigung umfasst unsere Kanzlei fortschrittliche Spezialisierungen, die eine entschiedene rechtliche Vertretung vor allen Gerichten gewährleisten. Wir besitzen eine besondere Führungsposition in Strafsachen, Cybersicherheit und digitalem Datenschutz, ergänzt durch unsere tiefe Expertise in der Streitbeilegung, dem Schutz von Investitionen in Immobilien und Zoll, der Vertragserstellung und der Lösung von Arbeitsstreitigkeiten sowie der umfassenden Unterstützung in Familiengerichten. Wir sind immer dem akribischen Detail verpflichtet, um die rechtliche Festung und der strategische Berater zu bleiben, der Ihnen Ruhe und Erfolg schenkt.",
-
+      "about-body": "Wir sind eine Anwaltskanzlei und Rechtsberatung mit einer zeitgemäßen Vision und einem fortschrittlichen Rechtsdenken, die umfassende Beratungen und Lösungen für Einzelpersonen und Unternehmen bereitstellt. Wir vereinen tiefe Expertise mit Schnelligkeit und Flexibilität, um mit den Dynamiken des modernen Geschäftslebens Schritt zu halten und den Schutz der Interessen unserer Mandanten sowie den Aufbau nachhaltiger Erfolgspartnerschaften zu gewährleisten. Wir bieten einen umfassenden rechtlichen Schutzschirm und intelligente Beratungen, die die Bestrebungen lokaler und internationaler Einheiten gleichermaßen erfüllen. Unser Tätigkeitsbereich erstreckt sich auf ein umfassendes Ökosystem von Lösungen. Wir zeichnen uns durch außergewöhnliche Professionalität im Unternehmens- und Investitionssektor aus, von der Gründungsunterstützung über komplexe Restrukturierungen, Fusionen und Übernahmen bis hin zu reibungslosen Liquidationen, kombiniert mit robustem Schutz für geistiges Eigentum. Als vertrauenswürdiger Partner für Ausländerangelegenheiten verfügen wir über präzises Verfahrenswissen für Staatsangehörigkeitsfragen, Aufenthaltstitel und internationale Verträge. Im Bereich Prozessführung und Verteidigung bieten wir entschiedene Vertretung vor allen Gerichten, mit Spezialisierung auf Strafrecht, Cybersicherheit, Immobilien-, Zoll-, Zivil-, Arbeits- und Familienrecht. Wir sind stets dem akribischen Detail verpflichtet.",
       "services-title": "Unsere Rechtsdienstleistungen",
       "services-subtitle": "Fachgebiete",
       "svc1-title": "Unternehmens- & Investitionsrecht",
       "svc1-desc": "Integrierte Rechtslösungen für Unternehmen in allen Phasen.",
-      "svc1-f1": "Unternehmensgründung & -errichtung",
-      "svc1-f2": "Fusionen & Übernahmen (M&A)",
+      "svc1-f1": "Unternehmensgründung",
+      "svc1-f1-desc": "Wir bieten umfassende rechtliche Unterstützung für die Gründung von Unternehmen, von der Auswahl der geeigneten Rechtsform (Aktiengesellschaft, GmbH, Einzelunternehmen) über die Erstellung der Gründungsdokumente bis hin zur Eintragung ins Handelsregister und der Steuerregistrierung, mit präziser Beratung zur optimalen Führungs- und Finanzstruktur.",
+      "svc1-f2": "Umstrukturierung, Fusionen & Übernahmen (M&A)",
+      "svc1-f2-desc": "Wir managen finanzielle und administrative Umstrukturierungen und betreuen M&A-Deals von der Due Diligence über die Vertragsgestaltung bis hin zu behördlichen Genehmigungen, um einen reibungslosen Übergang von Eigentum und Mitarbeitern zu gewährleisten.",
       "svc1-f3": "Schutz geistigen Eigentums",
+      "svc1-f3-desc": "Wir bieten robusten Schutz für geistige Eigentumsrechte, einschließlich Markenregistrierung, Patentanmeldung, Vertretung in Verletzungsfällen und Gestaltung von Lizenz- und Technologietransferverträgen.",
       "svc1-f4": "Unternehmensliquidation",
-      "svc2-title": "Ausländerangelegenheiten & Internationale Transaktionen",
-      "svc2-desc": "Spezialisierte Rechtsdienstleistungen für Einzelpersonen und internationale Unternehmen.",
+      "svc1-f4-desc": "Wir betreuen freiwillige oder gerichtliche Liquidationen, inklusive Schuldenregulierung, Vermögensverkauf, Beendigung von Arbeitsverträgen und vollständiger Einhaltung der Handelsgesetze, um zukünftige Haftungen zu vermeiden.",
+      "svc2-title": "Ausländerangelegenheiten & Internationale Geschäfte",
+      "svc2-desc": "Spezialisierte Rechtsdienstleistungen für internationale Mandanten.",
       "svc2-f1": "Einwanderungs- & Staatsangehörigkeitsdienste",
-      "svc2-f2": "Eheregistrierung & Personenstand für Ausländer",
+      "svc2-f1-desc": "Wir unterstützen bei der Beantragung der ägyptischen Staatsbürgerschaft, der Erteilung und Verlängerung von Aufenthaltstiteln (Arbeit, Investition, Studium) und vertreten Mandanten gegenüber den Einwanderungsbehörden.",
+      "svc2-f2": "Personenstand & Eheschließung von Ausländern",
+      "svc2-f2-desc": "Wir beurkunden Ehe- und Scheidungsverträge für Ausländer, registrieren Personenstandsfälle und besorgen offizielle Dokumente von Botschaften und Behörden, einschließlich Übersetzung und Legalisation.",
       "svc2-f3": "Internationale Verträge & Vereinbarungen",
+      "svc2-f3-desc": "Wir erstellen und prüfen internationale Handelsverträge (Agentur, Vertrieb, Franchise, Partnerschaften) auf Arabisch und Englisch, analysieren die Rechtsordnungen der beteiligten Länder und legen das anwendbare Schiedsrecht fest.",
       "svc3-title": "Prozessführung & Verteidigung",
-      "svc3-desc": "Entschiedene rechtliche Vertretung vor allen Gerichten und Justizbehörden.",
+      "svc3-desc": "Entschiedene Vertretung vor allen Gerichten und Justizbehörden.",
       "svc3-f1": "Strafrecht & Cyberkriminalität",
+      "svc3-f1-desc": "Wir spezialisieren uns auf Strafverteidigung bei Finanzbetrug, Geldwäsche, Cyberkriminalität (Hacking, digitale Erpressung, Datendiebstahl) und bieten proaktive Beratung zur Cybersicherheit.",
       "svc3-f2": "Immobilien- & Zollrecht",
+      "svc3-f2-desc": "Wir bieten Rechtsdienstleistungen für Immobilienentwicklung, Grundstücksstreitigkeiten, Zollbeschwerden und vertreten Mandanten vor Wirtschafts- und Verwaltungsgerichten.",
       "svc3-f3": "Zivilrecht & Zivilprozesse",
+      "svc3-f3-desc": "Wir vertreten Mandanten in allen Zivilstreitigkeiten (Verträge, Schadensersatz, deliktische Haftung) und managen Schlichtungs- und Schiedsverfahren, um Zeit und Kosten zu sparen.",
       "svc3-f4": "Arbeitsrecht & Arbeitsstreitigkeiten",
+      "svc3-f4-desc": "Wir beraten Arbeitgeber und Arbeitnehmer in Kündigungsfällen, Gehaltsstreitigkeiten, Arbeitsverträgen, Arbeitssicherheit und Tarifverhandlungen mit starker Vertretung vor den Arbeitsgerichten.",
       "svc3-f5": "Familienrecht & Personenstandsfälle",
-
+      "svc3-f5-desc": "Wir betreuen Scheidungs-, Unterhalts-, Sorgerechts-, Erb- und Eheregistrierungsfälle mit integrierter psychologischer und rechtlicher Unterstützung.",
       "consultant-title": "Ihr Rechtsberater",
-      "consultant-subtitle": "Sofortberatung und schnelle Rechtslösungen",
+      "consultant-subtitle": "Sofortberatung und schnelle Lösungen",
       "consultant-head": "Ihr Rechtsberater",
-      "consultant-desc": "Schreiben Sie Ihr Anliegen und unser Team wird es prüfen und Ihnen umgehend antworten, oder kontaktieren Sie uns direkt per WhatsApp oder E-Mail.",
+      "consultant-desc": "Schreiben Sie Ihr Anliegen, unser Team prüft und antwortet sofort, oder kontaktieren Sie uns direkt via WhatsApp oder E-Mail.",
       "consultant-free-title": "🔍 Kostenlose Ersteinschätzung",
-      "consultant-free-desc": "Die Prüfung Ihrer Beschwerde und die Bestimmung ihres ersten Status sind völlig kostenlos und ohne jegliche Gebühren.",
+      "consultant-free-desc": "Die Prüfung Ihrer Beschwerde ist völlig kostenlos und ohne jegliche Gebühren.",
       "consultant-deep-title": "📋 Vertiefte Beratung",
-      "consultant-deep-desc": "Falls Sie einen detaillierten Rechtsbericht wünschen, werden die anfallenden Gebühren und verfügbaren Zahlungsmethoden erläutert.",
-
+      "consultant-deep-desc": "Falls Sie einen detaillierten Bericht wünschen, werden die anfallenden Gebühren und Zahlungsmethoden erläutert.",
       "vision-title": "Unsere Vision",
       "vision-subtitle": "Unsere zukünftige Mission",
-      "vision-body": "Wir glauben, dass Führung in der Rechtswelt nicht an Zeit oder Dienstalter gemessen wird, sondern an effektiven Lösungen und akribischer Präzision, die mit der Zeit Schritt halten. Daher vereinen wir tiefe Rechtsexpertise mit Schnelligkeit und Flexibilität, um mit dem rasanten Tempo moderner Geschäftsbereiche mitzuhalten und unseren Mandanten Stabilität, Nachhaltigkeit und die Erreichung ihrer strategischen Ziele mit absoluter Sicherheit zu garantieren. Unser festes Engagement für die Entwicklung innovativer und maßgeschneiderter Rechtslösungen für jeden Mandanten ist der Grundstein, auf dem wir unsere beruflichen Beziehungen aufbauen, um das traditionelle Konzept der Rechtsausübung zu überschreiten und der vertrauenswürdige strategische Partner zu werden, der Ihren Weg zum Erfolg ebnet und Sie vor allen rechtlichen Risiken schützt, bevor sie eintreten.",
-
-      "contact-title": "Kontaktieren Sie uns",
-      "contact-subtitle": "Wir sind hier, um Ihnen zu helfen",
+      "vision-body": "Wir glauben, dass Führung in der Rechtswelt nicht an Zeit oder Dienstalter gemessen wird, sondern an effektiven Lösungen und akribischer Präzision. Daher vereinen wir tiefe Rechtsexpertise mit Schnelligkeit und Flexibilität, um Stabilität und Nachhaltigkeit für unsere Mandanten zu gewährleisten. Unser Engagement für maßgeschneiderte Lösungen ist der Grundstein, um der vertrauenswürdige strategische Partner zu werden, der Sie vor allen rechtlichen Risiken schützt.",
+      "testimonials-title": "Referenzen",
+      "testimonials-subtitle": "Was unsere Mandanten sagen",
+      "testimonial-1": '"Legacy Law Firm war bei der wichtigsten Übernahme in unserer Firmengeschichte an unserer Seite. Professionalität und akribische Detailgenauigkeit führten uns in sichere Gewässer."',
+      "testimonial-1-name": "Ahmed El-Sharif",
+      "testimonial-1-title": "Vorstandsvorsitzender - Nile Group",
+      "testimonial-2": '"Sie halfen mir, die Staatsangehörigkeits- und Aufenthaltsverfahren in Rekordzeit abzuschließen. Exzellenter Service und ständige Betreuung gaben mir Sicherheit."',
+      "testimonial-2-name": "Sarah Williams",
+      "testimonial-2-title": "Ausländische Investorin - UK",
+      "testimonial-3": '"In einem komplexen Strafsachen war ihre Verteidigung entschlossen und beeindruckend. Wir verdanken die Wiederherstellung unserer Rechte ihrer tiefen Expertise im Strafrecht."',
+      "testimonial-3-name": "Mohamed Hassan",
+      "testimonial-3-title": "Geschäftsmann - Kairo",
+      "contact-title": "Kontakt",
+      "contact-subtitle": "Wir helfen Ihnen gerne",
       "lbl-email": "E-Mail",
-      "lbl-phone": "Telefonnummer",
+      "lbl-phone": "Telefon",
       "lbl-address": "Adresse",
       "address-main-label": "Hauptsitz:",
       "address-main": "El Dahar Platz - Suleiman Mazhar Str., Hurghada, Ägypten",
@@ -873,16 +752,51 @@
       "address-branch": "Badr City, Kairo, Ägypten",
       "lbl-hours": "Arbeitszeiten",
       "val-hours": "So - Do: 9:00 - 17:00 Uhr",
-      "social-title": "Folgen Sie uns in den sozialen Medien",
+      "social-title": "Folgen Sie uns",
       "social-fb": "Facebook",
       "social-ig": "Instagram",
       "social-li": "LinkedIn",
-      "footer-line1": "Immer verpflichtet gegenüber akribischer Detailgenauigkeit, um die rechtliche Festung und der strategische Berater zu bleiben, der Ihnen Ruhe und Erfolg schenkt.",
-      "footer-line2": "© 2025 Legacy Law Firm - Alle Rechte vorbehalten"
+      "footer-line1": "Immer dem akribischen Detail verpflichtet, um die rechtliche Festung und der strategische Berater zu bleiben, der Ihnen Ruhe und Erfolg schenkt.",
+      "footer-line2": "© 2026 Legacy Law Firm - Alle Rechte vorbehalten"
     }
   };
 
+  // ===================== TYPEWRITER EFFECT =====================
+  const typewriterElement = document.getElementById('typewriter-text');
+  const phrases = {
+    ar: ['مستشارك القانوني الأول', 'حماية استثماراتك', 'ريادة في التقاضي'],
+    en: ['Your First Legal Advisor', 'Protecting Your Investments', 'Leadership in Litigation'],
+    de: ['Ihr erster Rechtsberater', 'Schutz Ihrer Investitionen', 'Führung in der Prozessführung']
+  };
+  let phraseIndex = 0, charIndex = 0, isDeleting = false, currentLang = 'ar';
+
+  function typeEffect() {
+    const lang = document.body.getAttribute('lang') || 'ar';
+    const currentPhrases = phrases[lang] || phrases.ar;
+    const currentPhrase = currentPhrases[phraseIndex];
+    if (isDeleting) {
+      typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+    }
+    let speed = isDeleting ? 50 : 100;
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      speed = 2000; // wait before deleting
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % currentPhrases.length;
+      speed = 500;
+    }
+    setTimeout(typeEffect, speed);
+  }
+  typeEffect();
+
+  // ===================== LANGUAGE SWITCHER =====================
   function setLang(lang) {
+    currentLang = lang;
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
@@ -891,7 +805,7 @@
     document.documentElement.setAttribute('lang', lang);
     document.querySelectorAll('[data-key]').forEach(el => {
       const key = el.dataset.key;
-      if (translations[lang] && translations[lang][key]) {
+      if (translations[lang] && translations[lang][key] !== undefined) {
         el.textContent = translations[lang][key];
       }
     });
@@ -902,16 +816,62 @@
     };
     document.title = titles[lang];
   }
+  window.setLang = setLang;
 
-  const scrollBtn = document.getElementById('scrollTop');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 300) {
-      scrollBtn.classList.add('visible');
-    } else {
-      scrollBtn.classList.remove('visible');
-    }
+  // ===================== ACCORDION LOGIC =====================
+  document.addEventListener('click', function(e) {
+    const trigger = e.target.closest('.accordion-trigger');
+    if (!trigger) return;
+    const parentItem = trigger.closest('.accordion-item');
+    if (!parentItem) return;
+    // Close other items in the same card (optional: uncomment to allow only one open)
+    // const siblings = parentItem.closest('.features-list').querySelectorAll('.accordion-item');
+    // siblings.forEach(item => { if (item !== parentItem) item.classList.remove('active'); });
+    parentItem.classList.toggle('active');
   });
-</script>
 
+  // ===================== COUNTER ANIMATION =====================
+  const counters = document.querySelectorAll('.stat-item .number');
+  let counterStarted = false;
+
+  function animateCounters() {
+    if (counterStarted) return;
+    const statsSection = document.getElementById('stats');
+    const rect = statsSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      counterStarted = true;
+      counters.forEach(counter => {
+        const target = parseInt(counter.dataset.count);
+        let current = 0;
+        const increment = Math.ceil(target / 60);
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            counter.textContent = target;
+            clearInterval(timer);
+          } else {
+            counter.textContent = current;
+          }
+        }, 25);
+      });
+    }
+  }
+
+  // ===================== PROGRESS BAR =====================
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById('progress-bar').style.width = progress + '%';
+    animateCounters();
+    // Scroll Top Button
+    const scrollBtn = document.getElementById('scrollTop');
+    if (scrollTop > 300) scrollBtn.classList.add('visible');
+    else scrollBtn.classList.remove('visible');
+  });
+
+  // Trigger counter on load if already visible
+  window.addEventListener('load', animateCounters);
+</script>
 </body>
 </html>
