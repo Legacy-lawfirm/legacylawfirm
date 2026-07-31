@@ -10,7 +10,7 @@
   <meta name="keywords" content="مكتب محاماة, استشارات قانونية, تأسيس شركات, محامي الغردقة, قانون الهجرة, الجنسية المصرية, محامي قضايا, محامي شركات, Legacy Law Firm, محامي مصر" />
   <meta property="og:title" content="Legacy Law Firm | مكتب محاماة واستشارات قانونية - تأسيس شركات وقانون الهجرة" />
   <meta property="og:description" content="مكتب محاماة واستشارات قانونية متخصص في تأسيس الشركات، التقاضي، شؤون الأجانب، قانون الهجرة والجنسية." />
-  <meta property="og:image" content="https://i.postimg.cc/7YXGKynb/Whats-App-Image-2026-07-29-at-6-12-18-PM.jpg" />
+  <meta property="og:image" content="https://i.postimg.cc/hjn8XzDx/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg" />
   <meta property="og:url" content="https://legacy-lawfirm.github.io/legacylawfirm/" />
   <link rel="canonical" href="https://legacy-lawfirm.github.io/legacylawfirm/" />
   <!-- Google Fonts (Tajawal) -->
@@ -53,7 +53,7 @@
     body[dir="rtl"] .scroll-top { right: auto; left: 24px; }
     body[dir="rtl"] .accordion-trigger .arrow { margin-right: 0; margin-left: 8px; }
     body[dir="rtl"] .accordion-item.active .accordion-content { border-right: none; border-left: 3px solid var(--gold); }
-    body[dir="rtl"] .consultant-card { text-align: right; }
+    body[dir="rtl"] .quick-contact { flex-direction: row-reverse; }
 
     /* ===== Progress Bar ===== */
     #progress-bar {
@@ -142,30 +142,33 @@
     body[dir="rtl"] .section-subtitle::after { margin-left: 0; margin-right: 8px; }
     .section-body { color: #444; font-size: 17px; line-height: 2.1; text-align: justify; }
 
-    /* ===== Consultant Box (First Service) ===== */
-    .consultant-box {
+    /* ===== Quick Contact (Replaces Consultant) ===== */
+    .quick-contact {
       background: linear-gradient(135deg, var(--navy), var(--navy-light));
       border-radius: 16px; padding: 48px; margin-top: 16px;
       border: 1px solid var(--gold); box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      text-align: center;
     }
-    .consultant-box h3 {
-      color: var(--gold-light); font-size: 28px; margin-bottom: 12px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .consultant-box .main-desc {
+    .quick-contact .main-desc {
       color: rgba(255,255,255,0.85); font-size: 17px; line-height: 1.9;
       margin-bottom: 24px; text-align: justify;
     }
-    .consultant-features { display: flex; flex-direction: column; gap: 16px; }
-    .consultant-features .item {
-      background: rgba(255,255,255,0.05); padding: 18px 24px; border-radius: 10px;
-      border-left: 4px solid var(--gold); color: rgba(255,255,255,0.9);
+    .quick-contact .contact-icons {
+      display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
     }
-    body[dir="rtl"] .consultant-features .item { border-left: none; border-right: 4px solid var(--gold); }
-    .consultant-features .item strong {
-      color: var(--gold-light); display: block; font-size: 16px; margin-bottom: 4px;
+    .quick-contact .contact-icons a {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 28px; border-radius: 50px; text-decoration: none;
+      font-weight: 600; font-size: 16px; transition: transform 0.2s;
     }
-    .consultant-features .item span { font-size: 15px; opacity: 0.9; }
+    .quick-contact .contact-icons a:hover { transform: scale(1.05); }
+    .quick-contact .contact-icons .email-btn {
+      background: var(--gold); color: var(--navy);
+    }
+    .quick-contact .contact-icons .whatsapp-btn {
+      background: #25d366; color: #fff;
+    }
+    .quick-contact .contact-icons i { font-size: 22px; }
 
     /* ===== Services Grid ===== */
     .services-grid {
@@ -234,43 +237,6 @@
     }
     body[dir="rtl"] .vision-box { border-left: none; border-right: 5px solid var(--gold); }
     .vision-box p { color: rgba(255,255,255,0.88); font-size: 17px; line-height: 2.1; text-align: justify; }
-
-    /* ===== Consultants (Team) Section - UPDATED ===== */
-    .consultants-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px; margin-top: 24px;
-    }
-    .consultant-card {
-      background: #fff; border-radius: 16px; padding: 32px 24px;
-      border: 1px solid rgba(201,162,39,0.15);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .consultant-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(10,22,40,0.10); }
-    .consultant-image {
-      width: 140px; height: 140px; border-radius: 50%;
-      margin: 0 auto 16px;
-      background: var(--gold-bg);
-      border: 4px solid var(--gold);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 40px; color: var(--gold);
-      overflow: hidden;
-    }
-    .consultant-image img { width: 100%; height: 100%; object-fit: cover; }
-    .consultant-card h4 {
-      font-size: 22px; font-weight: 700; color: var(--navy);
-      margin-bottom: 4px;
-    }
-    .consultant-card .role {
-      font-size: 15px; font-weight: 600; color: var(--gold);
-      margin-bottom: 12px;
-    }
-    .consultant-card .bio {
-      font-size: 15px; color: #555; line-height: 1.8;
-      text-align: justify;
-    }
-    body[dir="rtl"] .consultant-card .bio { text-align: justify; }
 
     /* ===== Contact ===== */
     .contact-section {
@@ -345,10 +311,10 @@
       .section { padding: 48px 16px; }
       .section-title { font-size: 26px; }
       .services-grid { grid-template-columns: 1fr; }
-      .consultants-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .vision-box { padding: 28px; }
-      .consultant-box { padding: 24px; }
+      .quick-contact { padding: 24px; }
+      .quick-contact .contact-icons { flex-direction: column; align-items: center; gap: 16px; }
       .lang-switcher { order: -1; }
     }
   </style>
@@ -361,17 +327,16 @@
 <!-- Navbar -->
 <nav class="navbar">
   <div class="logo-area">
-    <img src="https://i.postimg.cc/7YXGKynb/Whats-App-Image-2026-07-29-at-6-12-18-PM.jpg"
+    <img src="https://i.postimg.cc/hjn8XzDx/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg"
          alt="Legacy Law Firm Logo" style="width:48px; height:48px; border-radius:8px; object-fit:contain;">
     <span class="firm-name">Legacy Law Firm</span>
   </div>
   <div class="nav-links">
     <a href="#about" data-key="nav-about">About Us</a>
-    <a href="#consultant" data-key="nav-consultant">Legal Advisor</a>
+    <a href="#quick-contact" data-key="nav-quick-contact">Contact</a>
     <a href="#services" data-key="nav-services">Services</a>
     <a href="#vision" data-key="nav-vision">Our Vision</a>
-    <a href="#consultants" data-key="nav-consultants">Our Consultants</a>
-    <a href="#contact" data-key="nav-contact">Contact</a>
+    <a href="#contact" data-key="nav-contact">Contact Us</a>
   </div>
   <div class="lang-switcher">
     <button class="lang-btn" onclick="setLang('ar')" data-lang="ar">العربية</button>
@@ -402,16 +367,15 @@
   </p>
 </section>
 
-<!-- Consultant (First Service) -->
-<section class="section" id="consultant">
-  <h2 class="section-title"><i class="fas fa-gavel" style="color:var(--gold); font-size:32px;"></i><span data-key="consultant-title">Your Legal Advisor</span></h2>
-  <div class="section-subtitle"><span data-key="consultant-subtitle">Immediate consultations and quick legal solutions</span></div>
-  <div class="consultant-box">
-    <h3><i class="fas fa-briefcase" style="color:var(--gold-light);"></i> <span data-key="consultant-head">Your Legal Advisor</span></h3>
-    <p class="main-desc" data-key="consultant-desc">Write your issue and our team will study it and respond immediately, or contact us directly via WhatsApp or email.</p>
-    <div class="consultant-features">
-      <div class="item"><strong data-key="consultant-free-title"><i class="fas fa-search"></i> Free Initial Assessment</strong><span data-key="consultant-free-desc">Reviewing your complaint and determining its initial status is completely free and without any costs.</span></div>
-      <div class="item"><strong data-key="consultant-deep-title"><i class="fas fa-file-alt"></i> In-Depth Consultation</strong><span data-key="consultant-deep-desc">If you wish to obtain a detailed legal report, the applicable fees and available payment methods will be clarified.</span></div>
+<!-- Quick Contact (Replaces Consultant) -->
+<section class="section" id="quick-contact">
+  <h2 class="section-title"><i class="fas fa-comment-dots" style="color:var(--gold); font-size:32px;"></i><span data-key="quick-title">تواصل سريع</span></h2>
+  <div class="section-subtitle"><span data-key="quick-subtitle">نحن هنا لمساعدتك فوراً</span></div>
+  <div class="quick-contact">
+    <p class="main-desc" data-key="quick-desc">اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً. تواصل معنا مباشرة عبر البريد الإلكتروني أو الواتس آب.</p>
+    <div class="contact-icons">
+      <a href="mailto:legacylwfirm@gmail.com" class="email-btn"><i class="fas fa-envelope"></i> <span data-key="quick-email">بريد إلكتروني</span></a>
+      <a href="https://wa.me/201550305902" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> <span data-key="quick-whatsapp">واتس آب</span></a>
     </div>
   </div>
 </section>
@@ -437,13 +401,13 @@
       </ul>
     </div>
 
-    <!-- Card 2: Foreign Affairs (RESTRUCTURED) -->
+    <!-- Card 2: Foreign Affairs -->
     <div class="service-card">
       <h3><i class="fas fa-globe-americas" style="color:var(--gold); font-size:24px;"></i><span data-key="svc2-title">شؤون الأجانب - قانون الهجرة والجنسية</span></h3>
       <p data-key="svc2-desc">Specialized legal services for individuals and international companies.</p>
       <ul class="features-list">
         <!-- 1. Personal Status -->
-        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc2-f1">توثيق الأحوال الشخصية لزواج الأجانب</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc2-f1-desc">Drafting and notarizing marriage contracts for foreigners, and completing all related transactions and certificates with precision, speed, and absolute confidentiality.</p></div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc2-f1">توثيق الأحوال الشخصية لزواج الأجانب</span><span class="arrow">▾</span></div><div class="accordion-content"><!-- description removed --></div></li>
         
         <!-- 2. Egyptian Nationality Services -->
         <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc2-f2">خدمات الجنسية المصرية</span><span class="arrow">▾</span></div><div class="accordion-content">
@@ -468,7 +432,7 @@
         </div></li>
 
         <!-- 4. Foreigners in Egypt & Residencies -->
-        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc2-f4">خدمات الأجانب في مصر والإقامات</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc2-f4-desc">Comprehensive legal support for residency permits, renewals, and status regularization for foreigners residing in Egypt, ensuring full compliance with local immigration laws.</p></div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc2-f4">خدمات الأجانب في مصر والإقامات</span><span class="arrow">▾</span></div><div class="accordion-content"><!-- description removed --></div></li>
       </ul>
     </div>
 
@@ -486,6 +450,40 @@
         <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc3-f7">قضايا الأسرة والأحوال الشخصية</span><span class="arrow">▾</span></div><div class="accordion-content"><p data-key="svc3-f7-desc">نقدم حلولاً قانونية متكاملة لحماية حقوقكم العائلية، مع الالتزام التام بأعلى درجات السرية والخصوصية. - الزواج والطلاق: دعاوى الخلع، الطلاق للضرر، وإثبات العلاقات الزوجية. - النفقات والأجور: تحصيل وتعديل نفقات الزوجية، الصغار، التعليم، والعلاج. - الحضانة والطفل: قضايا الحضانة، مسكن الزوجية، الرؤية، والولاية التعليمية. - التركات والمواريث: استخراج إعلام الوراثة، جرد التركات، وتوزيع الأنصبة الشرعية. - تنفيذ الأحكام: الحجز، دعاوى الحبس للممتنعين، وتطبيق قرارات محكمة الأسرة.</p></div></li>
       </ul>
     </div>
+
+    <!-- NEW Card 4: International Commercial & Financial Transactions -->
+    <div class="service-card">
+      <h3><i class="fas fa-handshake" style="color:var(--gold); font-size:24px;"></i><span data-key="svc4-title">قطاع المعاملات التجارية والمالية الدولية</span></h3>
+      <p data-key="svc4-desc">نقدم حلولاً قانونية ومالية متكاملة لدعم الشركات العالمية والمستثمرين في إدارة تدفقاتهم النقدية وعملياتهم التجارية العابرة للحدود بكفاءة وامتثال تام.</p>
+      <ul class="features-list">
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc4-f1">📄 1. صياغة ومراجعة العقود التجارية الدولية</span><span class="arrow">▾</span></div><div class="accordion-content">
+          <p data-key="svc4-f1-desc">نصيغ ونراجع كافة الأنماط التعاقدية الدولية لضمان أعلى مستويات الحماية القانونية وتقليص المخاطر:</p>
+          <ul>
+            <li data-key="svc4-f1-1">عقود البيع والتوريد الدولي</li>
+            <li data-key="svc4-f1-2">عقود الوكالة والتوزيع التجاري</li>
+            <li data-key="svc4-f1-3">عقود الوساطة والسمسرة الدولية</li>
+            <li data-key="svc4-f1-4">عقود الامتياز التجاري (Franchise)</li>
+            <li data-key="svc4-f1-5">اتفاقيات عدم الإفصاح والسرية (NDA)</li>
+          </ul>
+        </div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc4-f2">🏦 2. عقود التمويل والتسهيلات الائتمانية الدولية</span><span class="arrow">▾</span></div><div class="accordion-content">
+          <p data-key="svc4-f2-desc">نراجع ونضبط الأطر القانونية للتمويل الخارجي لحماية مركزك المالي وضمان الامتثال المصرفي:</p>
+          <ul>
+            <li data-key="svc4-f2-1">اتفاقيات القروض الدولية</li>
+            <li data-key="svc4-f2-2">عقود التسهيلات الائتمانية</li>
+            <li data-key="svc4-f2-3">الامتثال لقرارات البنك المركزي</li>
+          </ul>
+        </div></li>
+        <li class="accordion-item"><div class="accordion-trigger"><span data-key="svc4-f3">💳 3. المعاملات المالية الدولية والاعتمادات المستندية</span><span class="arrow">▾</span></div><div class="accordion-content">
+          <p data-key="svc4-f3-desc">نوفر الإشراف الإداري والقانوني على تدفقات أموالك وبضائعك لضمان سلامة التعاملات البنكية:</p>
+          <ul>
+            <li data-key="svc4-f3-1">الاعتمادات المستندية وخطابات الضمان</li>
+            <li data-key="svc4-f3-2">الامتثال لضوابط التحويلات النقدية</li>
+            <li data-key="svc4-f3-3">مراجعة مستندات الشحن والتخليص</li>
+          </ul>
+        </div></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -494,34 +492,6 @@
   <h2 class="section-title"><i class="fas fa-eye" style="color:var(--gold); font-size:32px;"></i><span data-key="vision-title">Our Vision</span></h2>
   <div class="section-subtitle"><span data-key="vision-subtitle">Our Future Mission</span></div>
   <div class="vision-box"><p data-key="vision-body">We believe that leadership in the legal world is not measured by time or seniority, but by effective solutions and meticulous precision that keep pace with the era. Therefore, we combine deep legal expertise with speed and flexibility to match the rapid pace of modern business sectors and ensure our clients' stability, sustainability, and the achievement of their strategic goals with absolute safety. Our steadfast commitment to crafting innovative and customized legal solutions for each client is the cornerstone upon which we build our professional relationships, transcending the traditional concept of legal practice to become the trusted strategic partner that paves your path to success and protects you from all legal risks before they occur.</p></div>
-</section>
-
-<!-- Consultants (Team) - UPDATED -->
-<section class="section" id="consultants">
-  <h2 class="section-title"><i class="fas fa-user-tie" style="color:var(--gold); font-size:32px;"></i><span data-key="consultants-title">المؤسسون</span></h2>
-  <div class="section-subtitle"><span data-key="consultants-subtitle">فريق التأسيس والخبراء</span></div>
-  <div class="consultants-grid">
-    <!-- Consultant 1: Mohamed Ahmed -->
-    <div class="consultant-card">
-      <div class="consultant-image">
-        <!-- 👇 ضع رابط صورة أ/ محمد أحمد هنا (يفضل 140x140 بكسل) -->
-        <img src="images/mohamed-ahmed.jpg" alt="أ/ محمد أحمد - مؤسس ومدير تنفيذي" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\' style=\'font-size:60px; color:var(--gold);\'></i>';">
-      </div>
-      <h4 data-key="consultant-1-name">أ / محمد احمد</h4>
-      <p class="role" data-key="consultant-1-role">مؤسس ومدير تنفيذي</p>
-      <p class="bio" data-key="consultant-1-bio">خبرة قانونية واسعة في مجال تأسيس الشركات، والاندماج والاستحواذ، والتحكيم الدولي. يقود فريق Legacy Law Firm برؤية استراتيجية لتحقيق التميز القانوني.</p>
-    </div>
-    <!-- Consultant 2: Eman El-Sherbiny -->
-    <div class="consultant-card">
-      <div class="consultant-image">
-        <!-- 👇 ضع رابط صورة أ/ إيمان الشربيني هنا (يفضل 140x140 بكسل) -->
-        <img src="images/eman-sherbiny.jpg" alt="أ/ إيمان الشربيني - مؤسس وشريك" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\' style=\'font-size:60px; color:var(--gold);\'></i>';">
-      </div>
-      <h4 data-key="consultant-2-name">أ / ايمان الشربيني</h4>
-      <p class="role" data-key="consultant-2-role">مؤسس وشريك</p>
-      <p class="bio" data-key="consultant-2-bio">متخصصة في قضايا الأسرة، الأحوال الشخصية، وقانون الهجرة والجنسية. تتميز بالدقة والالتزام في التعامل مع القضايا الحساسة، وحققت العديد من الانتصارات لعملائها.</p>
-    </div>
-  </div>
 </section>
 
 <!-- Contact -->
@@ -573,11 +543,7 @@
     "addressCountry": "مصر"
   },
   "telephone": "+201550305902",
-  "email": "legacylwfirm@gmail.com",
-  "founder": [
-    { "@type": "Person", "name": "محمد احمد" },
-    { "@type": "Person", "name": "ايمان الشربيني" }
-  ]
+  "email": "legacylwfirm@gmail.com"
 }
 </script>
 
@@ -587,10 +553,9 @@
     ar: {
       // Nav
       "nav-about": "من نحن",
-      "nav-consultant": "مستشارك القانوني",
+      "nav-quick-contact": "تواصل سريع",
       "nav-services": "خدماتنا",
       "nav-vision": "رؤيتنا",
-      "nav-consultants": "المؤسسون",
       "nav-contact": "تواصل معنا",
       // Hero
       "hero-tagline": "المحاماة والاستشارات القانونية وتأسيس الشركات",
@@ -598,15 +563,12 @@
       "about-title": "من نحن؟",
       "about-subtitle": "عن المكتب",
       "about-body": "نحن مكتب محاماة واستشارات قانونية نقدم استشارات وحلول متكاملة للأفراد والشركات. ندمج بين الخبرة العميقة والسرعة والمرونة لنواكب وتيرة الأعمال الحديثة ونضمن حماية مصالح عملائنا وبناء شراكات نجاح مستدامة؛ حيث نقدم مظلة حماية قانونية شاملة واستشارات ذكية تلبي تطلعات الكيانات المحلية والدولية على حد سواء. يمتد نطاق أعمالنا ليشمل منظومة متكاملة من الحلول؛ ونتميز باحترافية استثنائية في قطاع خدمات الشركات والاستثمار بدءاً من تقديم الدعم التأسيسي خطوة بخطوة لكافة أشكال المنشآت، مروراً بإدارة وتوجيه عمليات إعادة الهيكلة المعقدة والدمج والاستحواذ وتعديل الأشكال القانونية للشركات، وصولاً إلى إجراءات تصفية الشركات بكل سلاسة وموثوقية، مع تقديم حماية حازمة لحقوق الملكية الفكرية وبراءات الاختراع والعلامات التجارية التي تضمن استمرار الاستثمارات الحديثة. وكشريك قانوني موثوق لشؤون الأجانب والمعاملات الدولية، نمتلك المعرفة الإجرائية الدقيقة لإنهاء قضايا الجنسية، استخراج الإقامات، وتوثيق المعاملات الرسمية وعقود الزواج للأجانب، إلى جانب صياغة ومراجعة العقود الدولية والاتفاقيات العابرة للحدود بأعلى معايير الحماية القانونية الصارمة ضد المخاطر التجارية. وعلى صعيد التقاضي والدفاع، يضم المكتب تخصصات نوعية متطورة تضمن التمثيل القانوني الحازم أمام كافة المحاكم؛ ونمتلك ريادة خاصة في قضايا الجنايات والأمن السيبراني ومكافحة الجرائم الإلكترونية وحماية البيانات الرقمية، بالإضافة إلى خبرتنا العميقة في إدارة النزاعات وحماية الاستثمارات في قطاع العقارات والجمارك، وصياغة العقود وإدارة الالتزامات في القانون المدني، فضلاً عن تنظيم العلاقات التعاقدية وحل النزاعات العمالية لحفظ حقوق أطراف العمل، وتقديم الدعم المتكامل في قضايا محاكم الأسرة والأحوال الشخصية، ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.",
-      // Consultant
-      "consultant-title": "مستشارك القانوني",
-      "consultant-subtitle": "استشارات فورية وحلول قانونية سريعة",
-      "consultant-head": "مستشارك القانوني",
-      "consultant-desc": "اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً، أو تواصل معنا مباشرة عبر الواتس آب أو البريد الإلكتروني.",
-      "consultant-free-title": "🔍 تقييم مبدئي مجاني",
-      "consultant-free-desc": "مراجعة شكواك وتحديد موقفها الأولي مجانية تماماً وبدون أي تكاليف.",
-      "consultant-deep-title": "📋 استشارة متعمقة",
-      "consultant-deep-desc": "في حال رغبتك في الحصول على تقرير قانوني مفصل، سيتم توضيح الرسوم المقررة وطرق السداد المتاحة.",
+      // Quick Contact
+      "quick-title": "تواصل سريع",
+      "quick-subtitle": "نحن هنا لمساعدتك فوراً",
+      "quick-desc": "اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً. تواصل معنا مباشرة عبر البريد الإلكتروني أو الواتس آب.",
+      "quick-email": "بريد إلكتروني",
+      "quick-whatsapp": "واتس آب",
       // Services
       "services-title": "خدماتنا القانونية",
       "services-subtitle": "مجالات تخصصنا",
@@ -621,27 +583,21 @@
       "svc1-f4": "التصفية القانونية للشركات",
       "svc1-f4-desc": "إنهاء الاعمال وإجراءات التصفية القانونية الشاملة وإبراء الذمة المالية بكل سلاسة ،أمان ، وموثوقية امام الجهات الرسمية .",
       
-      // New Foreign Affairs Section
       "svc2-title": "شؤون الأجانب - قانون الهجرة والجنسية",
       "svc2-desc": "خدمات قانونية متخصصة للأفراد والشركات الدولية.",
       "svc2-f1": "توثيق الأحوال الشخصية لزواج الأجانب",
-      "svc2-f1-desc": "صياغة وتوثيق عقود الزواج للأجانب وإتمام كافة المعاملات والشهادات المرتبطة بها بدقة وسرعة وسرية تامة.",
       "svc2-f2": "خدمات الجنسية المصرية",
-      "svc2-f2-desc": "",
       "svc2-f2-1": "إثبات الجنسية",
       "svc2-f2-2": "اكتساب الجنسية",
       "svc2-f2-3": "الاستثمار والتجنس",
       "svc2-f2-4": "الإذن بالازدواج",
       "svc2-f2-5": "رد الجنسية",
       "svc2-f3": "خدمات الهجرة وتقنين الأوضاع",
-      "svc2-f3-desc": "",
       "svc2-f3-1": "الهجرة الدائمة: تسجيل بيانات المصريين المهاجرين وتحديث ملفاتهم رسميًا.",
       "svc2-f3-2": "الإعفاء من التجنيد: استخراج شهادات صغار السن والمهاجرين لتقديمها للتجنيد.",
       "svc2-f3-3": "إخطار السفر: إخطار الإدارة برغبة السفر للمهاجرين الخاضعين للإشراف.",
       "svc2-f4": "خدمات الأجانب في مصر والإقامات",
-      "svc2-f4-desc": "دعم قانوني شامل لتصاريح الإقامة، التجديدات، وتقنين الأوضاع للأجانب المقيمين في مصر، مع ضمان الامتثال الكامل لقوانين الهجرة المحلية.",
       
-      // Litigation
       "svc3-title": "قطاع التقاضي والدفاع",
       "svc3-desc": "تمثيل قانوني حازم أمام كافة المحاكم والهيئات القضائية.",
       "svc3-f1": "الجنايات والأمن السيبراني والجرائم الإلكترونية",
@@ -659,20 +615,31 @@
       "svc3-f7": "قضايا الأسرة والأحوال الشخصية",
       "svc3-f7-desc": "نقدم حلولاً قانونية متكاملة لحماية حقوقكم العائلية، مع الالتزام التام بأعلى درجات السرية والخصوصية. - الزواج والطلاق: دعاوى الخلع، الطلاق للضرر، وإثبات العلاقات الزوجية. - النفقات والأجور: تحصيل وتعديل نفقات الزوجية، الصغار، التعليم، والعلاج. - الحضانة والطفل: قضايا الحضانة، مسكن الزوجية، الرؤية، والولاية التعليمية. - التركات والمواريث: استخراج إعلام الوراثة، جرد التركات، وتوزيع الأنصبة الشرعية. - تنفيذ الأحكام: الحجز، دعاوى الحبس للممتنعين، وتطبيق قرارات محكمة الأسرة.",
       
+      // NEW Card 4
+      "svc4-title": "قطاع المعاملات التجارية والمالية الدولية",
+      "svc4-desc": "نقدم حلولاً قانونية ومالية متكاملة لدعم الشركات العالمية والمستثمرين في إدارة تدفقاتهم النقدية وعملياتهم التجارية العابرة للحدود بكفاءة وامتثال تام.",
+      "svc4-f1": "📄 1. صياغة ومراجعة العقود التجارية الدولية",
+      "svc4-f1-desc": "نصيغ ونراجع كافة الأنماط التعاقدية الدولية لضمان أعلى مستويات الحماية القانونية وتقليص المخاطر:",
+      "svc4-f1-1": "عقود البيع والتوريد الدولي",
+      "svc4-f1-2": "عقود الوكالة والتوزيع التجاري",
+      "svc4-f1-3": "عقود الوساطة والسمسرة الدولية",
+      "svc4-f1-4": "عقود الامتياز التجاري (Franchise)",
+      "svc4-f1-5": "اتفاقيات عدم الإفصاح والسرية (NDA)",
+      "svc4-f2": "🏦 2. عقود التمويل والتسهيلات الائتمانية الدولية",
+      "svc4-f2-desc": "نراجع ونضبط الأطر القانونية للتمويل الخارجي لحماية مركزك المالي وضمان الامتثال المصرفي:",
+      "svc4-f2-1": "اتفاقيات القروض الدولية",
+      "svc4-f2-2": "عقود التسهيلات الائتمانية",
+      "svc4-f2-3": "الامتثال لقرارات البنك المركزي",
+      "svc4-f3": "💳 3. المعاملات المالية الدولية والاعتمادات المستندية",
+      "svc4-f3-desc": "نوفر الإشراف الإداري والقانوني على تدفقات أموالك وبضائعك لضمان سلامة التعاملات البنكية:",
+      "svc4-f3-1": "الاعتمادات المستندية وخطابات الضمان",
+      "svc4-f3-2": "الامتثال لضوابط التحويلات النقدية",
+      "svc4-f3-3": "مراجعة مستندات الشحن والتخليص",
+      
       // Vision
       "vision-title": "رؤيتنا",
       "vision-subtitle": "رسالتنا المستقبلية",
       "vision-body": "نؤمن بأن الريادة في عالم القانون لا تُقاس بالزمن أو الأقدمية، بل بالحلول الفعالة والدقة المتناهية التي تواكب العصر؛ لذلك ندمج بين الخبرة القانونية العميقة والسرعة والمرونة لنواكب الوتيرة المتسارعة لقطاعات الأعمال الحديثة ونضمن لعملائنا الاستقرار والاستدامة وتحقيق أهدافهم الاستراتيجية بأمان مطلق. إن التزامنا الراسخ بصناعة الحلول القانونية المبتكرة والمخصصة لكل عميل هو الركيزة الأساسية التي نبني عليها علاقاتنا المهنية، لنتجاوز المفهوم التقليدي للمحاماة ونصبح الشريك الاستراتيجي الموثوق الذي يمهد لك طريق النجاح ويحميك من كافة المخاطر القانونية قبل حدوثها.",
-      
-      // Consultants
-      "consultants-title": "المؤسسون",
-      "consultants-subtitle": "فريق التأسيس والخبراء",
-      "consultant-1-name": "أ / محمد احمد",
-      "consultant-1-role": "مؤسس ومدير تنفيذي",
-      "consultant-1-bio": "خبرة قانونية واسعة في مجال تأسيس الشركات، والاندماج والاستحواذ، والتحكيم الدولي. يقود فريق Legacy Law Firm برؤية استراتيجية لتحقيق التميز القانوني.",
-      "consultant-2-name": "أ / ايمان الشربيني",
-      "consultant-2-role": "مؤسس وشريك",
-      "consultant-2-bio": "متخصصة في قضايا الأسرة، الأحوال الشخصية، وقانون الهجرة والجنسية. تتميز بالدقة والالتزام في التعامل مع القضايا الحساسة، وحققت العديد من الانتصارات لعملائها.",
       
       // Contact
       "contact-title": "تواصل معنا",
@@ -695,23 +662,19 @@
     },
     en: {
       "nav-about": "About Us",
-      "nav-consultant": "Legal Advisor",
+      "nav-quick-contact": "Quick Contact",
       "nav-services": "Services",
       "nav-vision": "Our Vision",
-      "nav-consultants": "Founders",
-      "nav-contact": "Contact",
+      "nav-contact": "Contact Us",
       "hero-tagline": "Legal Practice, Consultancy & Corporate Formation",
       "about-title": "Who Are We?",
       "about-subtitle": "About the Firm",
       "about-body": "We are a law firm and legal consultancy providing comprehensive consultations and integrated solutions for individuals and companies. We combine deep expertise with speed and flexibility to keep pace with modern business dynamics and ensure the protection of our clients' interests while building sustainable success partnerships. We offer a comprehensive legal protection umbrella and smart consultations that meet the aspirations of both local and international entities alike. Our scope of work extends to include a comprehensive ecosystem of solutions. We excel with exceptional professionalism in the corporate and investment sector, starting from step-by-step foundational support for all types of establishments, through managing and guiding complex restructuring processes, mergers, acquisitions, and legal form modifications, to smooth and reliable company liquidation procedures, while providing robust protection for intellectual property rights, patents, and trademarks that ensure the continuity of modern investments. As a trusted legal partner for foreign affairs and international transactions, we possess precise procedural knowledge for resolving nationality cases, extracting residencies, and documenting official transactions and marriage contracts for foreigners, alongside drafting and reviewing international contracts and cross-border agreements with the highest standards of stringent legal protection against commercial risks. In the field of litigation and defense, our firm encompasses advanced specialized practices that ensure firm legal representation before all courts. We hold particular leadership in criminal cases, cybersecurity, combating cybercrimes, and digital data protection, in addition to our deep expertise in managing disputes and protecting investments in real estate and customs sectors, drafting contracts and managing obligations in civil law, as well as regulating contractual relationships and resolving labor disputes to preserve the rights of all parties, and providing comprehensive support in family courts and personal status cases. We are always committed to meticulous detail to remain the legal fortress and strategic advisor that grants you peace of mind and success.",
-      "consultant-title": "Your Legal Advisor",
-      "consultant-subtitle": "Immediate consultations and quick legal solutions",
-      "consultant-head": "Your Legal Advisor",
-      "consultant-desc": "Write your issue and our team will study it and respond immediately, or contact us directly via WhatsApp or email.",
-      "consultant-free-title": "🔍 Free Initial Assessment",
-      "consultant-free-desc": "Reviewing your complaint and determining its initial status is completely free and without any costs.",
-      "consultant-deep-title": "📋 In-Depth Consultation",
-      "consultant-deep-desc": "If you wish to obtain a detailed legal report, the applicable fees and available payment methods will be clarified.",
+      "quick-title": "Quick Contact",
+      "quick-subtitle": "We are here to help you immediately",
+      "quick-desc": "Write your issue and our team will study it and respond immediately. Contact us directly via email or WhatsApp.",
+      "quick-email": "Email",
+      "quick-whatsapp": "WhatsApp",
       "services-title": "Our Legal Services",
       "services-subtitle": "Areas of Expertise",
       "svc1-title": "Corporate & Investment Law",
@@ -728,21 +691,17 @@
       "svc2-title": "Foreign Affairs - Immigration & Nationality Law",
       "svc2-desc": "Specialized legal services for individuals and international companies.",
       "svc2-f1": "Personal Status Documentation for Foreign Marriages",
-      "svc2-f1-desc": "Drafting and notarizing marriage contracts for foreigners, and completing all related transactions and certificates with precision, speed, and absolute confidentiality.",
       "svc2-f2": "Egyptian Nationality Services",
-      "svc2-f2-desc": "",
       "svc2-f2-1": "Nationality Proof",
       "svc2-f2-2": "Nationality Acquisition",
       "svc2-f2-3": "Investment & Naturalization",
       "svc2-f2-4": "Dual Nationality Permit",
       "svc2-f2-5": "Nationality Renunciation",
       "svc2-f3": "Immigration & Status Regularization",
-      "svc2-f3-desc": "",
       "svc2-f3-1": "Permanent Immigration: Registering data of Egyptian emigrants and officially updating their files.",
       "svc2-f3-2": "Military Exemption: Issuing certificates for minors and emigrants to present for conscription.",
       "svc2-f3-3": "Travel Notification: Notifying the administration of the travel request for supervised emigrants.",
       "svc2-f4": "Foreigners in Egypt & Residency Services",
-      "svc2-f4-desc": "Comprehensive legal support for residency permits, renewals, and status regularization for foreigners residing in Egypt, ensuring full compliance with local immigration laws.",
       
       "svc3-title": "Litigation & Defense Practice",
       "svc3-desc": "Strong legal representation before all courts and judicial bodies.",
@@ -760,17 +719,31 @@
       "svc3-f6-desc": "Resolving labor disputes to preserve the rights of all parties involved in the employment relationship.",
       "svc3-f7": "Family Law & Personal Status Cases",
       "svc3-f7-desc": "We provide integrated legal solutions to protect your family rights, with full commitment to the highest levels of confidentiality and privacy. Including: Marriage and divorce (Khula, divorce for harm, and marital relations), Alimony and dues (collection and modification of spousal, child, education, and medical support), Custody and child rights (custody cases, marital home, visitation, and educational guardianship), Estates and inheritance (extracting inheritance certificates, inventorying estates, and distributing legal shares), and Enforcement of judgments (seizures, imprisonment for defaulters, and enforcing family court decisions).",
+      
+      // NEW Card 4
+      "svc4-title": "International Commercial & Financial Transactions",
+      "svc4-desc": "We provide integrated legal and financial solutions to support global companies and investors in managing their cash flows and cross-border business operations efficiently and with full compliance.",
+      "svc4-f1": "📄 1. Drafting and Review of International Commercial Contracts",
+      "svc4-f1-desc": "We draft and review all types of international contractual arrangements to ensure the highest levels of legal protection and minimize risks:",
+      "svc4-f1-1": "International Sale and Supply Contracts",
+      "svc4-f1-2": "Agency and Commercial Distribution Contracts",
+      "svc4-f1-3": "International Mediation and Brokerage Contracts",
+      "svc4-f1-4": "Franchise Agreements",
+      "svc4-f1-5": "Non-Disclosure and Confidentiality Agreements (NDA)",
+      "svc4-f2": "🏦 2. Financing and International Credit Facilities Contracts",
+      "svc4-f2-desc": "We review and adjust the legal frameworks for external financing to protect your financial position and ensure banking compliance:",
+      "svc4-f2-1": "International Loan Agreements",
+      "svc4-f2-2": "Credit Facility Contracts",
+      "svc4-f2-3": "Compliance with Central Bank Decisions",
+      "svc4-f3": "💳 3. International Financial Transactions and Documentary Credits",
+      "svc4-f3-desc": "We provide administrative and legal oversight over your cash flows and goods to ensure the safety of banking transactions:",
+      "svc4-f3-1": "Documentary Credits and Letters of Guarantee",
+      "svc4-f3-2": "Compliance with Cash Transfer Regulations",
+      "svc4-f3-3": "Review of Shipping and Clearance Documents",
+      
       "vision-title": "Our Vision",
       "vision-subtitle": "Our Future Mission",
       "vision-body": "We believe that leadership in the legal world is not measured by time or seniority, but by effective solutions and meticulous precision that keep pace with the era. Therefore, we combine deep legal expertise with speed and flexibility to match the rapid pace of modern business sectors and ensure our clients' stability, sustainability, and the achievement of their strategic goals with absolute safety. Our steadfast commitment to crafting innovative and customized legal solutions for each client is the cornerstone upon which we build our professional relationships, transcending the traditional concept of legal practice to become the trusted strategic partner that paves your path to success and protects you from all legal risks before they occur.",
-      "consultants-title": "Founders",
-      "consultants-subtitle": "Our Founding & Expert Team",
-      "consultant-1-name": "Mohamed Ahmed",
-      "consultant-1-role": "Founder & CEO",
-      "consultant-1-bio": "Extensive legal experience in corporate formation, M&A, and international arbitration. Leads Legacy Law Firm with a strategic vision to achieve legal excellence.",
-      "consultant-2-name": "Eman El-Sherbiny",
-      "consultant-2-role": "Founder & Partner",
-      "consultant-2-bio": "Specializes in family law, personal status, immigration, and nationality law. Known for precision and commitment in handling sensitive cases, achieving numerous victories for her clients.",
       "contact-title": "Contact Us",
       "contact-subtitle": "We are here to help you",
       "lbl-email": "Email",
@@ -791,23 +764,19 @@
     },
     de: {
       "nav-about": "Über Uns",
-      "nav-consultant": "Rechtsberater",
+      "nav-quick-contact": "Schnellkontakt",
       "nav-services": "Leistungen",
       "nav-vision": "Vision",
-      "nav-consultants": "Gründer",
       "nav-contact": "Kontakt",
       "hero-tagline": "Rechtsanwaltschaft, Beratung & Unternehmensgründung",
       "about-title": "Wer sind wir?",
       "about-subtitle": "Über die Kanzlei",
       "about-body": "Wir sind eine Anwaltskanzlei und Rechtsberatung, die umfassende Beratungen und Lösungen für Einzelpersonen und Unternehmen bereitstellt. Wir vereinen tiefe Expertise mit Schnelligkeit und Flexibilität, um mit den Dynamiken des modernen Geschäftslebens Schritt zu halten und den Schutz der Interessen unserer Mandanten sowie den Aufbau nachhaltiger Erfolgspartnerschaften zu gewährleisten. Wir bieten einen umfassenden rechtlichen Schutzschirm und intelligente Beratungen, die die Bestrebungen lokaler und internationaler Einheiten gleichermaßen erfüllen. Unser Tätigkeitsbereich erstreckt sich auf ein umfassendes Ökosystem von Lösungen. Wir zeichnen uns durch außergewöhnliche Professionalität im Unternehmens- und Investitionssektor aus, von der Gründungsunterstützung über komplexe Restrukturierungen, Fusionen und Übernahmen bis hin zu reibungslosen Liquidationen, kombiniert mit robustem Schutz für geistiges Eigentum. Als vertrauenswürdiger Partner für Ausländerangelegenheiten verfügen wir über präzises Verfahrenswissen für Staatsangehörigkeitsfragen, Aufenthaltstitel und internationale Verträge. Im Bereich Prozessführung und Verteidigung bieten wir entschiedene Vertretung vor allen Gerichten, mit Spezialisierung auf Strafrecht, Cybersicherheit, Immobilien-, Zoll-, Zivil-, Arbeits- und Familienrecht. Wir sind stets dem akribischen Detail verpflichtet.",
-      "consultant-title": "Ihr Rechtsberater",
-      "consultant-subtitle": "Sofortberatung und schnelle Lösungen",
-      "consultant-head": "Ihr Rechtsberater",
-      "consultant-desc": "Schreiben Sie Ihr Anliegen, unser Team prüft und antwortet sofort, oder kontaktieren Sie uns direkt via WhatsApp oder E-Mail.",
-      "consultant-free-title": "🔍 Kostenlose Ersteinschätzung",
-      "consultant-free-desc": "Die Prüfung Ihrer Beschwerde ist völlig kostenlos und ohne jegliche Gebühren.",
-      "consultant-deep-title": "📋 Vertiefte Beratung",
-      "consultant-deep-desc": "Falls Sie einen detaillierten Bericht wünschen, werden die anfallenden Gebühren und Zahlungsmethoden erläutert.",
+      "quick-title": "Schnellkontakt",
+      "quick-subtitle": "Wir helfen Ihnen sofort",
+      "quick-desc": "Schreiben Sie Ihr Anliegen, unser Team prüft und antwortet sofort. Kontaktieren Sie uns direkt per E-Mail oder WhatsApp.",
+      "quick-email": "E-Mail",
+      "quick-whatsapp": "WhatsApp",
       "services-title": "Unsere Rechtsdienstleistungen",
       "services-subtitle": "Fachgebiete",
       "svc1-title": "Unternehmens- & Investitionsrecht",
@@ -824,21 +793,17 @@
       "svc2-title": "Ausländerangelegenheiten - Einwanderungs- & Staatsangehörigkeitsrecht",
       "svc2-desc": "Spezialisierte Rechtsdienstleistungen für internationale Mandanten.",
       "svc2-f1": "Personenstandsdokumentation für Eheschließungen von Ausländern",
-      "svc2-f1-desc": "Ausarbeitung und Beurkundung von Eheverträgen für Ausländer und Erledigung aller damit verbundenen Transaktionen und Bescheinigungen mit Präzision, Geschwindigkeit und absoluter Vertraulichkeit.",
       "svc2-f2": "Ägyptische Staatsangehörigkeitsdienste",
-      "svc2-f2-desc": "",
       "svc2-f2-1": "Nachweis der Staatsangehörigkeit",
       "svc2-f2-2": "Erwerb der Staatsangehörigkeit",
       "svc2-f2-3": "Investition und Einbürgerung",
       "svc2-f2-4": "Genehmigung der Doppelstaatsbürgerschaft",
       "svc2-f2-5": "Verzicht auf die Staatsangehörigkeit",
       "svc2-f3": "Einwanderungs- und Statusregulierung",
-      "svc2-f3-desc": "",
       "svc2-f3-1": "Dauerhafte Einwanderung: Registrierung der Daten ägyptischer Auswanderer und offizielle Aktualisierung ihrer Akten.",
       "svc2-f3-2": "Wehrdienstbefreiung: Ausstellung von Bescheinigungen für Minderjährige und Auswanderer zur Vorlage bei der Wehrpflicht.",
       "svc2-f3-3": "Reisebenachrichtigung: Benachrichtigung der Behörde über die Reiseabsicht beaufsichtigter Auswanderer.",
       "svc2-f4": "Ausländer in Ägypten & Aufenthaltsdienste",
-      "svc2-f4-desc": "Umfassende rechtliche Unterstützung für Aufenthaltsgenehmigungen, Verlängerungen und Statusregulierung für in Ägypten ansässige Ausländer unter vollständiger Einhaltung der örtlichen Einwanderungsgesetze.",
       
       "svc3-title": "Prozessführung & Verteidigungspraxis",
       "svc3-desc": "Entschiedene Vertretung vor allen Gerichten und Justizbehörden.",
@@ -856,17 +821,31 @@
       "svc3-f6-desc": "Lösung von Arbeitskonflikten zur Wahrung der Rechte aller am Arbeitsverhältnis Beteiligten.",
       "svc3-f7": "Familienrecht & Personenstandsfälle",
       "svc3-f7-desc": "Wir bieten integrierte rechtliche Lösungen zum Schutz Ihrer Familienrechte mit vollständiger Verpflichtung zu höchster Vertraulichkeit und Privatsphäre. Einschließlich: Ehe und Scheidung (Khula, Scheidung wegen Schadens und eheliche Beziehungen), Unterhalt und Leistungen (Einziehung und Änderung von ehelichem, kindlichem, Bildungs- und medizinischem Unterhalt), Sorgerecht und Kinderrechte (Sorgerechtsfälle, eheliche Wohnung, Besuchsrecht und erzieherische Vormundschaft), Nachlässe und Erbschaft (Ausstellung von Erbscheinen, Bestandsaufnahme von Nachlässen und Verteilung gesetzlicher Anteile) und Vollstreckung von Urteilen (Beschlagnahmungen, Haft für Säumige und Durchsetzung familiengerichtlicher Entscheidungen).",
+      
+      // NEW Card 4
+      "svc4-title": "Internationale Handels- und Finanztransaktionen",
+      "svc4-desc": "Wir bieten integrierte rechtliche und finanzielle Lösungen zur Unterstützung globaler Unternehmen und Investoren bei der effizienten und vollständig konformen Verwaltung ihrer Cashflows und grenzüberschreitenden Geschäftsabläufe.",
+      "svc4-f1": "📄 1. Ausarbeitung und Prüfung internationaler Handelsverträge",
+      "svc4-f1-desc": "Wir erstellen und prüfen alle Arten internationaler Verträge, um höchste rechtliche Schutzstandards zu gewährleisten und Risiken zu minimieren:",
+      "svc4-f1-1": "Internationale Kauf- und Lieferverträge",
+      "svc4-f1-2": "Agentur- und Handelsvertriebsverträge",
+      "svc4-f1-3": "Internationale Vermittlungs- und Maklerverträge",
+      "svc4-f1-4": "Franchise-Vereinbarungen",
+      "svc4-f1-5": "Vertraulichkeits- und Geheimhaltungsvereinbarungen (NDA)",
+      "svc4-f2": "🏦 2. Finanzierungs- und internationale Kreditfazilitätsverträge",
+      "svc4-f2-desc": "Wir prüfen und passen die rechtlichen Rahmenbedingungen für die externe Finanzierung an, um Ihre finanzielle Position zu schützen und die Bankenkonformität sicherzustellen:",
+      "svc4-f2-1": "Internationale Darlehensverträge",
+      "svc4-f2-2": "Kreditfazilitätsverträge",
+      "svc4-f2-3": "Einhaltung der Zentralbankbeschlüsse",
+      "svc4-f3": "💳 3. Internationale Finanztransaktionen und Akkreditive",
+      "svc4-f3-desc": "Wir bieten administrative und rechtliche Aufsicht über Ihre Geld- und Warenflüsse, um die Sicherheit der Bankgeschäfte zu gewährleisten:",
+      "svc4-f3-1": "Akkreditive und Garantiebriefe",
+      "svc4-f3-2": "Einhaltung der Vorschriften für Geldtransfers",
+      "svc4-f3-3": "Prüfung von Versand- und Zollabfertigungsdokumenten",
+      
       "vision-title": "Unsere Vision",
       "vision-subtitle": "Unsere zukünftige Mission",
       "vision-body": "Wir glauben, dass Führung in der Rechtswelt nicht an Zeit oder Dienstalter gemessen wird, sondern an effektiven Lösungen und akribischer Präzision. Daher vereinen wir tiefe Rechtsexpertise mit Schnelligkeit und Flexibilität, um Stabilität und Nachhaltigkeit für unsere Mandanten zu gewährleisten. Unser Engagement für maßgeschneiderte Lösungen ist der Grundstein, um der vertrauenswürdige strategische Partner zu werden, der Sie vor allen rechtlichen Risiken schützt.",
-      "consultants-title": "Gründer",
-      "consultants-subtitle": "Unser Gründungs- und Expertenteam",
-      "consultant-1-name": "Mohamed Ahmed",
-      "consultant-1-role": "Gründer & CEO",
-      "consultant-1-bio": "Umfangreiche Erfahrung im Gesellschaftsrecht, M&A und internationaler Schiedsgerichtsbarkeit. Führt Legacy Law Firm mit strategischer Vision zur Erreichung rechtlicher Exzellenz.",
-      "consultant-2-name": "Eman El-Sherbiny",
-      "consultant-2-role": "Gründerin & Partnerin",
-      "consultant-2-bio": "Spezialisiert auf Familienrecht, Personenstand, Einwanderungs- und Staatsangehörigkeitsrecht. Bekannt für Präzision und Engagement in sensiblen Fällen, erzielte zahlreiche Siege für ihre Mandanten.",
       "contact-title": "Kontakt",
       "contact-subtitle": "Wir helfen Ihnen gerne",
       "lbl-email": "E-Mail",
