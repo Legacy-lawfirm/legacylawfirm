@@ -7,8 +7,8 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0a1628" />
 
-  <!-- ===== CSP: أمان مُحسّن ===== -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline' 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' https://i.postimg.cc data:; frame-src https://www.google.com https://maps.google.com; connect-src https://formspree.io; base-uri 'self'; form-action 'self' https://formspree.io;" />
+  <!-- ===== CSP - أمان من حقن السكريبتات ===== -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline' 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' https://i.postimg.cc data:; frame-src https://www.google.com https://maps.google.com; connect-src https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;" />
 
   <!-- ===== FAVICON ===== -->
   <link rel="icon" type="image/png" href="https://i.postimg.cc/RFvPjbng/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg" />
@@ -42,14 +42,14 @@
   <link rel="alternate" hreflang="de" href="https://legacy-lawfirm.github.io/legacylawfirm/?lang=de" />
   <link rel="alternate" hreflang="x-default" href="https://legacy-lawfirm.github.io/legacylawfirm/" />
 
-  <!-- ===== Schema.org ===== -->
+  <!-- ===== Schema.org - ظهور مميز في جوجل ===== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LegalService",
     "name": "Legacy Law Firm",
     "url": "https://legacy-lawfirm.github.io/legacylawfirm/",
-    "telephone": "+201550305902",
+    "telephone": "+201002950495",
     "email": "legacylwfirm@gmail.com",
     "image": "https://i.postimg.cc/RFvPjbng/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg",
     "priceRange": "$$",
@@ -78,7 +78,7 @@
   <!-- ===== GOOGLE FONTS ===== -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
 
-  <!-- ===== FONT AWESOME ===== -->
+  <!-- ===== FONT AWESOME مع SRI + تحميل كسول ===== -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"
@@ -142,7 +142,6 @@
     body[dir="ltr"] .scroll-top { right: auto; left: 24px; }
     body[dir="ltr"] .accordion-trigger .arrow { margin-right: 0; margin-left: 8px; }
     body[dir="ltr"] .accordion-item.active .accordion-content { border-right: none; border-left: 3px solid var(--gold); }
-    body[dir="ltr"] .service-card h3 i { margin-right: 10px; margin-left: 0; }
 
     #progress-bar {
       position: fixed; top: 0; right: 0; width: 0%; height: 4px;
@@ -154,8 +153,7 @@
 
     .navbar {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 32px; background: rgba(10, 22, 40, 0.95);
-      backdrop-filter: blur(10px);
+      padding: 14px 32px; background: var(--navy);
       position: sticky; top: 0; z-index: 100;
       border-bottom: 2px solid var(--gold);
       flex-wrap: wrap; gap: 12px;
@@ -171,7 +169,6 @@
       transition: color var(--transition-fast); padding: 6px 0; font-weight: 500;
     }
     .nav-links a:hover, .nav-links a:focus { color: var(--gold); }
-
     .lang-switcher { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
     .lang-btn {
       background: transparent; border: 1px solid rgba(201,162,39,0.3);
@@ -212,17 +209,8 @@
       color: rgba(255,255,255,0.9); font-size: 24px; font-weight: 300;
       border-left: 3px solid var(--gold); padding-left: 6px;
       display: inline-block;
-      animation: blink-caret 0.75s step-end infinite;
     }
-    body[dir="ltr"] .hero #typewriter-text { 
-      border-left: none; border-right: 3px solid var(--gold); padding-left: 0; padding-right: 6px; 
-      animation: blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: var(--gold); }
-    }
+    body[dir="ltr"] .hero #typewriter-text { border-left: none; border-right: 3px solid var(--gold); padding-left: 0; padding-right: 6px; }
 
     @keyframes fadeInUp {
       to { opacity: 1; transform: translateY(0); }
@@ -289,9 +277,16 @@
       font-weight: 600; font-size: 16px; transition: transform var(--transition-fast);
     }
     .quick-contact .contact-icons a:hover { transform: scale(1.05); }
-    .quick-contact .contact-icons .email-btn { background: var(--gold); color: var(--navy); }
-    .quick-contact .contact-icons .whatsapp-btn { background: #25d366; color: #fff; }
-    .quick-contact .contact-icons .book-btn { background: transparent; color: var(--gold-light); border: 2px solid var(--gold); }
+    .quick-contact .contact-icons .email-btn {
+      background: var(--gold); color: var(--navy);
+    }
+    .quick-contact .contact-icons .whatsapp-btn {
+      background: #25d366; color: #fff;
+    }
+    .quick-contact .contact-icons .book-btn {
+      background: transparent; color: var(--gold-light);
+      border: 2px solid var(--gold);
+    }
     .quick-contact .contact-icons i { font-size: 22px; }
 
     .services-grid {
@@ -310,12 +305,13 @@
       color: var(--navy); font-size: 22px; font-weight: 700;
       margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
     }
-    .service-card h3 i { transition: transform 0.3s ease; }
-    .service-card:hover h3 i { transform: translateY(-4px); }
     .service-card > p { color: #666; font-size: 15px; margin-bottom: 16px; }
 
     .features-list { list-style: none; padding: 0; margin: 0; }
-    .accordion-item { border-bottom: 1px solid rgba(201,162,39,0.10); padding: 0 !important; }
+    .accordion-item {
+      border-bottom: 1px solid rgba(201,162,39,0.10);
+      padding: 0 !important;
+    }
     .accordion-item:last-child { border-bottom: none; }
     .accordion-trigger {
       display: flex; justify-content: space-between; align-items: center;
@@ -529,33 +525,86 @@
     .dark-mode-toggle:hover { transform: scale(1.1); }
     body[dir="ltr"] .dark-mode-toggle { left: auto; right: 16px; }
 
-    body.dark-mode { background: #0d1117; color: #c9d1d9; }
+        /* ===== DARK MODE (نسخة مُصححة وشاملة لضمان ظهور كل الكلام) ===== */
+    body.dark-mode {
+      background: #0d1117;
+      color: #c9d1d9;
+    }
     body.dark-mode .section-title { color: #e6edf3; }
+    body.dark-mode .section-subtitle { color: var(--gold); }
     body.dark-mode .section-body { color: #b0b8c4; }
-    body.dark-mode .service-card, body.dark-mode .team-card, body.dark-mode .testimonial-card,
-    body.dark-mode .faq-item, body.dark-mode .contact-form, body.dark-mode .contact-item {
-      background: #161b22; border-color: rgba(201,162,39,0.2); color: #c9d1d9;
+    
+    /* خلفيات البطاقات والعناصر */
+    body.dark-mode .service-card,
+    body.dark-mode .team-card,
+    body.dark-mode .testimonial-card,
+    body.dark-mode .faq-item,
+    body.dark-mode .contact-form,
+    body.dark-mode .contact-item,
+    body.dark-mode .stat-card,
+    body.dark-mode .modal-box {
+      background: #161b22;
+      border-color: rgba(201,162,39,0.2);
+      color: #c9d1d9;
     }
-    body.dark-mode .service-card > p, body.dark-mode .team-card p, body.dark-mode .testimonial-card p,
-    body.dark-mode .faq-item p, body.dark-mode .accordion-content p, body.dark-mode .accordion-content ul li { color: #b0b8c4; }
-    body.dark-mode .contact-section { background: rgba(201,162,39,0.03); }
-    body.dark-mode .form-group input, body.dark-mode .form-group textarea, body.dark-mode .form-group select {
-      background: #0d1117; border-color: #30363d; color: #c9d1d9;
-    }
-    body.dark-mode .form-group input:focus, body.dark-mode .form-group textarea:focus, body.dark-mode .form-group select:focus {
-      background: #161b22; border-color: var(--gold);
-    }
-    body.dark-mode .contact-item .value, body.dark-mode .contact-item .address-lines,
-    body.dark-mode .team-card h4, body.dark-mode .testimonial-card .client-name, body.dark-mode .faq-item h4 { color: #e6edf3; }
 
-    .modal-box h2 {
-      color: var(--navy); font-size: 24px; font-weight: 800;
-      margin-bottom: 16px; border-bottom: 2px solid var(--gold); padding-bottom: 10px;
+    /* النصوص العادية داخل البطاقات والنموذج (هذا هو الإصلاح الجذري) */
+    body.dark-mode .service-card > p,
+    body.dark-mode .team-card p,
+    body.dark-mode .testimonial-card p,
+    body.dark-mode .faq-item p,
+    body.dark-mode .accordion-content p,
+    body.dark-mode .accordion-content ul li,
+    body.dark-mode .form-group label, /* إصلاح لون عنوان الحقل هنا */
+    body.dark-mode .contact-item .label,
+    body.dark-mode .modal-box p,
+    body.dark-mode .modal-box li {
+      color: #b0b8c4;
     }
-    .modal-box p, .modal-box li { color: #444; font-size: 15px; line-height: 1.9; margin-bottom: 10px; }
-    .modal-box ul { padding-right: 20px; margin-bottom: 10px; }
-    body.dark-mode .modal-box h2 { color: #e6edf3; }
-    body.dark-mode .modal-box p, body.dark-mode .modal-box li { color: #b0b8c4; }
+
+    /* النصوص العريضة والمهمة */
+    body.dark-mode .team-card h4,
+    body.dark-mode .testimonial-card .client-name,
+    body.dark-mode .faq-item h4,
+    body.dark-mode .contact-item .value,
+    body.dark-mode .contact-item .address-lines,
+    body.dark-mode .modal-box h2,
+    body.dark-mode .stat-number {
+      color: #e6edf3;
+    }
+
+    /* حقول الإدخال في النموذج */
+    body.dark-mode .form-group input,
+    body.dark-mode .form-group textarea,
+    body.dark-mode .form-group select {
+      background: #0d1117;
+      border-color: #30363d;
+      color: #c9d1d9;
+    }
+    body.dark-mode .form-group input:focus,
+    body.dark-mode .form-group textarea:focus,
+    body.dark-mode .form-group select:focus {
+      background: #161b22;
+      border-color: var(--gold);
+    }
+    body.dark-mode .form-group input::placeholder,
+    body.dark-mode .form-group textarea::placeholder {
+      color: #8b949e;
+    }
+
+    /* الأقسام ذات الخلفية الداكنة أصلاً */
+    body.dark-mode .vision-box p { color: rgba(255,255,255,0.88); }
+    body.dark-mode .quick-contact .main-desc { color: rgba(255,255,255,0.85); }
+    body.dark-mode .contact-section { background: rgba(201,162,39,0.03); }
+
+    /* الفوتر */
+    body.dark-mode .footer {
+      background: #010409;
+      color: #8b949e;
+    }
+    body.dark-mode .footer-links a { color: #8b949e; }
+    body.dark-mode .footer-links a:hover { color: var(--gold); }
+    body.dark-mode .footer p { color: #8b949e; }
 
     .cookie-banner {
       position: fixed; bottom: 0; left: 0; right: 0;
@@ -584,7 +633,8 @@
     .modal-box {
       background: #fff; border-radius: 16px; max-width: 600px;
       max-height: 80vh; overflow-y: auto; padding: 32px;
-      position: relative; border: 2px solid var(--gold); width: 100%;
+      position: relative; border: 2px solid var(--gold);
+      width: 100%;
     }
     body.dark-mode .modal-box { background: #161b22; color: #c9d1d9; }
     .modal-box button.close-modal {
@@ -603,9 +653,13 @@
       .hero #typewriter-text { font-size: 18px; }
       .section { padding: 48px 16px; }
       .section-title { font-size: 26px; }
-      .services-grid, .team-grid, .testimonials-grid, .contact-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .vision-box, .quick-contact { padding: 28px; }
+      .vision-box { padding: 28px; }
+      .quick-contact { padding: 24px; }
       .quick-contact .contact-icons { flex-direction: column; align-items: center; gap: 16px; }
       .lang-switcher { order: -1; }
       .form-row { grid-template-columns: 1fr; }
@@ -624,7 +678,6 @@
     }
   </style>
 </head>
-
 <body lang="ar">
 
 <!-- ===== SKIP TO CONTENT ===== -->
@@ -657,9 +710,9 @@
     <a href="#contact" data-key="nav-contact">تواصل معنا</a>
   </div>
   <div class="lang-switcher" role="group" aria-label="تبديل اللغة">
-    <button class="lang-btn active" data-lang="ar" aria-pressed="true">العربية</button>
-    <button class="lang-btn" data-lang="en" aria-pressed="false">English</button>
-    <button class="lang-btn" data-lang="de" aria-pressed="false">Deutsch</button>
+    <button class="lang-btn active" onclick="setLang('ar')" data-lang="ar" aria-pressed="true">العربية</button>
+    <button class="lang-btn" onclick="setLang('en')" data-lang="en" aria-pressed="false">English</button>
+    <button class="lang-btn" onclick="setLang('de')" data-lang="de" aria-pressed="false">Deutsch</button>
   </div>
 </nav>
 
@@ -703,15 +756,15 @@
       <span class="stat-label" data-key="stat1-label">قضية وموضوع ناجح</span>
     </div>
     <div class="stat-card">
-      <span class="stat-number" data-count="15" data-suffix="+">0</span>
+      <span class="stat-number" data-count="500" data-suffix="+">+15</span>
       <span class="stat-label" data-key="stat2-label">عاماً من الخبرة</span>
     </div>
     <div class="stat-card">
-      <span class="stat-number" data-count="200" data-suffix="+">0</span>
+      <span class="stat-number" data-count="500" data-suffix="+">+200</span>
       <span class="stat-label" data-key="stat3-label">عميل يثق بنا</span>
     </div>
     <div class="stat-card">
-      <span class="stat-number" data-count="98" data-suffix="%">0</span>
+      <span class="stat-number" data-count="500" data-suffix="+">98%</span>
       <span class="stat-label" data-key="stat4-label">نسبة رضا العملاء</span>
     </div>
   </div>
@@ -731,14 +784,9 @@
         <i class="fas fa-envelope" aria-hidden="true"></i>
         <span data-key="quick-email">بريد إلكتروني</span>
       </a>
-      <a href="https://wa.me/201550305902?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="التواصل عبر واتساب">
+      <a href="https://wa.me/201002950495?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="التواصل عبر واتساب">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
         <span data-key="quick-whatsapp">واتس آب</span>
-      </a>
-      <!-- ملاحظة: تأكد من أن رابط Calendly هذا صحيح، أو احذف الزر إذا لم تكن تستخدمه -->
-      <a href="https://calendly.com/legacylwfirm" target="_blank" rel="noopener noreferrer" class="book-btn" aria-label="حجز استشارة قانونية">
-        <i class="fas fa-calendar-check" aria-hidden="true"></i>
-        <span data-key="book-consult">احجز استشارة مجانية</span>
       </a>
     </div>
   </div>
@@ -753,6 +801,7 @@
   <div class="section-subtitle"><span data-key="services-subtitle">مجالات تخصصنا</span></div>
 
   <div class="services-grid">
+
     <!-- Card 1: Corporate -->
     <div class="service-card">
       <h3><i class="fas fa-building" style="color:var(--gold); font-size:24px;" aria-hidden="true"></i><span data-key="svc1-title">قطاع الشركات والاستثمار</span></h3>
@@ -931,9 +980,9 @@
         </li>
       </ul>
     </div>
+
   </div>
 </section>
-
 <!-- ===== TEAM ===== -->
 <section class="section reveal" id="team">
   <h2 class="section-title">
@@ -1040,7 +1089,6 @@
     <p data-key="vision-body">نؤمن بأن الريادة في عالم القانون لا تُقاس بالزمن أو الأقدمية، بل بالحلول الفعالة والدقة المتناهية التي تواكب العصر. ندمج بين الخبرة القانونية العميقة والسرعة والمرونة لنواكب الوتيرة المتسارعة لقطاعات الأعمال الحديثة ونضمن لعملائنا الاستقرار والاستدامة وتحقيق أهدافهم الاستراتيجية بأمان مطلق.</p>
   </div>
 </section>
-
 <!-- ===== CONTACT ===== -->
 <section class="contact-section reveal" id="contact">
   <h2 class="section-title">
@@ -1049,12 +1097,15 @@
   </h2>
   <div class="section-subtitle"><span data-key="contact-subtitle">نحن هنا لمساعدتك</span></div>
 
-  <div class="contact-form">
-    <!-- 🔴 هام جداً: استبدل YOUR_FORM_ID بالمعرف الخاص بك من موقع Formspree -->
-    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <!-- حقل الحماية من السبام (Honeypot) -->
-      <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+    <div class="contact-form">
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
       
+      <!-- هذا هو السطر الذي وضعت فيه مفتاحك الآن -->
+      <input type="hidden" name="access_key" value="2ab8c203-9a20-4cc6-b664-49edae1ac974">
+      
+      <input type="hidden" name="subject" value="استفسار جديد من موقع Legacy Law Firm">
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
       <div class="form-row">
         <div class="form-group">
           <label for="name" data-key="form-name">الاسم الكامل *</label>
@@ -1065,6 +1116,7 @@
           <input type="email" id="email" name="email" required>
         </div>
       </div>
+      
       <div class="form-row">
         <div class="form-group">
           <label for="phone" data-key="form-phone">رقم الهاتف</label>
@@ -1072,42 +1124,46 @@
         </div>
         <div class="form-group">
           <label for="subject" data-key="form-subject">نوع الخدمة *</label>
-          <select id="subject" name="subject" required>
+          <select id="subject" name="service_type" required>
             <option value="" data-key="form-select">اختر نوع الخدمة...</option>
-            <option value="corporate" data-key="form-opt1">تأسيس شركات</option>
-            <option value="immigration" data-key="form-opt2">هجرة وجنسية</option>
-            <option value="litigation" data-key="form-opt3">تقاضي ودفاع</option>
-            <option value="tax" data-key="form-opt4">استشارات ضريبية</option>
-            <option value="realestate" data-key="form-opt5">عقارات</option>
-            <option value="family" data-key="form-opt6">قضايا أسرة</option>
-            <option value="other" data-key="form-opt7">أخرى</option>
+            <option value="تأسيس شركات">تأسيس شركات</option>
+            <option value="هجرة وجنسية">هجرة وجنسية</option>
+            <option value="تقاضي ودفاع">تقاضي ودفاع</option>
+            <option value="استشارات ضريبية">استشارات ضريبية</option>
+            <option value="عقارات">عقارات</option>
+            <option value="قضايا أسرة">قضايا أسرة</option>
+            <option value="أخرى">أخرى</option>
           </select>
         </div>
       </div>
+      
       <div class="form-group">
         <label for="message" data-key="form-message">تفاصيل استفسارك *</label>
         <textarea id="message" name="message" required></textarea>
       </div>
+      
       <button type="submit" class="submit-btn" data-key="form-submit">
         <i class="fas fa-paper-plane" aria-hidden="true"></i> إرسال الرسالة
       </button>
+      
       <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
     </form>
   </div>
 
-  <div class="map-container">
-    <!-- 🔴 هام: استبدل رابط src هذا برابط التضمين (Embed) الحقيقي من خرائط جوجل لموقعك -->
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3568.1234567890123!2d33.8116!3d27.2579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjdCsDE1JzI4LjQiTiAzM8KwNDgnNDEuOCJF!5e0!3m2!1sar!2seg!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="موقع المكتب على الخريطة"></iframe>
+    <div class="map-container">
+   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.123456789012!2d33.8116!3d27.2579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z2KfZhNi02K_Ys9in2YbYqSDYp9mE2KjZg9mG2YrYqQ!5e0!3m2!1sar!2seg!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="موقع مكتب Legacy Law Firm على الخريطة"></iframe>
   </div>
 
   <div class="contact-grid">
     <div class="contact-item">
-      <i class="fas fa-phone" style="color:var(--gold); font-size:20px;" aria-hidden="true"></i>
-      <div>
-        <div class="label" data-key="lbl-phone">رقم الهاتف</div>
-        <div class="value"><a href="tel:+201550305902" style="color:var(--navy); text-decoration:none; font-weight:600;">+20 155 030 5902</a></div>
-      </div>
+  <i class="fas fa-phone" style="color:var(--gold); font-size:20px;" aria-hidden="true"></i>
+  <div>
+    <div class="label" data-key="lbl-phone">رقم الهاتف</div>
+    <div class="value">
+      <a href="tel:+201002950495" style="color: var(--navy); text-decoration: none; font-weight: 600; direction: ltr; display: inline-block;">+20 100 295 0495</a>
     </div>
+  </div>
+</div>
     <div class="contact-item">
       <i class="fas fa-envelope" style="color:var(--gold); font-size:20px;" aria-hidden="true"></i>
       <div>
@@ -1157,8 +1213,8 @@
   <div class="footer-links">
     <a href="#about" data-key="footer-about">من نحن</a>
     <a href="#services" data-key="footer-services">خدماتنا</a>
-    <a href="#" data-key="footer-privacy" onclick="showModal('privacy')">سياسة الخصوصية</a>
-    <a href="#" data-key="footer-terms" onclick="showModal('terms')">الشروط والأحكام</a>
+    <a href="#" data-key="footer-privacy" onclick="showModal('privacy'); return false;">سياسة الخصوصية</a>
+    <a href="#" data-key="footer-terms" onclick="showModal('terms'); return false;">الشروط والأحكام</a>
     <a href="#contact" data-key="footer-contact">تواصل معنا</a>
   </div>
   <p data-key="footer-line1">ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.</p>
@@ -1166,7 +1222,7 @@
 </footer>
 
 <!-- ===== FLOATING WHATSAPP ===== -->
-<a href="https://wa.me/201550305902?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="float-whatsapp" aria-label="التواصل عبر واتساب">
+<a href="https://wa.me/201002950495?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="float-whatsapp" aria-label="التواصل عبر واتساب">
   <i class="fab fa-whatsapp" style="font-size:32px;" aria-hidden="true"></i>
 </a>
 
@@ -1188,239 +1244,523 @@
     <div id="modalContent"></div>
   </div>
 </div>
-
-<!-- ============================================
-     JAVASCRIPT
-     ============================================ -->
 <script>
 // ============================================
 // TRANSLATIONS
 // ============================================
 const translations = {
   ar: {
-    "nav-about": "من نحن", "nav-stats": "أرقامنا", "nav-quick-contact": "تواصل سريع", "nav-services": "خدماتنا",
-    "nav-team": "فريقنا", "nav-testimonials": "آراء العملاء", "nav-faq": "الأسئلة الشائعة", "nav-vision": "رؤيتنا", "nav-contact": "تواصل معنا",
-    "hero-tagline": "المحاماة والاستشارات القانونية وتأسيس الشركات", "about-title": "من نحن؟", "about-subtitle": "عن المكتب",
-    "stats-title": "أرقامنا تتحدث عنا", "stats-subtitle": "إنجازاتنا في أرقام",
-    "stat1-label": "قضية وموضوع ناجح", "stat2-label": "عاماً من الخبرة", "stat3-label": "عميل يثق بنا", "stat4-label": "نسبة رضا العملاء",
-    "quick-title": "تواصل سريع", "quick-subtitle": "نحن هنا لمساعدتك فوراً",
+    "nav-about": "من نحن",
+    "nav-stats": "أرقامنا",
+    "nav-quick-contact": "تواصل سريع",
+    "nav-services": "خدماتنا",
+    "nav-team": "فريقنا",
+    "nav-testimonials": "آراء العملاء",
+    "nav-faq": "الأسئلة الشائعة",
+    "nav-vision": "رؤيتنا",
+    "nav-contact": "تواصل معنا",
+    "hero-tagline": "المحاماة والاستشارات القانونية وتأسيس الشركات",
+    "about-title": "من نحن؟",
+    "about-subtitle": "عن المكتب",
+    "about-body": "نحن مكتب محاماة واستشارات قانونية نقدم استشارات وحلول متكاملة للأفراد والشركات. ندمج بين الخبرة العميقة والسرعة والمرونة لنواكب وتيرة الأعمال الحديثة ونضمن حماية مصالح عملائنا وبناء شراكات نجاح مستدامة.<br><br>نقدم مظلة حماية قانونية شاملة واستشارات ذكية تلبي تطلعات الكيانات المحلية والدولية على حد سواء. يمتد نطاق أعمالنا ليشمل منظومة متكاملة من الحلول.",
+    "stats-title": "أرقامنا تتحدث عنا",
+    "stats-subtitle": "إنجازاتنا في أرقام",
+    "stat1-label": "قضية وموضوع ناجح",
+    "stat2-label": "عاماً من الخبرة",
+    "stat3-label": "عميل يثق بنا",
+    "stat4-label": "نسبة رضا العملاء",
+    "book-consult": "احجز استشارة مجانية",
+    "quick-title": "تواصل سريع",
+    "quick-subtitle": "نحن هنا لمساعدتك فوراً",
     "quick-desc": "اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً. تواصل معنا مباشرة عبر البريد الإلكتروني أو الواتس آب.",
-    "quick-email": "بريد إلكتروني", "quick-whatsapp": "واتس آب", "book-consult": "احجز استشارة مجانية",
-    "services-title": "خدماتنا القانونية", "services-subtitle": "مجالات تخصصنا",
-    "svc1-title": "قطاع الشركات والاستثمار", "svc1-desc": "حلول قانونية متكاملة للشركات في جميع مراحلها.",
-    "svc1-f1": "تأسيس الشركات والمنشآت", "svc1-f1-desc": "نسير معكم خطوة بخطوة من البداية لتأسيس الشركات بكافة أشكالها القانونية، إنهاء كافة التراخيص والموافقات الحكومية لبدء الاستثمار بأمان.",
-    "svc1-f2": "إعادة الهيكلة والدمج والاستحواذ (M&A)", "svc1-f2-desc": "إدارة احترافية وتوجيه قانوني دقيق لعمليات الدمج، الاستحواذ، وتعديل الكيانات القانونية بما يضمن نمو أعمالكم وتوسعها.",
-    "svc1-f3": "حماية الملكية الفكرية", "svc1-f3-desc": "تسجيل وحماية العلامات التجارية، براءات الاختراع، وحقوق التأليف والنشر لحفظ أصول شركتكم الفكرية والتجارية في السوق.",
-    "svc1-f4": "التصفية القانونية للشركات", "svc1-f4-desc": "إنهاء الأعمال وإجراءات التصفية القانونية الشاملة وإبراء الذمة المالية بكل سلاسة، أمان، وموثوقية أمام الجهات الرسمية.",
-    "svc2-title": "شؤون الأجانب - قانون الهجرة والجنسية", "svc2-desc": "خدمات قانونية متخصصة للأفراد والشركات الدولية.",
-    "svc2-f1": "توثيق الأحوال الشخصية لزواج الأجانب", "svc2-f1-desc": "نقدم خدمات توثيق عقود الزواج للأجانب في مصر، استكمال الإجراءات القانونية، استخراج الشهادات الرسمية، والتأكد من صحة ونفاذ العقد أمام الجهات المختصة.",
-    "svc2-f2": "خدمات الجنسية المصرية", "svc2-f2-desc": "نقدم كافة الخدمات المتعلقة بالجنسية المصرية:",
-    "svc2-f2-1": "إثبات الجنسية", "svc2-f2-2": "اكتساب الجنسية", "svc2-f2-3": "الاستثمار والتجنس", "svc2-f2-4": "الإذن بالازدواج", "svc2-f2-5": "رد الجنسية",
-    "svc2-f3": "خدمات الهجرة وتقنين الأوضاع", "svc2-f3-desc": "خدمات شاملة للمصريين المهاجرين:",
+    "quick-email": "بريد إلكتروني",
+    "quick-whatsapp": "واتس آب",
+    "services-title": "خدماتنا القانونية",
+    "services-subtitle": "مجالات تخصصنا",
+    "svc1-title": "قطاع الشركات والاستثمار",
+    "svc1-desc": "حلول قانونية متكاملة للشركات في جميع مراحلها.",
+    "svc1-f1": "تأسيس الشركات والمنشآت",
+    "svc1-f1-desc": "نسير معكم خطوة بخطوة من البداية لتأسيس الشركات بكافة أشكالها القانونية، إنهاء كافة التراخيص والموافقات الحكومية لبدء الاستثمار بأمان.",
+    "svc1-f2": "إعادة الهيكلة والدمج والاستحواذ (M&A)",
+    "svc1-f2-desc": "إدارة احترافية وتوجيه قانوني دقيق لعمليات الدمج، الاستحواذ، وتعديل الكيانات القانونية بما يضمن نمو أعمالكم وتوسعها.",
+    "svc1-f3": "حماية الملكية الفكرية",
+    "svc1-f3-desc": "تسجيل وحماية العلامات التجارية، براءات الاختراع، وحقوق التأليف والنشر لحفظ أصول شركتكم الفكرية والتجارية في السوق.",
+    "svc1-f4": "التصفية القانونية للشركات",
+    "svc1-f4-desc": "إنهاء الأعمال وإجراءات التصفية القانونية الشاملة وإبراء الذمة المالية بكل سلاسة، أمان، وموثوقية أمام الجهات الرسمية.",
+    "svc2-title": "شؤون الأجانب - قانون الهجرة والجنسية",
+    "svc2-desc": "خدمات قانونية متخصصة للأفراد والشركات الدولية.",
+    "svc2-f1": "توثيق الأحوال الشخصية لزواج الأجانب",
+    "svc2-f1-desc": "نقدم خدمات توثيق عقود الزواج للأجانب في مصر، استكمال الإجراءات القانونية، استخراج الشهادات الرسمية، والتأكد من صحة ونفاذ العقد أمام الجهات المختصة.",
+    "svc2-f2": "خدمات الجنسية المصرية",
+    "svc2-f2-desc": "نقدم كافة الخدمات المتعلقة بالجنسية المصرية:",
+    "svc2-f2-1": "إثبات الجنسية",
+    "svc2-f2-2": "اكتساب الجنسية",
+    "svc2-f2-3": "الاستثمار والتجنس",
+    "svc2-f2-4": "الإذن بالازدواج",
+    "svc2-f2-5": "رد الجنسية",
+    "svc2-f3": "خدمات الهجرة وتقنين الأوضاع",
+    "svc2-f3-desc": "خدمات شاملة للمصريين المهاجرين:",
     "svc2-f3-1": "الهجرة الدائمة: تسجيل بيانات المصريين المهاجرين وتحديث ملفاتهم رسميًا.",
     "svc2-f3-2": "الإعفاء من التجنيد: استخراج شهادات صغار السن والمهاجرين لتقديمها للتجنيد.",
     "svc2-f3-3": "إخطار السفر: إخطار الإدارة برغبة السفر للمهاجرين الخاضعين للإشراف.",
-    "svc2-f4": "خدمات الأجانب في مصر والإقامات", "svc2-f4-desc": "نساعد الأجانب في الحصول على الإقامات المختلفة في مصر، استخراج التأشيرات، تجديد الإقامة، واستكمال كافة الإجراءات القانونية أمام الجهات المختصة.",
-    "svc3-title": "قطاع التقاضي والدفاع", "svc3-desc": "تمثيل قانوني حازم أمام كافة المحاكم والهيئات القضائية.",
-    "svc3-f1": "الجنايات والأمن السيبراني والجرائم الإلكترونية", "svc3-f1-desc": "تمثيل قانوني حازم في القضايا الجنائية، مع التخصص الدقيق في مكافحة الجرائم الإلكترونية، الابتزاز الرقمي، وحماية البيانات السرية.",
-    "svc3-f2": "خدمات جمارك التجارة الدولية والاستيراد والتصدير", "svc3-f2-desc": "قضايا التهريب الجمركي، تسوية وفض النزاعات الجمركية، استشارات الإعفاءات الجمركية، تراخيص الاستيراد والتصدير.",
-    "svc3-f3": "خدمات الاستشارات الضريبية والمنازعات المالية", "svc3-f3-desc": "الطعون والمنازعات الضريبية، ضريبة القيمة المضافة والدخل، الفحص والتسجيل الضريبي، الدمج والاستحواذ الضريبي.",
-    "svc3-f4": "خدمات المنازعات العقارية والاستثمار العقاري", "svc3-f4-desc": "تسجيل العقارات والشهر العقاري، منازعات الملكية العقارية، صياغة عقود البيع والإيجار، تأسيس وإدارة المحافظ العقارية.",
-    "svc3-f5": "القانون المدني والمنازعات المدنية", "svc3-f5-desc": "صياغة العقود وإدارة الالتزامات والتعويضات، إلى جانب تنظيم العلاقات التعاقدية.",
-    "svc3-f6": "قضايا العمال والمنازعات العمالية", "svc3-f6-desc": "حل النزاعات العمالية لحفظ حقوق أطراف العمل.",
-    "svc3-f7": "قضايا الأسرة والأحوال الشخصية", "svc3-f7-desc": "نقدم حلولاً قانونية متكاملة لحماية حقوقكم العائلية، مع الالتزام التام بأعلى درجات السرية والخصوصية.",
-    "svc4-title": "قطاع المعاملات التجارية والمالية الدولية", "svc4-desc": "حلول قانونية ومالية متكاملة لدعم الشركات العالمية والمستثمرين.",
-    "svc4-f1": "صياغة ومراجعة العقود التجارية الدولية", "svc4-f1-desc": "نصيغ ونراجع كافة الأنماط التعاقدية الدولية:",
-    "svc4-f1-1": "عقود البيع والتوريد الدولي", "svc4-f1-2": "عقود الوكالة والتوزيع التجاري", "svc4-f1-3": "عقود الوساطة والسمسرة الدولية", "svc4-f1-4": "عقود الامتياز التجاري (Franchise)", "svc4-f1-5": "اتفاقيات عدم الإفصاح والسرية (NDA)",
-    "svc4-f2": "عقود التمويل والتسهيلات الائتمانية الدولية", "svc4-f2-desc": "نراجع ونضبط الأطر القانونية للتمويل الخارجي:",
-    "svc4-f2-1": "اتفاقيات القروض الدولية", "svc4-f2-2": "عقود التسهيلات الائتمانية", "svc4-f2-3": "الامتثال لقرارات البنك المركزي",
-    "svc4-f3": "المعاملات المالية الدولية والاعتمادات المستندية", "svc4-f3-desc": "نوفر الإشراف الإداري والقانوني على تدفقات أموالك:",
-    "svc4-f3-1": "الاعتمادات المستندية وخطابات الضمان", "svc4-f3-2": "الامتثال لضوابط التحويلات النقدية", "svc4-f3-3": "مراجعة مستندات الشحن والتخليص",
-    "team-title": "فريق العمل", "team-subtitle": "نخبة من أفضل المحامين والمستشارين",
-    "team1-name": "محمد أحمد", "team1-role": "المؤسس والشريك الإداري", "team1-desc": "خبرة 15 عاماً في الشركات والاستثمار والتقاضي الدولي.",
-    "team2-name": "أحمد خالد", "team2-role": "شريك - شؤون الأجانب والهجرة", "team2-desc": "متخصص في قانون الهجرة والجنسية وشؤون الأجانب.",
-    "team3-name": "سارة محمود", "team3-role": "مستشارة - العقارات والضرائب", "team3-desc": "خبيرة في المنازعات العقارية والاستشارات الضريبية.",
-    "team4-name": "عمر حسن", "team4-role": "محامٍ - التقاضي والأمن السيبراني", "team4-desc": "متخصص في القضايا الجنائية والجرائم الإلكترونية.",
-    "testimonials-title": "آراء عملائنا", "testimonials-subtitle": "ما يقوله عملاؤنا عنا",
+    "svc2-f4": "خدمات الأجانب في مصر والإقامات",
+    "svc2-f4-desc": "نساعد الأجانب في الحصول على الإقامات المختلفة في مصر، استخراج التأشيرات، تجديد الإقامة، واستكمال كافة الإجراءات القانونية أمام الجهات المختصة.",
+    "svc3-title": "قطاع التقاضي والدفاع",
+    "svc3-desc": "تمثيل قانوني حازم أمام كافة المحاكم والهيئات القضائية.",
+    "svc3-f1": "الجنايات والأمن السيبراني والجرائم الإلكترونية",
+    "svc3-f1-desc": "تمثيل قانوني حازم في القضايا الجنائية، مع التخصص الدقيق في مكافحة الجرائم الإلكترونية، الابتزاز الرقمي، وحماية البيانات السرية.",
+    "svc3-f2": "خدمات جمارك التجارة الدولية والاستيراد والتصدير",
+    "svc3-f2-desc": "قضايا التهريب الجمركي، تسوية وفض النزاعات الجمركية، استشارات الإعفاءات الجمركية، تراخيص الاستيراد والتصدير.",
+    "svc3-f3": "خدمات الاستشارات الضريبية والمنازعات المالية",
+    "svc3-f3-desc": "الطعون والمنازعات الضريبية، ضريبة القيمة المضافة والدخل، الفحص والتسجيل الضريبي، الدمج والاستحواذ الضريبي.",
+    "svc3-f4": "خدمات المنازعات العقارية والاستثمار العقاري",
+    "svc3-f4-desc": "تسجيل العقارات والشهر العقاري، منازعات الملكية العقارية، صياغة عقود البيع والإيجار، تأسيس وإدارة المحافظ العقارية.",
+    "svc3-f5": "القانون المدني والمنازعات المدنية",
+    "svc3-f5-desc": "صياغة العقود وإدارة الالتزامات والتعويضات، إلى جانب تنظيم العلاقات التعاقدية.",
+    "svc3-f6": "قضايا العمال والمنازعات العمالية",
+    "svc3-f6-desc": "حل النزاعات العمالية لحفظ حقوق أطراف العمل.",
+    "svc3-f7": "قضايا الأسرة والأحوال الشخصية",
+    "svc3-f7-desc": "نقدم حلولاً قانونية متكاملة لحماية حقوقكم العائلية، مع الالتزام التام بأعلى درجات السرية والخصوصية.",
+    "svc4-title": "قطاع المعاملات التجارية والمالية الدولية",
+    "svc4-desc": "حلول قانونية ومالية متكاملة لدعم الشركات العالمية والمستثمرين.",
+    "svc4-f1": "صياغة ومراجعة العقود التجارية الدولية",
+    "svc4-f1-desc": "نصيغ ونراجع كافة الأنماط التعاقدية الدولية:",
+    "svc4-f1-1": "عقود البيع والتوريد الدولي",
+    "svc4-f1-2": "عقود الوكالة والتوزيع التجاري",
+    "svc4-f1-3": "عقود الوساطة والسمسرة الدولية",
+    "svc4-f1-4": "عقود الامتياز التجاري (Franchise)",
+    "svc4-f1-5": "اتفاقيات عدم الإفصاح والسرية (NDA)",
+    "svc4-f2": "عقود التمويل والتسهيلات الائتمانية الدولية",
+    "svc4-f2-desc": "نراجع ونضبط الأطر القانونية للتمويل الخارجي:",
+    "svc4-f2-1": "اتفاقيات القروض الدولية",
+    "svc4-f2-2": "عقود التسهيلات الائتمانية",
+    "svc4-f2-3": "الامتثال لقرارات البنك المركزي",
+    "svc4-f3": "المعاملات المالية الدولية والاعتمادات المستندية",
+    "svc4-f3-desc": "نوفر الإشراف الإداري والقانوني على تدفقات أموالك:",
+    "svc4-f3-1": "الاعتمادات المستندية وخطابات الضمان",
+    "svc4-f3-2": "الامتثال لضوابط التحويلات النقدية",
+    "svc4-f3-3": "مراجعة مستندات الشحن والتخليص",
+    "team-title": "فريق العمل",
+    "team-subtitle": "نخبة من أفضل المحامين والمستشارين",
+    "team1-name": "محمد أحمد",
+    "team1-role": "المؤسس والشريك الإداري",
+    "team1-desc": "خبرة 15 عاماً في الشركات والاستثمار والتقاضي الدولي.",
+    "team2-name": "أحمد خالد",
+    "team2-role": "شريك - شؤون الأجانب والهجرة",
+    "team2-desc": "متخصص في قانون الهجرة والجنسية وشؤون الأجانب.",
+    "team3-name": "سارة محمود",
+    "team3-role": "مستشارة - العقارات والضرائب",
+    "team3-desc": "خبيرة في المنازعات العقارية والاستشارات الضريبية.",
+    "team4-name": "عمر حسن",
+    "team4-role": "محامٍ - التقاضي والأمن السيبراني",
+    "team4-desc": "متخصص في القضايا الجنائية والجرائم الإلكترونية.",
+    "testimonials-title": "آراء عملائنا",
+    "testimonials-subtitle": "ما يقوله عملاؤنا عنا",
     "test1-text": "تعاملت مع Legacy Law Firm في تأسيس شركتي، التجربة كانت ممتازة. الاحترافية والسرعة فاقت توقعاتي.",
-    "test1-name": "خالد العبدالله", "test1-role": "رجل أعمال - القاهرة",
+    "test1-name": "خالد العبدالله",
+    "test1-role": "رجل أعمال - القاهرة",
     "test2-text": "ساعدوني في استخراج إقامتي في مصر بكل سلاسة. فريق متعاون ويملك خبرة عميقة في إجراءات الهجرة.",
-    "test2-name": "Thomas Mueller", "test2-role": "مستثمر ألماني - الغردقة",
+    "test2-name": "Thomas Mueller",
+    "test2-role": "مستثمر ألماني - الغردقة",
     "test3-text": "محامون محترفون جداً، تعاملت معهم في قضية عقارية معقدة وتم حلها لصالحي. أنصح بالتعامل معهم بشدة.",
-    "test3-name": "ليلى سامي", "test3-role": "طبيبة - الإسكندرية",
-    "faq-title": "الأسئلة الشائعة", "faq-subtitle": "إجابات على أكثر الأسئلة تكراراً",
-    "faq1-q": "كم تستغرق عملية تأسيس شركة في مصر؟", "faq1-a": "تستغرق عملية تأسيس الشركة من 7 إلى 14 يوم عمل، حسب نوع الشركة والمستندات المطلوبة.",
-    "faq2-q": "هل تقدمون استشارات قانونية أونلاين؟", "faq2-a": "نعم، نقدم استشارات قانونية أونلاين عبر الفيديو كونفرنس أو الهاتف.",
-    "faq3-q": "ما هي تكلفة الاستشارة القانونية الأولى؟", "faq3-a": "الاستشارة القانونية الأولى مجانية لمدة 30 دقيقة.",
-    "faq4-q": "هل يمكنكم التعامل مع القضايا الدولية؟", "faq4-a": "نعم، لدينا خبرة واسعة في القضايا الدولية والعقود العابرة للحدود.",
-    "faq5-q": "ما هي ساعات العمل الرسمية؟", "faq5-a": "نعمل من السبت إلى الخميس، من 9 صباحاً حتى 7 مساءً.",
-    "vision-title": "رؤيتنا", "vision-subtitle": "رسالتنا المستقبلية",
+    "test3-name": "ليلى سامي",
+    "test3-role": "طبيبة - الإسكندرية",
+    "faq-title": "الأسئلة الشائعة",
+    "faq-subtitle": "إجابات على أكثر الأسئلة تكراراً",
+    "faq1-q": "كم تستغرق عملية تأسيس شركة في مصر؟",
+    "faq1-a": "تستغرق عملية تأسيس الشركة من 7 إلى 14 يوم عمل، حسب نوع الشركة والمستندات المطلوبة.",
+    "faq2-q": "هل تقدمون استشارات قانونية أونلاين؟",
+    "faq2-a": "نعم، نقدم استشارات قانونية أونلاين عبر الفيديو كونفرنس أو الهاتف.",
+    "faq3-q": "ما هي تكلفة الاستشارة القانونية الأولى؟",
+    "faq3-a": "الاستشارة القانونية الأولى مجانية لمدة 30 دقيقة.",
+    "faq4-q": "هل يمكنكم التعامل مع القضايا الدولية؟",
+    "faq4-a": "نعم، لدينا خبرة واسعة في القضايا الدولية والعقود العابرة للحدود.",
+    "faq5-q": "ما هي ساعات العمل الرسمية؟",
+    "faq5-a": "نعمل من السبت إلى الخميس، من 9 صباحاً حتى 7 مساءً.",
+    "vision-title": "رؤيتنا",
+    "vision-subtitle": "رسالتنا المستقبلية",
     "vision-body": "نؤمن بأن الريادة في عالم القانون لا تُقاس بالزمن أو الأقدمية، بل بالحلول الفعالة والدقة المتناهية التي تواكب العصر. ندمج بين الخبرة القانونية العميقة والسرعة والمرونة لنواكب الوتيرة المتسارعة لقطاعات الأعمال الحديثة ونضمن لعملائنا الاستقرار والاستدامة وتحقيق أهدافهم الاستراتيجية بأمان مطلق.",
-    "contact-title": "تواصل معنا", "contact-subtitle": "نحن هنا لمساعدتك",
-    "lbl-email": "البريد الإلكتروني", "lbl-phone": "رقم الهاتف", "lbl-address": "العنوان",
-    "address-main-label": "المقر الرئيسي:", "address-main": "ميدان الدهار - شارع اللواء سليمان مظهر، الغردقة، مصر",
-    "address-branch-label": "فرع القاهرة:", "address-branch": "مدينة بدر، القاهرة، مصر",
-    "lbl-hours": "ساعات العمل", "val-hours": "السبت - الخميس: 9 ص - 7 م",
-    "social-title": "تابعنا على السوشيال ميديا", "social-fb": "فيسبوك", "social-ig": "إنستجرام", "social-li": "لينكد إن",
-    "form-name": "الاسم الكامل *", "form-email": "البريد الإلكتروني *", "form-phone": "رقم الهاتف", "form-subject": "نوع الخدمة *",
-    "form-select": "اختر نوع الخدمة...", "form-opt1": "تأسيس شركات", "form-opt2": "هجرة وجنسية", "form-opt3": "تقاضي ودفاع",
-    "form-opt4": "استشارات ضريبية", "form-opt5": "عقارات", "form-opt6": "قضايا أسرة", "form-opt7": "أخرى",
-    "form-message": "تفاصيل استفسارك *", "form-submit": "إرسال الرسالة",
-    "footer-about": "من نحن", "footer-services": "خدماتنا", "footer-privacy": "سياسة الخصوصية", "footer-terms": "الشروط والأحكام", "footer-contact": "تواصل معنا",
+    "contact-title": "تواصل معنا",
+    "contact-subtitle": "نحن هنا لمساعدتك",
+    "lbl-email": "البريد الإلكتروني",
+    "lbl-phone": "رقم الهاتف",
+    "lbl-address": "العنوان",
+    "address-main-label": "المقر الرئيسي:",
+    "address-main": "ميدان الدهار - شارع اللواء سليمان مظهر، الغردقة، مصر",
+    "address-branch-label": "فرع القاهرة:",
+    "address-branch": "مدينة بدر، القاهرة، مصر",
+    "lbl-hours": "ساعات العمل",
+    "val-hours": "السبت - الخميس: 9 ص - 7 م",
+    "social-title": "تابعنا على السوشيال ميديا",
+    "social-fb": "فيسبوك",
+    "social-ig": "إنستجرام",
+    "social-li": "لينكد إن",
+    "form-name": "الاسم الكامل *",
+    "form-email": "البريد الإلكتروني *",
+    "form-phone": "رقم الهاتف",
+    "form-subject": "نوع الخدمة *",
+    "form-select": "اختر نوع الخدمة...",
+    "form-opt1": "تأسيس شركات",
+    "form-opt2": "هجرة وجنسية",
+    "form-opt3": "تقاضي ودفاع",
+    "form-opt4": "استشارات ضريبية",
+    "form-opt5": "عقارات",
+    "form-opt6": "قضايا أسرة",
+    "form-opt7": "أخرى",
+    "form-message": "تفاصيل استفسارك *",
+    "form-submit": "إرسال الرسالة",
+    "footer-about": "من نحن",
+    "footer-services": "خدماتنا",
+    "footer-privacy": "سياسة الخصوصية",
+    "footer-terms": "الشروط والأحكام",
+    "footer-contact": "تواصل معنا",
     "footer-line1": "ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.",
     "footer-line2": "© 2026 Legacy Law Firm - جميع الحقوق محفوظة",
     "cookie-text": "نستخدم ملفات تعريف الارتباط لتحسين تجربتك. باستمرارك في تصفح الموقع، فإنك توافق على ",
-    "cookie-accept": "موافق", "skip-link": "انتقل للمحتوى الرئيسي"
+    "cookie-accept": "موافق",
+    "skip-link": "انتقل للمحتوى الرئيسي"
   },
   en: {
-    "nav-about": "About Us", "nav-stats": "Our Stats", "nav-quick-contact": "Quick Contact", "nav-services": "Services",
-    "nav-team": "Our Team", "nav-testimonials": "Testimonials", "nav-faq": "FAQ", "nav-vision": "Our Vision", "nav-contact": "Contact Us",
-    "hero-tagline": "Legal Practice, Consultancy & Corporate Formation", "about-title": "Who Are We?", "about-subtitle": "About the Firm",
-    "stats-title": "Our Numbers Speak", "stats-subtitle": "Our Achievements in Numbers",
-    "stat1-label": "Successful Cases", "stat2-label": "Years of Experience", "stat3-label": "Trusted Clients", "stat4-label": "Client Satisfaction",
-    "quick-title": "Quick Contact", "quick-subtitle": "We are here to help you immediately",
+    "nav-about": "About Us",
+    "nav-stats": "Our Numbers",
+    "nav-quick-contact": "Quick Contact",
+    "nav-services": "Services",
+    "nav-team": "Our Team",
+    "nav-testimonials": "Testimonials",
+    "nav-faq": "FAQ",
+    "nav-vision": "Our Vision",
+    "nav-contact": "Contact Us",
+    "hero-tagline": "Legal Practice, Consultancy & Corporate Formation",
+    "about-title": "Who Are We?",
+    "about-subtitle": "About the Firm",
+    "about-body": "We are a law firm and legal consultancy providing integrated advice and solutions for individuals and companies. We combine deep expertise with speed and flexibility to keep pace with modern business, ensuring our clients' interests are protected and building sustainable partnerships for success.<br><br>We offer a comprehensive legal protection umbrella and smart consultations that meet the aspirations of both local and international entities. Our scope of work extends to an integrated system of solutions.",
+    "stats-title": "Our Numbers Speak for Us",
+    "stats-subtitle": "Our Achievements in Numbers",
+    "stat1-label": "Successful Cases & Matters",
+    "stat2-label": "Years of Experience",
+    "stat3-label": "Trusted Clients",
+    "stat4-label": "Client Satisfaction Rate",
+    "book-consult": "Book Free Consultation",
+    "quick-title": "Quick Contact",
+    "quick-subtitle": "We are here to help you immediately",
     "quick-desc": "Write your issue and our team will study it and respond immediately. Contact us directly via email or WhatsApp.",
-    "quick-email": "Email", "quick-whatsapp": "WhatsApp", "book-consult": "Book Free Consultation",
-    "services-title": "Our Legal Services", "services-subtitle": "Areas of Expertise",
-    "svc1-title": "Corporate & Investment Law", "svc1-desc": "Integrated legal solutions for companies at all stages.",
-    "svc1-f1": "Company Formation & Establishment", "svc1-f1-desc": "We guide you step by step from the very beginning to establish companies in all their legal forms, completing all government licenses and approvals to start investing with confidence and full security.",
-    "svc1-f2": "Restructuring, Mergers & Acquisitions (M&A)", "svc1-f2-desc": "Professional management and precise legal guidance for mergers, acquisitions, and legal entity modifications to ensure your business growth and expansion.",
-    "svc1-f3": "Intellectual Property Protection", "svc1-f3-desc": "Registration and protection of trademarks, patents, and copyrights to safeguard your company's intellectual and commercial assets in the market.",
-    "svc1-f4": "Corporate Liquidation", "svc1-f4-desc": "Comprehensive legal liquidation procedures and financial discharge with complete smoothness, safety, and reliability before official authorities.",
-    "svc2-title": "Foreign Affairs - Immigration & Nationality Law", "svc2-desc": "Specialized legal services for individuals and international companies.",
-    "svc2-f1": "Personal Status Documentation for Foreign Marriages", "svc2-f1-desc": "We provide documentation services for marriage contracts for foreigners in Egypt, completing legal procedures, obtaining official certificates, and ensuring the validity of the contract before the competent authorities.",
-    "svc2-f2": "Egyptian Nationality Services", "svc2-f2-desc": "We provide all services related to Egyptian nationality:",
-    "svc2-f2-1": "Nationality Proof", "svc2-f2-2": "Nationality Acquisition", "svc2-f2-3": "Investment & Naturalization", "svc2-f2-4": "Dual Nationality Permit", "svc2-f2-5": "Nationality Renunciation",
-    "svc2-f3": "Immigration & Status Regularization", "svc2-f3-desc": "Comprehensive services for Egyptian emigrants:",
+    "quick-email": "Email",
+    "quick-whatsapp": "WhatsApp",
+    "services-title": "Our Legal Services",
+    "services-subtitle": "Areas of Expertise",
+    "svc1-title": "Corporate & Investment Law",
+    "svc1-desc": "Integrated legal solutions for companies at all stages.",
+    "svc1-f1": "Company Formation & Establishment",
+    "svc1-f1-desc": "We guide you step by step from the very beginning to establish companies in all their legal forms, completing all government licenses and approvals to start investing with confidence and full security.",
+    "svc1-f2": "Restructuring, Mergers & Acquisitions (M&A)",
+    "svc1-f2-desc": "Professional management and precise legal guidance for mergers, acquisitions, and legal entity modifications to ensure your business growth and expansion.",
+    "svc1-f3": "Intellectual Property Protection",
+    "svc1-f3-desc": "Registration and protection of trademarks, patents, and copyrights to safeguard your company's intellectual and commercial assets in the market.",
+    "svc1-f4": "Corporate Liquidation",
+    "svc1-f4-desc": "Comprehensive legal liquidation procedures and financial discharge with complete smoothness, safety, and reliability before official authorities.",
+    "svc2-title": "Foreign Affairs - Immigration & Nationality Law",
+    "svc2-desc": "Specialized legal services for individuals and international companies.",
+    "svc2-f1": "Personal Status Documentation for Foreign Marriages",
+    "svc2-f1-desc": "We provide documentation services for marriage contracts for foreigners in Egypt, completing legal procedures, obtaining official certificates, and ensuring the validity of the contract before the competent authorities.",
+    "svc2-f2": "Egyptian Nationality Services",
+    "svc2-f2-desc": "We provide all services related to Egyptian nationality:",
+    "svc2-f2-1": "Nationality Proof",
+    "svc2-f2-2": "Nationality Acquisition",
+    "svc2-f2-3": "Investment & Naturalization",
+    "svc2-f2-4": "Dual Nationality Permit",
+    "svc2-f2-5": "Nationality Renunciation",
+    "svc2-f3": "Immigration & Status Regularization",
+    "svc2-f3-desc": "Comprehensive services for Egyptian emigrants:",
     "svc2-f3-1": "Permanent Immigration: Registering data of Egyptian emigrants and officially updating their files.",
     "svc2-f3-2": "Military Exemption: Issuing certificates for minors and emigrants to present for conscription.",
     "svc2-f3-3": "Travel Notification: Notifying the administration of the travel request for supervised emigrants.",
-    "svc2-f4": "Foreigners in Egypt & Residency Services", "svc2-f4-desc": "We help foreigners obtain various residencies in Egypt, extract visas, renew residency, and complete all legal procedures before the competent authorities.",
-    "svc3-title": "Litigation & Defense Practice", "svc3-desc": "Strong legal representation before all courts and judicial bodies.",
-    "svc3-f1": "Criminal Law & Cybercrime Defense", "svc3-f1-desc": "Firm legal representation in criminal cases, with specialized expertise in combating cybercrimes, digital extortion, and protecting confidential data.",
-    "svc3-f2": "International Trade Customs, Import & Export Services", "svc3-f2-desc": "Customs smuggling cases, settlement and resolution of customs disputes, customs exemption consultations, import/export licenses.",
-    "svc3-f3": "Tax Consultancy & Financial Disputes Services", "svc3-f3-desc": "Tax appeals and disputes, VAT and income tax, tax inspection and registration, tax M&A.",
-    "svc3-f4": "Real Estate Disputes & Property Investment Services", "svc3-f4-desc": "Property registration and notarization, real estate ownership disputes, drafting sale and lease contracts, establishing and managing real estate portfolios.",
-    "svc3-f5": "Civil Law & Civil Litigation", "svc3-f5-desc": "Drafting contracts and managing obligations, compensation, and the organization of contractual relationships.",
-    "svc3-f6": "Labor & Employment Law", "svc3-f6-desc": "Resolving labor disputes to preserve the rights of all parties involved in the employment relationship.",
-    "svc3-f7": "Family Law & Personal Status Cases", "svc3-f7-desc": "We provide integrated legal solutions to protect your family rights, with full commitment to the highest levels of confidentiality and privacy.",
-    "svc4-title": "International Commercial & Financial Transactions", "svc4-desc": "Integrated legal and financial solutions to support global companies and investors.",
-    "svc4-f1": "Drafting and Review of International Commercial Contracts", "svc4-f1-desc": "We draft and review all types of international contractual arrangements:",
-    "svc4-f1-1": "International Sale and Supply Contracts", "svc4-f1-2": "Agency and Commercial Distribution Contracts", "svc4-f1-3": "International Mediation and Brokerage Contracts", "svc4-f1-4": "Franchise Agreements", "svc4-f1-5": "Non-Disclosure and Confidentiality Agreements (NDA)",
-    "svc4-f2": "Financing and International Credit Facilities Contracts", "svc4-f2-desc": "We review and adjust the legal frameworks for external financing:",
-    "svc4-f2-1": "International Loan Agreements", "svc4-f2-2": "Credit Facility Contracts", "svc4-f2-3": "Compliance with Central Bank Decisions",
-    "svc4-f3": "International Financial Transactions and Documentary Credits", "svc4-f3-desc": "We provide administrative and legal oversight over your cash flows:",
-    "svc4-f3-1": "Documentary Credits and Letters of Guarantee", "svc4-f3-2": "Compliance with Cash Transfer Regulations", "svc4-f3-3": "Review of Shipping and Clearance Documents",
-    "team-title": "Our Team", "team-subtitle": "Elite of the best lawyers and consultants",
-    "team1-name": "Mohamed Ahmed", "team1-role": "Founder & Managing Partner", "team1-desc": "15 years of experience in corporate law, investment, and international litigation.",
-    "team2-name": "Ahmed Khalid", "team2-role": "Partner - Foreign Affairs & Immigration", "team2-desc": "Specialist in immigration law, nationality, and foreign affairs.",
-    "team3-name": "Sara Mahmoud", "team3-role": "Consultant - Real Estate & Tax", "team3-desc": "Expert in real estate disputes and tax consultancy.",
-    "team4-name": "Omar Hassan", "team4-role": "Lawyer - Litigation & Cybersecurity", "team4-desc": "Specialist in criminal cases and cybercrimes.",
-    "testimonials-title": "Client Testimonials", "testimonials-subtitle": "What our clients say about us",
+    "svc2-f4": "Foreigners in Egypt & Residency Services",
+    "svc2-f4-desc": "We help foreigners obtain various residencies in Egypt, extract visas, renew residency, and complete all legal procedures before the competent authorities.",
+    "svc3-title": "Litigation & Defense Practice",
+    "svc3-desc": "Strong legal representation before all courts and judicial bodies.",
+    "svc3-f1": "Criminal Law & Cybercrime Defense",
+    "svc3-f1-desc": "Firm legal representation in criminal cases, with specialized expertise in combating cybercrimes, digital extortion, and protecting confidential data.",
+    "svc3-f2": "International Trade Customs, Import & Export Services",
+    "svc3-f2-desc": "Customs smuggling cases, settlement and resolution of customs disputes, customs exemption consultations, import/export licenses.",
+    "svc3-f3": "Tax Consultancy & Financial Disputes Services",
+    "svc3-f3-desc": "Tax appeals and disputes, VAT and income tax, tax inspection and registration, tax M&A.",
+    "svc3-f4": "Real Estate Disputes & Property Investment Services",
+    "svc3-f4-desc": "Property registration and notarization, real estate ownership disputes, drafting sale and lease contracts, establishing and managing real estate portfolios.",
+    "svc3-f5": "Civil Law & Civil Litigation",
+    "svc3-f5-desc": "Drafting contracts and managing obligations, compensation, and the organization of contractual relationships.",
+    "svc3-f6": "Labor & Employment Law",
+    "svc3-f6-desc": "Resolving labor disputes to preserve the rights of all parties involved in the employment relationship.",
+    "svc3-f7": "Family Law & Personal Status Cases",
+    "svc3-f7-desc": "We provide integrated legal solutions to protect your family rights, with full commitment to the highest levels of confidentiality and privacy.",
+    "svc4-title": "International Commercial & Financial Transactions",
+    "svc4-desc": "Integrated legal and financial solutions to support global companies and investors.",
+    "svc4-f1": "Drafting and Review of International Commercial Contracts",
+    "svc4-f1-desc": "We draft and review all types of international contractual arrangements:",
+    "svc4-f1-1": "International Sale and Supply Contracts",
+    "svc4-f1-2": "Agency and Commercial Distribution Contracts",
+    "svc4-f1-3": "International Mediation and Brokerage Contracts",
+    "svc4-f1-4": "Franchise Agreements",
+    "svc4-f1-5": "Non-Disclosure and Confidentiality Agreements (NDA)",
+    "svc4-f2": "Financing and International Credit Facilities Contracts",
+    "svc4-f2-desc": "We review and adjust the legal frameworks for external financing:",
+    "svc4-f2-1": "International Loan Agreements",
+    "svc4-f2-2": "Credit Facility Contracts",
+    "svc4-f2-3": "Compliance with Central Bank Decisions",
+    "svc4-f3": "International Financial Transactions and Documentary Credits",
+    "svc4-f3-desc": "We provide administrative and legal oversight over your cash flows:",
+    "svc4-f3-1": "Documentary Credits and Letters of Guarantee",
+    "svc4-f3-2": "Compliance with Cash Transfer Regulations",
+    "svc4-f3-3": "Review of Shipping and Clearance Documents",
+    "team-title": "Our Team",
+    "team-subtitle": "Elite of the best lawyers and consultants",
+    "team1-name": "Mohamed Ahmed",
+    "team1-role": "Founder & Managing Partner",
+    "team1-desc": "15 years of experience in corporate law, investment, and international litigation.",
+    "team2-name": "Ahmed Khalid",
+    "team2-role": "Partner - Foreign Affairs & Immigration",
+    "team2-desc": "Specialist in immigration law, nationality, and foreign affairs.",
+    "team3-name": "Sara Mahmoud",
+    "team3-role": "Consultant - Real Estate & Tax",
+    "team3-desc": "Expert in real estate disputes and tax consultancy.",
+    "team4-name": "Omar Hassan",
+    "team4-role": "Lawyer - Litigation & Cybersecurity",
+    "team4-desc": "Specialist in criminal cases and cybercrimes.",
+    "testimonials-title": "Client Testimonials",
+    "testimonials-subtitle": "What our clients say about us",
     "test1-text": "I dealt with Legacy Law Firm in establishing my company, the experience was excellent. Professionalism and speed exceeded my expectations.",
-    "test1-name": "Khaled Al-Abdullah", "test1-role": "Businessman - Cairo",
+    "test1-name": "Khaled Al-Abdullah",
+    "test1-role": "Businessman - Cairo",
     "test2-text": "They helped me get my residency in Egypt smoothly. A cooperative team with deep experience in immigration procedures.",
-    "test2-name": "Thomas Mueller", "test2-role": "German Investor - Hurghada",
+    "test2-name": "Thomas Mueller",
+    "test2-role": "German Investor - Hurghada",
     "test3-text": "Very professional lawyers, I dealt with them in a complex real estate case and it was resolved in my favor. I highly recommend them.",
-    "test3-name": "Laila Sami", "test3-role": "Doctor - Alexandria",
-    "faq-title": "Frequently Asked Questions", "faq-subtitle": "Answers to the most frequently asked questions",
-    "faq1-q": "How long does the process of establishing a company in Egypt take?", "faq1-a": "The company formation process takes 7 to 14 working days, depending on the company type and required documents.",
-    "faq2-q": "Do you provide online legal consultations?", "faq2-a": "Yes, we provide online legal consultations via video conference or phone.",
-    "faq3-q": "What is the cost of the first legal consultation?", "faq3-a": "The first legal consultation is free for 30 minutes.",
-    "faq4-q": "Can you handle international cases?", "faq4-a": "Yes, we have extensive experience in international cases and cross-border contracts.",
-    "faq5-q": "What are the official working hours?", "faq5-a": "We work from Saturday to Thursday, from 9 AM to 7 PM.",
-    "vision-title": "Our Vision", "vision-subtitle": "Our Future Mission",
+    "test3-name": "Laila Sami",
+    "test3-role": "Doctor - Alexandria",
+    "faq-title": "Frequently Asked Questions",
+    "faq-subtitle": "Answers to the most frequently asked questions",
+    "faq1-q": "How long does the process of establishing a company in Egypt take?",
+    "faq1-a": "The company formation process takes 7 to 14 working days, depending on the company type and required documents.",
+    "faq2-q": "Do you provide online legal consultations?",
+    "faq2-a": "Yes, we provide online legal consultations via video conference or phone.",
+    "faq3-q": "What is the cost of the first legal consultation?",
+    "faq3-a": "The first legal consultation is free for 30 minutes.",
+    "faq4-q": "Can you handle international cases?",
+    "faq4-a": "Yes, we have extensive experience in international cases and cross-border contracts.",
+    "faq5-q": "What are the official working hours?",
+    "faq5-a": "We work from Saturday to Thursday, from 9 AM to 7 PM.",
+    "vision-title": "Our Vision",
+    "vision-subtitle": "Our Future Mission",
     "vision-body": "We believe that leadership in the legal world is not measured by time or seniority, but by effective solutions and meticulous precision that keep pace with the era. We combine deep legal expertise with speed and flexibility to match the rapid pace of modern business sectors and ensure our clients' stability, sustainability, and the achievement of their strategic goals with absolute safety.",
-    "contact-title": "Contact Us", "contact-subtitle": "We are here to help you",
-    "lbl-email": "Email", "lbl-phone": "Phone", "lbl-address": "Address",
-    "address-main-label": "Headquarters:", "address-main": "El Dahar Square - Suleiman Mazhar St., Hurghada, Egypt",
-    "address-branch-label": "Cairo Branch:", "address-branch": "Badr City, Cairo, Egypt",
-    "lbl-hours": "Working Hours", "val-hours": "Sat - Thu: 9 AM - 7 PM",
-    "social-title": "Follow Us", "social-fb": "Facebook", "social-ig": "Instagram", "social-li": "LinkedIn",
-    "form-name": "Full Name *", "form-email": "Email *", "form-phone": "Phone Number", "form-subject": "Service Type *",
-    "form-select": "Select service type...", "form-opt1": "Company Formation", "form-opt2": "Immigration & Nationality", "form-opt3": "Litigation & Defense",
-    "form-opt4": "Tax Consultancy", "form-opt5": "Real Estate", "form-opt6": "Family Cases", "form-opt7": "Other",
-    "form-message": "Your Inquiry Details *", "form-submit": "Send Message",
-    "footer-about": "About Us", "footer-services": "Services", "footer-privacy": "Privacy Policy", "footer-terms": "Terms & Conditions", "footer-contact": "Contact Us",
+    "contact-title": "Contact Us",
+    "contact-subtitle": "We are here to help you",
+    "lbl-email": "Email",
+    "lbl-phone": "Phone",
+    "lbl-address": "Address",
+    "address-main-label": "Headquarters:",
+    "address-main": "El Dahar Square - Suleiman Mazhar St., Hurghada, Egypt",
+    "address-branch-label": "Cairo Branch:",
+    "address-branch": "Badr City, Cairo, Egypt",
+    "lbl-hours": "Working Hours",
+    "val-hours": "Sat - Thu: 9 AM - 7 PM",
+    "social-title": "Follow Us",
+    "social-fb": "Facebook",
+    "social-ig": "Instagram",
+    "social-li": "LinkedIn",
+    "form-name": "Full Name *",
+    "form-email": "Email *",
+    "form-phone": "Phone Number",
+    "form-subject": "Service Type *",
+    "form-select": "Select service type...",
+    "form-opt1": "Company Formation",
+    "form-opt2": "Immigration & Nationality",
+    "form-opt3": "Litigation & Defense",
+    "form-opt4": "Tax Consultancy",
+    "form-opt5": "Real Estate",
+    "form-opt6": "Family Cases",
+    "form-opt7": "Other",
+    "form-message": "Your Inquiry Details *",
+    "form-submit": "Send Message",
+    "footer-about": "About Us",
+    "footer-services": "Services",
+    "footer-privacy": "Privacy Policy",
+    "footer-terms": "Terms & Conditions",
+    "footer-contact": "Contact Us",
     "footer-line1": "Always committed to meticulous detail to remain the legal fortress and strategic advisor that grants you peace of mind and success.",
     "footer-line2": "© 2026 Legacy Law Firm - All Rights Reserved",
     "cookie-text": "We use cookies to improve your experience. By continuing to browse the site, you agree to our ",
-    "cookie-accept": "Accept", "skip-link": "Skip to main content"
+    "cookie-accept": "Accept",
+    "skip-link": "Skip to main content"
   },
   de: {
-    "nav-about": "Über Uns", "nav-stats": "Unsere Zahlen", "nav-quick-contact": "Schnellkontakt", "nav-services": "Leistungen",
-    "nav-team": "Unser Team", "nav-testimonials": "Referenzen", "nav-faq": "FAQ", "nav-vision": "Unsere Vision", "nav-contact": "Kontakt",
-    "hero-tagline": "Rechtsanwaltschaft, Beratung & Unternehmensgründung", "about-title": "Wer sind wir?", "about-subtitle": "Über die Kanzlei",
-    "stats-title": "Unsere Zahlen sprechen", "stats-subtitle": "Unsere Erfolge in Zahlen",
-    "stat1-label": "Erfolgreiche Fälle", "stat2-label": "Jahre Erfahrung", "stat3-label": "Vertrauende Kunden", "stat4-label": "Kundenzufriedenheit",
-    "quick-title": "Schnellkontakt", "quick-subtitle": "Wir helfen Ihnen sofort",
+    "nav-about": "Über Uns",
+    "nav-stats": "Unsere Zahlen",
+    "nav-quick-contact": "Schnellkontakt",
+    "nav-services": "Leistungen",
+    "nav-team": "Unser Team",
+    "nav-testimonials": "Referenzen",
+    "nav-faq": "FAQ",
+    "nav-vision": "Unsere Vision",
+    "nav-contact": "Kontakt",
+    "hero-tagline": "Rechtsanwaltschaft, Beratung & Unternehmensgründung",
+    "about-title": "Wer sind wir?",
+    "about-subtitle": "Über die Kanzlei",
+    "about-body": "Wir sind eine Anwaltskanzlei und Rechtsberatung, die integrierte Beratung und Lösungen für Einzelpersonen und Unternehmen anbietet. Wir verbinden tiefes Fachwissen mit Geschwindigkeit und Flexibilität, um mit dem modernen Geschäftsleben Schritt zu halten und die Interessen unserer Mandanten zu schützen.<br><br>Wir bieten einen umfassenden rechtlichen Schutzschirm und intelligente Beratung, die die Erwartungen lokaler und internationaler Unternehmen gleichermaßen erfüllen.",
+    "stats-title": "Unsere Zahlen sprechen für uns",
+    "stats-subtitle": "Unsere Erfolge in Zahlen",
+    "stat1-label": "Erfolgreiche Fälle",
+    "stat2-label": "Jahre Erfahrung",
+    "stat3-label": "Vertrauensvolle Mandanten",
+    "stat4-label": "Kundenzufriedenheit",
+    "book-consult": "Kostenlose Beratung buchen",
+    "quick-title": "Schnellkontakt",
+    "quick-subtitle": "Wir helfen Ihnen sofort",
     "quick-desc": "Schreiben Sie Ihr Anliegen, unser Team prüft und antwortet sofort. Kontaktieren Sie uns direkt per E-Mail oder WhatsApp.",
-    "quick-email": "E-Mail", "quick-whatsapp": "WhatsApp", "book-consult": "Kostenlose Beratung buchen",
-    "services-title": "Unsere Rechtsdienstleistungen", "services-subtitle": "Fachgebiete",
-    "svc1-title": "Unternehmens- & Investitionsrecht", "svc1-desc": "Integrierte Rechtslösungen für Unternehmen in allen Phasen.",
-    "svc1-f1": "Unternehmensgründung", "svc1-f1-desc": "Wir begleiten Sie Schritt für Schritt von Anfang an bei der Gründung von Unternehmen in allen rechtlichen Formen und erledigen alle behördlichen Lizenzen und Genehmigungen für einen sicheren Investitionsstart.",
-    "svc1-f2": "Umstrukturierung, Fusionen & Übernahmen (M&A)", "svc1-f2-desc": "Professionelles Management und präzise rechtliche Steuerung für Fusionen, Übernahmen und Änderungen von Rechtsträgern, um Ihr Geschäftswachstum und Ihre Expansion zu gewährleisten.",
-    "svc1-f3": "Schutz geistigen Eigentums", "svc1-f3-desc": "Registrierung und Schutz von Marken, Patenten und Urheberrechten zur Sicherung der intellektuellen und kommerziellen Vermögenswerte Ihres Unternehmens.",
-    "svc1-f4": "Unternehmensliquidation", "svc1-f4-desc": "Umfassende rechtliche Abwicklungsverfahren und finanzielle Entlastung mit völliger Reibungslosigkeit, Sicherheit und Zuverlässigkeit vor offiziellen Stellen.",
-    "svc2-title": "Ausländerangelegenheiten - Einwanderungs- & Staatsangehörigkeitsrecht", "svc2-desc": "Spezialisierte Rechtsdienstleistungen für internationale Mandanten.",
-    "svc2-f1": "Personenstandsdokumentation für Eheschließungen von Ausländern", "svc2-f1-desc": "Wir bieten Dokumentationsdienste für Eheverträge für Ausländer in Ägypten, vervollständigen rechtliche Verfahren, erhalten offizielle Bescheinigungen und stellen die Gültigkeit des Vertrags vor den zuständigen Behörden sicher.",
-    "svc2-f2": "Ägyptische Staatsangehörigkeitsdienste", "svc2-f2-desc": "Wir bieten alle Dienstleistungen im Zusammenhang mit der ägyptischen Staatsangehörigkeit:",
-    "svc2-f2-1": "Nachweis der Staatsangehörigkeit", "svc2-f2-2": "Erwerb der Staatsangehörigkeit", "svc2-f2-3": "Investition und Einbürgerung", "svc2-f2-4": "Genehmigung der Doppelstaatsbürgerschaft", "svc2-f2-5": "Verzicht auf die Staatsangehörigkeit",
-    "svc2-f3": "Einwanderungs- und Statusregulierung", "svc2-f3-desc": "Umfassende Dienstleistungen für ägyptische Auswanderer:",
+    "quick-email": "E-Mail",
+    "quick-whatsapp": "WhatsApp",
+    "services-title": "Unsere Rechtsdienstleistungen",
+    "services-subtitle": "Fachgebiete",
+    "svc1-title": "Unternehmens- & Investitionsrecht",
+    "svc1-desc": "Integrierte Rechtslösungen für Unternehmen in allen Phasen.",
+    "svc1-f1": "Unternehmensgründung",
+    "svc1-f1-desc": "Wir begleiten Sie Schritt für Schritt von Anfang an bei der Gründung von Unternehmen in allen rechtlichen Formen und erledigen alle behördlichen Lizenzen und Genehmigungen für einen sicheren Investitionsstart.",
+    "svc1-f2": "Umstrukturierung, Fusionen & Übernahmen (M&A)",
+    "svc1-f2-desc": "Professionelles Management und präzise rechtliche Steuerung für Fusionen, Übernahmen und Änderungen von Rechtsträgern, um Ihr Geschäftswachstum und Ihre Expansion zu gewährleisten.",
+    "svc1-f3": "Schutz geistigen Eigentums",
+    "svc1-f3-desc": "Registrierung und Schutz von Marken, Patenten und Urheberrechten zur Sicherung der intellektuellen und kommerziellen Vermögenswerte Ihres Unternehmens.",
+    "svc1-f4": "Unternehmensliquidation",
+    "svc1-f4-desc": "Umfassende rechtliche Abwicklungsverfahren und finanzielle Entlastung mit völliger Reibungslosigkeit, Sicherheit und Zuverlässigkeit vor offiziellen Stellen.",
+    "svc2-title": "Ausländerangelegenheiten - Einwanderungs- & Staatsangehörigkeitsrecht",
+    "svc2-desc": "Spezialisierte Rechtsdienstleistungen für internationale Mandanten.",
+    "svc2-f1": "Personenstandsdokumentation für Eheschließungen von Ausländern",
+    "svc2-f1-desc": "Wir bieten Dokumentationsdienste für Eheverträge für Ausländer in Ägypten, vervollständigen rechtliche Verfahren, erhalten offizielle Bescheinigungen und stellen die Gültigkeit des Vertrags vor den zuständigen Behörden sicher.",
+    "svc2-f2": "Ägyptische Staatsangehörigkeitsdienste",
+    "svc2-f2-desc": "Wir bieten alle Dienstleistungen im Zusammenhang mit der ägyptischen Staatsangehörigkeit:",
+    "svc2-f2-1": "Nachweis der Staatsangehörigkeit",
+    "svc2-f2-2": "Erwerb der Staatsangehörigkeit",
+    "svc2-f2-3": "Investition und Einbürgerung",
+    "svc2-f2-4": "Genehmigung der Doppelstaatsbürgerschaft",
+    "svc2-f2-5": "Verzicht auf die Staatsangehörigkeit",
+    "svc2-f3": "Einwanderungs- und Statusregulierung",
+    "svc2-f3-desc": "Umfassende Dienstleistungen für ägyptische Auswanderer:",
     "svc2-f3-1": "Dauerhafte Einwanderung: Registrierung der Daten ägyptischer Auswanderer und offizielle Aktualisierung ihrer Akten.",
     "svc2-f3-2": "Wehrdienstbefreiung: Ausstellung von Bescheinigungen für Minderjährige und Auswanderer zur Vorlage bei der Wehrpflicht.",
     "svc2-f3-3": "Reisebenachrichtigung: Benachrichtigung der Behörde über die Reiseabsicht beaufsichtigter Auswanderer.",
-    "svc2-f4": "Ausländer in Ägypten & Aufenthaltsdienste", "svc2-f4-desc": "Wir helfen Ausländern, verschiedene Aufenthaltsgenehmigungen in Ägypten zu erhalten, Visa zu beantragen, Aufenthaltsgenehmigungen zu verlängern und alle rechtlichen Verfahren vor den zuständigen Behörden abzuschließen.",
-    "svc3-title": "Prozessführung & Verteidigungspraxis", "svc3-desc": "Entschiedene Vertretung vor allen Gerichten und Justizbehörden.",
-    "svc3-f1": "Strafrecht & Cyberkriminalität", "svc3-f1-desc": "Entschlossene rechtliche Vertretung in Strafsachen mit spezieller Expertise in der Bekämpfung von Cyberkriminalität, digitaler Erpressung und dem Schutz vertraulicher Daten.",
-    "svc3-f2": "Zolldienstleistungen für den internationalen Handel, Import & Export", "svc3-f2-desc": "Zollschmuggel-Fälle, Beilegung von Zollstreitigkeiten, Beratung zu Zollbefreiungen, Import-/Exportlizenzen.",
-    "svc3-f3": "Steuerberatung & Finanzstreitigkeiten", "svc3-f3-desc": "Steuerbeschwerden und -streitigkeiten, Mehrwertsteuer und Einkommensteuer, Steuerprüfung und -registrierung, steuerliche M&A.",
-    "svc3-f4": "Immobilienstreitigkeiten & Immobilieninvestitionen", "svc3-f4-desc": "Grundbuch- und Notariatsangelegenheiten, Immobilieneigentumsstreitigkeiten, Erstellung von Kauf- und Mietverträgen, Gründung und Verwaltung von Immobilienportfolios.",
-    "svc3-f5": "Zivilrecht & Zivilprozesse", "svc3-f5-desc": "Vertragsgestaltung und Verwaltung von Verpflichtungen, Schadensersatz und die Organisation vertraglicher Beziehungen.",
-    "svc3-f6": "Arbeitsrecht & Arbeitsstreitigkeiten", "svc3-f6-desc": "Lösung von Arbeitskonflikten zur Wahrung der Rechte aller am Arbeitsverhältnis Beteiligten.",
-    "svc3-f7": "Familienrecht & Personenstandsfälle", "svc3-f7-desc": "Wir bieten integrierte rechtliche Lösungen zum Schutz Ihrer Familienrechte mit vollständiger Verpflichtung zu höchster Vertraulichkeit und Privatsphäre.",
-    "svc4-title": "Internationale Handels- und Finanztransaktionen", "svc4-desc": "Integrierte rechtliche und finanzielle Lösungen zur Unterstützung globaler Unternehmen und Investoren.",
-    "svc4-f1": "Ausarbeitung und Prüfung internationaler Handelsverträge", "svc4-f1-desc": "Wir erstellen und prüfen alle Arten internationaler Verträge:",
-    "svc4-f1-1": "Internationale Kauf- und Lieferverträge", "svc4-f1-2": "Agentur- und Handelsvertriebsverträge", "svc4-f1-3": "Internationale Vermittlungs- und Maklerverträge", "svc4-f1-4": "Franchise-Vereinbarungen", "svc4-f1-5": "Vertraulichkeits- und Geheimhaltungsvereinbarungen (NDA)",
-    "svc4-f2": "Finanzierungs- und internationale Kreditfazilitätsverträge", "svc4-f2-desc": "Wir prüfen und passen die rechtlichen Rahmenbedingungen für die externe Finanzierung an:",
-    "svc4-f2-1": "Internationale Darlehensverträge", "svc4-f2-2": "Kreditfazilitätsverträge", "svc4-f2-3": "Einhaltung der Zentralbankbeschlüsse",
-    "svc4-f3": "Internationale Finanztransaktionen und Akkreditive", "svc4-f3-desc": "Wir bieten administrative und rechtliche Aufsicht über Ihre Geldflüsse:",
-    "svc4-f3-1": "Akkreditive und Garantiebriefe", "svc4-f3-2": "Einhaltung der Vorschriften für Geldtransfers", "svc4-f3-3": "Prüfung von Versand- und Zollabfertigungsdokumenten",
-    "team-title": "Unser Team", "team-subtitle": "Elite der besten Anwälte und Berater",
-    "team1-name": "Mohamed Ahmed", "team1-role": "Gründer & Managing Partner", "team1-desc": "15 Jahre Erfahrung im Gesellschaftsrecht, Investitionen und internationalen Prozessen.",
-    "team2-name": "Ahmed Khalid", "team2-role": "Partner - Ausländerangelegenheiten & Einwanderung", "team2-desc": "Spezialist für Einwanderungsrecht, Staatsangehörigkeit und Ausländerangelegenheiten.",
-    "team3-name": "Sara Mahmoud", "team3-role": "Beraterin - Immobilien & Steuern", "team3-desc": "Expertin für Immobilienstreitigkeiten und Steuerberatung.",
-    "team4-name": "Omar Hassan", "team4-role": "Anwalt - Prozessführung & Cybersicherheit", "team4-desc": "Spezialist für Strafsachen und Cyberkriminalität.",
-    "testimonials-title": "Referenzen", "testimonials-subtitle": "Was unsere Mandanten über uns sagen",
-    "test1-text": "Ich habe mit Legacy Law Firm bei der Gründung meines Unternehmens zusammengearbeitet, die Erfahrung war ausgezeichnet. Professionalität und Geschwindigkeit übertrafen meine Erwartungen.",
-    "test1-name": "Khaled Al-Abdullah", "test1-role": "Geschäftsmann - Kairo",
-    "test2-text": "Sie halfen mir, meinen Aufenthalt in Ägypten reibungslos zu bekommen. Ein kooperatives Team mit tiefer Erfahrung in Einwanderungsverfahren.",
-    "test2-name": "Thomas Mueller", "test2-role": "Deutscher Investor - Hurghada",
-    "test3-text": "Sehr professionelle Anwälte, ich habe sie in einem komplexen Immobilienfall beauftragt und er wurde zu meinen Gunsten gelöst. Ich kann sie wärmstens empfehlen.",
-    "test3-name": "Laila Sami", "test3-role": "Ärztin - Alexandria",
-    "faq-title": "Häufig gestellte Fragen", "faq-subtitle": "Antworten auf die häufigsten Fragen",
-    "faq1-q": "Wie lange dauert die Gründung eines Unternehmens in Ägypten?", "faq1-a": "Der Gründungsprozess dauert 7 bis 14 Werktage, abhängig von der Unternehmensart und den erforderlichen Dokumenten.",
-    "faq2-q": "Bieten Sie Online-Rechtsberatungen an?", "faq2-a": "Ja, wir bieten Online-Rechtsberatungen per Videokonferenz oder Telefon an.",
-    "faq3-q": "Was kostet die erste Rechtsberatung?", "faq3-a": "Die erste Rechtsberatung ist kostenlos für 30 Minuten.",
-    "faq4-q": "Können Sie internationale Fälle bearbeiten?", "faq4-a": "Ja, wir haben umfangreiche Erfahrung in internationalen Fällen und grenzüberschreitenden Verträgen.",
-    "faq5-q": "Was sind die offiziellen Arbeitszeiten?", "faq5-a": "Wir arbeiten von Samstag bis Donnerstag, von 9 bis 19 Uhr.",
-    "vision-title": "Unsere Vision", "vision-subtitle": "Unsere zukünftige Mission",
-    "vision-body": "Wir glauben, dass Führung in der Rechtswelt nicht an Zeit oder Dienstalter gemessen wird, sondern an effektiven Lösungen und akribischer Präzision. Daher vereinen wir tiefe Rechtsexpertise mit Schnelligkeit und Flexibilität, um Stabilität und Nachhaltigkeit für unsere Mandanten zu gewährleisten.",
-    "contact-title": "Kontakt", "contact-subtitle": "Wir helfen Ihnen gerne",
-    "lbl-email": "E-Mail", "lbl-phone": "Telefon", "lbl-address": "Adresse",
-    "address-main-label": "Hauptsitz:", "address-main": "El Dahar Platz - Suleiman Mazhar Str., Hurghada, Ägypten",
-    "address-branch-label": "Zweigstelle Kairo:", "address-branch": "Badr City, Kairo, Ägypten",
-    "lbl-hours": "Arbeitszeiten", "val-hours": "Sa - Do: 9:00 - 19:00 Uhr",
-    "social-title": "Folgen Sie uns", "social-fb": "Facebook", "social-ig": "Instagram", "social-li": "LinkedIn",
-    "form-name": "Vollständiger Name *", "form-email": "E-Mail *", "form-phone": "Telefonnummer", "form-subject": "Service-Typ *",
-    "form-select": "Service-Typ auswählen...", "form-opt1": "Unternehmensgründung", "form-opt2": "Einwanderung & Staatsangehörigkeit", "form-opt3": "Prozessführung & Verteidigung",
-    "form-opt4": "Steuerberatung", "form-opt5": "Immobilien", "form-opt6": "Familienfälle", "form-opt7": "Sonstiges",
-    "form-message": "Ihr Anliegen im Detail *", "form-submit": "Nachricht senden",
-    "footer-about": "Über Uns", "footer-services": "Leistungen", "footer-privacy": "Datenschutz", "footer-terms": "AGB", "footer-contact": "Kontakt",
-    "footer-line1": "Immer dem akribischen Detail verpflichtet, um die rechtliche Festung und der strategische Berater zu bleiben, der Ihnen Ruhe und Erfolg schenkt.",
+    "svc2-f4": "Ausländer in Ägypten & Aufenthaltsdienste",
+    "svc2-f4-desc": "Wir helfen Ausländern, verschiedene Aufenthaltsgenehmigungen in Ägypten zu erhalten, Visa zu beantragen, Aufenthaltsgenehmigungen zu verlängern und alle rechtlichen Verfahren vor den zuständigen Behörden abzuschließen.",
+    "svc3-title": "Prozessführung & Verteidigungspraxis",
+    "svc3-desc": "Entschiedene Vertretung vor allen Gerichten und Justizbehörden.",
+    "svc3-f1": "Strafrecht & Cyberkriminalität",
+    "svc3-f1-desc": "Entschlossene rechtliche Vertretung in Strafsachen mit spezieller Expertise in der Bekämpfung von Cyberkriminalität, digitaler Erpressung und dem Schutz vertraulicher Daten.",
+    "svc3-f2": "Zolldienstleistungen für den internationalen Handel, Import & Export",
+    "svc3-f2-desc": "Zollschmuggel-Fälle, Beilegung von Zollstreitigkeiten, Beratung zu Zollbefreiungen, Import-/Exportlizenzen.",
+    "svc3-f3": "Steuerberatung & Finanzstreitigkeiten",
+    "svc3-f3-desc": "Steuerbeschwerden und -streitigkeiten, Mehrwertsteuer und Einkommensteuer, Steuerprüfung und -registrierung, steuerliche M&A.",
+    "svc3-f4": "Immobilienstreitigkeiten & Immobilieninvestitionen",
+    "svc3-f4-desc": "Grundbuch- und Notariatsangelegenheiten, Immobilieneigentumsstreitigkeiten, Erstellung von Kauf- und Mietverträgen, Gründung und Verwaltung von Immobilienportfolios.",
+    "svc3-f5": "Zivilrecht & Zivilprozesse",
+    "svc3-f5-desc": "Vertragsgestaltung und Verwaltung von Verpflichtungen, Schadensersatz und die Organisation vertraglicher Beziehungen.",
+    "svc3-f6": "Arbeitsrecht & Arbeitsstreitigkeiten",
+    "svc3-f6-desc": "Lösung von Arbeitskonflikten zur Wahrung der Rechte aller am Arbeitsverhältnis Beteiligten.",
+    "svc3-f7": "Familienrecht & Personenstandsfälle",
+    "svc3-f7-desc": "Wir bieten integrierte rechtliche Lösungen zum Schutz Ihrer Familienrechte mit vollständiger Verpflichtung zu höchster Vertraulichkeit und Privatsphäre.",
+    "svc4-title": "Internationale Handels- und Finanztransaktionen",
+    "svc4-desc": "Integrierte rechtliche und finanzielle Lösungen zur Unterstützung globaler Unternehmen und Investoren.",
+    "svc4-f1": "Ausarbeitung und Prüfung internationaler Handelsverträge",
+    "svc4-f1-desc": "Wir erstellen und prüfen alle Arten internationaler Verträge:",
+    "svc4-f1-1": "Internationale Kauf- und Lieferverträge",
+    "svc4-f1-2": "Agentur- und Handelsvertriebsverträge",
+    "svc4-f1-3": "Internationale Vermittlungs- und Maklerverträge",
+    "svc4-f1-4": "Franchise-Vereinbarungen",
+    "svc4-f1-5": "Vertraulichkeits- und Geheimhaltungsvereinbarungen (NDA)",
+    "svc4-f2": "Finanzierungs- und internationale Kreditfazilitätsverträge",
+    "svc4-f2-desc": "Wir prüfen und passen die rechtlichen Rahmenbedingungen für die externe Finanzierung an:",
+    "svc4-f2-1": "Internationale Darlehensverträge",
+    "svc4-f2-2": "Kreditfazilitätsverträge",
+    "svc4-f2-3": "Einhaltung der Zentralbankbeschlüsse",
+    "svc4-f3": "Internationale Finanztransaktionen und Akkreditive",
+    "svc4-f3-desc": "Wir bieten administrative und rechtliche Aufsicht über Ihre Geldflüsse:",
+    "svc4-f3-1": "Akkreditive und Garantiebriefe",
+    "svc4-f3-2": "Einhaltung der Vorschriften für Geldtransfers",
+    "svc4-f3-3": "Prüfung von Versand- und Zollabfertigungsdokumenten",
+    "team-title": "Unser Team",
+    "team-subtitle": "Elite der besten Anwälte und Berater",
+    "team1-name": "Mohamed Ahmed",
+    "team1-role": "Gründer & Managing Partner",
+    "team1-desc": "15 Jahre Erfahrung im Gesellschaftsrecht, Investitionen und internationalen Prozessen.",
+    "team2-name": "Ahmed Khalid",
+    "team2-role": "Partner - Ausländerangelegenheiten & Einwanderung",
+    "team2-desc": "Spezialist für Einwanderungsrecht, Staatsangehörigkeit und Ausländerangelegenheiten.",
+    "team3-name": "Sara Mahmoud",
+    "team3-role": "Beraterin - Immobilien & Steuern",
+    "team3-desc": "Expertin für Immobilienstreitigkeiten und Steuerberatung.",
+    "team4-name": "Omar Hassan",
+    "team4-role": "Anwalt - Prozessführung & Cybersicherheit",
+    "team4-desc": "Spezialist für Strafsachen und Cyberkriminalität.",
+    "testimonials-title": "Referenzen",
+    "testimonials-subtitle": "Was unsere Mandanten über uns sagen",
+    "test1-text": "Ich habe mit Legacy Law Firm bei der Gründung meines Unternehmens zusammengearbeitet, die Erfahrung war ausgezeichnet.",
+    "test1-name": "Khaled Al-Abdullah",
+    "test1-role": "Geschäftsmann - Kairo",
+    "test2-text": "Sie halfen mir, meinen Aufenthalt in Ägypten reibungslos zu bekommen.",
+    "test2-name": "Thomas Mueller",
+    "test2-role": "Deutscher Investor - Hurghada",
+    "test3-text": "Sehr professionelle Anwälte, ich habe sie in einem komplexen Immobilienfall beauftragt.",
+    "test3-name": "Laila Sami",
+    "test3-role": "Ärztin - Alexandria",
+    "faq-title": "Häufig gestellte Fragen",
+    "faq-subtitle": "Antworten auf die häufigsten Fragen",
+    "faq1-q": "Wie lange dauert die Gründung eines Unternehmens in Ägypten?",
+    "faq1-a": "Der Gründungsprozess dauert 7 bis 14 Werktage, abhängig von der Unternehmensart und den erforderlichen Dokumenten.",
+    "faq2-q": "Bieten Sie Online-Rechtsberatungen an?",
+    "faq2-a": "Ja, wir bieten Online-Rechtsberatungen per Videokonferenz oder Telefon an.",
+    "faq3-q": "Was kostet die erste Rechtsberatung?",
+    "faq3-a": "Die erste Rechtsberatung ist kostenlos für 30 Minuten.",
+    "faq4-q": "Können Sie internationale Fälle bearbeiten?",
+    "faq4-a": "Ja, wir haben umfangreiche Erfahrung in internationalen Fällen und grenzüberschreitenden Verträgen.",
+    "faq5-q": "Was sind die offiziellen Arbeitszeiten?",
+    "faq5-a": "Wir arbeiten von Samstag bis Donnerstag, von 9 bis 19 Uhr.",
+    "vision-title": "Unsere Vision",
+    "vision-subtitle": "Unsere zukünftige Mission",
+    "vision-body": "Wir glauben, dass Führung in der Rechtswelt nicht an Zeit oder Dienstalter gemessen wird, sondern an effektiven Lösungen und akribischer Präzision, die mit der Zeit Schritt halten.",
+    "contact-title": "Kontakt",
+    "contact-subtitle": "Wir helfen Ihnen gerne",
+    "lbl-email": "E-Mail",
+    "lbl-phone": "Telefon",
+    "lbl-address": "Adresse",
+    "address-main-label": "Hauptsitz:",
+    "address-main": "El Dahar Platz - Suleiman Mazhar Str., Hurghada, Ägypten",
+    "address-branch-label": "Zweigstelle Kairo:",
+    "address-branch": "Badr City, Kairo, Ägypten",
+    "lbl-hours": "Arbeitszeiten",
+    "val-hours": "Sa - Do: 9:00 - 19:00 Uhr",
+    "social-title": "Folgen Sie uns",
+    "social-fb": "Facebook",
+    "social-ig": "Instagram",
+    "social-li": "LinkedIn",
+    "form-name": "Vollständiger Name *",
+    "form-email": "E-Mail *",
+    "form-phone": "Telefonnummer",
+    "form-subject": "Service-Typ *",
+    "form-select": "Service-Typ auswählen...",
+    "form-opt1": "Unternehmensgründung",
+    "form-opt2": "Einwanderung & Staatsangehörigkeit",
+    "form-opt3": "Prozessführung & Verteidigung",
+    "form-opt4": "Steuerberatung",
+    "form-opt5": "Immobilien",
+    "form-opt6": "Familienfälle",
+    "form-opt7": "Sonstiges",
+    "form-message": "Ihr Anliegen im Detail *",
+    "form-submit": "Nachricht senden",
+    "footer-about": "Über Uns",
+    "footer-services": "Leistungen",
+    "footer-privacy": "Datenschutz",
+    "footer-terms": "AGB",
+    "footer-contact": "Kontakt",
+    "footer-line1": "Immer dem akribischen Detail verpflichtet, um die rechtliche Festung und der strategische Berater zu bleiben.",
     "footer-line2": "© 2026 Legacy Law Firm - Alle Rechte vorbehalten",
     "cookie-text": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Durch die weitere Nutzung der Website stimmen Sie unserer ",
-    "cookie-accept": "Akzeptieren", "skip-link": "Zum Hauptinhalt springen"
+    "cookie-accept": "Akzeptieren",
+    "skip-link": "Zum Hauptinhalt springen"
   }
 };
 
@@ -1473,19 +1813,16 @@ function setLang(lang) {
   document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
   document.body.setAttribute('lang', lang);
   document.documentElement.setAttribute('lang', lang);
-  
   document.querySelectorAll('[data-key]').forEach(el => {
     const key = el.dataset.key;
     if (translations[lang] && translations[lang][key] !== undefined) {
-      const isHtml = (key === 'about-body' || key === 'vision-body' || (key.includes('desc') && el.tagName === 'P'));
-      if (isHtml) {
+      if (key === 'about-body' || key === 'vision-body') {
         el.innerHTML = translations[lang][key];
       } else {
         el.textContent = translations[lang][key];
       }
     }
   });
-  
   const titles = {
     ar: 'Legacy Law Firm | مكتب محاماة واستشارات قانونية - مصر',
     en: 'Legacy Law Firm | Law Firm & Legal Consultancy - Egypt',
@@ -1497,18 +1834,6 @@ function setLang(lang) {
   typeEffect();
 }
 window.setLang = setLang;
-
-// ============================================
-// ربط أزرار اللغة
-// ============================================
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      setLang(this.dataset.lang);
-    });
-  });
-});
 
 // ============================================
 // ACCORDION LOGIC
@@ -1530,6 +1855,15 @@ document.addEventListener('click', function(e) {
   trigger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
 });
 
+document.addEventListener('keydown', function(e) {
+  const trigger = e.target.closest('.accordion-trigger');
+  if (!trigger) return;
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    trigger.click();
+  }
+});
+
 // ============================================
 // PROGRESS BAR & SCROLL TOP
 // ============================================
@@ -1538,8 +1872,9 @@ window.addEventListener('scroll', function() {
   const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   const progress = (scrollTop / scrollHeight) * 100;
   const bar = document.getElementById('progress-bar');
-  if (bar) bar.style.width = progress + '%';
-  
+  if (bar) {
+    bar.style.width = progress + '%';
+  }
   const scrollBtn = document.getElementById('scrollTop');
   if (scrollBtn) {
     if (scrollTop > 300) scrollBtn.classList.add('visible');
@@ -1548,7 +1883,7 @@ window.addEventListener('scroll', function() {
 });
 
 // ============================================
-// INTERSECTION OBSERVER (Reveal on Scroll)
+// INTERSECTION OBSERVER
 // ============================================
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 const revealObserver = new IntersectionObserver((entries) => {
@@ -1560,33 +1895,6 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// ============================================
-// STATS COUNTER ANIMATION
-// ============================================
-const statNumbers = document.querySelectorAll('.stat-number');
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const target = entry.target;
-      const count = +target.getAttribute('data-count');
-      const suffix = target.getAttribute('data-suffix') || '';
-      let current = 0;
-      const increment = count / 60; 
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= count) {
-          target.textContent = count + suffix;
-          clearInterval(timer);
-        } else {
-          target.textContent = Math.ceil(current) + suffix;
-        }
-      }, 25);
-      statObserver.unobserve(target);
-    }
-  });
-}, { threshold: 0.5 });
-statNumbers.forEach(stat => statObserver.observe(stat));
 
 // ============================================
 // DARK MODE
@@ -1668,6 +1976,32 @@ if (contactForm) {
 }
 
 // ============================================
+// COUNTER ANIMATION
+// ============================================
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 60));
+      const interval = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        el.textContent = current + suffix;
+      }, 30);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-number[data-count]').forEach(el => counterObserver.observe(el));
+
+// ============================================
 // MODAL
 // ============================================
 const modalContent = {
@@ -1702,9 +2036,11 @@ window.closeModal = function() {
   }
 };
 
-document.getElementById('modalOverlay').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
+if (document.getElementById('modalOverlay')) {
+  document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+}
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
