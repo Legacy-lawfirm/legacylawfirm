@@ -6,7 +6,7 @@
   <meta name="google-site-verification" content="8nRCFl0e4LX_ZGQjDQDjLqdgqWnvyzdivin1ujXhWks" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0a0e1a" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline' 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' https://i.postimg.cc data: https://feeds.bbci.co.uk https://www.aljazeera.com; frame-src https://www.google.com https://maps.google.com; connect-src https://api.web3forms.com https://api.rss2json.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline' 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' https://i.postimg.cc data:; frame-src https://www.google.com https://maps.google.com; connect-src https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;" />
   <link rel="icon" type="image/png" href="https://i.postimg.cc/RFvPjbng/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg" />
   <link rel="apple-touch-icon" href="https://i.postimg.cc/RFvPjbng/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg" />
   <title>Legacy Law Firm | مكتب محاماة واستشارات قانونية - مصر</title>
@@ -66,7 +66,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
   <style>
     /* ==========================================
-       ROOT VARIABLES - الألوان الأساسية
+       ROOT VARIABLES
        ========================================== */
     :root {
       --midnight-navy: #0a0e1a;
@@ -117,7 +117,6 @@
     }
     .skip-link:focus { top: 0; outline: 3px solid var(--midnight-navy); outline-offset: -3px; }
 
-    /* LTR Overrides */
     body[dir="ltr"] { direction: ltr; text-align: left; }
     body[dir="ltr"] .section-subtitle::after { margin-left: 8px; margin-right: 0; }
     body[dir="ltr"] .vision-box { border-right: none; border-left: 5px solid var(--gold); }
@@ -131,6 +130,7 @@
     body[dir="ltr"] .scroll-top { right: auto; left: 24px; }
     body[dir="ltr"] .accordion-trigger .arrow { margin-right: 0; margin-left: 8px; }
     body[dir="ltr"] .accordion-item.active .accordion-content { border-right: none; border-left: 3px solid var(--gold); }
+    body[dir="ltr"] .consultant-features .item { border-right: none; border-left: 4px solid var(--gold); }
 
     /* ==========================================
        PROGRESS BAR
@@ -144,7 +144,7 @@
     body[dir="ltr"] #progress-bar { right: auto; left: 0; }
 
     /* ==========================================
-       NAVBAR (Light by default, Dark in dark-mode)
+       NAVBAR
        ========================================== */
     .navbar {
       display: flex;
@@ -226,7 +226,7 @@
     }
 
     /* ==========================================
-       HERO (Light by default)
+       HERO
        ========================================== */
     .hero {
       background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(250,248,245,0.95) 100%),
@@ -354,69 +354,9 @@
     body[dir="ltr"] .section-body { text-align: left; }
 
     /* ==========================================
-       NEWS SECTIONS (داكنة دائماً)
+       CONSULTANT BOX
        ========================================== */
-    .news-section {
-      background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy));
-      padding: 100px 32px;
-      margin: 60px 0;
-      border-top: 3px solid var(--gold);
-      border-bottom: 3px solid var(--gold);
-    }
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 32px;
-      max-width: 1400px;
-      margin: 60px auto 0;
-    }
-    .news-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(201,162,39,0.2);
-      border-radius: 16px;
-      padding: 32px;
-      transition: all var(--transition-medium);
-      backdrop-filter: blur(10px);
-    }
-    .news-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--gold);
-      box-shadow: 0 8px 32px rgba(201,162,39,0.2);
-    }
-    .news-card h3 {
-      color: var(--gold-light);
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .news-card h3 i { color: var(--gold); font-size: 24px; }
-    .news-card p {
-      color: rgba(255,255,255,0.8);
-      font-size: 15px;
-      line-height: 1.9;
-      margin-bottom: 16px;
-    }
-    .news-card .news-source {
-      color: var(--gold);
-      font-size: 13px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .news-card .news-date {
-      color: rgba(255,255,255,0.6);
-      font-size: 12px;
-      margin-top: 8px;
-    }
-
-    /* ==========================================
-       QUICK CONTACT
-       ========================================== */
-    .quick-contact {
+    .consultant-box {
       background: #f8f5f0;
       border-radius: 20px;
       padding: 60px;
@@ -424,11 +364,11 @@
       border: 2px solid var(--gold);
       box-shadow: var(--shadow-gold);
       text-align: center;
+      transition: background 0.3s ease, border-color 0.3s ease;
       position: relative;
       overflow: hidden;
-      transition: background 0.3s ease;
     }
-    .quick-contact::before {
+    .consultant-box::before {
       content: '';
       position: absolute;
       top: -50%; left: -50%;
@@ -436,7 +376,7 @@
       background: radial-gradient(circle, rgba(201,162,39,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
-    .quick-contact .main-desc {
+    .consultant-box .main-desc {
       color: var(--text-dark);
       font-size: 19px;
       line-height: 2;
@@ -444,39 +384,45 @@
       text-align: center;
       position: relative;
       transition: color 0.3s ease;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .quick-contact .contact-icons {
+    .consultant-features {
       display: flex;
-      justify-content: center;
-      gap: 28px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
       position: relative;
     }
-    .quick-contact .contact-icons a {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
+    .consultant-features .item {
+      background: rgba(255,255,255,0.7);
+      padding: 24px 28px;
+      border-radius: 12px;
+      border-right: 4px solid var(--gold);
+      text-align: right;
+      transition: background 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    body[dir="ltr"] .consultant-features .item {
+      border-right: none;
+      border-left: 4px solid var(--gold);
+      text-align: left;
+    }
+    .consultant-features .item strong {
+      display: block;
+      font-size: 18px;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+    .consultant-features .item span {
       font-size: 16px;
-      transition: all var(--transition-fast);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      color: var(--text-light);
+      line-height: 1.8;
+      transition: color 0.3s ease;
     }
-    .quick-contact .contact-icons a:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    }
-    .quick-contact .contact-icons .email-btn {
-      background: var(--gold);
-      color: var(--white);
-    }
-    .quick-contact .contact-icons .whatsapp-btn {
-      background: #25d366;
-      color: var(--white);
-    }
-    .quick-contact .contact-icons i { font-size: 22px; }
 
     /* ==========================================
        SERVICES
@@ -634,7 +580,7 @@
     body[dir="ltr"] .accordion-content ul li::before { right: auto; left: 0; content: "▸"; }
 
     /* ==========================================
-       VISION BOX (داكن دائماً للفخامة)
+       VISION BOX
        ========================================== */
     .vision-box {
       background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy));
@@ -766,7 +712,7 @@
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ==========================================
-       CONTACT SECTION (فاتح في الوضع العادي)
+       CONTACT SECTION
        ========================================== */
     .contact-section {
       background: #f8f5f0;
@@ -1094,11 +1040,11 @@
       .section { padding: 80px 24px; }
       .section-title { font-size: 32px; }
       .services-grid, .contact-grid { grid-template-columns: 1fr; }
-      .vision-box, .quick-contact { padding: 40px 28px; }
+      .vision-box, .quick-contact, .consultant-box { padding: 40px 28px; }
       .quick-contact .contact-icons { flex-direction: column; align-items: center; gap: 16px; }
+      .consultant-features .item { padding: 20px; }
       .lang-switcher { order: -1; }
       .form-row { grid-template-columns: 1fr; }
-      .news-grid { grid-template-columns: 1fr; }
       .dark-mode-toggle { top: auto; bottom: 120px; left: 24px; }
       body[dir="ltr"] .dark-mode-toggle { left: auto; right: 24px; }
     }
@@ -1113,7 +1059,7 @@
     }
 
     /* ==========================================
-       DARK MODE STYLES (تطبق عند تفعيل الوضع الليلي)
+       DARK MODE STYLES
        ========================================== */
     body.dark-mode {
       background: #0d1117;
@@ -1145,6 +1091,19 @@
     body.dark-mode .hero #typewriter-text { color: rgba(255,255,255,0.95); border-left: 3px solid var(--gold); }
     body.dark-mode .section-title { color: var(--gold-light); }
     body.dark-mode .section-body { color: #b0b8c4; }
+    
+    /* Consultant Box Dark Mode */
+    body.dark-mode .consultant-box {
+      background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy));
+    }
+    body.dark-mode .consultant-box .main-desc { color: rgba(255,255,255,0.95); }
+    body.dark-mode .consultant-features .item {
+      background: rgba(255,255,255,0.05);
+      border-color: var(--gold);
+    }
+    body.dark-mode .consultant-features .item strong { color: var(--gold-light); }
+    body.dark-mode .consultant-features .item span { color: rgba(255,255,255,0.8); }
+
     body.dark-mode .quick-contact { background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy)); }
     body.dark-mode .quick-contact .main-desc { color: rgba(255,255,255,0.95); }
     body.dark-mode .service-card {
@@ -1234,10 +1193,10 @@
     </div>
     <div class="nav-links">
       <a href="#about" data-key="nav-about">من نحن</a>
-      <a href="#quick-contact" data-key="nav-quick-contact">تواصل سريع</a>
+      <a href="#consultant" data-key="nav-consultant">مستشارك القانوني</a>
+      <a href="#quick-contact" data-key="nav-quick-contact">تواصل معنا</a>
       <a href="#services" data-key="nav-services">خدماتنا</a>
       <a href="#vision" data-key="nav-vision">رؤيتنا</a>
-      <a href="#news" data-key="nav-news">الأخبار</a>
       <a href="#contact" data-key="nav-contact">تواصل معنا</a>
     </div>
     <div class="lang-switcher" role="group" aria-label="تبديل اللغة">
@@ -1274,11 +1233,33 @@
       </div>
     </section>
 
+    <!-- ===== CONSULTANT ===== -->
+    <section class="section reveal" id="consultant">
+      <h2 class="section-title">
+        <i class="fas fa-gavel" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
+        <span data-key="consultant-title">مستشارك القانوني</span>
+      </h2>
+      <div class="section-subtitle"><span data-key="consultant-subtitle">نحن هنا لمساعدتك</span></div>
+      <div class="consultant-box">
+        <p class="main-desc" data-key="consultant-desc">اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً. تواصل معنا مباشرة عبر البريد الإلكتروني أو الواتس آب.</p>
+        <div class="consultant-features">
+          <div class="item">
+            <strong data-key="consultant-free-title">🔍 تقييم مبدئي مجاني</strong>
+            <span data-key="consultant-free-desc">مراجعة شكواك وتحديد موقفها الأولي مجانية تماماً وبدون أي تكاليف.</span>
+          </div>
+          <div class="item">
+            <strong data-key="consultant-deep-title">📋 استشارة متعمقة</strong>
+            <span data-key="consultant-deep-desc">في حال رغبتك في الحصول على تقرير قانوني مفصل، سيتم توضيح الرسوم المقررة وطرق السداد المتاحة.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== QUICK CONTACT ===== -->
     <section class="section reveal" id="quick-contact">
       <h2 class="section-title">
         <i class="fas fa-comment-dots" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
-        <span data-key="quick-title">تواصل سريع</span>
+        <span data-key="quick-title">تواصل معنا</span>
       </h2>
       <div class="section-subtitle"><span data-key="quick-subtitle">نحن هنا لمساعدتك فوراً</span></div>
       <div class="quick-contact">
@@ -1570,43 +1551,6 @@
       </div>
     </section>
 
-    <!-- ===== NEWS SECTIONS (داكنة دائماً) ===== -->
-    <section class="news-section" id="local-news">
-      <div style="max-width: 1400px; margin: 0 auto;">
-        <h2 class="section-title" style="color: var(--gold-light);">
-          <i class="fas fa-newspaper" style="color: var(--gold);"></i>
-          <span>أخبار قانونية محلية</span>
-        </h2>
-        <div class="section-subtitle" style="color: rgba(255,255,255,0.8); justify-content: center;">
-          <span>آخر المستجدات القانونية في مصر</span>
-        </div>
-        <div class="news-grid" id="localNewsGrid">
-          <div class="news-card" style="text-align: center; padding: 60px;">
-            <i class="fas fa-spinner fa-spin" style="font-size: 48px; color: var(--gold); margin-bottom: 20px;"></i>
-            <p style="color: rgba(255,255,255,0.8); font-size: 18px;">جاري تحميل الأخبار المحلية...</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="news-section" id="international-news" style="background: linear-gradient(135deg, var(--deep-navy), var(--navy-accent)); border-top: 3px solid var(--gold);">
-      <div style="max-width: 1400px; margin: 0 auto;">
-        <h2 class="section-title" style="color: var(--gold-light);">
-          <i class="fas fa-globe" style="color: var(--gold);"></i>
-          <span>أخبار قانونية دولية</span>
-        </h2>
-        <div class="section-subtitle" style="color: rgba(255,255,255,0.8); justify-content: center;">
-          <span>مستجدات القانون الدولي والتشريعات العالمية</span>
-        </div>
-        <div class="news-grid" id="internationalNewsGrid">
-          <div class="news-card" style="text-align: center; padding: 60px;">
-            <i class="fas fa-spinner fa-spin" style="font-size: 48px; color: var(--gold); margin-bottom: 20px;"></i>
-            <p style="color: rgba(255,255,255,0.8); font-size: 18px;">جاري تحميل الأخبار الدولية...</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- ===== FOOTER ===== -->
@@ -1614,7 +1558,6 @@
     <div class="footer-links">
       <a href="#about" data-key="footer-about">من نحن</a>
       <a href="#services" data-key="footer-services">خدماتنا</a>
-      <a href="#news" data-key="footer-news">الأخبار</a>
       <a href="#" data-key="footer-privacy" onclick="showModal('privacy'); return false;">سياسة الخصوصية</a>
       <a href="#" data-key="footer-terms" onclick="showModal('terms'); return false;">الشروط والأحكام</a>
       <a href="#contact" data-key="footer-contact">تواصل معنا</a>
@@ -1649,21 +1592,28 @@
 
   <script>
     // ==========================================
-    // TRANSLATIONS (تم حذف مفاتيح الأقسام المحذوفة)
+    // TRANSLATIONS (مع إزالة مفاتيح الأخبار)
     // ==========================================
     const translations = {
       ar: {
         "nav-about": "من نحن",
-        "nav-quick-contact": "تواصل سريع",
+        "nav-consultant": "مستشارك القانوني",
+        "nav-quick-contact": "تواصل معنا",
         "nav-services": "خدماتنا",
         "nav-vision": "رؤيتنا",
-        "nav-news": "الأخبار",
         "nav-contact": "تواصل معنا",
         "hero-tagline": "المحاماة والاستشارات القانونية وتأسيس الشركات",
         "about-title": "من نحن؟",
         "about-subtitle": "عن المكتب",
         "about-body": "نحن مكتب محاماة واستشارات قانونية نقدم استشارات وحلول متكاملة للأفراد والشركات. ندمج بين الخبرة العميقة والسرعة والمرونة لنواكب وتيرة الأعمال الحديثة ونضمن حماية مصالح عملائنا وبناء شراكات نجاح مستدامة.<br><br>نقدم مظلة حماية قانونية شاملة واستشارات ذكية تلبي تطلعات الكيانات المحلية والدولية على حد سواء. يمتد نطاق أعمالنا ليشمل منظومة متكاملة من الحلول.",
-        "quick-title": "تواصل سريع",
+        "consultant-title": "مستشارك القانوني",
+        "consultant-subtitle": "نحن هنا لمساعدتك",
+        "consultant-desc": "اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً. تواصل معنا مباشرة عبر البريد الإلكتروني أو الواتس آب.",
+        "consultant-free-title": "🔍 تقييم مبدئي مجاني",
+        "consultant-free-desc": "مراجعة شكواك وتحديد موقفها الأولي مجانية تماماً وبدون أي تكاليف.",
+        "consultant-deep-title": "📋 استشارة متعمقة",
+        "consultant-deep-desc": "في حال رغبتك في الحصول على تقرير قانوني مفصل، سيتم توضيح الرسوم المقررة وطرق السداد المتاحة.",
+        "quick-title": "تواصل معنا",
         "quick-subtitle": "نحن هنا لمساعدتك فوراً",
         "quick-desc": "اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً. تواصل معنا مباشرة عبر البريد الإلكتروني أو الواتس آب.",
         "quick-email": "بريد إلكتروني",
@@ -1767,7 +1717,6 @@
         "form-submit": "إرسال الرسالة",
         "footer-about": "من نحن",
         "footer-services": "خدماتنا",
-        "footer-news": "الأخبار",
         "footer-privacy": "سياسة الخصوصية",
         "footer-terms": "الشروط والأحكام",
         "footer-contact": "تواصل معنا",
@@ -1779,16 +1728,23 @@
       },
       en: {
         "nav-about": "About Us",
-        "nav-quick-contact": "Quick Contact",
+        "nav-consultant": "Legal Advisor",
+        "nav-quick-contact": "Contact Us",
         "nav-services": "Services",
         "nav-vision": "Our Vision",
-        "nav-news": "News",
         "nav-contact": "Contact Us",
         "hero-tagline": "Legal Practice, Consultancy & Corporate Formation",
         "about-title": "Who Are We?",
         "about-subtitle": "About the Firm",
         "about-body": "We are a law firm and legal consultancy providing integrated advice and solutions for individuals and companies. We combine deep expertise with speed and flexibility to keep pace with modern business, ensuring our clients' interests are protected and building sustainable partnerships for success.<br><br>We offer a comprehensive legal protection umbrella and smart consultations that meet the aspirations of both local and international entities. Our scope of work extends to an integrated system of solutions.",
-        "quick-title": "Quick Contact",
+        "consultant-title": "Your Legal Advisor",
+        "consultant-subtitle": "We are here to help you",
+        "consultant-desc": "Write your issue and our team will study it and respond immediately. Contact us directly via email or WhatsApp.",
+        "consultant-free-title": "🔍 Free Initial Assessment",
+        "consultant-free-desc": "Reviewing your complaint and determining its initial status is completely free and without any costs.",
+        "consultant-deep-title": "📋 In-Depth Consultation",
+        "consultant-deep-desc": "If you wish to obtain a detailed legal report, the applicable fees and available payment methods will be clarified.",
+        "quick-title": "Contact Us",
         "quick-subtitle": "We are here to help you immediately",
         "quick-desc": "Write your issue and our team will study it and respond immediately. Contact us directly via email or WhatsApp.",
         "quick-email": "Email",
@@ -1892,7 +1848,6 @@
         "form-submit": "Send Message",
         "footer-about": "About Us",
         "footer-services": "Services",
-        "footer-news": "News",
         "footer-privacy": "Privacy Policy",
         "footer-terms": "Terms & Conditions",
         "footer-contact": "Contact Us",
@@ -1904,16 +1859,23 @@
       },
       de: {
         "nav-about": "Über Uns",
-        "nav-quick-contact": "Schnellkontakt",
+        "nav-consultant": "Rechtsberater",
+        "nav-quick-contact": "Kontakt",
         "nav-services": "Leistungen",
         "nav-vision": "Unsere Vision",
-        "nav-news": "Nachrichten",
         "nav-contact": "Kontakt",
         "hero-tagline": "Rechtsanwaltschaft, Beratung & Unternehmensgründung",
         "about-title": "Wer sind wir?",
         "about-subtitle": "Über die Kanzlei",
         "about-body": "Wir sind eine Anwaltskanzlei und Rechtsberatung, die integrierte Beratung und Lösungen für Einzelpersonen und Unternehmen anbietet. Wir verbinden tiefes Fachwissen mit Geschwindigkeit und Flexibilität, um mit dem modernen Geschäftsleben Schritt zu halten und die Interessen unserer Mandanten zu schützen.<br><br>Wir bieten einen umfassenden rechtlichen Schutzschirm und intelligente Beratung, die die Erwartungen lokaler und internationaler Unternehmen gleichermaßen erfüllen.",
-        "quick-title": "Schnellkontakt",
+        "consultant-title": "Ihr Rechtsberater",
+        "consultant-subtitle": "Wir sind hier, um Ihnen zu helfen",
+        "consultant-desc": "Schreiben Sie Ihr Anliegen, unser Team prüft und antwortet sofort. Kontaktieren Sie uns direkt per E-Mail oder WhatsApp.",
+        "consultant-free-title": "🔍 Kostenlose Ersteinschätzung",
+        "consultant-free-desc": "Die Prüfung Ihrer Beschwerde ist völlig kostenlos und ohne jegliche Gebühren.",
+        "consultant-deep-title": "📋 Vertiefte Beratung",
+        "consultant-deep-desc": "Falls Sie einen detaillierten Bericht wünschen, werden die anfallenden Gebühren und Zahlungsmethoden erläutert.",
+        "quick-title": "Kontakt",
         "quick-subtitle": "Wir helfen Ihnen sofort",
         "quick-desc": "Schreiben Sie Ihr Anliegen, unser Team prüft und antwortet sofort. Kontaktieren Sie uns direkt per E-Mail oder WhatsApp.",
         "quick-email": "E-Mail",
@@ -2017,7 +1979,6 @@
         "form-submit": "Nachricht senden",
         "footer-about": "Über Uns",
         "footer-services": "Leistungen",
-        "footer-news": "Nachrichten",
         "footer-privacy": "Datenschutz",
         "footer-terms": "AGB",
         "footer-contact": "Kontakt",
@@ -2238,151 +2199,6 @@
     }
 
     // ==========================================
-    // NEWS FEED
-    // ==========================================
-    const localNewsSources = [
-      { name: 'اليوم السابع', url: 'https://www.youm7.com/rss', icon: 'fa-scale-balanced' },
-      { name: 'مصراوي', url: 'https://www.masrawy.com/rss', icon: 'fa-gavel' },
-      { name: 'البوابة نيوز', url: 'https://www.albawabhnews.com/rss', icon: 'fa-file-contract' }
-    ];
-    const internationalNewsSources = [
-      { name: 'BBC News', url: 'https://feeds.bbci.co.uk/news/world/rss.xml', icon: 'fa-globe-americas' },
-      { name: 'Al Jazeera', url: 'https://www.aljazeera.com/xml/rss/all.xml', icon: 'fa-earth-africa' }
-    ];
-
-    async function fetchNewsFromRSS(rssUrl, sourceName, iconClass) {
-      try {
-        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=5`;
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        if (data.status === 'ok' && data.items && data.items.length > 0) {
-          return data.items.map(item => ({
-            title: item.title,
-            description: item.description ? item.description.replace(/<[^>]*>/g, '').substring(0, 180) + '...' : 'اضغط لقراءة المزيد',
-            link: item.link,
-            pubDate: new Date(item.pubDate).toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' }),
-            source: sourceName,
-            icon: iconClass
-          }));
-        }
-        return [];
-      } catch (error) {
-        console.error(`Error fetching news from ${sourceName}:`, error);
-        return [];
-      }
-    }
-
-    function displayLocalNews(articles) {
-      const newsGrid = document.getElementById('localNewsGrid');
-      if (!newsGrid) return;
-      if (articles.length === 0) {
-        newsGrid.innerHTML = `
-          <div class="news-card">
-            <h3><i class="fas fa-scale-balanced"></i> <span>تعديلات جديدة في قانون الاستثمار</span></h3>
-            <p>أعلنت الحكومة المصرية عن حزمة تعديلات جديدة في قانون الاستثمار تهدف إلى جذب المزيد من المستثمرين الأجانب وتسهيل الإجراءات...</p>
-            <div class="news-source"><i class="fas fa-newspaper"></i><span>المصدر: الجريدة الرسمية</span></div>
-            <div class="news-date">${new Date().toLocaleDateString('ar-EG')}</div>
-          </div>
-          <div class="news-card">
-            <h3><i class="fas fa-gavel"></i> <span>محكمة النقض تحكم في قضية تجارية كبرى</span></h3>
-            <p>أصدرت محكمة النقض حكماً تاريخياً في قضية تجارية تتعلق بالعقود الدولية، مؤكداً على أهمية الالتزام بالشروط التعاقدية...</p>
-            <div class="news-source"><i class="fas fa-newspaper"></i><span>المصدر: مجلس الدولة</span></div>
-            <div class="news-date">${new Date().toLocaleDateString('ar-EG')}</div>
-          </div>
-          <div class="news-card">
-            <h3><i class="fas fa-file-contract"></i> <span>قانون جديد لحماية المستهلك</span></h3>
-            <p>وافق البرلمان المصري على قانون جديد لحماية المستهلك يتضمن عقوبات مشددة على الغش التجاري وحماية حقوق المستهلكين...</p>
-            <div class="news-source"><i class="fas fa-newspaper"></i><span>المصدر: مجلس النواب</span></div>
-            <div class="news-date">${new Date().toLocaleDateString('ar-EG')}</div>
-          </div>`;
-        return;
-      }
-      let newsHTML = '';
-      articles.slice(0, 6).forEach(article => {
-        newsHTML += `<div class="news-card">
-          <h3><i class="fas ${article.icon || 'fa-newspaper'}"></i> <span>${article.title}</span></h3>
-          <p>${article.description}</p>
-          <div class="news-source"><i class="fas fa-newspaper"></i><span>المصدر: ${article.source}</span></div>
-          <div class="news-date">${article.pubDate}</div>
-          ${article.link ? `<a href="${article.link}" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 12px; color: var(--gold); text-decoration: none; font-weight: 700;">اقرأ المزيد <i class="fas fa-arrow-left" style="margin-right: 8px;"></i></a>` : ''}
-        </div>`;
-      });
-      newsGrid.innerHTML = newsHTML;
-    }
-
-    function displayInternationalNews(articles) {
-      const newsGrid = document.getElementById('internationalNewsGrid');
-      if (!newsGrid) return;
-      if (articles.length === 0) {
-        newsGrid.innerHTML = `
-          <div class="news-card">
-            <h3><i class="fas fa-globe"></i> <span>اتفاقية تجارية جديدة بين الدول العربية</span></h3>
-            <p>وقعت عدة دول عربية على اتفاقية تجارية جديدة تهدف إلى تعزيز التبادل التجاري وتسهيل حركة الاستثمار بين الدول الأعضاء...</p>
-            <div class="news-source"><i class="fas fa-globe"></i><span>المصدر: Reuters</span></div>
-            <div class="news-date">${new Date().toLocaleDateString('ar-EG')}</div>
-          </div>
-          <div class="news-card">
-            <h3><i class="fas fa-globe-americas"></i> <span>تعديلات في قانون الهجرة الأمريكي</span></h3>
-            <p>أعلنت الولايات المتحدة عن تعديلات جديدة في قانون الهجرة تؤثر على تأشيرات العمل والاستثمار، مما يفتح آفاقاً جديدة للمستثمرين...</p>
-            <div class="news-source"><i class="fas fa-globe"></i><span>المصدر: BBC News</span></div>
-            <div class="news-date">${new Date().toLocaleDateString('ar-EG')}</div>
-          </div>
-          <div class="news-card">
-            <h3><i class="fas fa-earth-africa"></i> <span>قوانين جديدة للضرائب الدولية</span></h3>
-            <p>اتفقت مجموعة من الدول على تطبيق نظام ضريبي دولي جديد يهدف إلى مكافحة التهرب الضريبي وضمان العدالة في توزيع الأرباح...</p>
-            <div class="news-source"><i class="fas fa-globe"></i><span>المصدر: Al Jazeera</span></div>
-            <div class="news-date">${new Date().toLocaleDateString('ar-EG')}</div>
-          </div>`;
-        return;
-      }
-      let newsHTML = '';
-      articles.slice(0, 6).forEach(article => {
-        newsHTML += `<div class="news-card">
-          <h3><i class="fas ${article.icon || 'fa-globe'}"></i> <span>${article.title}</span></h3>
-          <p>${article.description}</p>
-          <div class="news-source"><i class="fas fa-globe"></i><span>المصدر: ${article.source}</span></div>
-          <div class="news-date">${article.pubDate}</div>
-          ${article.link ? `<a href="${article.link}" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 12px; color: var(--gold); text-decoration: none; font-weight: 700;">اقرأ المزيد <i class="fas fa-arrow-left" style="margin-right: 8px;"></i></a>` : ''}
-        </div>`;
-      });
-      newsGrid.innerHTML = newsHTML;
-    }
-
-    async function loadLocalNews() {
-      const newsGrid = document.getElementById('localNewsGrid');
-      if (!newsGrid) return;
-      try {
-        const allArticles = [];
-        for (const source of localNewsSources) {
-          const articles = await fetchNewsFromRSS(source.url, source.name, source.icon);
-          allArticles.push(...articles);
-        }
-        allArticles.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-        displayLocalNews(allArticles);
-      } catch (error) {
-        console.error('Error loading local news:', error);
-        displayLocalNews([]);
-      }
-    }
-
-    async function loadInternationalNews() {
-      const newsGrid = document.getElementById('internationalNewsGrid');
-      if (!newsGrid) return;
-      try {
-        const allArticles = [];
-        for (const source of internationalNewsSources) {
-          const articles = await fetchNewsFromRSS(source.url, source.name, source.icon);
-          allArticles.push(...articles);
-        }
-        allArticles.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-        displayInternationalNews(allArticles);
-      } catch (error) {
-        console.error('Error loading international news:', error);
-        displayInternationalNews([]);
-      }
-    }
-
-    // ==========================================
     // MODAL
     // ==========================================
     const modalContent = {
@@ -2435,9 +2251,6 @@
       const urlParams = new URLSearchParams(window.location.search);
       const langParam = urlParams.get('lang');
       if (langParam && ['ar', 'en', 'de'].includes(langParam)) { setLang(langParam); }
-      setTimeout(() => { loadLocalNews(); }, 1000);
-      setTimeout(() => { loadInternationalNews(); }, 1500);
-      setInterval(() => { loadLocalNews(); loadInternationalNews(); }, 1800000);
     });
   </script>
 </body>
