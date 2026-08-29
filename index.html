@@ -65,9 +65,7 @@
         media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
   <style>
-    /* ==========================================
-       ROOT VARIABLES
-       ========================================== */
+    /* ===== CSS Variables ===== */
     :root {
       --midnight-navy: #0a0e1a;
       --deep-navy: #1a1f3a;
@@ -88,10 +86,7 @@
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
       --shadow-gold: 0 4px 20px rgba(201, 162, 39, 0.25);
     }
-
-    /* ==========================================
-       RESET & BASE
-       ========================================== */
+    /* ===== Reset & Base ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 90px; }
     body {
@@ -119,7 +114,6 @@
 
     body[dir="ltr"] { direction: ltr; text-align: left; }
     body[dir="ltr"] .section-subtitle::after { margin-left: 8px; margin-right: 0; }
-    body[dir="ltr"] .vision-box { border-right: none; border-left: 5px solid var(--gold); }
     body[dir="ltr"] .contact-item { flex-direction: row-reverse; }
     body[dir="ltr"] .logo-area { flex-direction: row-reverse; }
     body[dir="ltr"] .nav-links { flex-direction: row-reverse; }
@@ -129,12 +123,11 @@
     body[dir="ltr"] .float-whatsapp { left: auto; right: 24px; }
     body[dir="ltr"] .scroll-top { right: auto; left: 24px; }
     body[dir="ltr"] .accordion-trigger .arrow { margin-right: 0; margin-left: 8px; }
-    body[dir="ltr"] .accordion-item.active .accordion-content { border-right: none; border-left: 3px solid var(--gold); }
-    body[dir="ltr"] .consultant-features .item { border-right: none; border-left: 4px solid var(--gold); }
+    body[dir="ltr"] .accordion-item.active .accordion-inner { border-right: none; border-left: 3px solid var(--gold); }
+    body[dir="ltr"] .quick-contact-box .contact-icons { flex-direction: row-reverse; }
+    body[dir="ltr"] .assessment-features { text-align: left; }
 
-    /* ==========================================
-       PROGRESS BAR
-       ========================================== */
+    /* ===== Progress Bar ===== */
     #progress-bar {
       position: fixed; top: 0; right: 0; width: 0%; height: 4px;
       background: linear-gradient(90deg, var(--gold), var(--gold-light));
@@ -143,9 +136,7 @@
     }
     body[dir="ltr"] #progress-bar { right: auto; left: 0; }
 
-    /* ==========================================
-       NAVBAR
-       ========================================== */
+    /* ===== Navbar ===== */
     .navbar {
       display: flex;
       align-items: center;
@@ -178,7 +169,13 @@
       letter-spacing: 1px;
       transition: color 0.3s ease;
     }
-    .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+      transition: all 0.3s ease;
+    }
     .nav-links a {
       color: var(--text-dark);
       text-decoration: none;
@@ -200,6 +197,13 @@
       transition: width var(--transition-fast);
     }
     .nav-links a:hover::after { width: 100%; }
+
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
     .lang-switcher { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
     .lang-btn {
       background: transparent;
@@ -213,21 +217,55 @@
       font-family: inherit;
       font-weight: 600;
     }
-    .lang-btn:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-      transform: translateY(-2px);
-    }
+    .lang-btn:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
     .lang-btn.active {
       background: var(--gold);
       color: var(--white);
       border-color: var(--gold);
       font-weight: 800;
     }
+    .dark-mode-toggle-nav {
+      background: transparent;
+      border: 2px solid rgba(201,162,39,0.4);
+      color: var(--text-dark);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all var(--transition-fast);
+    }
+    .dark-mode-toggle-nav:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: scale(1.1) rotate(15deg);
+    }
 
-    /* ==========================================
-       HERO
-       ========================================== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: var(--text-dark);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ===== Hero ===== */
     .hero {
       background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(250,248,245,0.95) 100%),
                   url('https://i.postimg.cc/654ShBpT/Whats-App-Image-2026-07-30-at-3-33-44-AM.jpg');
@@ -297,9 +335,35 @@
       padding-right: 12px;
     }
 
-    /* ==========================================
-       ANIMATIONS
-       ========================================== */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .stat-item {
+      text-align: center;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(4px);
+      padding: 20px 30px;
+      border-radius: 16px;
+      border: 1px solid rgba(201,162,39,0.2);
+      min-width: 140px;
+    }
+    .stat-item .number {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--gold);
+      display: block;
+    }
+    .stat-item .label {
+      font-size: 14px;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* ===== Reveal Animation ===== */
     @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
     .reveal {
       opacity: 0;
@@ -308,9 +372,7 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ==========================================
-       SECTIONS
-       ========================================== */
+    /* ===== Sections ===== */
     .section { padding: 100px 32px; max-width: 1200px; margin: 0 auto; }
     .section-title {
       color: var(--midnight-navy);
@@ -353,80 +415,7 @@
     }
     body[dir="ltr"] .section-body { text-align: left; }
 
-    /* ==========================================
-       CONSULTANT BOX
-       ========================================== */
-    .consultant-box {
-      background: #f8f5f0;
-      border-radius: 20px;
-      padding: 60px;
-      margin-top: 20px;
-      border: 2px solid var(--gold);
-      box-shadow: var(--shadow-gold);
-      text-align: center;
-      transition: background 0.3s ease, border-color 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .consultant-box::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(201,162,39,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .consultant-box .main-desc {
-      color: var(--text-dark);
-      font-size: 19px;
-      line-height: 2;
-      margin-bottom: 32px;
-      text-align: center;
-      position: relative;
-      transition: color 0.3s ease;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .consultant-features {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .consultant-features .item {
-      background: rgba(255,255,255,0.7);
-      padding: 24px 28px;
-      border-radius: 12px;
-      border-right: 4px solid var(--gold);
-      text-align: right;
-      transition: background 0.3s ease, border-color 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    body[dir="ltr"] .consultant-features .item {
-      border-right: none;
-      border-left: 4px solid var(--gold);
-      text-align: left;
-    }
-    .consultant-features .item strong {
-      display: block;
-      font-size: 18px;
-      color: var(--text-dark);
-      margin-bottom: 4px;
-      transition: color 0.3s ease;
-    }
-    .consultant-features .item span {
-      font-size: 16px;
-      color: var(--text-light);
-      line-height: 1.8;
-      transition: color 0.3s ease;
-    }
-
-    /* ==========================================
-       SERVICES
-       ========================================== */
+    /* ===== Services Grid ===== */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -530,58 +519,63 @@
     }
     body[dir="ltr"] .accordion-trigger .arrow { margin-right: 0; margin-left: 12px; }
     .accordion-item.active .accordion-trigger .arrow { transform: rotate(180deg); }
+
     .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
-      padding: 0 4px;
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      margin: 0;
       background: rgba(201,162,39,0.03);
-      border-radius: 8px;
+      border-radius: 0 0 8px 8px;
     }
     .accordion-item.active .accordion-content {
-      max-height: 900px;
-      padding: 20px 20px 24px;
+      grid-template-rows: 1fr;
       margin-bottom: 12px;
+    }
+    .accordion-inner {
+      overflow: hidden;
+      padding: 0 4px;
+    }
+    .accordion-item.active .accordion-inner {
+      padding: 20px 20px 24px;
       border-right: 3px solid var(--gold);
     }
-    body[dir="ltr"] .accordion-item.active .accordion-content {
+    body[dir="ltr"] .accordion-item.active .accordion-inner {
       border-right: none;
       border-left: 3px solid var(--gold);
     }
-    .accordion-content p {
+    .accordion-inner p {
       font-size: 15px;
       line-height: 2;
       color: var(--text-light);
       margin: 0;
       text-align: right;
     }
-    body[dir="ltr"] .accordion-content p { text-align: left; }
-    .accordion-content ul {
+    body[dir="ltr"] .accordion-inner p { text-align: left; }
+    .accordion-inner ul {
       padding-right: 24px;
       margin-top: 12px;
       list-style: none;
     }
-    .accordion-content ul li {
+    .accordion-inner ul li {
       padding: 6px 0;
       font-size: 15px;
       color: var(--text-light);
       position: relative;
       padding-right: 24px;
     }
-    .accordion-content ul li::before {
+    .accordion-inner ul li::before {
       content: "◂";
       color: var(--gold);
       position: absolute;
       right: 0;
       font-weight: bold;
     }
-    body[dir="ltr"] .accordion-content ul { padding-right: 0; padding-left: 24px; }
-    body[dir="ltr"] .accordion-content ul li { padding-right: 0; padding-left: 24px; }
-    body[dir="ltr"] .accordion-content ul li::before { right: auto; left: 0; content: "▸"; }
+    body[dir="ltr"] .accordion-inner ul { padding-right: 0; padding-left: 24px; }
+    body[dir="ltr"] .accordion-inner ul li { padding-right: 0; padding-left: 24px; }
+    body[dir="ltr"] .accordion-inner ul li::before { right: auto; left: 0; content: "▸"; }
 
-    /* ==========================================
-       VISION BOX
-       ========================================== */
+    /* ===== Vision Box ===== */
     .vision-box {
       background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy));
       border-radius: 20px;
@@ -609,20 +603,82 @@
     }
     body[dir="ltr"] .vision-box p { text-align: center; }
 
-    /* ==========================================
-       CONTACT FORM
-       ========================================== */
+    /* ===== Contact Hub Styles (NEW) ===== */
+    .contact-hub {
+      background: #f8f5f0;
+      border-radius: 20px;
+      padding: 100px 32px;
+      margin: 80px auto;
+      max-width: 1300px;
+      border: 2px solid var(--gold);
+      box-shadow: var(--shadow-gold);
+      transition: background 0.3s ease;
+    }
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .action-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px;
+      background: var(--white);
+      border-radius: 16px;
+      border: 2px solid rgba(201,162,39,0.2);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .action-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+      box-shadow: var(--shadow-gold);
+    }
+    .action-card i {
+      font-size: 28px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(201,162,39,0.1);
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    .action-card strong { display: block; color: var(--text-dark); font-size: 18px; margin-bottom: 4px; transition: color 0.3s; }
+    .action-card span { color: var(--text-light); font-size: 14px; transition: color 0.3s; }
+
+    .wa-card:hover { background: #25d366; border-color: #25d366; }
+    .wa-card:hover i { background: white; color: #25d366; }
+    .wa-card:hover strong, .wa-card:hover span { color: white; }
+
+    .email-card:hover { background: var(--midnight-navy); border-color: var(--gold); }
+    .email-card:hover i { background: var(--gold); color: var(--midnight-navy); }
+    .email-card:hover strong, .email-card:hover span { color: white; }
+
+    .phone-card:hover { background: var(--gold); border-color: var(--gold); }
+    .phone-card:hover i { background: var(--midnight-navy); color: var(--gold); }
+    .phone-card:hover strong, .phone-card:hover span { color: var(--white); }
+
+    .contact-split {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      margin-bottom: 60px;
+    }
     .contact-form {
       background: var(--white);
       border-radius: 16px;
       padding: 48px;
       border: 2px solid rgba(201,162,39,0.2);
       box-shadow: var(--shadow-md);
-      margin-top: 40px;
-      max-width: 850px;
-      margin-left: auto;
-      margin-right: auto;
       transition: background 0.3s ease, border-color 0.3s ease;
+      position: relative;
     }
     .form-row {
       display: grid;
@@ -687,6 +743,7 @@
       font-size: 15px;
       font-weight: 700;
       display: none;
+      position: relative;
     }
     .form-status.success {
       background: #d4edda;
@@ -700,6 +757,18 @@
       display: block;
       border: 1px solid #f5c6cb;
     }
+    .form-status .close-status {
+      position: absolute;
+      top: 8px;
+      left: 12px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: inherit;
+      padding: 0 6px;
+    }
+    body[dir="ltr"] .form-status .close-status { left: auto; right: 12px; }
     .spinner {
       display: inline-block;
       width: 20px;
@@ -711,19 +780,55 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ==========================================
-       CONTACT SECTION
-       ========================================== */
-    .contact-section {
-      background: #f8f5f0;
+    .assessment-box {
+      background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy));
       border-radius: 20px;
-      padding: 100px 32px;
-      margin: 80px auto;
-      max-width: 1300px;
+      padding: 40px 30px;
       border: 2px solid var(--gold);
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: sticky;
+      top: 100px;
+      height: fit-content;
       box-shadow: var(--shadow-gold);
-      transition: background 0.3s ease;
     }
+    .assessment-icon {
+      font-size: 48px;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .assessment-box h3 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: var(--gold-light);
+    }
+    .assessment-box p {
+      color: rgba(255,255,255,0.85);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .assessment-features {
+      list-style: none;
+      padding: 0;
+      text-align: right;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+    }
+    .assessment-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: 15px;
+      color: rgba(255,255,255,0.95);
+      font-weight: 600;
+    }
+    .assessment-features i { color: var(--gold); font-size: 18px; }
+
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -773,9 +878,20 @@
       font-size: 15px;
     }
 
-    /* ==========================================
-       SOCIAL BUTTONS
-       ========================================== */
+    .map-wrapper {
+      margin-top: 40px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+      box-shadow: var(--shadow-md);
+    }
+    .map-wrapper iframe {
+      width: 100%;
+      height: 300px;
+      display: block;
+      border: 0;
+    }
+
     .social-grid {
       display: flex;
       gap: 20px;
@@ -805,9 +921,7 @@
       box-shadow: var(--shadow-gold);
     }
 
-    /* ==========================================
-       FOOTER
-       ========================================== */
+    /* ===== Footer ===== */
     .footer {
       background: var(--midnight-navy);
       color: rgba(255,255,255,0.7);
@@ -833,9 +947,7 @@
     }
     .footer-links a:hover { color: var(--gold); }
 
-    /* ==========================================
-       FLOATING WHATSAPP & SCROLL TOP
-       ========================================== */
+    /* ===== Fixed Buttons ===== */
     .float-whatsapp {
       position: fixed;
       bottom: 28px;
@@ -886,37 +998,7 @@
     }
     body[dir="ltr"] .scroll-top { right: auto; left: 28px; }
 
-    /* ==========================================
-       DARK MODE TOGGLE
-       ========================================== */
-    .dark-mode-toggle {
-      position: fixed;
-      top: 100px;
-      left: 24px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--midnight-navy);
-      color: var(--gold);
-      border: 3px solid var(--gold);
-      cursor: pointer;
-      z-index: 99;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      transition: all var(--transition-fast);
-      box-shadow: var(--shadow-md);
-    }
-    .dark-mode-toggle:hover {
-      transform: scale(1.15) rotate(15deg);
-      box-shadow: var(--shadow-gold);
-    }
-    body[dir="ltr"] .dark-mode-toggle { left: auto; right: 24px; }
-
-    /* ==========================================
-       COOKIE BANNER
-       ========================================== */
+    /* ===== Cookie Banner ===== */
     .cookie-banner {
       position: fixed;
       bottom: 0;
@@ -961,9 +1043,7 @@
       box-shadow: var(--shadow-gold);
     }
 
-    /* ==========================================
-       MODAL
-       ========================================== */
+    /* ===== Modal ===== */
     #modalOverlay {
       display: none;
       position: fixed;
@@ -1027,26 +1107,48 @@
       transform: rotate(90deg);
     }
 
-    /* ==========================================
-       RESPONSIVE
-       ========================================== */
-    @media (max-width: 768px) {
-      .navbar { padding: 16px 24px; flex-direction: column; gap: 16px; }
-      .nav-links { gap: 16px; justify-content: center; }
-      .hero { padding: 80px 24px; min-height: 90vh; }
+    /* ===== Responsive ===== */
+    @media (max-width: 992px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        padding: 20px 0;
+        border-top: 1px solid rgba(201,162,39,0.2);
+        margin-top: 12px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 10px 0; width: 100%; text-align: center; }
+      .navbar { padding: 16px 24px; }
+      .navbar-actions { order: -1; width: 100%; justify-content: center; }
+      .hero { padding: 80px 24px; min-height: 90vh; background-attachment: scroll; }
       .hero h1 { font-size: 42px; }
       .hero .hero-tagline { font-size: 20px; }
       .hero #typewriter-text { font-size: 22px; }
       .section { padding: 80px 24px; }
       .section-title { font-size: 32px; }
       .services-grid, .contact-grid { grid-template-columns: 1fr; }
-      .vision-box, .quick-contact, .consultant-box { padding: 40px 28px; }
-      .quick-contact .contact-icons { flex-direction: column; align-items: center; gap: 16px; }
-      .consultant-features .item { padding: 20px; }
-      .lang-switcher { order: -1; }
+      .vision-box { padding: 40px 28px; }
       .form-row { grid-template-columns: 1fr; }
-      .dark-mode-toggle { top: auto; bottom: 120px; left: 24px; }
-      body[dir="ltr"] .dark-mode-toggle { left: auto; right: 24px; }
+      .stats-row { gap: 20px; }
+      .stat-item { min-width: 100px; padding: 15px 20px; }
+      .stat-item .number { font-size: 26px; }
+      
+      .contact-hub { padding: 60px 24px; margin: 40px auto; }
+      .contact-split { grid-template-columns: 1fr; }
+      .assessment-box { position: static; margin-top: 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 32px; }
+      .hero .hero-tagline { font-size: 18px; }
+      .hero #typewriter-text { font-size: 18px; }
+      .section-title { font-size: 28px; }
+      .logo-area { padding: 4px 12px; }
+      .firm-name { font-size: 22px; }
+      .lang-btn { padding: 6px 12px; font-size: 12px; }
+      .dark-mode-toggle-nav { width: 38px; height: 38px; font-size: 16px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1058,12 +1160,10 @@
       html { scroll-behavior: auto; }
     }
 
-    /* ==========================================
-       DARK MODE STYLES
-       ========================================== */
+    /* ===== Dark Mode ===== */
     body.dark-mode {
       background: #0d1117;
-      color: #c9d1d9;
+      color: #e6edf3;
     }
     body.dark-mode .navbar {
       background: linear-gradient(135deg, var(--midnight-navy) 0%, var(--deep-navy) 100%);
@@ -1073,6 +1173,7 @@
     body.dark-mode .firm-name { color: var(--gold-light); }
     body.dark-mode .nav-links a { color: rgba(255,255,255,0.9); }
     body.dark-mode .nav-links a:hover { color: var(--gold); }
+    body.dark-mode .hamburger span { background: var(--gold-light); }
     body.dark-mode .lang-btn {
       color: rgba(255,255,255,0.8);
       border-color: rgba(201,162,39,0.4);
@@ -1082,6 +1183,11 @@
       background: var(--gold);
       color: var(--midnight-navy);
     }
+    body.dark-mode .dark-mode-toggle-nav {
+      color: var(--gold);
+      border-color: rgba(201,162,39,0.4);
+    }
+    body.dark-mode .dark-mode-toggle-nav:hover { border-color: var(--gold); }
     body.dark-mode .hero {
       background: linear-gradient(135deg, rgba(10,14,26,0.95) 0%, rgba(26,31,58,0.90) 100%),
                   url('https://i.postimg.cc/654ShBpT/Whats-App-Image-2026-07-30-at-3-33-44-AM.jpg');
@@ -1091,44 +1197,21 @@
     body.dark-mode .hero #typewriter-text { color: rgba(255,255,255,0.95); border-left: 3px solid var(--gold); }
     body.dark-mode .section-title { color: var(--gold-light); }
     body.dark-mode .section-body { color: #b0b8c4; }
-    
-    /* Consultant Box Dark Mode */
-    body.dark-mode .consultant-box {
-      background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy));
-    }
-    body.dark-mode .consultant-box .main-desc { color: rgba(255,255,255,0.95); }
-    body.dark-mode .consultant-features .item {
-      background: rgba(255,255,255,0.05);
-      border-color: var(--gold);
-    }
-    body.dark-mode .consultant-features .item strong { color: var(--gold-light); }
-    body.dark-mode .consultant-features .item span { color: rgba(255,255,255,0.8); }
-
-    body.dark-mode .quick-contact { background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy)); }
-    body.dark-mode .quick-contact .main-desc { color: rgba(255,255,255,0.95); }
+    body.dark-mode .stat-item { background: rgba(255,255,255,0.05); border-color: rgba(201,162,39,0.3); }
+    body.dark-mode .stat-item .label { color: #b0b8c4; }
     body.dark-mode .service-card {
       background: rgba(255,255,255,0.03);
       border-color: rgba(201,162,39,0.15);
     }
     body.dark-mode .service-card h3 { color: var(--gold-light); }
-    body.dark-mode .service-card > p { color: rgba(255,255,255,0.7); }
-    body.dark-mode .contact-section { background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy)); }
-    body.dark-mode .contact-item {
-      background: rgba(255,255,255,0.03);
-      border-color: rgba(201,162,39,0.2);
-    }
-    body.dark-mode .contact-item .value { color: rgba(255,255,255,0.95); }
-    body.dark-mode .contact-item .address-lines { color: rgba(255,255,255,0.9); }
-    body.dark-mode .contact-item .label { color: rgba(255,255,255,0.6); }
-    body.dark-mode .social-btn {
-      background: rgba(255,255,255,0.05);
-      color: var(--white);
-      border: 2px solid var(--gold);
-    }
-    body.dark-mode .social-btn:hover {
-      background: var(--gold);
-      color: var(--midnight-navy);
-    }
+    body.dark-mode .service-card > p { color: rgba(255,255,255,0.75); }
+    
+    body.dark-mode .contact-hub { background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy)); }
+    body.dark-mode .action-card { background: rgba(255,255,255,0.03); border-color: rgba(201,162,39,0.2); }
+    body.dark-mode .action-card strong { color: var(--gold-light); }
+    body.dark-mode .action-card span { color: #b0b8c4; }
+    body.dark-mode .action-card i { background: rgba(201,162,39,0.15); }
+    
     body.dark-mode .contact-form {
       background: rgba(255,255,255,0.03);
       border-color: rgba(201,162,39,0.2);
@@ -1139,7 +1222,7 @@
     body.dark-mode .form-group select {
       background: rgba(255,255,255,0.05);
       border-color: rgba(201,162,39,0.2);
-      color: var(--white);
+      color: #e6edf3;
     }
     body.dark-mode .form-group input:focus,
     body.dark-mode .form-group textarea:focus,
@@ -1147,13 +1230,26 @@
       border-color: var(--gold);
       box-shadow: 0 0 0 4px rgba(201,162,39,0.1);
     }
+    
+    body.dark-mode .contact-item {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(201,162,39,0.2);
+    }
+    body.dark-mode .contact-item .value { color: rgba(255,255,255,0.95); }
+    body.dark-mode .contact-item .address-lines { color: rgba(255,255,255,0.9); }
+    body.dark-mode .contact-item .label { color: rgba(255,255,255,0.6); }
+    
+    body.dark-mode .social-btn {
+      background: rgba(255,255,255,0.05);
+      color: var(--white);
+      border: 2px solid var(--gold);
+    }
+    body.dark-mode .social-btn:hover {
+      background: var(--gold);
+      color: var(--midnight-navy);
+    }
     body.dark-mode .footer { background: var(--midnight-navy); }
     body.dark-mode .vision-box { background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy)); }
-    body.dark-mode .dark-mode-toggle {
-      background: var(--white);
-      color: var(--midnight-navy);
-      border-color: var(--white);
-    }
     body.dark-mode .scroll-top {
       background: var(--gold);
       color: var(--midnight-navy);
@@ -1169,47 +1265,48 @@
       color: var(--white);
     }
     body.dark-mode .modal-box button.close-modal:hover { background: var(--gold); }
+    body.dark-mode .map-wrapper { border-color: var(--gold); }
   </style>
 </head>
 <body lang="ar">
 
-  <!-- ===== SKIP TO CONTENT ===== -->
   <a href="#main-content" class="skip-link" data-key="skip-link">انتقل للمحتوى الرئيسي</a>
-
-  <!-- ===== PROGRESS BAR ===== -->
   <div id="progress-bar" role="progressbar" aria-label="تقدم القراءة"></div>
 
-  <!-- ===== DARK MODE TOGGLE ===== -->
-  <button class="dark-mode-toggle" id="darkModeToggle" aria-label="تبديل الوضع الليلي">
-    <i class="fas fa-moon" id="darkModeIcon"></i>
-  </button>
-
-  <!-- ===== NAVBAR ===== -->
   <nav class="navbar" role="navigation" aria-label="التنقل الرئيسي">
     <div class="logo-area">
       <img src="https://i.postimg.cc/RFvPjbng/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg"
-           alt="Legacy Law Firm Logo" style="width:50px; height:50px; border-radius:8px; object-fit:contain;" loading="lazy" decoding="async">
+           alt="Legacy Law Firm Logo"
+           style="width:50px; height:50px; border-radius:8px; object-fit:contain;"
+           loading="lazy" decoding="async"
+           onerror="this.style.display='none'">
       <span class="firm-name">Legacy Law Firm</span>
     </div>
-    <div class="nav-links">
+
+    <div class="nav-links" id="navLinks">
       <a href="#about" data-key="nav-about">من نحن</a>
-      <a href="#consultant" data-key="nav-consultant">مستشارك القانوني</a>
-      <a href="#quick-contact" data-key="nav-quick-contact">تواصل معنا</a>
       <a href="#services" data-key="nav-services">خدماتنا</a>
       <a href="#vision" data-key="nav-vision">رؤيتنا</a>
       <a href="#contact" data-key="nav-contact">تواصل معنا</a>
     </div>
-    <div class="lang-switcher" role="group" aria-label="تبديل اللغة">
-      <button class="lang-btn active" onclick="setLang('ar')" data-lang="ar" aria-pressed="true">العربية</button>
-      <button class="lang-btn" onclick="setLang('en')" data-lang="en" aria-pressed="false">English</button>
-      <button class="lang-btn" onclick="setLang('de')" data-lang="de" aria-pressed="false">Deutsch</button>
+
+    <div class="navbar-actions">
+      <div class="lang-switcher" role="group" aria-label="تبديل اللغة">
+        <button class="lang-btn active" onclick="setLang('ar')" data-lang="ar" aria-pressed="true">العربية</button>
+        <button class="lang-btn" onclick="setLang('en')" data-lang="en" aria-pressed="false">English</button>
+        <button class="lang-btn" onclick="setLang('de')" data-lang="de" aria-pressed="false">Deutsch</button>
+      </div>
+      <button class="dark-mode-toggle-nav" id="darkModeToggle" aria-label="تبديل الوضع الليلي">
+        <i class="fas fa-moon" id="darkModeIcon"></i>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- ===== MAIN CONTENT ===== -->
   <main id="main-content">
-
-    <!-- ===== HERO ===== -->
+    <!-- Hero -->
     <section class="hero" aria-label="الصفحة الرئيسية">
       <h1>Legacy Law Firm</h1>
       <p class="hero-tagline" data-key="hero-tagline">المحاماة والاستشارات القانونية وتأسيس الشركات</p>
@@ -1217,9 +1314,24 @@
       <div class="typewriter-wrapper">
         <span id="typewriter-text" aria-live="polite" aria-atomic="true"></span>
       </div>
+
+      <div class="stats-row">
+        <div class="stat-item">
+          <span class="number">10+</span>
+          <span class="label" data-key="stat-years">سنوات خبرة</span>
+        </div>
+        <div class="stat-item">
+          <span class="number">1000+</span>
+          <span class="label" data-key="stat-cases">قضية تم حلها</span>
+        </div>
+        <div class="stat-item">
+          <span class="number">98%</span>
+          <span class="label" data-key="stat-satisfaction">رضا العملاء</span>
+        </div>
+      </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
+    <!-- About -->
     <section class="section reveal" id="about">
       <h2 class="section-title">
         <i class="fas fa-users" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
@@ -1233,51 +1345,7 @@
       </div>
     </section>
 
-    <!-- ===== CONSULTANT ===== -->
-    <section class="section reveal" id="consultant">
-      <h2 class="section-title">
-        <i class="fas fa-gavel" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
-        <span data-key="consultant-title">مستشارك القانوني</span>
-      </h2>
-      <div class="section-subtitle"><span data-key="consultant-subtitle">نحن هنا لمساعدتك</span></div>
-      <div class="consultant-box">
-        <p class="main-desc" data-key="consultant-desc">اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً. تواصل معنا مباشرة عبر البريد الإلكتروني أو الواتس آب.</p>
-        <div class="consultant-features">
-          <div class="item">
-            <strong data-key="consultant-free-title">🔍 تقييم مبدئي مجاني</strong>
-            <span data-key="consultant-free-desc">مراجعة شكواك وتحديد موقفها الأولي مجانية تماماً وبدون أي تكاليف.</span>
-          </div>
-          <div class="item">
-            <strong data-key="consultant-deep-title">📋 استشارة متعمقة</strong>
-            <span data-key="consultant-deep-desc">في حال رغبتك في الحصول على تقرير قانوني مفصل، سيتم توضيح الرسوم المقررة وطرق السداد المتاحة.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== QUICK CONTACT ===== -->
-    <section class="section reveal" id="quick-contact">
-      <h2 class="section-title">
-        <i class="fas fa-comment-dots" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
-        <span data-key="quick-title">تواصل معنا</span>
-      </h2>
-      <div class="section-subtitle"><span data-key="quick-subtitle">نحن هنا لمساعدتك فوراً</span></div>
-      <div class="quick-contact">
-        <p class="main-desc" data-key="quick-desc">اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً. تواصل معنا مباشرة عبر البريد الإلكتروني أو الواتس آب.</p>
-        <div class="contact-icons">
-          <a href="mailto:legacylwfirm@gmail.com" class="email-btn" aria-label="إرسال بريد إلكتروني">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-            <span data-key="quick-email">بريد إلكتروني</span>
-          </a>
-          <a href="https://wa.me/201002950495?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="التواصل عبر واتساب">
-            <i class="fab fa-whatsapp" aria-hidden="true"></i>
-            <span data-key="quick-whatsapp">واتس آب</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SERVICES ===== -->
+    <!-- Services -->
     <section class="section reveal" id="services" style="max-width: 1200px;">
       <h2 class="section-title">
         <i class="fas fa-scale-balanced" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
@@ -1293,19 +1361,19 @@
           <ul class="features-list">
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc1-f1">تأسيس الشركات والمنشآت</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc1-f1-desc">نسير معكم خطوة بخطوة من البداية لتأسيس الشركات بكافة أشكالها القانونية، إنهاء كافة التراخيص والموافقات الحكومية لبدء الاستثمار بأمان.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc1-f1-desc">نسير معكم خطوة بخطوة من البداية لتأسيس الشركات بكافة أشكالها القانونية، إنهاء كافة التراخيص والموافقات الحكومية لبدء الاستثمار بأمان.</p></div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc1-f2">إعادة الهيكلة والدمج والاستحواذ (M&A)</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc1-f2-desc">إدارة احترافية وتوجيه قانوني دقيق لعمليات الدمج، الاستحواذ، وتعديل الكيانات القانونية بما يضمن نمو أعمالكم وتوسعها.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc1-f2-desc">إدارة احترافية وتوجيه قانوني دقيق لعمليات الدمج، الاستحواذ، وتعديل الكيانات القانونية بما يضمن نمو أعمالكم وتوسعها.</p></div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc1-f3">حماية الملكية الفكرية</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc1-f3-desc">تسجيل وحماية العلامات التجارية، براءات الاختراع، وحقوق التأليف والنشر لحفظ أصول شركتكم الفكرية والتجارية في السوق.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc1-f3-desc">تسجيل وحماية العلامات التجارية، براءات الاختراع، وحقوق التأليف والنشر لحفظ أصول شركتكم الفكرية والتجارية في السوق.</p></div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc1-f4">التصفية القانونية للشركات</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc1-f4-desc">إنهاء الأعمال وإجراءات التصفية القانونية الشاملة وإبراء الذمة المالية بكل سلاسة، أمان، وموثوقية أمام الجهات الرسمية.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc1-f4-desc">إنهاء الأعمال وإجراءات التصفية القانونية الشاملة وإبراء الذمة المالية بكل سلاسة، أمان، وموثوقية أمام الجهات الرسمية.</p></div></div>
             </li>
           </ul>
         </div>
@@ -1318,11 +1386,11 @@
           <ul class="features-list">
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc2-f1">توثيق الأحوال الشخصية لزواج الأجانب</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc2-f1-desc">نقدم خدمات توثيق عقود الزواج للأجانب في مصر، استكمال الإجراءات القانونية، استخراج الشهادات الرسمية، والتأكد من صحة ونفاذ العقد أمام الجهات المختصة.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc2-f1-desc">نقدم خدمات توثيق عقود الزواج للأجانب في مصر، استكمال الإجراءات القانونية، استخراج الشهادات الرسمية، والتأكد من صحة ونفاذ العقد أمام الجهات المختصة.</p></div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc2-f2">خدمات الجنسية المصرية</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content">
+              <div class="accordion-content"><div class="accordion-inner">
                 <p data-key="svc2-f2-desc">نقدم كافة الخدمات المتعلقة بالجنسية المصرية:</p>
                 <ul>
                   <li data-key="svc2-f2-1">إثبات الجنسية</li>
@@ -1331,22 +1399,22 @@
                   <li data-key="svc2-f2-4">الإذن بالازدواج</li>
                   <li data-key="svc2-f2-5">رد الجنسية</li>
                 </ul>
-              </div>
+              </div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc2-f3">خدمات الهجرة وتقنين الأوضاع</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content">
+              <div class="accordion-content"><div class="accordion-inner">
                 <p data-key="svc2-f3-desc">خدمات شاملة للمصريين المهاجرين:</p>
                 <ul>
                   <li data-key="svc2-f3-1">الهجرة الدائمة: تسجيل بيانات المصريين المهاجرين وتحديث ملفاتهم رسميًا.</li>
                   <li data-key="svc2-f3-2">الإعفاء من التجنيد: استخراج شهادات صغار السن والمهاجرين لتقديمها للتجنيد.</li>
                   <li data-key="svc2-f3-3">إخطار السفر: إخطار الإدارة برغبة السفر للمهاجرين الخاضعين للإشراف.</li>
                 </ul>
-              </div>
+              </div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc2-f4">خدمات الأجانب في مصر والإقامات</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc2-f4-desc">نساعد الأجانب في الحصول على الإقامات المختلفة في مصر، استخراج التأشيرات، تجديد الإقامة، واستكمال كافة الإجراءات القانونية أمام الجهات المختصة.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc2-f4-desc">نساعد الأجانب في الحصول على الإقامات المختلفة في مصر، استخراج التأشيرات، تجديد الإقامة، واستكمال كافة الإجراءات القانونية أمام الجهات المختصة.</p></div></div>
             </li>
           </ul>
         </div>
@@ -1359,31 +1427,31 @@
           <ul class="features-list">
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc3-f1">الجنايات والأمن السيبراني والجرائم الإلكترونية</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc3-f1-desc">تمثيل قانوني حازم في القضايا الجنائية، مع التخصص الدقيق في مكافحة الجرائم الإلكترونية، الابتزاز الرقمي، وحماية البيانات السرية.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc3-f1-desc">تمثيل قانوني حازم في القضايا الجنائية، مع التخصص الدقيق في مكافحة الجرائم الإلكترونية، الابتزاز الرقمي، وحماية البيانات السرية.</p></div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc3-f2">خدمات جمارك التجارة الدولية والاستيراد والتصدير</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc3-f2-desc">قضايا التهريب الجمركي، تسوية وفض النزاعات الجمركية، استشارات الإعفاءات الجمركية، تراخيص الاستيراد والتصدير.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc3-f2-desc">قضايا التهريب الجمركي، تسوية وفض النزاعات الجمركية، استشارات الإعفاءات الجمركية، تراخيص الاستيراد والتصدير.</p></div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc3-f3">خدمات الاستشارات الضريبية والمنازعات المالية</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc3-f3-desc">الطعون والمنازعات الضريبية، ضريبة القيمة المضافة والدخل، الفحص والتسجيل الضريبي، الدمج والاستحواذ الضريبي.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc3-f3-desc">الطعون والمنازعات الضريبية، ضريبة القيمة المضافة والدخل، الفحص والتسجيل الضريبي، الدمج والاستحواذ الضريبي.</p></div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc3-f4">خدمات المنازعات العقارية والاستثمار العقاري</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc3-f4-desc">تسجيل العقارات والشهر العقاري، منازعات الملكية العقارية، صياغة عقود البيع والإيجار، تأسيس وإدارة المحافظ العقارية.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc3-f4-desc">تسجيل العقارات والشهر العقاري، منازعات الملكية العقارية، صياغة عقود البيع والإيجار، تأسيس وإدارة المحافظ العقارية.</p></div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc3-f5">القانون المدني والمنازعات المدنية</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc3-f5-desc">صياغة العقود وإدارة الالتزامات والتعويضات، إلى جانب تنظيم العلاقات التعاقدية.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc3-f5-desc">صياغة العقود وإدارة الالتزامات والتعويضات، إلى جانب تنظيم العلاقات التعاقدية.</p></div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc3-f6">قضايا العمال والمنازعات العمالية</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc3-f6-desc">حل النزاعات العمالية لحفظ حقوق أطراف العمل.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc3-f6-desc">حل النزاعات العمالية لحفظ حقوق أطراف العمل.</p></div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc3-f7">قضايا الأسرة والأحوال الشخصية</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content"><p data-key="svc3-f7-desc">نقدم حلولاً قانونية متكاملة لحماية حقوقكم العائلية، مع الالتزام التام بأعلى درجات السرية والخصوصية.</p></div>
+              <div class="accordion-content"><div class="accordion-inner"><p data-key="svc3-f7-desc">نقدم حلولاً قانونية متكاملة لحماية حقوقكم العائلية، مع الالتزام التام بأعلى درجات السرية والخصوصية.</p></div></div>
             </li>
           </ul>
         </div>
@@ -1396,7 +1464,7 @@
           <ul class="features-list">
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc4-f1">صياغة ومراجعة العقود التجارية الدولية</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content">
+              <div class="accordion-content"><div class="accordion-inner">
                 <p data-key="svc4-f1-desc">نصيغ ونراجع كافة الأنماط التعاقدية الدولية:</p>
                 <ul>
                   <li data-key="svc4-f1-1">عقود البيع والتوريد الدولي</li>
@@ -1405,36 +1473,36 @@
                   <li data-key="svc4-f1-4">عقود الامتياز التجاري (Franchise)</li>
                   <li data-key="svc4-f1-5">اتفاقيات عدم الإفصاح والسرية (NDA)</li>
                 </ul>
-              </div>
+              </div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc4-f2">عقود التمويل والتسهيلات الائتمانية الدولية</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content">
+              <div class="accordion-content"><div class="accordion-inner">
                 <p data-key="svc4-f2-desc">نراجع ونضبط الأطر القانونية للتمويل الخارجي:</p>
                 <ul>
                   <li data-key="svc4-f2-1">اتفاقيات القروض الدولية</li>
                   <li data-key="svc4-f2-2">عقود التسهيلات الائتمانية</li>
                   <li data-key="svc4-f2-3">الامتثال لقرارات البنك المركزي</li>
                 </ul>
-              </div>
+              </div></div>
             </li>
             <li class="accordion-item">
               <button class="accordion-trigger" aria-expanded="false"><span data-key="svc4-f3">المعاملات المالية الدولية والاعتمادات المستندية</span><span class="arrow" aria-hidden="true">▾</span></button>
-              <div class="accordion-content">
+              <div class="accordion-content"><div class="accordion-inner">
                 <p data-key="svc4-f3-desc">نوفر الإشراف الإداري والقانوني على تدفقات أموالك:</p>
                 <ul>
                   <li data-key="svc4-f3-1">الاعتمادات المستندية وخطابات الضمان</li>
                   <li data-key="svc4-f3-2">الامتثال لضوابط التحويلات النقدية</li>
                   <li data-key="svc4-f3-3">مراجعة مستندات الشحن والتخليص</li>
                 </ul>
-              </div>
+              </div></div>
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== VISION ===== -->
+    <!-- Vision -->
     <section class="section reveal" id="vision">
       <h2 class="section-title">
         <i class="fas fa-eye" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
@@ -1446,76 +1514,98 @@
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
-    <section class="contact-section reveal" id="contact">
+    <!-- Merged Contact Hub -->
+    <section class="contact-hub reveal" id="contact">
       <h2 class="section-title">
-        <i class="fas fa-envelope" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
+        <i class="fas fa-headset" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
         <span data-key="contact-title">تواصل معنا</span>
       </h2>
-      <div class="section-subtitle"><span data-key="contact-subtitle">نحن هنا لمساعدتك</span></div>
+      <div class="section-subtitle"><span data-key="contact-hub-subtitle">نحن هنا لمساعدتك - استشارة فورية ومجانية</span></div>
 
-      <div class="contact-form">
-        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="2ab8c203-9a20-4cc6-b664-49edae1ac974">
-          <input type="hidden" name="subject" value="استفسار جديد من موقع Legacy Law Firm">
-          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name" data-key="form-name">الاسم الكامل *</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="email" data-key="form-email">البريد الإلكتروني *</label>
-              <input type="email" id="email" name="email" required>
-            </div>
+      <!-- 1. Quick Actions -->
+      <div class="quick-actions">
+        <a href="https://wa.me/201002950495?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="action-card wa-card">
+          <i class="fab fa-whatsapp"></i>
+          <div>
+            <strong data-key="quick-whatsapp">واتس آب</strong>
+            <span data-key="wa-subtitle">أسرع طريقة للتواصل</span>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone" data-key="form-phone">رقم الهاتف</label>
-              <input type="tel" id="phone" name="phone">
-            </div>
-            <div class="form-group">
-              <label for="subject" data-key="form-subject">نوع الخدمة *</label>
-              <select id="subject" name="service_type" required>
-                <option value="" data-key="form-select">اختر نوع الخدمة...</option>
-                <option value="تأسيس شركات">تأسيس شركات</option>
-                <option value="هجرة وجنسية">هجرة وجنسية</option>
-                <option value="تقاضي ودفاع">تقاضي ودفاع</option>
-                <option value="استشارات ضريبية">استشارات ضريبية</option>
-                <option value="عقارات">عقارات</option>
-                <option value="قضايا أسرة">قضايا أسرة</option>
-                <option value="أخرى">أخرى</option>
-              </select>
-            </div>
+        </a>
+        <a href="mailto:legacylwfirm@gmail.com" class="action-card email-card">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong data-key="quick-email">بريد إلكتروني</strong>
+            <span>legacylwfirm@gmail.com</span>
           </div>
-          <div class="form-group">
-            <label for="message" data-key="form-message">تفاصيل استفسارك *</label>
-            <textarea id="message" name="message" required></textarea>
+        </a>
+        <a href="tel:+201002950495" class="action-card phone-card">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong data-key="lbl-phone">اتصل بنا</strong>
+            <span style="direction:ltr; display:inline-block;">+20 100 295 0495</span>
           </div>
-          <button type="submit" class="submit-btn" data-key="form-submit">
-            <i class="fas fa-paper-plane" aria-hidden="true"></i> إرسال الرسالة
-          </button>
-          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
-        </form>
+        </a>
       </div>
 
-      <div class="contact-grid">
-        <div class="contact-item">
-          <i class="fas fa-phone" aria-hidden="true"></i>
-          <div>
-            <div class="label" data-key="lbl-phone">رقم الهاتف</div>
-            <div class="value">
-              <a href="tel:+201002950495" style="color: var(--midnight-navy); text-decoration: none; font-weight: 600; direction: ltr; display: inline-block;">+20 100 295 0495</a>
+      <!-- 2. Form + Assessment Pitch (Split Layout) -->
+      <div class="contact-split">
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="2ab8c203-9a20-4cc6-b664-49edae1ac974">
+            <input type="hidden" name="subject" value="استفسار جديد من موقع Legacy Law Firm">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name" data-key="form-name">الاسم الكامل *</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email" data-key="form-email">البريد الإلكتروني *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
             </div>
-          </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone" data-key="form-phone">رقم الهاتف</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="subject" data-key="form-subject">نوع الخدمة *</label>
+                <select id="subject" name="service_type" required>
+                  <option value="" data-key="form-select">اختر نوع الخدمة...</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message" data-key="form-message">تفاصيل استفسارك *</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" data-key="form-submit">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i> إرسال الرسالة
+            </button>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite">
+              <button class="close-status" id="closeStatusBtn" aria-label="إغلاق">&times;</button>
+              <span id="statusMessage"></span>
+            </div>
+          </form>
         </div>
-        <div class="contact-item">
-          <i class="fas fa-envelope" aria-hidden="true"></i>
-          <div>
-            <div class="label" data-key="lbl-email">البريد الإلكتروني</div>
-            <div class="value">legacylwfirm@gmail.com</div>
-          </div>
+
+        <!-- Assessment Box (Sticky Sidebar) -->
+        <div class="assessment-box">
+          <div class="assessment-icon"><i class="fas fa-gavel"></i></div>
+          <h3 data-key="consultant-title">تقييم مجاني لقضيتك</h3>
+          <p data-key="consultant-desc">اكتب لنا تفاصيل قضيتك أو استفسارك القانوني، وسيقوم أحد مستشارينا بدراستها وتقديم تقييم مبدئي مجاني لموقفك القانوني خلال 24 ساعة.</p>
+          <ul class="assessment-features">
+             <li><i class="fas fa-check-circle"></i> <span data-key="assessment-feature-1">تقييم مبدئي مجاني 100%</span></li>
+             <li><i class="fas fa-check-circle"></i> <span data-key="assessment-feature-2">سرية تامة لبياناتك</span></li>
+             <li><i class="fas fa-check-circle"></i> <span data-key="assessment-feature-3">رد احترافي خلال 24 ساعة</span></li>
+          </ul>
         </div>
+      </div>
+
+      <!-- 3. Info & Map -->
+      <div class="contact-grid">
         <div class="contact-item">
           <i class="fas fa-location-dot" aria-hidden="true"></i>
           <div>
@@ -1537,6 +1627,10 @@
         </div>
       </div>
 
+      <div class="map-wrapper">
+        <iframe src="https://maps.google.com/maps?q=Hurghada%20El%20Dahar%20Square%20Suleiman%20Mazhar%20St&t=m&z=15&output=embed" allowfullscreen loading="lazy" title="موقع المكتب على الخريطة" data-key="map-title-attr"></iframe>
+      </div>
+
       <h3 style="color:var(--midnight-navy);font-size:20px;font-weight:700;margin-top:40px;margin-bottom:16px; text-align: center;" data-key="social-title">تابعنا على السوشيال ميديا</h3>
       <div class="social-grid">
         <a href="https://www.facebook.com/profile.php?id=61591804022713" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="فيسبوك">
@@ -1550,39 +1644,37 @@
         </a>
       </div>
     </section>
-
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-links">
       <a href="#about" data-key="footer-about">من نحن</a>
       <a href="#services" data-key="footer-services">خدماتنا</a>
+      <a href="#vision" data-key="footer-vision">رؤيتنا</a>
+      <a href="#contact" data-key="footer-contact">تواصل معنا</a>
       <a href="#" data-key="footer-privacy" onclick="showModal('privacy'); return false;">سياسة الخصوصية</a>
       <a href="#" data-key="footer-terms" onclick="showModal('terms'); return false;">الشروط والأحكام</a>
-      <a href="#contact" data-key="footer-contact">تواصل معنا</a>
     </div>
     <p data-key="footer-line1">ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.</p>
     <p data-key="footer-line2">© 2026 Legacy Law Firm - جميع الحقوق محفوظة</p>
   </footer>
 
-  <!-- ===== FLOATING WHATSAPP ===== -->
+  <!-- Fixed Buttons -->
   <a href="https://wa.me/201002950495?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="float-whatsapp" aria-label="التواصل عبر واتساب">
     <i class="fab fa-whatsapp" style="font-size:32px;" aria-hidden="true"></i>
   </a>
-
-  <!-- ===== SCROLL TOP ===== -->
   <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="العودة لأعلى الصفحة">
     <i class="fas fa-arrow-up" aria-hidden="true"></i>
   </button>
 
-  <!-- ===== COOKIE BANNER ===== -->
+  <!-- Cookie Banner -->
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="إشعار الكوكيز">
     <p data-key="cookie-text">نستخدم ملفات تعريف الارتباط لتحسين تجربتك. باستمرارك في تصفح الموقع، فإنك توافق على <a href="#" onclick="showModal('privacy'); return false;">سياسة الخصوصية</a>.</p>
     <button class="cookie-btn" onclick="acceptCookies()" data-key="cookie-accept">موافق</button>
   </div>
 
-  <!-- ===== MODAL ===== -->
+  <!-- Modal -->
   <div id="modalOverlay" onclick="if(event.target===this) closeModal()">
     <div class="modal-box">
       <button class="close-modal" onclick="closeModal()">&times;</button>
@@ -1591,408 +1683,231 @@
   </div>
 
   <script>
-    // ==========================================
-    // TRANSLATIONS (مع إزالة مفاتيح الأخبار)
-    // ==========================================
+    // ============================================================
+    //  TRANSLATIONS
+    // ============================================================
     const translations = {
       ar: {
-        "nav-about": "من نحن",
-        "nav-consultant": "مستشارك القانوني",
-        "nav-quick-contact": "تواصل معنا",
-        "nav-services": "خدماتنا",
-        "nav-vision": "رؤيتنا",
-        "nav-contact": "تواصل معنا",
+        "nav-about": "من نحن", "nav-services": "خدماتنا", "nav-vision": "رؤيتنا", "nav-contact": "تواصل معنا",
         "hero-tagline": "المحاماة والاستشارات القانونية وتأسيس الشركات",
-        "about-title": "من نحن؟",
-        "about-subtitle": "عن المكتب",
+        "about-title": "من نحن؟", "about-subtitle": "عن المكتب",
         "about-body": "نحن مكتب محاماة واستشارات قانونية نقدم استشارات وحلول متكاملة للأفراد والشركات. ندمج بين الخبرة العميقة والسرعة والمرونة لنواكب وتيرة الأعمال الحديثة ونضمن حماية مصالح عملائنا وبناء شراكات نجاح مستدامة.<br><br>نقدم مظلة حماية قانونية شاملة واستشارات ذكية تلبي تطلعات الكيانات المحلية والدولية على حد سواء. يمتد نطاق أعمالنا ليشمل منظومة متكاملة من الحلول.",
-        "consultant-title": "مستشارك القانوني",
-        "consultant-subtitle": "نحن هنا لمساعدتك",
-        "consultant-desc": "اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً. تواصل معنا مباشرة عبر البريد الإلكتروني أو الواتس آب.",
-        "consultant-free-title": "🔍 تقييم مبدئي مجاني",
-        "consultant-free-desc": "مراجعة شكواك وتحديد موقفها الأولي مجانية تماماً وبدون أي تكاليف.",
-        "consultant-deep-title": "📋 استشارة متعمقة",
-        "consultant-deep-desc": "في حال رغبتك في الحصول على تقرير قانوني مفصل، سيتم توضيح الرسوم المقررة وطرق السداد المتاحة.",
-        "quick-title": "تواصل معنا",
-        "quick-subtitle": "نحن هنا لمساعدتك فوراً",
-        "quick-desc": "اكتب مشكلتك وسيتولى فريقنا دراستها والرد عليك فوراً. تواصل معنا مباشرة عبر البريد الإلكتروني أو الواتس آب.",
-        "quick-email": "بريد إلكتروني",
-        "quick-whatsapp": "واتس آب",
-        "services-title": "خدماتنا القانونية",
-        "services-subtitle": "مجالات تخصصنا",
-        "svc1-title": "قطاع الشركات والاستثمار",
-        "svc1-desc": "حلول قانونية متكاملة للشركات في جميع مراحلها.",
-        "svc1-f1": "تأسيس الشركات والمنشآت",
-        "svc1-f1-desc": "نسير معكم خطوة بخطوة من البداية لتأسيس الشركات بكافة أشكالها القانونية، إنهاء كافة التراخيص والموافقات الحكومية لبدء الاستثمار بأمان.",
-        "svc1-f2": "إعادة الهيكلة والدمج والاستحواذ (M&A)",
-        "svc1-f2-desc": "إدارة احترافية وتوجيه قانوني دقيق لعمليات الدمج، الاستحواذ، وتعديل الكيانات القانونية بما يضمن نمو أعمالكم وتوسعها.",
-        "svc1-f3": "حماية الملكية الفكرية",
-        "svc1-f3-desc": "تسجيل وحماية العلامات التجارية، براءات الاختراع، وحقوق التأليف والنشر لحفظ أصول شركتكم الفكرية والتجارية في السوق.",
-        "svc1-f4": "التصفية القانونية للشركات",
-        "svc1-f4-desc": "إنهاء الأعمال وإجراءات التصفية القانونية الشاملة وإبراء الذمة المالية بكل سلاسة، أمان، وموثوقية أمام الجهات الرسمية.",
-        "svc2-title": "شؤون الأجانب - قانون الهجرة والجنسية",
-        "svc2-desc": "خدمات قانونية متخصصة للأفراد والشركات الدولية.",
-        "svc2-f1": "توثيق الأحوال الشخصية لزواج الأجانب",
-        "svc2-f1-desc": "نقدم خدمات توثيق عقود الزواج للأجانب في مصر، استكمال الإجراءات القانونية، استخراج الشهادات الرسمية، والتأكد من صحة ونفاذ العقد أمام الجهات المختصة.",
-        "svc2-f2": "خدمات الجنسية المصرية",
-        "svc2-f2-desc": "نقدم كافة الخدمات المتعلقة بالجنسية المصرية:",
-        "svc2-f2-1": "إثبات الجنسية",
-        "svc2-f2-2": "اكتساب الجنسية",
-        "svc2-f2-3": "الاستثمار والتجنس",
-        "svc2-f2-4": "الإذن بالازدواج",
-        "svc2-f2-5": "رد الجنسية",
-        "svc2-f3": "خدمات الهجرة وتقنين الأوضاع",
-        "svc2-f3-desc": "خدمات شاملة للمصريين المهاجرين:",
+        "services-title": "خدماتنا القانونية", "services-subtitle": "مجالات تخصصنا",
+        "svc1-title": "قطاع الشركات والاستثمار", "svc1-desc": "حلول قانونية متكاملة للشركات في جميع مراحلها.",
+        "svc1-f1": "تأسيس الشركات والمنشآت", "svc1-f1-desc": "نسير معكم خطوة بخطوة من البداية لتأسيس الشركات بكافة أشكالها القانونية، إنهاء كافة التراخيص والموافقات الحكومية لبدء الاستثمار بأمان.",
+        "svc1-f2": "إعادة الهيكلة والدمج والاستحواذ (M&A)", "svc1-f2-desc": "إدارة احترافية وتوجيه قانوني دقيق لعمليات الدمج، الاستحواذ، وتعديل الكيانات القانونية بما يضمن نمو أعمالكم وتوسعها.",
+        "svc1-f3": "حماية الملكية الفكرية", "svc1-f3-desc": "تسجيل وحماية العلامات التجارية، براءات الاختراع، وحقوق التأليف والنشر لحفظ أصول شركتكم الفكرية والتجارية في السوق.",
+        "svc1-f4": "التصفية القانونية للشركات", "svc1-f4-desc": "إنهاء الأعمال وإجراءات التصفية القانونية الشاملة وإبراء الذمة المالية بكل سلاسة، أمان، وموثوقية أمام الجهات الرسمية.",
+        "svc2-title": "شؤون الأجانب - قانون الهجرة والجنسية", "svc2-desc": "خدمات قانونية متخصصة للأفراد والشركات الدولية.",
+        "svc2-f1": "توثيق الأحوال الشخصية لزواج الأجانب", "svc2-f1-desc": "نقدم خدمات توثيق عقود الزواج للأجانب في مصر، استكمال الإجراءات القانونية، استخراج الشهادات الرسمية، والتأكد من صحة ونفاذ العقد أمام الجهات المختصة.",
+        "svc2-f2": "خدمات الجنسية المصرية", "svc2-f2-desc": "نقدم كافة الخدمات المتعلقة بالجنسية المصرية:",
+        "svc2-f2-1": "إثبات الجنسية", "svc2-f2-2": "اكتساب الجنسية", "svc2-f2-3": "الاستثمار والتجنس", "svc2-f2-4": "الإذن بالازدواج", "svc2-f2-5": "رد الجنسية",
+        "svc2-f3": "خدمات الهجرة وتقنين الأوضاع", "svc2-f3-desc": "خدمات شاملة للمصريين المهاجرين:",
         "svc2-f3-1": "الهجرة الدائمة: تسجيل بيانات المصريين المهاجرين وتحديث ملفاتهم رسميًا.",
         "svc2-f3-2": "الإعفاء من التجنيد: استخراج شهادات صغار السن والمهاجرين لتقديمها للتجنيد.",
         "svc2-f3-3": "إخطار السفر: إخطار الإدارة برغبة السفر للمهاجرين الخاضعين للإشراف.",
-        "svc2-f4": "خدمات الأجانب في مصر والإقامات",
-        "svc2-f4-desc": "نساعد الأجانب في الحصول على الإقامات المختلفة في مصر، استخراج التأشيرات، تجديد الإقامة، واستكمال كافة الإجراءات القانونية أمام الجهات المختصة.",
-        "svc3-title": "قطاع التقاضي والدفاع",
-        "svc3-desc": "تمثيل قانوني حازم أمام كافة المحاكم والهيئات القضائية.",
-        "svc3-f1": "الجنايات والأمن السيبراني والجرائم الإلكترونية",
-        "svc3-f1-desc": "تمثيل قانوني حازم في القضايا الجنائية، مع التخصص الدقيق في مكافحة الجرائم الإلكترونية، الابتزاز الرقمي، وحماية البيانات السرية.",
-        "svc3-f2": "خدمات جمارك التجارة الدولية والاستيراد والتصدير",
-        "svc3-f2-desc": "قضايا التهريب الجمركي، تسوية وفض النزاعات الجمركية، استشارات الإعفاءات الجمركية، تراخيص الاستيراد والتصدير.",
-        "svc3-f3": "خدمات الاستشارات الضريبية والمنازعات المالية",
-        "svc3-f3-desc": "الطعون والمنازعات الضريبية، ضريبة القيمة المضافة والدخل، الفحص والتسجيل الضريبي، الدمج والاستحواذ الضريبي.",
-        "svc3-f4": "خدمات المنازعات العقارية والاستثمار العقاري",
-        "svc3-f4-desc": "تسجيل العقارات والشهر العقاري، منازعات الملكية العقارية، صياغة عقود البيع والإيجار، تأسيس وإدارة المحافظ العقارية.",
-        "svc3-f5": "القانون المدني والمنازعات المدنية",
-        "svc3-f5-desc": "صياغة العقود وإدارة الالتزامات والتعويضات، إلى جانب تنظيم العلاقات التعاقدية.",
-        "svc3-f6": "قضايا العمال والمنازعات العمالية",
-        "svc3-f6-desc": "حل النزاعات العمالية لحفظ حقوق أطراف العمل.",
-        "svc3-f7": "قضايا الأسرة والأحوال الشخصية",
-        "svc3-f7-desc": "نقدم حلولاً قانونية متكاملة لحماية حقوقكم العائلية، مع الالتزام التام بأعلى درجات السرية والخصوصية.",
-        "svc4-title": "قطاع المعاملات التجارية والمالية الدولية",
-        "svc4-desc": "حلول قانونية ومالية متكاملة لدعم الشركات العالمية والمستثمرين.",
-        "svc4-f1": "صياغة ومراجعة العقود التجارية الدولية",
-        "svc4-f1-desc": "نصيغ ونراجع كافة الأنماط التعاقدية الدولية:",
-        "svc4-f1-1": "عقود البيع والتوريد الدولي",
-        "svc4-f1-2": "عقود الوكالة والتوزيع التجاري",
-        "svc4-f1-3": "عقود الوساطة والسمسرة الدولية",
-        "svc4-f1-4": "عقود الامتياز التجاري (Franchise)",
-        "svc4-f1-5": "اتفاقيات عدم الإفصاح والسرية (NDA)",
-        "svc4-f2": "عقود التمويل والتسهيلات الائتمانية الدولية",
-        "svc4-f2-desc": "نراجع ونضبط الأطر القانونية للتمويل الخارجي:",
-        "svc4-f2-1": "اتفاقيات القروض الدولية",
-        "svc4-f2-2": "عقود التسهيلات الائتمانية",
-        "svc4-f2-3": "الامتثال لقرارات البنك المركزي",
-        "svc4-f3": "المعاملات المالية الدولية والاعتمادات المستندية",
-        "svc4-f3-desc": "نوفر الإشراف الإداري والقانوني على تدفقات أموالك:",
-        "svc4-f3-1": "الاعتمادات المستندية وخطابات الضمان",
-        "svc4-f3-2": "الامتثال لضوابط التحويلات النقدية",
-        "svc4-f3-3": "مراجعة مستندات الشحن والتخليص",
-        "vision-title": "رؤيتنا",
-        "vision-subtitle": "رسالتنا المستقبلية",
+        "svc2-f4": "خدمات الأجانب في مصر والإقامات", "svc2-f4-desc": "نساعد الأجانب في الحصول على الإقامات المختلفة في مصر، استخراج التأشيرات، تجديد الإقامة، واستكمال كافة الإجراءات القانونية أمام الجهات المختصة.",
+        "svc3-title": "قطاع التقاضي والدفاع", "svc3-desc": "تمثيل قانوني حازم أمام كافة المحاكم والهيئات القضائية.",
+        "svc3-f1": "الجنايات والأمن السيبراني والجرائم الإلكترونية", "svc3-f1-desc": "تمثيل قانوني حازم في القضايا الجنائية، مع التخصص الدقيق في مكافحة الجرائم الإلكترونية، الابتزاز الرقمي، وحماية البيانات السرية.",
+        "svc3-f2": "خدمات جمارك التجارة الدولية والاستيراد والتصدير", "svc3-f2-desc": "قضايا التهريب الجمركي، تسوية وفض النزاعات الجمركية، استشارات الإعفاءات الجمركية، تراخيص الاستيراد والتصدير.",
+        "svc3-f3": "خدمات الاستشارات الضريبية والمنازعات المالية", "svc3-f3-desc": "الطعون والمنازعات الضريبية، ضريبة القيمة المضافة والدخل، الفحص والتسجيل الضريبي، الدمج والاستحواذ الضريبي.",
+        "svc3-f4": "خدمات المنازعات العقارية والاستثمار العقاري", "svc3-f4-desc": "تسجيل العقارات والشهر العقاري، منازعات الملكية العقارية، صياغة عقود البيع والإيجار، تأسيس وإدارة المحافظ العقارية.",
+        "svc3-f5": "القانون المدني والمنازعات المدنية", "svc3-f5-desc": "صياغة العقود وإدارة الالتزامات والتعويضات، إلى جانب تنظيم العلاقات التعاقدية.",
+        "svc3-f6": "قضايا العمال والمنازعات العمالية", "svc3-f6-desc": "حل النزاعات العمالية لحفظ حقوق أطراف العمل.",
+        "svc3-f7": "قضايا الأسرة والأحوال الشخصية", "svc3-f7-desc": "نقدم حلولاً قانونية متكاملة لحماية حقوقكم العائلية، مع الالتزام التام بأعلى درجات السرية والخصوصية.",
+        "svc4-title": "قطاع المعاملات التجارية والمالية الدولية", "svc4-desc": "حلول قانونية ومالية متكاملة لدعم الشركات العالمية والمستثمرين.",
+        "svc4-f1": "صياغة ومراجعة العقود التجارية الدولية", "svc4-f1-desc": "نصيغ ونراجع كافة الأنماط التعاقدية الدولية:",
+        "svc4-f1-1": "عقود البيع والتوريد الدولي", "svc4-f1-2": "عقود الوكالة والتوزيع التجاري", "svc4-f1-3": "عقود الوساطة والسمسرة الدولية", "svc4-f1-4": "عقود الامتياز التجاري (Franchise)", "svc4-f1-5": "اتفاقيات عدم الإفصاح والسرية (NDA)",
+        "svc4-f2": "عقود التمويل والتسهيلات الائتمانية الدولية", "svc4-f2-desc": "نراجع ونضبط الأطر القانونية للتمويل الخارجي:",
+        "svc4-f2-1": "اتفاقيات القروض الدولية", "svc4-f2-2": "عقود التسهيلات الائتمانية", "svc4-f2-3": "الامتثال لقرارات البنك المركزي",
+        "svc4-f3": "المعاملات المالية الدولية والاعتمادات المستندية", "svc4-f3-desc": "نوفر الإشراف الإداري والقانوني على تدفقات أموالك:",
+        "svc4-f3-1": "الاعتمادات المستندية وخطابات الضمان", "svc4-f3-2": "الامتثال لضوابط التحويلات النقدية", "svc4-f3-3": "مراجعة مستندات الشحن والتخليص",
+        "vision-title": "رؤيتنا", "vision-subtitle": "رسالتنا المستقبلية",
         "vision-body": "نؤمن بأن الريادة في عالم القانون لا تُقاس بالزمن أو الأقدمية، بل بالحلول الفعالة والدقة المتناهية التي تواكب العصر. ندمج بين الخبرة القانونية العميقة والسرعة والمرونة لنواكب الوتيرة المتسارعة لقطاعات الأعمال الحديثة ونضمن لعملائنا الاستقرار والاستدامة وتحقيق أهدافهم الاستراتيجية بأمان مطلق.",
-        "contact-title": "تواصل معنا",
-        "contact-subtitle": "نحن هنا لمساعدتك",
-        "lbl-email": "البريد الإلكتروني",
-        "lbl-phone": "رقم الهاتف",
-        "lbl-address": "العنوان",
-        "address-main-label": "المقر الرئيسي:",
+        "contact-title": "تواصل معنا", "contact-hub-subtitle": "نحن هنا لمساعدتك - استشارة فورية ومجانية",
+        "quick-whatsapp": "واتس آب", "wa-subtitle": "أسرع طريقة للتواصل",
+        "quick-email": "بريد إلكتروني", "lbl-phone": "رقم الهاتف",
+        "consultant-title": "تقييم مجاني لقضيتك",
+        "consultant-desc": "اكتب لنا تفاصيل قضيتك أو استفسارك القانوني، وسيقوم أحد مستشارينا بدراستها وتقديم تقييم مبدئي مجاني لموقفك القانوني خلال 24 ساعة.",
+        "assessment-feature-1": "تقييم مبدئي مجاني 100%",
+        "assessment-feature-2": "سرية تامة لبياناتك",
+        "assessment-feature-3": "رد احترافي خلال 24 ساعة",
+        "lbl-address": "العنوان", "address-main-label": "المقر الرئيسي:",
         "address-main": "ميدان الدهار - شارع اللواء سليمان مظهر، الغردقة، مصر",
-        "address-branch-label": "فرع القاهرة:",
-        "address-branch": "مدينة بدر، القاهرة، مصر",
-        "lbl-hours": "ساعات العمل",
-        "val-hours": "السبت - الخميس: 9 ص - 7 م",
+        "address-branch-label": "فرع القاهرة:", "address-branch": "مدينة بدر، القاهرة، مصر",
+        "lbl-hours": "ساعات العمل", "val-hours": "السبت - الخميس: 9 ص - 7 م",
         "social-title": "تابعنا على السوشيال ميديا",
-        "social-fb": "فيسبوك",
-        "social-ig": "إنستجرام",
-        "social-li": "لينكد إن",
-        "form-name": "الاسم الكامل *",
-        "form-email": "البريد الإلكتروني *",
-        "form-phone": "رقم الهاتف",
-        "form-subject": "نوع الخدمة *",
-        "form-select": "اختر نوع الخدمة...",
-        "form-opt1": "تأسيس شركات",
-        "form-opt2": "هجرة وجنسية",
-        "form-opt3": "تقاضي ودفاع",
-        "form-opt4": "استشارات ضريبية",
-        "form-opt5": "عقارات",
-        "form-opt6": "قضايا أسرة",
-        "form-opt7": "أخرى",
-        "form-message": "تفاصيل استفسارك *",
-        "form-submit": "إرسال الرسالة",
-        "footer-about": "من نحن",
-        "footer-services": "خدماتنا",
-        "footer-privacy": "سياسة الخصوصية",
-        "footer-terms": "الشروط والأحكام",
-        "footer-contact": "تواصل معنا",
+        "social-fb": "فيسبوك", "social-ig": "إنستجرام", "social-li": "لينكد إن",
+        "form-name": "الاسم الكامل *", "form-email": "البريد الإلكتروني *",
+        "form-phone": "رقم الهاتف", "form-subject": "نوع الخدمة *",
+        "form-select": "اختر نوع الخدمة...", "form-opt1": "تأسيس شركات",
+        "form-opt2": "هجرة وجنسية", "form-opt3": "تقاضي ودفاع",
+        "form-opt4": "استشارات ضريبية", "form-opt5": "عقارات",
+        "form-opt6": "قضايا أسرة", "form-opt7": "أخرى",
+        "form-message": "تفاصيل استفسارك *", "form-submit": "إرسال الرسالة",
+        "footer-about": "من نحن", "footer-services": "خدماتنا",
+        "footer-vision": "رؤيتنا", "footer-contact": "تواصل معنا",
+        "footer-privacy": "سياسة الخصوصية", "footer-terms": "الشروط والأحكام",
         "footer-line1": "ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.",
         "footer-line2": "© 2026 Legacy Law Firm - جميع الحقوق محفوظة",
         "cookie-text": "نستخدم ملفات تعريف الارتباط لتحسين تجربتك. باستمرارك في تصفح الموقع، فإنك توافق على ",
-        "cookie-accept": "موافق",
-        "skip-link": "انتقل للمحتوى الرئيسي"
+        "cookie-accept": "موافق", "skip-link": "انتقل للمحتوى الرئيسي",
+        "stat-years": "سنوات خبرة", "stat-cases": "قضية تم حلها",
+        "stat-satisfaction": "رضا العملاء",
+        "map-title-attr": "موقع المكتب على الخريطة"
       },
       en: {
-        "nav-about": "About Us",
-        "nav-consultant": "Legal Advisor",
-        "nav-quick-contact": "Contact Us",
-        "nav-services": "Services",
-        "nav-vision": "Our Vision",
-        "nav-contact": "Contact Us",
+        "nav-about": "About Us", "nav-services": "Services", "nav-vision": "Our Vision", "nav-contact": "Contact Us",
         "hero-tagline": "Legal Practice, Consultancy & Corporate Formation",
-        "about-title": "Who Are We?",
-        "about-subtitle": "About the Firm",
+        "about-title": "Who Are We?", "about-subtitle": "About the Firm",
         "about-body": "We are a law firm and legal consultancy providing integrated advice and solutions for individuals and companies. We combine deep expertise with speed and flexibility to keep pace with modern business, ensuring our clients' interests are protected and building sustainable partnerships for success.<br><br>We offer a comprehensive legal protection umbrella and smart consultations that meet the aspirations of both local and international entities. Our scope of work extends to an integrated system of solutions.",
-        "consultant-title": "Your Legal Advisor",
-        "consultant-subtitle": "We are here to help you",
-        "consultant-desc": "Write your issue and our team will study it and respond immediately. Contact us directly via email or WhatsApp.",
-        "consultant-free-title": "🔍 Free Initial Assessment",
-        "consultant-free-desc": "Reviewing your complaint and determining its initial status is completely free and without any costs.",
-        "consultant-deep-title": "📋 In-Depth Consultation",
-        "consultant-deep-desc": "If you wish to obtain a detailed legal report, the applicable fees and available payment methods will be clarified.",
-        "quick-title": "Contact Us",
-        "quick-subtitle": "We are here to help you immediately",
-        "quick-desc": "Write your issue and our team will study it and respond immediately. Contact us directly via email or WhatsApp.",
-        "quick-email": "Email",
-        "quick-whatsapp": "WhatsApp",
-        "services-title": "Our Legal Services",
-        "services-subtitle": "Areas of Expertise",
-        "svc1-title": "Corporate & Investment Law",
-        "svc1-desc": "Integrated legal solutions for companies at all stages.",
-        "svc1-f1": "Company Formation & Establishment",
-        "svc1-f1-desc": "We guide you step by step from the very beginning to establish companies in all their legal forms, completing all government licenses and approvals to start investing with confidence and full security.",
-        "svc1-f2": "Restructuring, Mergers & Acquisitions (M&A)",
-        "svc1-f2-desc": "Professional management and precise legal guidance for mergers, acquisitions, and legal entity modifications to ensure your business growth and expansion.",
-        "svc1-f3": "Intellectual Property Protection",
-        "svc1-f3-desc": "Registration and protection of trademarks, patents, and copyrights to safeguard your company's intellectual and commercial assets in the market.",
-        "svc1-f4": "Corporate Liquidation",
-        "svc1-f4-desc": "Comprehensive legal liquidation procedures and financial discharge with complete smoothness, safety, and reliability before official authorities.",
-        "svc2-title": "Foreign Affairs - Immigration & Nationality Law",
-        "svc2-desc": "Specialized legal services for individuals and international companies.",
-        "svc2-f1": "Personal Status Documentation for Foreign Marriages",
-        "svc2-f1-desc": "We provide documentation services for marriage contracts for foreigners in Egypt, completing legal procedures, obtaining official certificates, and ensuring the validity of the contract before the competent authorities.",
-        "svc2-f2": "Egyptian Nationality Services",
-        "svc2-f2-desc": "We provide all services related to Egyptian nationality:",
-        "svc2-f2-1": "Nationality Proof",
-        "svc2-f2-2": "Nationality Acquisition",
-        "svc2-f2-3": "Investment & Naturalization",
-        "svc2-f2-4": "Dual Nationality Permit",
-        "svc2-f2-5": "Nationality Renunciation",
-        "svc2-f3": "Immigration & Status Regularization",
-        "svc2-f3-desc": "Comprehensive services for Egyptian emigrants:",
+        "services-title": "Our Legal Services", "services-subtitle": "Areas of Expertise",
+        "svc1-title": "Corporate & Investment Law", "svc1-desc": "Integrated legal solutions for companies at all stages.",
+        "svc1-f1": "Company Formation & Establishment", "svc1-f1-desc": "We guide you step by step from the very beginning to establish companies in all their legal forms, completing all government licenses and approvals to start investing with confidence and full security.",
+        "svc1-f2": "Restructuring, Mergers & Acquisitions (M&A)", "svc1-f2-desc": "Professional management and precise legal guidance for mergers, acquisitions, and legal entity modifications to ensure your business growth and expansion.",
+        "svc1-f3": "Intellectual Property Protection", "svc1-f3-desc": "Registration and protection of trademarks, patents, and copyrights to safeguard your company's intellectual and commercial assets in the market.",
+        "svc1-f4": "Corporate Liquidation", "svc1-f4-desc": "Comprehensive legal liquidation procedures and financial discharge with complete smoothness, safety, and reliability before official authorities.",
+        "svc2-title": "Foreign Affairs - Immigration & Nationality Law", "svc2-desc": "Specialized legal services for individuals and international companies.",
+        "svc2-f1": "Personal Status Documentation for Foreign Marriages", "svc2-f1-desc": "We provide documentation services for marriage contracts for foreigners in Egypt, completing legal procedures, obtaining official certificates, and ensuring the validity of the contract before the competent authorities.",
+        "svc2-f2": "Egyptian Nationality Services", "svc2-f2-desc": "We provide all services related to Egyptian nationality:",
+        "svc2-f2-1": "Nationality Proof", "svc2-f2-2": "Nationality Acquisition", "svc2-f2-3": "Investment & Naturalization", "svc2-f2-4": "Dual Nationality Permit", "svc2-f2-5": "Nationality Renunciation",
+        "svc2-f3": "Immigration & Status Regularization", "svc2-f3-desc": "Comprehensive services for Egyptian emigrants:",
         "svc2-f3-1": "Permanent Immigration: Registering data of Egyptian emigrants and officially updating their files.",
         "svc2-f3-2": "Military Exemption: Issuing certificates for minors and emigrants to present for conscription.",
         "svc2-f3-3": "Travel Notification: Notifying the administration of the travel request for supervised emigrants.",
-        "svc2-f4": "Foreigners in Egypt & Residency Services",
-        "svc2-f4-desc": "We help foreigners obtain various residencies in Egypt, extract visas, renew residency, and complete all legal procedures before the competent authorities.",
-        "svc3-title": "Litigation & Defense Practice",
-        "svc3-desc": "Strong legal representation before all courts and judicial bodies.",
-        "svc3-f1": "Criminal Law & Cybercrime Defense",
-        "svc3-f1-desc": "Firm legal representation in criminal cases, with specialized expertise in combating cybercrimes, digital extortion, and protecting confidential data.",
-        "svc3-f2": "International Trade Customs, Import & Export Services",
-        "svc3-f2-desc": "Customs smuggling cases, settlement and resolution of customs disputes, customs exemption consultations, import/export licenses.",
-        "svc3-f3": "Tax Consultancy & Financial Disputes Services",
-        "svc3-f3-desc": "Tax appeals and disputes, VAT and income tax, tax inspection and registration, tax M&A.",
-        "svc3-f4": "Real Estate Disputes & Property Investment Services",
-        "svc3-f4-desc": "Property registration and notarization, real estate ownership disputes, drafting sale and lease contracts, establishing and managing real estate portfolios.",
-        "svc3-f5": "Civil Law & Civil Litigation",
-        "svc3-f5-desc": "Drafting contracts and managing obligations, compensation, and the organization of contractual relationships.",
-        "svc3-f6": "Labor & Employment Law",
-        "svc3-f6-desc": "Resolving labor disputes to preserve the rights of all parties involved in the employment relationship.",
-        "svc3-f7": "Family Law & Personal Status Cases",
-        "svc3-f7-desc": "We provide integrated legal solutions to protect your family rights, with full commitment to the highest levels of confidentiality and privacy.",
-        "svc4-title": "International Commercial & Financial Transactions",
-        "svc4-desc": "Integrated legal and financial solutions to support global companies and investors.",
-        "svc4-f1": "Drafting and Review of International Commercial Contracts",
-        "svc4-f1-desc": "We draft and review all types of international contractual arrangements:",
-        "svc4-f1-1": "International Sale and Supply Contracts",
-        "svc4-f1-2": "Agency and Commercial Distribution Contracts",
-        "svc4-f1-3": "International Mediation and Brokerage Contracts",
-        "svc4-f1-4": "Franchise Agreements",
-        "svc4-f1-5": "Non-Disclosure and Confidentiality Agreements (NDA)",
-        "svc4-f2": "Financing and International Credit Facilities Contracts",
-        "svc4-f2-desc": "We review and adjust the legal frameworks for external financing:",
-        "svc4-f2-1": "International Loan Agreements",
-        "svc4-f2-2": "Credit Facility Contracts",
-        "svc4-f2-3": "Compliance with Central Bank Decisions",
-        "svc4-f3": "International Financial Transactions and Documentary Credits",
-        "svc4-f3-desc": "We provide administrative and legal oversight over your cash flows:",
-        "svc4-f3-1": "Documentary Credits and Letters of Guarantee",
-        "svc4-f3-2": "Compliance with Cash Transfer Regulations",
-        "svc4-f3-3": "Review of Shipping and Clearance Documents",
-        "vision-title": "Our Vision",
-        "vision-subtitle": "Our Future Mission",
+        "svc2-f4": "Foreigners in Egypt & Residency Services", "svc2-f4-desc": "We help foreigners obtain various residencies in Egypt, extract visas, renew residency, and complete all legal procedures before the competent authorities.",
+        "svc3-title": "Litigation & Defense Practice", "svc3-desc": "Strong legal representation before all courts and judicial bodies.",
+        "svc3-f1": "Criminal Law & Cybercrime Defense", "svc3-f1-desc": "Firm legal representation in criminal cases, with specialized expertise in combating cybercrimes, digital extortion, and protecting confidential data.",
+        "svc3-f2": "International Trade Customs, Import & Export Services", "svc3-f2-desc": "Customs smuggling cases, settlement and resolution of customs disputes, customs exemption consultations, import/export licenses.",
+        "svc3-f3": "Tax Consultancy & Financial Disputes Services", "svc3-f3-desc": "Tax appeals and disputes, VAT and income tax, tax inspection and registration, tax M&A.",
+        "svc3-f4": "Real Estate Disputes & Property Investment Services", "svc3-f4-desc": "Property registration and notarization, real estate ownership disputes, drafting sale and lease contracts, establishing and managing real estate portfolios.",
+        "svc3-f5": "Civil Law & Civil Litigation", "svc3-f5-desc": "Drafting contracts and managing obligations, compensation, and the organization of contractual relationships.",
+        "svc3-f6": "Labor & Employment Law", "svc3-f6-desc": "Resolving labor disputes to preserve the rights of all parties involved in the employment relationship.",
+        "svc3-f7": "Family Law & Personal Status Cases", "svc3-f7-desc": "We provide integrated legal solutions to protect your family rights, with full commitment to the highest levels of confidentiality and privacy.",
+        "svc4-title": "International Commercial & Financial Transactions", "svc4-desc": "Integrated legal and financial solutions to support global companies and investors.",
+        "svc4-f1": "Drafting and Review of International Commercial Contracts", "svc4-f1-desc": "We draft and review all types of international contractual arrangements:",
+        "svc4-f1-1": "International Sale and Supply Contracts", "svc4-f1-2": "Agency and Commercial Distribution Contracts", "svc4-f1-3": "International Mediation and Brokerage Contracts", "svc4-f1-4": "Franchise Agreements", "svc4-f1-5": "Non-Disclosure and Confidentiality Agreements (NDA)",
+        "svc4-f2": "Financing and International Credit Facilities Contracts", "svc4-f2-desc": "We review and adjust the legal frameworks for external financing:",
+        "svc4-f2-1": "International Loan Agreements", "svc4-f2-2": "Credit Facility Contracts", "svc4-f2-3": "Compliance with Central Bank Decisions",
+        "svc4-f3": "International Financial Transactions and Documentary Credits", "svc4-f3-desc": "We provide administrative and legal oversight over your cash flows:",
+        "svc4-f3-1": "Documentary Credits and Letters of Guarantee", "svc4-f3-2": "Compliance with Cash Transfer Regulations", "svc4-f3-3": "Review of Shipping and Clearance Documents",
+        "vision-title": "Our Vision", "vision-subtitle": "Our Future Mission",
         "vision-body": "We believe that leadership in the legal world is not measured by time or seniority, but by effective solutions and meticulous precision that keep pace with the era. We combine deep legal expertise with speed and flexibility to match the rapid pace of modern business sectors and ensure our clients' stability, sustainability, and the achievement of their strategic goals with absolute safety.",
-        "contact-title": "Contact Us",
-        "contact-subtitle": "We are here to help you",
-        "lbl-email": "Email",
-        "lbl-phone": "Phone",
-        "lbl-address": "Address",
-        "address-main-label": "Headquarters:",
+        "contact-title": "Contact Us", "contact-hub-subtitle": "We are here to help you - Immediate & Free Consultation",
+        "quick-whatsapp": "WhatsApp", "wa-subtitle": "Fastest way to reach us",
+        "quick-email": "Email", "lbl-phone": "Phone",
+        "consultant-title": "Free Case Assessment",
+        "consultant-desc": "Send us the details of your case or legal inquiry, and one of our advisors will study it and provide a free initial assessment of your legal position within 24 hours.",
+        "assessment-feature-1": "100% Free Initial Assessment",
+        "assessment-feature-2": "Complete confidentiality of your data",
+        "assessment-feature-3": "Professional response within 24 hours",
+        "lbl-address": "Address", "address-main-label": "Headquarters:",
         "address-main": "El Dahar Square - Suleiman Mazhar St., Hurghada, Egypt",
-        "address-branch-label": "Cairo Branch:",
-        "address-branch": "Badr City, Cairo, Egypt",
-        "lbl-hours": "Working Hours",
-        "val-hours": "Sat - Thu: 9 AM - 7 PM",
+        "address-branch-label": "Cairo Branch:", "address-branch": "Badr City, Cairo, Egypt",
+        "lbl-hours": "Working Hours", "val-hours": "Sat - Thu: 9 AM - 7 PM",
         "social-title": "Follow Us",
-        "social-fb": "Facebook",
-        "social-ig": "Instagram",
-        "social-li": "LinkedIn",
-        "form-name": "Full Name *",
-        "form-email": "Email *",
-        "form-phone": "Phone Number",
-        "form-subject": "Service Type *",
-        "form-select": "Select service type...",
-        "form-opt1": "Company Formation",
-        "form-opt2": "Immigration & Nationality",
-        "form-opt3": "Litigation & Defense",
-        "form-opt4": "Tax Consultancy",
-        "form-opt5": "Real Estate",
-        "form-opt6": "Family Cases",
-        "form-opt7": "Other",
-        "form-message": "Your Inquiry Details *",
-        "form-submit": "Send Message",
-        "footer-about": "About Us",
-        "footer-services": "Services",
-        "footer-privacy": "Privacy Policy",
-        "footer-terms": "Terms & Conditions",
-        "footer-contact": "Contact Us",
+        "social-fb": "Facebook", "social-ig": "Instagram", "social-li": "LinkedIn",
+        "form-name": "Full Name *", "form-email": "Email *",
+        "form-phone": "Phone Number", "form-subject": "Service Type *",
+        "form-select": "Select service type...", "form-opt1": "Company Formation",
+        "form-opt2": "Immigration & Nationality", "form-opt3": "Litigation & Defense",
+        "form-opt4": "Tax Consultancy", "form-opt5": "Real Estate",
+        "form-opt6": "Family Cases", "form-opt7": "Other",
+        "form-message": "Your Inquiry Details *", "form-submit": "Send Message",
+        "footer-about": "About Us", "footer-services": "Services",
+        "footer-vision": "Our Vision", "footer-contact": "Contact Us",
+        "footer-privacy": "Privacy Policy", "footer-terms": "Terms & Conditions",
         "footer-line1": "Always committed to meticulous detail to remain the legal fortress and strategic advisor that grants you peace of mind and success.",
         "footer-line2": "© 2026 Legacy Law Firm - All Rights Reserved",
         "cookie-text": "We use cookies to improve your experience. By continuing to browse the site, you agree to our ",
-        "cookie-accept": "Accept",
-        "skip-link": "Skip to main content"
+        "cookie-accept": "Accept", "skip-link": "Skip to main content",
+        "stat-years": "Years of Experience", "stat-cases": "Cases Resolved",
+        "stat-satisfaction": "Client Satisfaction",
+        "map-title-attr": "Office Location on Map"
       },
       de: {
-        "nav-about": "Über Uns",
-        "nav-consultant": "Rechtsberater",
-        "nav-quick-contact": "Kontakt",
-        "nav-services": "Leistungen",
-        "nav-vision": "Unsere Vision",
-        "nav-contact": "Kontakt",
+        "nav-about": "Über Uns", "nav-services": "Leistungen", "nav-vision": "Unsere Vision", "nav-contact": "Kontakt",
         "hero-tagline": "Rechtsanwaltschaft, Beratung & Unternehmensgründung",
-        "about-title": "Wer sind wir?",
-        "about-subtitle": "Über die Kanzlei",
+        "about-title": "Wer sind wir?", "about-subtitle": "Über die Kanzlei",
         "about-body": "Wir sind eine Anwaltskanzlei und Rechtsberatung, die integrierte Beratung und Lösungen für Einzelpersonen und Unternehmen anbietet. Wir verbinden tiefes Fachwissen mit Geschwindigkeit und Flexibilität, um mit dem modernen Geschäftsleben Schritt zu halten und die Interessen unserer Mandanten zu schützen.<br><br>Wir bieten einen umfassenden rechtlichen Schutzschirm und intelligente Beratung, die die Erwartungen lokaler und internationaler Unternehmen gleichermaßen erfüllen.",
-        "consultant-title": "Ihr Rechtsberater",
-        "consultant-subtitle": "Wir sind hier, um Ihnen zu helfen",
-        "consultant-desc": "Schreiben Sie Ihr Anliegen, unser Team prüft und antwortet sofort. Kontaktieren Sie uns direkt per E-Mail oder WhatsApp.",
-        "consultant-free-title": "🔍 Kostenlose Ersteinschätzung",
-        "consultant-free-desc": "Die Prüfung Ihrer Beschwerde ist völlig kostenlos und ohne jegliche Gebühren.",
-        "consultant-deep-title": "📋 Vertiefte Beratung",
-        "consultant-deep-desc": "Falls Sie einen detaillierten Bericht wünschen, werden die anfallenden Gebühren und Zahlungsmethoden erläutert.",
-        "quick-title": "Kontakt",
-        "quick-subtitle": "Wir helfen Ihnen sofort",
-        "quick-desc": "Schreiben Sie Ihr Anliegen, unser Team prüft und antwortet sofort. Kontaktieren Sie uns direkt per E-Mail oder WhatsApp.",
-        "quick-email": "E-Mail",
-        "quick-whatsapp": "WhatsApp",
-        "services-title": "Unsere Rechtsdienstleistungen",
-        "services-subtitle": "Fachgebiete",
-        "svc1-title": "Unternehmens- & Investitionsrecht",
-        "svc1-desc": "Integrierte Rechtslösungen für Unternehmen in allen Phasen.",
-        "svc1-f1": "Unternehmensgründung",
-        "svc1-f1-desc": "Wir begleiten Sie Schritt für Schritt von Anfang an bei der Gründung von Unternehmen in allen rechtlichen Formen und erledigen alle behördlichen Lizenzen und Genehmigungen für einen sicheren Investitionsstart.",
-        "svc1-f2": "Umstrukturierung, Fusionen & Übernahmen (M&A)",
-        "svc1-f2-desc": "Professionelles Management und präzise rechtliche Steuerung für Fusionen, Übernahmen und Änderungen von Rechtsträgern, um Ihr Geschäftswachstum und Ihre Expansion zu gewährleisten.",
-        "svc1-f3": "Schutz geistigen Eigentums",
-        "svc1-f3-desc": "Registrierung und Schutz von Marken, Patenten und Urheberrechten zur Sicherung der intellektuellen und kommerziellen Vermögenswerte Ihres Unternehmens.",
-        "svc1-f4": "Unternehmensliquidation",
-        "svc1-f4-desc": "Umfassende rechtliche Abwicklungsverfahren und finanzielle Entlastung mit völliger Reibungslosigkeit, Sicherheit und Zuverlässigkeit vor offiziellen Stellen.",
-        "svc2-title": "Ausländerangelegenheiten - Einwanderungs- & Staatsangehörigkeitsrecht",
-        "svc2-desc": "Spezialisierte Rechtsdienstleistungen für internationale Mandanten.",
-        "svc2-f1": "Personenstandsdokumentation für Eheschließungen von Ausländern",
-        "svc2-f1-desc": "Wir bieten Dokumentationsdienste für Eheverträge für Ausländer in Ägypten, vervollständigen rechtliche Verfahren, erhalten offizielle Bescheinigungen und stellen die Gültigkeit des Vertrags vor den zuständigen Behörden sicher.",
-        "svc2-f2": "Ägyptische Staatsangehörigkeitsdienste",
-        "svc2-f2-desc": "Wir bieten alle Dienstleistungen im Zusammenhang mit der ägyptischen Staatsangehörigkeit:",
-        "svc2-f2-1": "Nachweis der Staatsangehörigkeit",
-        "svc2-f2-2": "Erwerb der Staatsangehörigkeit",
-        "svc2-f2-3": "Investition und Einbürgerung",
-        "svc2-f2-4": "Genehmigung der Doppelstaatsbürgerschaft",
-        "svc2-f2-5": "Verzicht auf die Staatsangehörigkeit",
-        "svc2-f3": "Einwanderungs- und Statusregulierung",
-        "svc2-f3-desc": "Umfassende Dienstleistungen für ägyptische Auswanderer:",
+        "services-title": "Unsere Rechtsdienstleistungen", "services-subtitle": "Fachgebiete",
+        "svc1-title": "Unternehmens- & Investitionsrecht", "svc1-desc": "Integrierte Rechtslösungen für Unternehmen in allen Phasen.",
+        "svc1-f1": "Unternehmensgründung", "svc1-f1-desc": "Wir begleiten Sie Schritt für Schritt von Anfang an bei der Gründung von Unternehmen in allen rechtlichen Formen und erledigen alle behördlichen Lizenzen und Genehmigungen für einen sicheren Investitionsstart.",
+        "svc1-f2": "Umstrukturierung, Fusionen & Übernahmen (M&A)", "svc1-f2-desc": "Professionelles Management und präzise rechtliche Steuerung für Fusionen, Übernahmen und Änderungen von Rechtsträgern, um Ihr Geschäftswachstum und Ihre Expansion zu gewährleisten.",
+        "svc1-f3": "Schutz geistigen Eigentums", "svc1-f3-desc": "Registrierung und Schutz von Marken, Patenten und Urheberrechten zur Sicherung der intellektuellen und kommerziellen Vermögenswerte Ihres Unternehmens.",
+        "svc1-f4": "Unternehmensliquidation", "svc1-f4-desc": "Umfassende rechtliche Abwicklungsverfahren und finanzielle Entlastung mit völliger Reibungslosigkeit, Sicherheit und Zuverlässigkeit vor offiziellen Stellen.",
+        "svc2-title": "Ausländerangelegenheiten - Einwanderungs- & Staatsangehörigkeitsrecht", "svc2-desc": "Spezialisierte Rechtsdienstleistungen für internationale Mandanten.",
+        "svc2-f1": "Personenstandsdokumentation für Eheschließungen von Ausländern", "svc2-f1-desc": "Wir bieten Dokumentationsdienste für Eheverträge für Ausländer in Ägypten, vervollständigen rechtliche Verfahren, erhalten offizielle Bescheinigungen und stellen die Gültigkeit des Vertrags vor den zuständigen Behörden sicher.",
+        "svc2-f2": "Ägyptische Staatsangehörigkeitsdienste", "svc2-f2-desc": "Wir bieten alle Dienstleistungen im Zusammenhang mit der ägyptischen Staatsangehörigkeit:",
+        "svc2-f2-1": "Nachweis der Staatsangehörigkeit", "svc2-f2-2": "Erwerb der Staatsangehörigkeit", "svc2-f2-3": "Investition und Einbürgerung", "svc2-f2-4": "Genehmigung der Doppelstaatsbürgerschaft", "svc2-f2-5": "Verzicht auf die Staatsangehörigkeit",
+        "svc2-f3": "Einwanderungs- und Statusregulierung", "svc2-f3-desc": "Umfassende Dienstleistungen für ägyptische Auswanderer:",
         "svc2-f3-1": "Dauerhafte Einwanderung: Registrierung der Daten ägyptischer Auswanderer und offizielle Aktualisierung ihrer Akten.",
         "svc2-f3-2": "Wehrdienstbefreiung: Ausstellung von Bescheinigungen für Minderjährige und Auswanderer zur Vorlage bei der Wehrpflicht.",
         "svc2-f3-3": "Reisebenachrichtigung: Benachrichtigung der Behörde über die Reiseabsicht beaufsichtigter Auswanderer.",
-        "svc2-f4": "Ausländer in Ägypten & Aufenthaltsdienste",
-        "svc2-f4-desc": "Wir helfen Ausländern, verschiedene Aufenthaltsgenehmigungen in Ägypten zu erhalten, Visa zu beantragen, Aufenthaltsgenehmigungen zu verlängern und alle rechtlichen Verfahren vor den zuständigen Behörden abzuschließen.",
-        "svc3-title": "Prozessführung & Verteidigungspraxis",
-        "svc3-desc": "Entschiedene Vertretung vor allen Gerichten und Justizbehörden.",
-        "svc3-f1": "Strafrecht & Cyberkriminalität",
-        "svc3-f1-desc": "Entschlossene rechtliche Vertretung in Strafsachen mit spezieller Expertise in der Bekämpfung von Cyberkriminalität, digitaler Erpressung und dem Schutz vertraulicher Daten.",
-        "svc3-f2": "Zolldienstleistungen für den internationalen Handel, Import & Export",
-        "svc3-f2-desc": "Zollschmuggel-Fälle, Beilegung von Zollstreitigkeiten, Beratung zu Zollbefreiungen, Import-/Exportlizenzen.",
-        "svc3-f3": "Steuerberatung & Finanzstreitigkeiten",
-        "svc3-f3-desc": "Steuerbeschwerden und -streitigkeiten, Mehrwertsteuer und Einkommensteuer, Steuerprüfung und -registrierung, steuerliche M&A.",
-        "svc3-f4": "Immobilienstreitigkeiten & Immobilieninvestitionen",
-        "svc3-f4-desc": "Grundbuch- und Notariatsangelegenheiten, Immobilieneigentumsstreitigkeiten, Erstellung von Kauf- und Mietverträgen, Gründung und Verwaltung von Immobilienportfolios.",
-        "svc3-f5": "Zivilrecht & Zivilprozesse",
-        "svc3-f5-desc": "Vertragsgestaltung und Verwaltung von Verpflichtungen, Schadensersatz und die Organisation vertraglicher Beziehungen.",
-        "svc3-f6": "Arbeitsrecht & Arbeitsstreitigkeiten",
-        "svc3-f6-desc": "Lösung von Arbeitskonflikten zur Wahrung der Rechte aller am Arbeitsverhältnis Beteiligten.",
-        "svc3-f7": "Familienrecht & Personenstandsfälle",
-        "svc3-f7-desc": "Wir bieten integrierte rechtliche Lösungen zum Schutz Ihrer Familienrechte mit vollständiger Verpflichtung zu höchster Vertraulichkeit und Privatsphäre.",
-        "svc4-title": "Internationale Handels- und Finanztransaktionen",
-        "svc4-desc": "Integrierte rechtliche und finanzielle Lösungen zur Unterstützung globaler Unternehmen und Investoren.",
-        "svc4-f1": "Ausarbeitung und Prüfung internationaler Handelsverträge",
-        "svc4-f1-desc": "Wir erstellen und prüfen alle Arten internationaler Verträge:",
-        "svc4-f1-1": "Internationale Kauf- und Lieferverträge",
-        "svc4-f1-2": "Agentur- und Handelsvertriebsverträge",
-        "svc4-f1-3": "Internationale Vermittlungs- und Maklerverträge",
-        "svc4-f1-4": "Franchise-Vereinbarungen",
-        "svc4-f1-5": "Vertraulichkeits- und Geheimhaltungsvereinbarungen (NDA)",
-        "svc4-f2": "Finanzierungs- und internationale Kreditfazilitätsverträge",
-        "svc4-f2-desc": "Wir prüfen und passen die rechtlichen Rahmenbedingungen für die externe Finanzierung an:",
-        "svc4-f2-1": "Internationale Darlehensverträge",
-        "svc4-f2-2": "Kreditfazilitätsverträge",
-        "svc4-f2-3": "Einhaltung der Zentralbankbeschlüsse",
-        "svc4-f3": "Internationale Finanztransaktionen und Akkreditive",
-        "svc4-f3-desc": "Wir bieten administrative und rechtliche Aufsicht über Ihre Geldflüsse:",
-        "svc4-f3-1": "Akkreditive und Garantiebriefe",
-        "svc4-f3-2": "Einhaltung der Vorschriften für Geldtransfers",
-        "svc4-f3-3": "Prüfung von Versand- und Zollabfertigungsdokumenten",
-        "vision-title": "Unsere Vision",
-        "vision-subtitle": "Unsere zukünftige Mission",
+        "svc2-f4": "Ausländer in Ägypten & Aufenthaltsdienste", "svc2-f4-desc": "Wir helfen Ausländern, verschiedene Aufenthaltsgenehmigungen in Ägypten zu erhalten, Visa zu beantragen, Aufenthaltsgenehmigungen zu verlängern und alle rechtlichen Verfahren vor den zuständigen Behörden abzuschließen.",
+        "svc3-title": "Prozessführung & Verteidigungspraxis", "svc3-desc": "Entschiedene Vertretung vor allen Gerichten und Justizbehörden.",
+        "svc3-f1": "Strafrecht & Cyberkriminalität", "svc3-f1-desc": "Entschlossene rechtliche Vertretung in Strafsachen mit spezieller Expertise in der Bekämpfung von Cyberkriminalität, digitaler Erpressung und dem Schutz vertraulicher Daten.",
+        "svc3-f2": "Zolldienstleistungen für den internationalen Handel, Import & Export", "svc3-f2-desc": "Zollschmuggel-Fälle, Beilegung von Zollstreitigkeiten, Beratung zu Zollbefreiungen, Import-/Exportlizenzen.",
+        "svc3-f3": "Steuerberatung & Finanzstreitigkeiten", "svc3-f3-desc": "Steuerbeschwerden und -streitigkeiten, Mehrwertsteuer und Einkommensteuer, Steuerprüfung und -registrierung, steuerliche M&A.",
+        "svc3-f4": "Immobilienstreitigkeiten & Immobilieninvestitionen", "svc3-f4-desc": "Grundbuch- und Notariatsangelegenheiten, Immobilieneigentumsstreitigkeiten, Erstellung von Kauf- und Mietverträgen, Gründung und Verwaltung von Immobilienportfolios.",
+        "svc3-f5": "Zivilrecht & Zivilprozesse", "svc3-f5-desc": "Vertragsgestaltung und Verwaltung von Verpflichtungen, Schadensersatz und die Organisation vertraglicher Beziehungen.",
+        "svc3-f6": "Arbeitsrecht & Arbeitsstreitigkeiten", "svc3-f6-desc": "Lösung von Arbeitskonflikten zur Wahrung der Rechte aller am Arbeitsverhältnis Beteiligten.",
+        "svc3-f7": "Familienrecht & Personenstandsfälle", "svc3-f7-desc": "Wir bieten integrierte rechtliche Lösungen zum Schutz Ihrer Familienrechte mit vollständiger Verpflichtung zu höchster Vertraulichkeit und Privatsphäre.",
+        "svc4-title": "Internationale Handels- und Finanztransaktionen", "svc4-desc": "Integrierte rechtliche und finanzielle Lösungen zur Unterstützung globaler Unternehmen und Investoren.",
+        "svc4-f1": "Ausarbeitung und Prüfung internationaler Handelsverträge", "svc4-f1-desc": "Wir erstellen und prüfen alle Arten internationaler Verträge:",
+        "svc4-f1-1": "Internationale Kauf- und Lieferverträge", "svc4-f1-2": "Agentur- und Handelsvertriebsverträge", "svc4-f1-3": "Internationale Vermittlungs- und Maklerverträge", "svc4-f1-4": "Franchise-Vereinbarungen", "svc4-f1-5": "Vertraulichkeits- und Geheimhaltungsvereinbarungen (NDA)",
+        "svc4-f2": "Finanzierungs- und internationale Kreditfazilitätsverträge", "svc4-f2-desc": "Wir prüfen und passen die rechtlichen Rahmenbedingungen für die externe Finanzierung an:",
+        "svc4-f2-1": "Internationale Darlehensverträge", "svc4-f2-2": "Kreditfazilitätsverträge", "svc4-f2-3": "Einhaltung der Zentralbankbeschlüsse",
+        "svc4-f3": "Internationale Finanztransaktionen und Akkreditive", "svc4-f3-desc": "Wir bieten administrative und rechtliche Aufsicht über Ihre Geldflüsse:",
+        "svc4-f3-1": "Akkreditive und Garantiebriefe", "svc4-f3-2": "Einhaltung der Vorschriften für Geldtransfers", "svc4-f3-3": "Prüfung von Versand- und Zollabfertigungsdokumenten",
+        "vision-title": "Unsere Vision", "vision-subtitle": "Unsere zukünftige Mission",
         "vision-body": "Wir glauben, dass Führung in der Rechtswelt nicht an Zeit oder Dienstalter gemessen wird, sondern an effektiven Lösungen und akribischer Präzision, die mit der Zeit Schritt halten.",
-        "contact-title": "Kontakt",
-        "contact-subtitle": "Wir helfen Ihnen gerne",
-        "lbl-email": "E-Mail",
-        "lbl-phone": "Telefon",
-        "lbl-address": "Adresse",
-        "address-main-label": "Hauptsitz:",
+        "contact-title": "Kontakt", "contact-hub-subtitle": "Wir sind hier, um Ihnen zu helfen - Sofortige und kostenlose Beratung",
+        "quick-whatsapp": "WhatsApp", "wa-subtitle": "Schnellster Weg, uns zu erreichen",
+        "quick-email": "E-Mail", "lbl-phone": "Telefon",
+        "consultant-title": "Kostenlose Ersteinschätzung Ihres Falls",
+        "consultant-desc": "Senden Sie uns die Details Ihres Falles oder Ihrer rechtlichen Anfrage, und einer unserer Berater wird ihn prüfen und eine kostenlose Ersteinschätzung Ihrer rechtlichen Position innerhalb von 24 Stunden vorlegen.",
+        "assessment-feature-1": "100% Kostenlose Ersteinschätzung",
+        "assessment-feature-2": "Völlige Vertraulichkeit Ihrer Daten",
+        "assessment-feature-3": "Professionelle Antwort innerhalb von 24 Stunden",
+        "lbl-address": "Adresse", "address-main-label": "Hauptsitz:",
         "address-main": "El Dahar Platz - Suleiman Mazhar Str., Hurghada, Ägypten",
-        "address-branch-label": "Zweigstelle Kairo:",
-        "address-branch": "Badr City, Kairo, Ägypten",
-        "lbl-hours": "Arbeitszeiten",
-        "val-hours": "Sa - Do: 9:00 - 19:00 Uhr",
+        "address-branch-label": "Zweigstelle Kairo:", "address-branch": "Badr City, Kairo, Ägypten",
+        "lbl-hours": "Arbeitszeiten", "val-hours": "Sa - Do: 9:00 - 19:00 Uhr",
         "social-title": "Folgen Sie uns",
-        "social-fb": "Facebook",
-        "social-ig": "Instagram",
-        "social-li": "LinkedIn",
-        "form-name": "Vollständiger Name *",
-        "form-email": "E-Mail *",
-        "form-phone": "Telefonnummer",
-        "form-subject": "Service-Typ *",
-        "form-select": "Service-Typ auswählen...",
-        "form-opt1": "Unternehmensgründung",
-        "form-opt2": "Einwanderung & Staatsangehörigkeit",
-        "form-opt3": "Prozessführung & Verteidigung",
-        "form-opt4": "Steuerberatung",
-        "form-opt5": "Immobilien",
-        "form-opt6": "Familienfälle",
-        "form-opt7": "Sonstiges",
-        "form-message": "Ihr Anliegen im Detail *",
-        "form-submit": "Nachricht senden",
-        "footer-about": "Über Uns",
-        "footer-services": "Leistungen",
-        "footer-privacy": "Datenschutz",
-        "footer-terms": "AGB",
-        "footer-contact": "Kontakt",
+        "social-fb": "Facebook", "social-ig": "Instagram", "social-li": "LinkedIn",
+        "form-name": "Vollständiger Name *", "form-email": "E-Mail *",
+        "form-phone": "Telefonnummer", "form-subject": "Service-Typ *",
+        "form-select": "Service-Typ auswählen...", "form-opt1": "Unternehmensgründung",
+        "form-opt2": "Einwanderung & Staatsangehörigkeit", "form-opt3": "Prozessführung & Verteidigung",
+        "form-opt4": "Steuerberatung", "form-opt5": "Immobilien",
+        "form-opt6": "Familienfälle", "form-opt7": "Sonstiges",
+        "form-message": "Ihr Anliegen im Detail *", "form-submit": "Nachricht senden",
+        "footer-about": "Über Uns", "footer-services": "Leistungen",
+        "footer-vision": "Unsere Vision", "footer-contact": "Kontakt",
+        "footer-privacy": "Datenschutz", "footer-terms": "AGB",
         "footer-line1": "Immer dem akribischen Detail verpflichtet, um die rechtliche Festung und der strategische Berater zu bleiben.",
         "footer-line2": "© 2026 Legacy Law Firm - Alle Rechte vorbehalten",
         "cookie-text": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Durch die weitere Nutzung der Website stimmen Sie unserer ",
-        "cookie-accept": "Akzeptieren",
-        "skip-link": "Zum Hauptinhalt springen"
+        "cookie-accept": "Akzeptieren", "skip-link": "Zum Hauptinhalt springen",
+        "stat-years": "Jahre Erfahrung", "stat-cases": "Fälle gelöst",
+        "stat-satisfaction": "Kundenzufriedenheit",
+        "map-title-attr": "Bürostandort auf der Karte"
       }
     };
 
-    // ==========================================
-    // TYPEWRITER EFFECT
-    // ==========================================
+    // ============================================================
+    //  SELECT OPTIONS
+    // ============================================================
+    const selectOptions = {
+      ar: ["تأسيس شركات", "هجرة وجنسية", "تقاضي ودفاع", "استشارات ضريبية", "عقارات", "قضايا أسرة", "أخرى"],
+      en: ["Company Formation", "Immigration & Nationality", "Litigation & Defense", "Tax Consultancy", "Real Estate", "Family Cases", "Other"],
+      de: ["Unternehmensgründung", "Einwanderung & Staatsangehörigkeit", "Prozessführung & Verteidigung", "Steuerberatung", "Immobilien", "Familienfälle", "Sonstiges"]
+    };
+
+    // ============================================================
+    //  TYPEWRITER
+    // ============================================================
     const typewriterElement = document.getElementById('typewriter-text');
     const phrases = {
       ar: ['مستشارك القانوني الأول', 'حماية استثماراتك', 'ريادة في التقاضي'],
@@ -2023,10 +1938,38 @@
       typewriterTimeout = setTimeout(typeEffect, speed);
     }
 
-    // ==========================================
-    // LANGUAGE SWITCHER
-    // ==========================================
+    function resetTypewriter() {
+      clearTimeout(typewriterTimeout);
+      phraseIndex = 0; charIndex = 0; isDeleting = false;
+      if (typewriterElement) typewriterElement.textContent = '';
+      typeEffect();
+    }
+
+    // ============================================================
+    //  LANGUAGE SWITCHER
+    // ============================================================
     let currentLang = 'ar';
+
+    function buildSelectOptions(lang) {
+      const select = document.getElementById('subject');
+      if (!select) return;
+      const currentVal = select.value;
+      select.innerHTML = '';
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = translations[lang]['form-select'] || '...';
+      select.appendChild(opt);
+      const opts = selectOptions[lang] || selectOptions.ar;
+      const keys = ['form-opt1','form-opt2','form-opt3','form-opt4','form-opt5','form-opt6','form-opt7'];
+      opts.forEach((text, i) => {
+        const option = document.createElement('option');
+        option.value = text; // FIXED: Now uses the actual translated text for clarity in received emails
+        option.textContent = text;
+        option.dataset.key = keys[i];
+        select.appendChild(option);
+      });
+      if (currentVal) select.value = currentVal;
+    }
 
     function setLang(lang) {
       currentLang = lang;
@@ -2038,31 +1981,54 @@
       document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
       document.body.setAttribute('lang', lang);
       document.documentElement.setAttribute('lang', lang);
+      
+      // FIXED: Update URL without reloading to allow sharing specific language links
+      window.history.replaceState(null, '', `?lang=${lang}`);
+
       document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.dataset.key;
         if (translations[lang] && translations[lang][key] !== undefined) {
           if (key === 'about-body' || key === 'vision-body') {
             el.innerHTML = translations[lang][key];
+          } else if (key === 'map-title-attr') {
+            el.setAttribute('title', translations[lang][key]);
           } else {
             el.textContent = translations[lang][key];
           }
         }
       });
+      buildSelectOptions(lang);
       const titles = {
         ar: 'Legacy Law Firm | مكتب محاماة واستشارات قانونية - مصر',
         en: 'Legacy Law Firm | Law Firm & Legal Consultancy - Egypt',
         de: 'Legacy Law Firm | Anwaltskanzlei & Rechtsberatung - Ägypten'
       };
       document.title = titles[lang];
-      clearTimeout(typewriterTimeout);
-      phraseIndex = 0; charIndex = 0; isDeleting = false;
-      typeEffect();
+      resetTypewriter();
     }
     window.setLang = setLang;
 
-    // ==========================================
-    // ACCORDION LOGIC
-    // ==========================================
+    // ============================================================
+    //  HAMBURGER MENU
+    // ============================================================
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navLinks = document.getElementById('navLinks');
+    if (hamburgerBtn && navLinks) {
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        navLinks.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburgerBtn.classList.remove('active');
+          navLinks.classList.remove('open');
+        });
+      });
+    }
+
+    // ============================================================
+    //  ACCORDION
+    // ============================================================
     document.addEventListener('click', function(e) {
       const trigger = e.target.closest('.accordion-trigger');
       if (!trigger) return;
@@ -2086,9 +2052,9 @@
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger.click(); }
     });
 
-    // ==========================================
-    // PROGRESS BAR & SCROLL TOP
-    // ==========================================
+    // ============================================================
+    //  SCROLL PROGRESS & TOP BUTTON
+    // ============================================================
     window.addEventListener('scroll', function() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -2102,9 +2068,9 @@
       }
     });
 
-    // ==========================================
-    // REVEAL ON SCROLL
-    // ==========================================
+    // ============================================================
+    //  REVEAL ON SCROLL
+    // ============================================================
     const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -2116,9 +2082,9 @@
     }, observerOptions);
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ==========================================
-    // DARK MODE
-    // ==========================================
+    // ============================================================
+    //  DARK MODE
+    // ============================================================
     const darkModeToggle = document.getElementById('darkModeToggle');
     const darkModeIcon = document.getElementById('darkModeIcon');
 
@@ -2137,9 +2103,9 @@
       }
     }
 
-    // ==========================================
-    // COOKIE CONSENT
-    // ==========================================
+    // ============================================================
+    //  COOKIE BANNER
+    // ============================================================
     function acceptCookies() {
       localStorage.setItem('cookiesAccepted', 'true');
       const banner = document.getElementById('cookieBanner');
@@ -2154,11 +2120,19 @@
       }
     }, 2000);
 
-    // ==========================================
-    // CONTACT FORM
-    // ==========================================
+    // ============================================================
+    //  CONTACT FORM
+    // ============================================================
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
+    const statusMessage = document.getElementById('statusMessage');
+    const closeStatusBtn = document.getElementById('closeStatusBtn');
+
+    if (closeStatusBtn) {
+      closeStatusBtn.addEventListener('click', function() {
+        formStatus.style.display = 'none';
+      });
+    }
 
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
@@ -2176,9 +2150,9 @@
         }).then(response => {
           if (response.ok) {
             formStatus.className = 'form-status success';
-            formStatus.textContent = currentLang === 'ar' ? 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.' :
-                                      currentLang === 'en' ? 'Your message has been sent successfully! We will contact you soon.' :
-                                      'Ihre Nachricht wurde erfolgreich gesendet! Wir werden uns bald mit Ihnen in Verbindung setzen.';
+            statusMessage.textContent = currentLang === 'ar' ? 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.' :
+                                        currentLang === 'en' ? 'Your message has been sent successfully! We will contact you soon.' :
+                                        'Ihre Nachricht wurde erfolgreich gesendet! Wir werden uns bald mit Ihnen in Verbindung setzen.';
             formStatus.style.display = 'block';
             contactForm.reset();
           } else {
@@ -2186,21 +2160,20 @@
           }
         }).catch(error => {
           formStatus.className = 'form-status error';
-          formStatus.textContent = currentLang === 'ar' ? 'حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى أو التواصل مباشرة عبر الواتساب.' :
-                                    currentLang === 'en' ? 'An error occurred while sending. Please try again or contact us directly via WhatsApp.' :
-                                    'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt über WhatsApp.';
+          statusMessage.textContent = currentLang === 'ar' ? 'حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى أو التواصل مباشرة عبر الواتساب.' :
+                                      currentLang === 'en' ? 'An error occurred while sending. Please try again or contact us directly via WhatsApp.' :
+                                      'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt über WhatsApp.';
           formStatus.style.display = 'block';
         }).finally(() => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
-          setTimeout(() => { if(formStatus.classList.contains('success')) formStatus.style.display = 'none'; }, 5000);
         });
       });
     }
 
-    // ==========================================
-    // MODAL
-    // ==========================================
+    // ============================================================
+    //  MODAL
+    // ============================================================
     const modalContent = {
       privacy: {
         ar: '<h2>سياسة الخصوصية</h2><p>نحن في Legacy Law Firm نلتزم بحماية خصوصيتك. لا نقوم بجمع أي بيانات شخصية إلا تلك التي تقدمها طوعاً عبر نموذج التواصل. نستخدم ملفات تعريف الارتباط (Cookies) لتحسين تجربة التصفح فقط.</p><p>لن نشارك بياناتك مع أي طرف ثالث دون موافقتك الصريحة.</p>',
@@ -2243,14 +2216,22 @@
       if (e.key === 'Escape') closeModal();
     });
 
-    // ==========================================
-    // INIT
-    // ==========================================
+    // ============================================================
+    //  INIT
+    // ============================================================
     document.addEventListener('DOMContentLoaded', function() {
+      buildSelectOptions('ar');
       typeEffect();
       const urlParams = new URLSearchParams(window.location.search);
       const langParam = urlParams.get('lang');
       if (langParam && ['ar', 'en', 'de'].includes(langParam)) { setLang(langParam); }
+      
+      // Dynamic year for footer
+      const currentYear = new Date().getFullYear();
+      document.querySelectorAll('[data-key="footer-line2"]').forEach(el => {
+        const lang = document.body.getAttribute('lang') || 'ar';
+        el.textContent = translations[lang]['footer-line2'].replace('2026', currentYear);
+      });
     });
   </script>
 </body>
