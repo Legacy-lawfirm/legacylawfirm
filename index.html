@@ -6,7 +6,7 @@
   <meta name="google-site-verification" content="8nRCFl0e4LX_ZGQjDQDjLqdgqWnvyzdivin1ujXhWks" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0a0e1a" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline' 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' https://i.postimg.cc data:; frame-src https://www.google.com; connect-src https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline' 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' https://i.postimg.cc https://flagcdn.com data:; frame-src https://www.google.com; connect-src https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;" />
   <link rel="icon" type="image/png" href="https://i.postimg.cc/RFvPjbng/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg" />
   <link rel="apple-touch-icon" href="https://i.postimg.cc/RFvPjbng/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg" />
   <title>Legacy Law Firm | مكتب محاماة واستشارات قانونية - مصر</title>
@@ -97,7 +97,6 @@
       color: var(--text-dark);
       line-height: 1.8;
       overflow-x: hidden;
-      transition: background 0.3s ease, color 0.3s ease;
     }
     ::selection { background: var(--gold); color: var(--midnight-navy); }
     a:focus-visible, button:focus-visible, input:focus-visible,
@@ -126,6 +125,7 @@
     body[dir="ltr"] .accordion-item.active .accordion-inner { border-right: none; border-left: 3px solid var(--gold); }
     body[dir="ltr"] .quick-contact-box .contact-icons { flex-direction: row-reverse; }
     body[dir="ltr"] .assessment-features { text-align: left; }
+    body[dir="ltr"] .lang-flags { flex-direction: row-reverse; }
 
     /* ===== Progress Bar ===== */
     #progress-bar {
@@ -161,13 +161,21 @@
       padding: 8px 20px;
       border-radius: 12px;
       border: 1px solid rgba(201, 162, 39, 0.3);
+      transition: padding 0.3s ease, gap 0.3s ease;
+    }
+    .logo-area img {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      object-fit: contain;
+      transition: width 0.3s ease, height 0.3s ease;
     }
     .firm-name {
       color: var(--midnight-navy);
       font-size: 28px;
       font-weight: 900;
       letter-spacing: 1px;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, font-size 0.3s ease;
     }
     .nav-links {
       display: flex;
@@ -204,44 +212,42 @@
       gap: 16px;
       flex-wrap: wrap;
     }
-    .lang-switcher { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-    .lang-btn {
-      background: transparent;
-      border: 2px solid rgba(201,162,39,0.4);
-      color: var(--text-dark);
-      padding: 8px 20px;
-      border-radius: 8px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-      font-family: inherit;
-      font-weight: 600;
-    }
-    .lang-btn:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-    .lang-btn.active {
-      background: var(--gold);
-      color: var(--white);
-      border-color: var(--gold);
-      font-weight: 800;
-    }
-    .dark-mode-toggle-nav {
-      background: transparent;
-      border: 2px solid rgba(201,162,39,0.4);
-      color: var(--text-dark);
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      cursor: pointer;
+
+    .lang-flags {
       display: flex;
+      gap: 12px;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      transition: all var(--transition-fast);
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(201,162,39,0.2);
+      width: 100%;
     }
-    .dark-mode-toggle-nav:hover {
+    .lang-flags .lang-btn {
+      background: none;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      padding: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      opacity: 0.6;
+    }
+    .lang-flags .lang-btn:hover {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+    .lang-flags .lang-btn.active {
       border-color: var(--gold);
-      color: var(--gold);
-      transform: scale(1.1) rotate(15deg);
+      opacity: 1;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(201,162,39,0.3);
+    }
+    .lang-flags .lang-btn img {
+      display: block;
+      width: 30px;
+      height: 20px;
+      border-radius: 4px;
+      object-fit: cover;
     }
 
     .hamburger {
@@ -267,7 +273,7 @@
 
     /* ===== Hero ===== */
     .hero {
-      background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(250,248,245,0.95) 100%),
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(250,248,245,0.05) 100%),
                   url('https://i.postimg.cc/654ShBpT/Whats-App-Image-2026-07-30-at-3-33-44-AM.jpg');
       background-size: cover;
       background-position: center;
@@ -280,13 +286,12 @@
       padding: 100px 32px;
       text-align: center;
       position: relative;
-      transition: background 0.3s ease;
     }
     .hero::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at center, rgba(201,162,39,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle at center, rgba(201,162,39,0.05) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero h1 {
@@ -296,7 +301,6 @@
       margin-bottom: 12px;
       letter-spacing: 2px;
       position: relative;
-      transition: color 0.3s ease;
     }
     .hero .hero-tagline {
       color: var(--text-dark);
@@ -304,7 +308,6 @@
       font-weight: 500;
       margin-bottom: 24px;
       letter-spacing: 1px;
-      transition: color 0.3s ease;
     }
     .hero-divider {
       width: 120px;
@@ -326,7 +329,6 @@
       border-left: 3px solid var(--gold);
       padding-left: 12px;
       display: inline-block;
-      transition: color 0.3s ease;
     }
     body[dir="ltr"] .hero #typewriter-text {
       border-left: none;
@@ -356,7 +358,6 @@
       gap: 16px;
       text-align: center;
       justify-content: center;
-      transition: color 0.3s ease;
     }
     .section-subtitle {
       color: var(--gold);
@@ -383,7 +384,6 @@
       text-align: center;
       max-width: 900px;
       margin: 0 auto;
-      transition: color 0.3s ease;
     }
     body[dir="ltr"] .section-body { text-align: left; }
 
@@ -444,14 +444,12 @@
       font-size: 22px;
       font-weight: 800;
       margin-bottom: 16px;
-      transition: color 0.3s ease;
     }
     .service-card > p {
       color: var(--text-light);
       font-size: 16px;
       margin-bottom: 20px;
       line-height: 1.9;
-      transition: color 0.3s ease;
     }
     .features-list {
       list-style: none;
@@ -584,7 +582,6 @@
       max-width: 1300px;
       border: 2px solid var(--gold);
       box-shadow: var(--shadow-gold);
-      transition: background 0.3s ease;
     }
     .quick-actions {
       display: grid;
@@ -622,8 +619,8 @@
       flex-shrink: 0;
       transition: all 0.3s ease;
     }
-    .action-card strong { display: block; color: var(--text-dark); font-size: 18px; margin-bottom: 4px; transition: color 0.3s; }
-    .action-card span { color: var(--text-light); font-size: 14px; transition: color 0.3s; }
+    .action-card strong { display: block; color: var(--text-dark); font-size: 18px; margin-bottom: 4px; }
+    .action-card span { color: var(--text-light); font-size: 14px; }
 
     .wa-card:hover { background: #25d366; border-color: #25d366; }
     .wa-card:hover i { background: white; color: #25d366; }
@@ -649,7 +646,6 @@
       padding: 48px;
       border: 2px solid rgba(201,162,39,0.2);
       box-shadow: var(--shadow-md);
-      transition: background 0.3s ease, border-color 0.3s ease;
       position: relative;
     }
     .form-row {
@@ -664,7 +660,6 @@
       font-size: 15px;
       font-weight: 700;
       margin-bottom: 10px;
-      transition: color 0.3s ease;
     }
     .form-group input,
     .form-group textarea,
@@ -1081,6 +1076,12 @@
       .nav-links a { padding: 10px 0; width: 100%; text-align: center; }
       .navbar { padding: 16px 24px; }
       .navbar-actions { order: -1; width: 100%; justify-content: center; }
+      
+      /* تقليل حجم المستطيل (اللوغو + الاسم) على الهواتف */
+      .logo-area { padding: 6px 12px; gap: 10px; }
+      .logo-area img { width: 40px; height: 40px; }
+      .firm-name { font-size: 22px; }
+
       .hero { padding: 80px 24px; min-height: 90vh; background-attachment: scroll; }
       .hero h1 { font-size: 42px; }
       .hero .hero-tagline { font-size: 20px; }
@@ -1094,16 +1095,21 @@
       .contact-hub { padding: 60px 24px; margin: 40px auto; }
       .contact-split { grid-template-columns: 1fr; }
       .assessment-box { position: static; margin-top: 20px; }
+
+      .lang-flags .lang-btn img { width: 26px; height: 18px; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 32px; }
       .hero .hero-tagline { font-size: 18px; }
       .hero #typewriter-text { font-size: 18px; }
       .section-title { font-size: 28px; }
-      .logo-area { padding: 4px 12px; }
-      .firm-name { font-size: 22px; }
+      
+      .logo-area { padding: 4px 10px; gap: 8px; }
+      .logo-area img { width: 34px; height: 34px; }
+      .firm-name { font-size: 18px; }
+      
       .lang-btn { padding: 6px 12px; font-size: 12px; }
-      .dark-mode-toggle-nav { width: 38px; height: 38px; font-size: 16px; }
+      .lang-flags .lang-btn img { width: 22px; height: 16px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1114,110 +1120,6 @@
       }
       html { scroll-behavior: auto; }
     }
-
-    /* ===== Dark Mode ===== */
-    body.dark-mode {
-      background: #0d1117;
-      color: #e6edf3;
-    }
-    body.dark-mode .navbar {
-      background: linear-gradient(135deg, var(--midnight-navy) 0%, var(--deep-navy) 100%);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      backdrop-filter: none;
-    }
-    body.dark-mode .firm-name { color: var(--gold-light); }
-    body.dark-mode .nav-links a { color: rgba(255,255,255,0.9); }
-    body.dark-mode .nav-links a:hover { color: var(--gold); }
-    body.dark-mode .hamburger span { background: var(--gold-light); }
-    body.dark-mode .lang-btn {
-      color: rgba(255,255,255,0.8);
-      border-color: rgba(201,162,39,0.4);
-    }
-    body.dark-mode .lang-btn:hover { border-color: var(--gold); color: var(--gold); }
-    body.dark-mode .lang-btn.active {
-      background: var(--gold);
-      color: var(--midnight-navy);
-    }
-    body.dark-mode .dark-mode-toggle-nav {
-      color: var(--gold);
-      border-color: rgba(201,162,39,0.4);
-    }
-    body.dark-mode .dark-mode-toggle-nav:hover { border-color: var(--gold); }
-    body.dark-mode .hero {
-      background: linear-gradient(135deg, rgba(10,14,26,0.95) 0%, rgba(26,31,58,0.90) 100%),
-                  url('https://i.postimg.cc/654ShBpT/Whats-App-Image-2026-07-30-at-3-33-44-AM.jpg');
-    }
-    body.dark-mode .hero h1 { color: var(--gold-light); }
-    body.dark-mode .hero .hero-tagline { color: rgba(255,255,255,0.95); }
-    body.dark-mode .hero #typewriter-text { color: rgba(255,255,255,0.95); border-left: 3px solid var(--gold); }
-    body.dark-mode .section-title { color: var(--gold-light); }
-    body.dark-mode .section-body { color: #b0b8c4; }
-    body.dark-mode .service-card {
-      background: rgba(255,255,255,0.03);
-      border-color: rgba(201,162,39,0.15);
-    }
-    body.dark-mode .service-card h3 { color: var(--gold-light); }
-    body.dark-mode .service-card > p { color: rgba(255,255,255,0.75); }
-    
-    body.dark-mode .contact-hub { background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy)); }
-    body.dark-mode .action-card { background: rgba(255,255,255,0.03); border-color: rgba(201,162,39,0.2); }
-    body.dark-mode .action-card strong { color: var(--gold-light); }
-    body.dark-mode .action-card span { color: #b0b8c4; }
-    body.dark-mode .action-card i { background: rgba(201,162,39,0.15); }
-    
-    body.dark-mode .contact-form {
-      background: rgba(255,255,255,0.03);
-      border-color: rgba(201,162,39,0.2);
-    }
-    body.dark-mode .form-group label { color: var(--gold-light); }
-    body.dark-mode .form-group input,
-    body.dark-mode .form-group textarea,
-    body.dark-mode .form-group select {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(201,162,39,0.2);
-      color: #e6edf3;
-    }
-    body.dark-mode .form-group input:focus,
-    body.dark-mode .form-group textarea:focus,
-    body.dark-mode .form-group select:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 4px rgba(201,162,39,0.1);
-    }
-    
-    body.dark-mode .contact-item {
-      background: rgba(255,255,255,0.03);
-      border-color: rgba(201,162,39,0.2);
-    }
-    body.dark-mode .contact-item .value { color: rgba(255,255,255,0.95); }
-    body.dark-mode .contact-item .address-lines { color: rgba(255,255,255,0.9); }
-    body.dark-mode .contact-item .label { color: rgba(255,255,255,0.6); }
-    
-    body.dark-mode .social-btn {
-      background: rgba(255,255,255,0.05);
-      color: var(--white);
-      border: 2px solid var(--gold);
-    }
-    body.dark-mode .social-btn:hover {
-      background: var(--gold);
-      color: var(--midnight-navy);
-    }
-    body.dark-mode .footer { background: var(--midnight-navy); }
-    body.dark-mode .vision-box { background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy)); }
-    body.dark-mode .scroll-top {
-      background: var(--gold);
-      color: var(--midnight-navy);
-    }
-    body.dark-mode .modal-box {
-      background: #161b22;
-      color: #c9d1d9;
-    }
-    body.dark-mode .modal-box h2 { color: var(--gold-light); }
-    body.dark-mode .modal-box p, body.dark-mode .modal-box li { color: #b0b8c4; }
-    body.dark-mode .modal-box button.close-modal {
-      background: rgba(255,255,255,0.1);
-      color: var(--white);
-    }
-    body.dark-mode .modal-box button.close-modal:hover { background: var(--gold); }
   </style>
 </head>
 <body lang="ar">
@@ -1229,7 +1131,6 @@
     <div class="logo-area">
       <img src="https://i.postimg.cc/RFvPjbng/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg"
            alt="Legacy Law Firm Logo"
-           style="width:50px; height:50px; border-radius:8px; object-fit:contain;"
            loading="lazy" decoding="async"
            onerror="this.style.display='none'">
       <span class="firm-name">Legacy Law Firm</span>
@@ -1240,17 +1141,22 @@
       <a href="#services" data-key="nav-services">خدماتنا</a>
       <a href="#vision" data-key="nav-vision">رؤيتنا</a>
       <a href="#contact" data-key="nav-contact">تواصل معنا</a>
+      
+      <!-- أزرار اللغة كأعلام داخل القائمة -->
+      <div class="lang-flags">
+        <button class="lang-btn active" onclick="setLang('ar')" data-lang="ar" aria-pressed="true">
+          <img src="https://flagcdn.com/w40/eg.png" alt="العربية" width="30" height="20">
+        </button>
+        <button class="lang-btn" onclick="setLang('en')" data-lang="en" aria-pressed="false">
+          <img src="https://flagcdn.com/w40/us.png" alt="English" width="30" height="20">
+        </button>
+        <button class="lang-btn" onclick="setLang('de')" data-lang="de" aria-pressed="false">
+          <img src="https://flagcdn.com/w40/de.png" alt="Deutsch" width="30" height="20">
+        </button>
+      </div>
     </div>
 
     <div class="navbar-actions">
-      <div class="lang-switcher" role="group" aria-label="تبديل اللغة">
-        <button class="lang-btn active" onclick="setLang('ar')" data-lang="ar" aria-pressed="true">العربية</button>
-        <button class="lang-btn" onclick="setLang('en')" data-lang="en" aria-pressed="false">English</button>
-        <button class="lang-btn" onclick="setLang('de')" data-lang="de" aria-pressed="false">Deutsch</button>
-      </div>
-      <button class="dark-mode-toggle-nav" id="darkModeToggle" aria-label="تبديل الوضع الليلي">
-        <i class="fas fa-moon" id="darkModeIcon"></i>
-      </button>
       <button class="hamburger" id="hamburgerBtn" aria-label="فتح القائمة">
         <span></span><span></span><span></span>
       </button>
@@ -2003,27 +1909,6 @@
       });
     }, observerOptions);
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // ============================================================
-    //  DARK MODE
-    // ============================================================
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const darkModeIcon = document.getElementById('darkModeIcon');
-
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      localStorage.setItem('darkMode', isDark ? 'true' : 'false');
-      darkModeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-    }
-
-    if (darkModeToggle) {
-      darkModeToggle.addEventListener('click', toggleDarkMode);
-      if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-mode');
-        darkModeIcon.className = 'fas fa-sun';
-      }
-    }
 
     // ============================================================
     //  COOKIE BANNER
