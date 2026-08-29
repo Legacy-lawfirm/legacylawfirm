@@ -6,7 +6,7 @@
   <meta name="google-site-verification" content="8nRCFl0e4LX_ZGQjDQDjLqdgqWnvyzdivin1ujXhWks" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0a0e1a" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline' 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' https://i.postimg.cc data:; frame-src https://www.google.com https://maps.google.com; connect-src https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline' 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' https://i.postimg.cc data:; frame-src https://www.google.com; connect-src https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;" />
   <link rel="icon" type="image/png" href="https://i.postimg.cc/RFvPjbng/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg" />
   <link rel="apple-touch-icon" href="https://i.postimg.cc/RFvPjbng/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg" />
   <title>Legacy Law Firm | مكتب محاماة واستشارات قانونية - مصر</title>
@@ -335,34 +335,6 @@
       padding-right: 12px;
     }
 
-    .stats-row {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
-    .stat-item {
-      text-align: center;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(4px);
-      padding: 20px 30px;
-      border-radius: 16px;
-      border: 1px solid rgba(201,162,39,0.2);
-      min-width: 140px;
-    }
-    .stat-item .number {
-      font-size: 32px;
-      font-weight: 900;
-      color: var(--gold);
-      display: block;
-    }
-    .stat-item .label {
-      font-size: 14px;
-      color: var(--text-light);
-      font-weight: 600;
-    }
-
     /* ===== Reveal Animation ===== */
     @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
     .reveal {
@@ -603,7 +575,7 @@
     }
     body[dir="ltr"] .vision-box p { text-align: center; }
 
-    /* ===== Contact Hub Styles (NEW) ===== */
+    /* ===== Contact Hub Styles ===== */
     .contact-hub {
       background: #f8f5f0;
       border-radius: 20px;
@@ -878,20 +850,6 @@
       font-size: 15px;
     }
 
-    .map-wrapper {
-      margin-top: 40px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 2px solid var(--gold);
-      box-shadow: var(--shadow-md);
-    }
-    .map-wrapper iframe {
-      width: 100%;
-      height: 300px;
-      display: block;
-      border: 0;
-    }
-
     .social-grid {
       display: flex;
       gap: 20px;
@@ -1132,9 +1090,6 @@
       .services-grid, .contact-grid { grid-template-columns: 1fr; }
       .vision-box { padding: 40px 28px; }
       .form-row { grid-template-columns: 1fr; }
-      .stats-row { gap: 20px; }
-      .stat-item { min-width: 100px; padding: 15px 20px; }
-      .stat-item .number { font-size: 26px; }
       
       .contact-hub { padding: 60px 24px; margin: 40px auto; }
       .contact-split { grid-template-columns: 1fr; }
@@ -1197,8 +1152,6 @@
     body.dark-mode .hero #typewriter-text { color: rgba(255,255,255,0.95); border-left: 3px solid var(--gold); }
     body.dark-mode .section-title { color: var(--gold-light); }
     body.dark-mode .section-body { color: #b0b8c4; }
-    body.dark-mode .stat-item { background: rgba(255,255,255,0.05); border-color: rgba(201,162,39,0.3); }
-    body.dark-mode .stat-item .label { color: #b0b8c4; }
     body.dark-mode .service-card {
       background: rgba(255,255,255,0.03);
       border-color: rgba(201,162,39,0.15);
@@ -1265,7 +1218,6 @@
       color: var(--white);
     }
     body.dark-mode .modal-box button.close-modal:hover { background: var(--gold); }
-    body.dark-mode .map-wrapper { border-color: var(--gold); }
   </style>
 </head>
 <body lang="ar">
@@ -1313,21 +1265,6 @@
       <div class="hero-divider"></div>
       <div class="typewriter-wrapper">
         <span id="typewriter-text" aria-live="polite" aria-atomic="true"></span>
-      </div>
-
-      <div class="stats-row">
-        <div class="stat-item">
-          <span class="number">10+</span>
-          <span class="label" data-key="stat-years">سنوات خبرة</span>
-        </div>
-        <div class="stat-item">
-          <span class="number">1000+</span>
-          <span class="label" data-key="stat-cases">قضية تم حلها</span>
-        </div>
-        <div class="stat-item">
-          <span class="number">98%</span>
-          <span class="label" data-key="stat-satisfaction">رضا العملاء</span>
-        </div>
       </div>
     </section>
 
@@ -1604,7 +1541,7 @@
         </div>
       </div>
 
-      <!-- 3. Info & Map -->
+      <!-- 3. Info -->
       <div class="contact-grid">
         <div class="contact-item">
           <i class="fas fa-location-dot" aria-hidden="true"></i>
@@ -1627,10 +1564,7 @@
         </div>
       </div>
 
-      <div class="map-wrapper">
-        <iframe src="https://maps.google.com/maps?q=Hurghada%20El%20Dahar%20Square%20Suleiman%20Mazhar%20St&t=m&z=15&output=embed" allowfullscreen loading="lazy" title="موقع المكتب على الخريطة" data-key="map-title-attr"></iframe>
-      </div>
-
+      <!-- Social -->
       <h3 style="color:var(--midnight-navy);font-size:20px;font-weight:700;margin-top:40px;margin-bottom:16px; text-align: center;" data-key="social-title">تابعنا على السوشيال ميديا</h3>
       <div class="social-grid">
         <a href="https://www.facebook.com/profile.php?id=61591804022713" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="فيسبوك">
@@ -1752,9 +1686,6 @@
         "footer-line2": "© 2026 Legacy Law Firm - جميع الحقوق محفوظة",
         "cookie-text": "نستخدم ملفات تعريف الارتباط لتحسين تجربتك. باستمرارك في تصفح الموقع، فإنك توافق على ",
         "cookie-accept": "موافق", "skip-link": "انتقل للمحتوى الرئيسي",
-        "stat-years": "سنوات خبرة", "stat-cases": "قضية تم حلها",
-        "stat-satisfaction": "رضا العملاء",
-        "map-title-attr": "موقع المكتب على الخريطة"
       },
       en: {
         "nav-about": "About Us", "nav-services": "Services", "nav-vision": "Our Vision", "nav-contact": "Contact Us",
@@ -1821,9 +1752,6 @@
         "footer-line2": "© 2026 Legacy Law Firm - All Rights Reserved",
         "cookie-text": "We use cookies to improve your experience. By continuing to browse the site, you agree to our ",
         "cookie-accept": "Accept", "skip-link": "Skip to main content",
-        "stat-years": "Years of Experience", "stat-cases": "Cases Resolved",
-        "stat-satisfaction": "Client Satisfaction",
-        "map-title-attr": "Office Location on Map"
       },
       de: {
         "nav-about": "Über Uns", "nav-services": "Leistungen", "nav-vision": "Unsere Vision", "nav-contact": "Kontakt",
@@ -1890,9 +1818,6 @@
         "footer-line2": "© 2026 Legacy Law Firm - Alle Rechte vorbehalten",
         "cookie-text": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Durch die weitere Nutzung der Website stimmen Sie unserer ",
         "cookie-accept": "Akzeptieren", "skip-link": "Zum Hauptinhalt springen",
-        "stat-years": "Jahre Erfahrung", "stat-cases": "Fälle gelöst",
-        "stat-satisfaction": "Kundenzufriedenheit",
-        "map-title-attr": "Bürostandort auf der Karte"
       }
     };
 
@@ -1963,7 +1888,7 @@
       const keys = ['form-opt1','form-opt2','form-opt3','form-opt4','form-opt5','form-opt6','form-opt7'];
       opts.forEach((text, i) => {
         const option = document.createElement('option');
-        option.value = text; // FIXED: Now uses the actual translated text for clarity in received emails
+        option.value = text;
         option.textContent = text;
         option.dataset.key = keys[i];
         select.appendChild(option);
@@ -1982,7 +1907,6 @@
       document.body.setAttribute('lang', lang);
       document.documentElement.setAttribute('lang', lang);
       
-      // FIXED: Update URL without reloading to allow sharing specific language links
       window.history.replaceState(null, '', `?lang=${lang}`);
 
       document.querySelectorAll('[data-key]').forEach(el => {
@@ -1990,8 +1914,6 @@
         if (translations[lang] && translations[lang][key] !== undefined) {
           if (key === 'about-body' || key === 'vision-body') {
             el.innerHTML = translations[lang][key];
-          } else if (key === 'map-title-attr') {
-            el.setAttribute('title', translations[lang][key]);
           } else {
             el.textContent = translations[lang][key];
           }
