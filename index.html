@@ -152,26 +152,16 @@
       border-radius: 8px;
       object-fit: contain;
     }
-    /* ===== خط و أنيميشن الاسم الفخم ===== */
+    /* ===== الاسم في الشريط العلوي (فوق) باللون الكحلي ===== */
     .firm-name {
       font-family: var(--font-lux);
       font-weight: 900;
       font-size: 26px;
       letter-spacing: 2px;
-      background: linear-gradient(90deg, #d4af37, #fdf0b0, #d4af37, #b8860b, #d4af37);
-      background-size: 300% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmerGold 4s ease-in-out infinite;
-      display: inline-block;
-      text-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
-      transition: font-size 0.3s;
+      color: var(--midnight-navy); /* لون كحلي غامق */
       white-space: nowrap;
-    }
-    @keyframes shimmerGold {
-      0% { background-position: 0% center; }
-      100% { background-position: 300% center; }
+      transition: font-size 0.3s;
+      display: inline-block;
     }
 
     .nav-links {
@@ -205,19 +195,15 @@
     }
     .nav-links a:hover::after { width: 100%; }
 
-    .navbar-actions {
-      display: flex;
-      align-items: center;
+    /* ===== أعلام اللغة داخل القائمة ===== */
+    .nav-links .lang-flags {
+      display: none; /* مخفية افتراضياً على الشاشات الكبيرة */
       gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .lang-flags {
-      display: flex;
-      gap: 8px;
       align-items: center;
+      justify-content: center;
+      width: 100%;
     }
-    .lang-flags .lang-btn {
+    .nav-links .lang-flags .lang-btn {
       background: none;
       border: 2px solid transparent;
       border-radius: 6px;
@@ -226,19 +212,26 @@
       transition: all 0.2s ease;
       opacity: 0.5;
     }
-    .lang-flags .lang-btn:hover { transform: scale(1.1); opacity: 0.8; }
-    .lang-flags .lang-btn.active {
+    .nav-links .lang-flags .lang-btn:hover { transform: scale(1.1); opacity: 0.8; }
+    .nav-links .lang-flags .lang-btn.active {
       border-color: var(--gold);
       opacity: 1;
       transform: scale(1.05);
       box-shadow: 0 0 8px rgba(201,162,39,0.3);
     }
-    .lang-flags .lang-btn img {
+    .nav-links .lang-flags .lang-btn img {
       display: block;
       width: 28px;
       height: 18px;
       border-radius: 3px;
       object-fit: cover;
+    }
+
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
     .hamburger {
@@ -301,7 +294,7 @@
       border: 1px solid rgba(201,162,39,0.15);
       box-shadow: 0 8px 32px rgba(0,0,0,0.06);
     }
-    /* تطبيق الخط الفخم والأنيميشن على اسم الشركة في الهيرو */
+    /* اسم الشركة في الهيرو يبقى ذهبي مع أنيميشن (فخم) */
     .hero-row h1 {
       font-family: var(--font-lux);
       font-weight: 900;
@@ -318,6 +311,11 @@
       text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
       white-space: nowrap;
     }
+    @keyframes shimmerGold {
+      0% { background-position: 0% center; }
+      100% { background-position: 300% center; }
+    }
+
     .hero-row .hero-tagline {
       color: var(--midnight-navy);
       font-size: 18px;
@@ -403,7 +401,7 @@
       margin: 0 auto;
     }
 
-    /* ===== Founders Grid (جديد) ===== */
+    /* ===== Founders Grid ===== */
     .founders-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -713,6 +711,15 @@
     .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 15px; transition: color var(--transition-fast); font-weight: 600; }
     .footer-links a:hover { color: var(--gold); }
 
+    /* ===== الاسم في التذييل (تحت) باللون الكحلي الفاتح ===== */
+    .footer-firm-name {
+      font-family: var(--font-lux);
+      font-weight: 900;
+      color: #a0b4d1; /* لون كحلي فاتح يظهر بوضوح على الخلفية الداكنة */
+      letter-spacing: 1px;
+      font-size: inherit;
+    }
+
     /* ===== Fixed Buttons ===== */
     .float-whatsapp {
       position: fixed; bottom: 28px; left: 28px; width: 64px; height: 64px;
@@ -792,11 +799,22 @@
       }
       .nav-links.open { display: flex; }
       .nav-links a { padding: 10px 0; width: 100%; text-align: center; }
+
+      /* إظهار الأعلام داخل القائمة عند فتحها على الهواتف */
+      .nav-links .lang-flags {
+        display: flex !important;
+        justify-content: center;
+        border-top: 1px solid rgba(201,162,39,0.2);
+        padding-top: 15px;
+        margin-top: 10px;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
       .logo-area img { width: 38px; height: 38px; }
       .firm-name { font-size: 20px; }
       .hamburger { display: flex; }
       .navbar-actions { order: 2; }
-      .lang-flags .lang-btn img { width: 24px; height: 16px; }
 
       .hero { padding: 60px 16px; background-attachment: scroll; }
       .hero-row {
@@ -832,10 +850,10 @@
       .section-title { font-size: 28px; }
       .logo-area img { width: 32px; height: 32px; }
       .firm-name { font-size: 16px; }
-      .lang-flags .lang-btn img { width: 20px; height: 14px; }
       .navbar { padding: 8px 12px; }
       .founder-card h3 { font-size: 20px; }
       .founder-avatar { width: 80px; height: 80px; font-size: 22px; }
+      .nav-links .lang-flags .lang-btn img { width: 24px; height: 16px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -860,21 +878,19 @@
            alt="Legacy Law Firm Logo"
            loading="lazy" decoding="async"
            onerror="this.style.display='none'">
-      <!-- الاسم بخط Cinzel وتأثير الذهب المتحرك -->
+      <!-- الاسم في الشريط العلوي (فوق) باللون الكحلي الغامق -->
       <span class="firm-name">Legacy Law Firm</span>
     </div>
 
-    <!-- روابط الخدمات (في المنتصف) -->
+    <!-- روابط الخدمات + الأعلام (داخل القائمة) -->
     <div class="nav-links" id="navLinks">
       <a href="#about" data-key="nav-about">من نحن</a>
       <a href="#services" data-key="nav-services">خدماتنا</a>
       <a href="#vision" data-key="nav-vision">رؤيتنا</a>
       <a href="#founders" data-key="nav-founders">المؤسسون</a>
       <a href="#contact" data-key="nav-contact">تواصل معنا</a>
-    </div>
-
-    <!-- الأعلام + زر الهامبرغر -->
-    <div class="navbar-actions">
+      
+      <!-- أعلام اللغة (تظهر فقط داخل القائمة على الهواتف) -->
       <div class="lang-flags">
         <button class="lang-btn active" onclick="setLang('ar')" data-lang="ar" aria-pressed="true">
           <img src="https://flagcdn.com/w40/eg.png" alt="العربية" width="28" height="18">
@@ -886,6 +902,9 @@
           <img src="https://flagcdn.com/w40/de.png" alt="Deutsch" width="28" height="18">
         </button>
       </div>
+    </div>
+
+    <div class="navbar-actions">
       <button class="hamburger" id="hamburgerBtn" aria-label="فتح القائمة">
         <span></span><span></span><span></span>
       </button>
@@ -896,7 +915,7 @@
     <!-- Hero -->
     <section class="hero" aria-label="الصفحة الرئيسية">
       <div class="hero-row">
-        <!-- الاسم بخط Cinzel وتأثير الذهب المتحرك أيضاً في الهيرو -->
+        <!-- الاسم في الهيرو يبقى ذهبي مع أنيميشن -->
         <h1>Legacy Law Firm</h1>
         <span class="separator">|</span>
         <p class="hero-tagline" data-key="hero-tagline">المحاماة والاستشارات القانونية وتأسيس الشركات</p>
@@ -1090,7 +1109,7 @@
       </div>
     </section>
 
-    <!-- ====== قسم المؤسسين الجديد ====== -->
+    <!-- Founders -->
     <section class="section reveal" id="founders">
       <h2 class="section-title">
         <i class="fas fa-user-tie" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
@@ -1098,7 +1117,6 @@
       </h2>
       <div class="section-subtitle"><span data-key="founders-subtitle">فريق القيادة</span></div>
       <div class="founders-grid">
-        <!-- Founder 1: Mohamed Ahmed -->
         <div class="founder-card">
           <div class="founder-avatar">MA</div>
           <h3>Mohamed Ahmed</h3>
@@ -1106,7 +1124,6 @@
           <p data-key="founder-desc-1">رؤية استراتيجية وخبرة عميقة في بناء المؤسسات القانونية الرائدة.</p>
           <div class="founder-icon"><i class="fas fa-crown"></i></div>
         </div>
-        <!-- Founder 2: Eman Elsherbiny -->
         <div class="founder-card">
           <div class="founder-avatar">EE</div>
           <h3>Eman Elsherbiny</h3>
@@ -1252,7 +1269,8 @@
       <a href="#" data-key="footer-terms" onclick="showModal('terms'); return false;">الشروط والأحكام</a>
     </div>
     <p data-key="footer-line1">ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.</p>
-    <p data-key="footer-line2">© 2026 Legacy Law Firm - جميع الحقوق محفوظة</p>
+    <!-- الاسم في التذييل (تحت) باللون الكحلي الفاتح -->
+    <p data-key="footer-line2">© 2026 <span class="footer-firm-name">Legacy Law Firm</span> - جميع الحقوق محفوظة</p>
   </footer>
 
   <!-- Fixed Buttons -->
@@ -1279,7 +1297,7 @@
 
   <script>
     // ============================================================
-    //  TRANSLATIONS (مكتملة)
+    //  TRANSLATIONS (كاملة)
     // ============================================================
     const translations = {
       ar: {
