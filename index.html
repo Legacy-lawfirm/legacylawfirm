@@ -58,7 +58,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin />
-  <!-- الخط الفخم للاسم (Cinzel) + الخط الأساسي للعربية (Tajawal) -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -66,7 +65,6 @@
         media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
   <style>
-    /* ===== CSS Variables ===== */
     :root {
       --midnight-navy: #0a0e1a;
       --deep-navy: #1a1f3a;
@@ -77,6 +75,7 @@
       --gray-light: #e8e6e3;
       --text-dark: #0a0e1a;
       --text-light: #555577;
+      --light-blue: #4a7ba7; /* اللون الكحلي الفاتح الجديد */
       --font-ar: 'Tajawal', sans-serif;
       --font-lux: 'Cinzel', serif;
       --transition-fast: 0.2s ease;
@@ -86,7 +85,6 @@
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
       --shadow-gold: 0 4px 20px rgba(201,162,39,0.25);
     }
-    /* ===== Reset & Base ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 90px; }
     body {
@@ -99,15 +97,12 @@
       overflow-x: hidden;
     }
     ::selection { background: var(--gold); color: var(--midnight-navy); }
-
-    /* ===== RTL/LTR Helpers ===== */
     body[dir="ltr"] { direction: ltr; text-align: left; }
     body[dir="ltr"] .hero-row { flex-direction: row-reverse; }
     body[dir="ltr"] .hero-row .separator { margin: 0 16px; }
     body[dir="ltr"] .lang-flags { flex-direction: row-reverse; }
     body[dir="ltr"] .founder-card { direction: ltr; }
 
-    /* ===== Skip Link ===== */
     .skip-link {
       position: absolute; top: -100%; left: 50%; transform: translateX(-50%);
       background: var(--gold); color: var(--midnight-navy); padding: 12px 24px;
@@ -116,7 +111,6 @@
     }
     .skip-link:focus { top: 0; outline: 3px solid var(--midnight-navy); outline-offset: -3px; }
 
-    /* ===== Progress Bar ===== */
     #progress-bar {
       position: fixed; top: 0; right: 0; width: 0%; height: 4px;
       background: linear-gradient(90deg, var(--gold), var(--gold-light));
@@ -124,7 +118,6 @@
       box-shadow: 0 2px 10px rgba(201,162,39,0.4);
     }
 
-    /* ===== Navbar ===== */
     .navbar {
       display: flex;
       align-items: center;
@@ -152,13 +145,13 @@
       border-radius: 8px;
       object-fit: contain;
     }
-    /* ===== الاسم في الشريط العلوي (فوق) باللون الكحلي ===== */
+    /* ===== الاسم في الشريط العلوي (فوق) باللون الكحلي الفاتح ===== */
     .firm-name {
       font-family: var(--font-lux);
       font-weight: 900;
       font-size: 26px;
       letter-spacing: 2px;
-      color: var(--midnight-navy); /* لون كحلي غامق */
+      color: var(--light-blue); /* كحلي فاتح */
       white-space: nowrap;
       transition: font-size 0.3s;
       display: inline-block;
@@ -195,15 +188,13 @@
     }
     .nav-links a:hover::after { width: 100%; }
 
-    /* ===== أعلام اللغة داخل القائمة ===== */
-    .nav-links .lang-flags {
-      display: none; /* مخفية افتراضياً على الشاشات الكبيرة */
-      gap: 12px;
+    .lang-flags-desktop {
+      display: flex;
+      gap: 8px;
       align-items: center;
-      justify-content: center;
-      width: 100%;
+      flex-shrink: 0;
     }
-    .nav-links .lang-flags .lang-btn {
+    .lang-flags-desktop .lang-btn {
       background: none;
       border: 2px solid transparent;
       border-radius: 6px;
@@ -212,14 +203,48 @@
       transition: all 0.2s ease;
       opacity: 0.5;
     }
-    .nav-links .lang-flags .lang-btn:hover { transform: scale(1.1); opacity: 0.8; }
-    .nav-links .lang-flags .lang-btn.active {
+    .lang-flags-desktop .lang-btn:hover { transform: scale(1.1); opacity: 0.8; }
+    .lang-flags-desktop .lang-btn.active {
       border-color: var(--gold);
       opacity: 1;
       transform: scale(1.05);
       box-shadow: 0 0 8px rgba(201,162,39,0.3);
     }
-    .nav-links .lang-flags .lang-btn img {
+    .lang-flags-desktop .lang-btn img {
+      display: block;
+      width: 28px;
+      height: 18px;
+      border-radius: 3px;
+      object-fit: cover;
+    }
+
+    .lang-flags-mobile {
+      display: none;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      border-top: 1px solid rgba(201,162,39,0.2);
+      padding-top: 15px;
+      margin-top: 10px;
+    }
+    .lang-flags-mobile .lang-btn {
+      background: none;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 3px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      opacity: 0.5;
+    }
+    .lang-flags-mobile .lang-btn:hover { transform: scale(1.1); opacity: 0.8; }
+    .lang-flags-mobile .lang-btn.active {
+      border-color: var(--gold);
+      opacity: 1;
+      transform: scale(1.05);
+      box-shadow: 0 0 8px rgba(201,162,39,0.3);
+    }
+    .lang-flags-mobile .lang-btn img {
       display: block;
       width: 28px;
       height: 18px;
@@ -255,7 +280,6 @@
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-    /* ===== Hero ===== */
     .hero {
       background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(250,248,245,0.03) 100%),
                   url('https://i.postimg.cc/654ShBpT/Whats-App-Image-2026-07-30-at-3-33-44-AM.jpg');
@@ -294,28 +318,18 @@
       border: 1px solid rgba(201,162,39,0.15);
       box-shadow: 0 8px 32px rgba(0,0,0,0.06);
     }
-    /* اسم الشركة في الهيرو يبقى ذهبي مع أنيميشن (فخم) */
+    /* ===== الاسم في الهيرو (القسم الرئيسي) باللون الكحلي الفاتح ===== */
     .hero-row h1 {
       font-family: var(--font-lux);
       font-weight: 900;
       font-size: 40px;
       letter-spacing: 3px;
       margin: 0;
-      background: linear-gradient(90deg, #d4af37, #fdf0b0, #d4af37, #b8860b, #d4af37);
-      background-size: 300% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmerGold 4s ease-in-out infinite;
+      color: var(--light-blue); /* كحلي فاتح */
       display: inline-block;
-      text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+      text-shadow: 0 0 30px rgba(74, 123, 167, 0.15);
       white-space: nowrap;
     }
-    @keyframes shimmerGold {
-      0% { background-position: 0% center; }
-      100% { background-position: 300% center; }
-    }
-
     .hero-row .hero-tagline {
       color: var(--midnight-navy);
       font-size: 18px;
@@ -353,7 +367,6 @@
       padding-right: 12px;
     }
 
-    /* ===== Reveal Animation ===== */
     @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
     .reveal {
       opacity: 0;
@@ -362,7 +375,6 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ===== Sections ===== */
     .section { padding: 100px 32px; max-width: 1200px; margin: 0 auto; }
     .section-title {
       color: var(--midnight-navy);
@@ -401,7 +413,6 @@
       margin: 0 auto;
     }
 
-    /* ===== Founders Grid ===== */
     .founders-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -492,7 +503,6 @@
       opacity: 0.6;
     }
 
-    /* ===== Services Grid ===== */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -562,7 +572,6 @@
     body[dir="ltr"] .accordion-inner ul li { padding-right: 0; padding-left: 24px; }
     body[dir="ltr"] .accordion-inner ul li::before { right: auto; left: 0; content: "▸"; }
 
-    /* ===== Vision Box ===== */
     .vision-box {
       background: linear-gradient(135deg, var(--midnight-navy), var(--deep-navy));
       border-radius: 20px; padding: 60px; border: 2px solid var(--gold);
@@ -570,7 +579,6 @@
     }
     .vision-box p { color: rgba(255,255,255,0.95); font-size: 19px; line-height: 2.2; text-align: center; }
 
-    /* ===== Contact Hub ===== */
     .contact-hub {
       background: #f8f5f0; border-radius: 20px; padding: 100px 32px;
       margin: 80px auto; max-width: 1300px; border: 2px solid var(--gold);
@@ -697,7 +705,6 @@
     }
     .social-btn:hover { background: var(--gold); color: var(--white); transform: translateY(-4px); box-shadow: var(--shadow-gold); }
 
-    /* ===== Footer ===== */
     .footer {
       background: var(--midnight-navy); color: rgba(255,255,255,0.7);
       text-align: center; padding: 60px 24px; font-size: 15px;
@@ -710,17 +717,15 @@
     }
     .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 15px; transition: color var(--transition-fast); font-weight: 600; }
     .footer-links a:hover { color: var(--gold); }
-
-    /* ===== الاسم في التذييل (تحت) باللون الكحلي الفاتح ===== */
+    /* ===== الاسم في التذييل (تحت) كحلي فاتح ===== */
     .footer-firm-name {
       font-family: var(--font-lux);
       font-weight: 900;
-      color: #a0b4d1; /* لون كحلي فاتح يظهر بوضوح على الخلفية الداكنة */
+      color: #a0b4d1;
       letter-spacing: 1px;
       font-size: inherit;
     }
 
-    /* ===== Fixed Buttons ===== */
     .float-whatsapp {
       position: fixed; bottom: 28px; left: 28px; width: 64px; height: 64px;
       border-radius: 50%; background: #25d366; color: var(--white);
@@ -740,7 +745,6 @@
     .scroll-top.visible { opacity: 1; }
     .scroll-top:hover { transform: translateY(-6px); box-shadow: var(--shadow-gold); }
 
-    /* ===== Cookie Banner ===== */
     .cookie-banner {
       position: fixed; bottom: 0; left: 0; right: 0;
       background: var(--midnight-navy); color: var(--white);
@@ -760,7 +764,6 @@
     }
     .cookie-btn:hover { transform: scale(1.05); box-shadow: var(--shadow-gold); }
 
-    /* ===== Modal ===== */
     #modalOverlay {
       display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(10,14,26,0.9); z-index: 10001;
@@ -783,7 +786,6 @@
     }
     .modal-box button.close-modal:hover { background: var(--gold); transform: rotate(90deg); }
 
-    /* ===== Responsive ===== */
     @media (max-width: 992px) {
       .navbar { padding: 12px 16px; flex-wrap: wrap; }
       .nav-links {
@@ -799,17 +801,8 @@
       }
       .nav-links.open { display: flex; }
       .nav-links a { padding: 10px 0; width: 100%; text-align: center; }
-
-      /* إظهار الأعلام داخل القائمة عند فتحها على الهواتف */
-      .nav-links .lang-flags {
-        display: flex !important;
-        justify-content: center;
-        border-top: 1px solid rgba(201,162,39,0.2);
-        padding-top: 15px;
-        margin-top: 10px;
-        width: 100%;
-        flex-wrap: wrap;
-      }
+      .lang-flags-desktop { display: none; }
+      .lang-flags-mobile { display: flex !important; }
 
       .logo-area img { width: 38px; height: 38px; }
       .firm-name { font-size: 20px; }
@@ -840,7 +833,6 @@
       .contact-hub { padding: 60px 24px; margin: 40px auto; }
       .contact-split { grid-template-columns: 1fr; }
       .assessment-box { position: static; margin-top: 20px; }
-      
       .founders-grid { grid-template-columns: 1fr; max-width: 400px; }
     }
     @media (max-width: 480px) {
@@ -853,9 +845,8 @@
       .navbar { padding: 8px 12px; }
       .founder-card h3 { font-size: 20px; }
       .founder-avatar { width: 80px; height: 80px; font-size: 22px; }
-      .nav-links .lang-flags .lang-btn img { width: 24px; height: 16px; }
+      .lang-flags-mobile .lang-btn img { width: 24px; height: 16px; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -872,26 +863,22 @@
   <div id="progress-bar" role="progressbar" aria-label="تقدم القراءة"></div>
 
   <nav class="navbar" role="navigation" aria-label="التنقل الرئيسي">
-    <!-- اللوجو -->
     <div class="logo-area">
       <img src="https://i.postimg.cc/RFvPjbng/Whats-App-Image-2026-07-31-at-8-45-18-PM.jpg"
            alt="Legacy Law Firm Logo"
            loading="lazy" decoding="async"
            onerror="this.style.display='none'">
-      <!-- الاسم في الشريط العلوي (فوق) باللون الكحلي الغامق -->
       <span class="firm-name">Legacy Law Firm</span>
     </div>
 
-    <!-- روابط الخدمات + الأعلام (داخل القائمة) -->
     <div class="nav-links" id="navLinks">
       <a href="#about" data-key="nav-about">من نحن</a>
       <a href="#services" data-key="nav-services">خدماتنا</a>
       <a href="#vision" data-key="nav-vision">رؤيتنا</a>
       <a href="#founders" data-key="nav-founders">المؤسسون</a>
       <a href="#contact" data-key="nav-contact">تواصل معنا</a>
-      
-      <!-- أعلام اللغة (تظهر فقط داخل القائمة على الهواتف) -->
-      <div class="lang-flags">
+
+      <div class="lang-flags-mobile">
         <button class="lang-btn active" onclick="setLang('ar')" data-lang="ar" aria-pressed="true">
           <img src="https://flagcdn.com/w40/eg.png" alt="العربية" width="28" height="18">
         </button>
@@ -905,6 +892,17 @@
     </div>
 
     <div class="navbar-actions">
+      <div class="lang-flags-desktop">
+        <button class="lang-btn active" onclick="setLang('ar')" data-lang="ar" aria-pressed="true">
+          <img src="https://flagcdn.com/w40/eg.png" alt="العربية" width="28" height="18">
+        </button>
+        <button class="lang-btn" onclick="setLang('en')" data-lang="en" aria-pressed="false">
+          <img src="https://flagcdn.com/w40/us.png" alt="English" width="28" height="18">
+        </button>
+        <button class="lang-btn" onclick="setLang('de')" data-lang="de" aria-pressed="false">
+          <img src="https://flagcdn.com/w40/de.png" alt="Deutsch" width="28" height="18">
+        </button>
+      </div>
       <button class="hamburger" id="hamburgerBtn" aria-label="فتح القائمة">
         <span></span><span></span><span></span>
       </button>
@@ -912,10 +910,8 @@
   </nav>
 
   <main id="main-content">
-    <!-- Hero -->
     <section class="hero" aria-label="الصفحة الرئيسية">
       <div class="hero-row">
-        <!-- الاسم في الهيرو يبقى ذهبي مع أنيميشن -->
         <h1>Legacy Law Firm</h1>
         <span class="separator">|</span>
         <p class="hero-tagline" data-key="hero-tagline">المحاماة والاستشارات القانونية وتأسيس الشركات</p>
@@ -926,7 +922,6 @@
       </div>
     </section>
 
-    <!-- About -->
     <section class="section reveal" id="about">
       <h2 class="section-title">
         <i class="fas fa-users" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
@@ -940,7 +935,6 @@
       </div>
     </section>
 
-    <!-- Services -->
     <section class="section reveal" id="services" style="max-width: 1200px;">
       <h2 class="section-title">
         <i class="fas fa-scale-balanced" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
@@ -948,7 +942,6 @@
       </h2>
       <div class="section-subtitle"><span data-key="services-subtitle">مجالات تخصصنا</span></div>
       <div class="services-grid">
-        <!-- Card 1: Corporate -->
         <div class="service-card">
           <div class="icon-wrapper"><i class="fas fa-building" aria-hidden="true"></i></div>
           <h3 data-key="svc1-title">قطاع الشركات والاستثمار</h3>
@@ -973,7 +966,6 @@
           </ul>
         </div>
 
-        <!-- Card 2: Foreign Affairs -->
         <div class="service-card">
           <div class="icon-wrapper"><i class="fas fa-globe-americas" aria-hidden="true"></i></div>
           <h3 data-key="svc2-title">شؤون الأجانب - قانون الهجرة والجنسية</h3>
@@ -1014,7 +1006,6 @@
           </ul>
         </div>
 
-        <!-- Card 3: Litigation -->
         <div class="service-card">
           <div class="icon-wrapper"><i class="fas fa-gavel" aria-hidden="true"></i></div>
           <h3 data-key="svc3-title">قطاع التقاضي والدفاع</h3>
@@ -1051,7 +1042,6 @@
           </ul>
         </div>
 
-        <!-- Card 4: International Commercial -->
         <div class="service-card">
           <div class="icon-wrapper"><i class="fas fa-handshake" aria-hidden="true"></i></div>
           <h3 data-key="svc4-title">قطاع المعاملات التجارية والمالية الدولية</h3>
@@ -1097,7 +1087,6 @@
       </div>
     </section>
 
-    <!-- Vision -->
     <section class="section reveal" id="vision">
       <h2 class="section-title">
         <i class="fas fa-eye" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
@@ -1109,7 +1098,6 @@
       </div>
     </section>
 
-    <!-- Founders -->
     <section class="section reveal" id="founders">
       <h2 class="section-title">
         <i class="fas fa-user-tie" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
@@ -1121,20 +1109,17 @@
           <div class="founder-avatar">MA</div>
           <h3>Mohamed Ahmed</h3>
           <div class="founder-role" data-key="role-ceo">Founder &amp; CEO</div>
-          <p data-key="founder-desc-1">رؤية استراتيجية وخبرة عميقة في بناء المؤسسات القانونية الرائدة.</p>
           <div class="founder-icon"><i class="fas fa-crown"></i></div>
         </div>
         <div class="founder-card">
           <div class="founder-avatar">EE</div>
           <h3>Eman Elsherbiny</h3>
           <div class="founder-role" data-key="role-partner">Attorney &amp; Partner</div>
-          <p data-key="founder-desc-2">خبيرة قانونية متميزة في مجالي التقاضي والاستشارات التجارية.</p>
           <div class="founder-icon"><i class="fas fa-scale-balanced"></i></div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Hub -->
     <section class="contact-hub reveal" id="contact">
       <h2 class="section-title">
         <i class="fas fa-headset" style="color:var(--gold); font-size:36px;" aria-hidden="true"></i>
@@ -1257,7 +1242,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer-links">
       <a href="#about" data-key="footer-about">من نحن</a>
@@ -1269,11 +1253,9 @@
       <a href="#" data-key="footer-terms" onclick="showModal('terms'); return false;">الشروط والأحكام</a>
     </div>
     <p data-key="footer-line1">ملتزمين دائماً بدقة التفاصيل لنظل الحصن القانوني والمستشار الاستراتيجي الذي يمنحكم الطمأنينة والنجاح.</p>
-    <!-- الاسم في التذييل (تحت) باللون الكحلي الفاتح -->
     <p data-key="footer-line2">© 2026 <span class="footer-firm-name">Legacy Law Firm</span> - جميع الحقوق محفوظة</p>
   </footer>
 
-  <!-- Fixed Buttons -->
   <a href="https://wa.me/201002950495?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" class="float-whatsapp" aria-label="التواصل عبر واتساب">
     <i class="fab fa-whatsapp" style="font-size:32px;" aria-hidden="true"></i>
   </a>
@@ -1281,13 +1263,11 @@
     <i class="fas fa-arrow-up" aria-hidden="true"></i>
   </button>
 
-  <!-- Cookie Banner -->
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="إشعار الكوكيز">
     <p data-key="cookie-text">نستخدم ملفات تعريف الارتباط لتحسين تجربتك. باستمرارك في تصفح الموقع، فإنك توافق على <a href="#" onclick="showModal('privacy'); return false;">سياسة الخصوصية</a>.</p>
     <button class="cookie-btn" onclick="acceptCookies()" data-key="cookie-accept">موافق</button>
   </div>
 
-  <!-- Modal -->
   <div id="modalOverlay" onclick="if(event.target===this) closeModal()">
     <div class="modal-box">
       <button class="close-modal" onclick="closeModal()">&times;</button>
@@ -1296,9 +1276,7 @@
   </div>
 
   <script>
-    // ============================================================
-    //  TRANSLATIONS (كاملة)
-    // ============================================================
+    // ===== TRANSLATIONS (كاملة) =====
     const translations = {
       ar: {
         "nav-about": "من نحن", "nav-services": "خدماتنا", "nav-vision": "رؤيتنا", "nav-founders": "المؤسسون", "nav-contact": "تواصل معنا",
@@ -1308,8 +1286,6 @@
         "founders-title": "المؤسسون", "founders-subtitle": "فريق القيادة",
         "role-ceo": "المؤسس والرئيس التنفيذي",
         "role-partner": "محامية وشريكة",
-        "founder-desc-1": "رؤية استراتيجية وخبرة عميقة في بناء المؤسسات القانونية الرائدة.",
-        "founder-desc-2": "خبيرة قانونية متميزة في مجالي التقاضي والاستشارات التجارية.",
         "services-title": "خدماتنا القانونية", "services-subtitle": "مجالات تخصصنا",
         "svc1-title": "قطاع الشركات والاستثمار", "svc1-desc": "حلول قانونية متكاملة للشركات في جميع مراحلها.",
         "svc1-f1": "تأسيس الشركات والمنشآت", "svc1-f1-desc": "نسير معكم خطوة بخطوة من البداية لتأسيس الشركات بكافة أشكالها القانونية، إنهاء كافة التراخيص والموافقات الحكومية لبدء الاستثمار بأمان.",
@@ -1379,8 +1355,6 @@
         "founders-title": "Founders", "founders-subtitle": "Leadership Team",
         "role-ceo": "Founder & CEO",
         "role-partner": "Attorney & Partner",
-        "founder-desc-1": "Strategic vision and deep expertise in building leading legal institutions.",
-        "founder-desc-2": "Distinguished legal expert in litigation and commercial advisory.",
         "services-title": "Our Legal Services", "services-subtitle": "Areas of Expertise",
         "svc1-title": "Corporate & Investment Law", "svc1-desc": "Integrated legal solutions for companies at all stages.",
         "svc1-f1": "Company Formation & Establishment", "svc1-f1-desc": "We guide you step by step from the very beginning to establish companies in all their legal forms, completing all government licenses and approvals to start investing with confidence and full security.",
@@ -1450,8 +1424,6 @@
         "founders-title": "Gründer", "founders-subtitle": "Führungsteam",
         "role-ceo": "Gründer & CEO",
         "role-partner": "Rechtsanwältin & Partnerin",
-        "founder-desc-1": "Strategische Vision und tiefe Expertise im Aufbau führender Rechtsinstitutionen.",
-        "founder-desc-2": "Hervorragende Rechtsexpertin in den Bereichen Prozessführung und Wirtschaftsberatung.",
         "services-title": "Unsere Rechtsdienstleistungen", "services-subtitle": "Fachgebiete",
         "svc1-title": "Unternehmens- & Investitionsrecht", "svc1-desc": "Integrierte Rechtslösungen für Unternehmen in allen Phasen.",
         "svc1-f1": "Unternehmensgründung", "svc1-f1-desc": "Wir begleiten Sie Schritt für Schritt von Anfang an bei der Gründung von Unternehmen in allen rechtlichen Formen und erledigen alle behördlichen Lizenzen und Genehmigungen für einen sicheren Investitionsstart.",
@@ -1515,14 +1487,12 @@
       }
     };
 
-    // ===== SELECT OPTIONS =====
     const selectOptions = {
       ar: ["تأسيس شركات", "هجرة وجنسية", "تقاضي ودفاع", "استشارات ضريبية", "عقارات", "قضايا أسرة", "أخرى"],
       en: ["Company Formation", "Immigration & Nationality", "Litigation & Defense", "Tax Consultancy", "Real Estate", "Family Cases", "Other"],
       de: ["Unternehmensgründung", "Einwanderung & Staatsangehörigkeit", "Prozessführung & Verteidigung", "Steuerberatung", "Immobilien", "Familienfälle", "Sonstiges"]
     };
 
-    // ===== TYPEWRITER =====
     const typewriterElement = document.getElementById('typewriter-text');
     const phrases = {
       ar: ['مستشارك القانوني الأول', 'حماية استثماراتك', 'ريادة في التقاضي'],
@@ -1560,7 +1530,6 @@
       typeEffect();
     }
 
-    // ===== LANGUAGE SWITCHER =====
     let currentLang = 'ar';
 
     function buildSelectOptions(lang) {
@@ -1615,7 +1584,6 @@
     }
     window.setLang = setLang;
 
-    // ===== HAMBURGER =====
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const navLinks = document.getElementById('navLinks');
     if (hamburgerBtn && navLinks) {
@@ -1631,7 +1599,6 @@
       });
     }
 
-    // ===== ACCORDION =====
     document.addEventListener('click', function(e) {
       const trigger = e.target.closest('.accordion-trigger');
       if (!trigger) return;
@@ -1649,7 +1616,6 @@
       trigger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
     });
 
-    // ===== SCROLL =====
     window.addEventListener('scroll', function() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -1663,7 +1629,6 @@
       }
     });
 
-    // ===== REVEAL =====
     const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1675,7 +1640,6 @@
     }, observerOptions);
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ===== COOKIE =====
     function acceptCookies() {
       localStorage.setItem('cookiesAccepted', 'true');
       const banner = document.getElementById('cookieBanner');
@@ -1689,7 +1653,6 @@
       }
     }, 2000);
 
-    // ===== CONTACT FORM =====
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     const statusMessage = document.getElementById('statusMessage');
@@ -1731,7 +1694,6 @@
       });
     }
 
-    // ===== MODAL =====
     const modalContent = {
       privacy: {
         ar: '<h2>سياسة الخصوصية</h2><p>نحن في Legacy Law Firm نلتزم بحماية خصوصيتك. لا نقوم بجمع أي بيانات شخصية إلا تلك التي تقدمها طوعاً عبر نموذج التواصل. نستخدم ملفات تعريف الارتباط (Cookies) لتحسين تجربة التصفح فقط.</p><p>لن نشارك بياناتك مع أي طرف ثالث دون موافقتك الصريحة.</p>',
@@ -1770,7 +1732,6 @@
       if (e.key === 'Escape') closeModal();
     });
 
-    // ===== INIT =====
     document.addEventListener('DOMContentLoaded', function() {
       buildSelectOptions('ar');
       typeEffect();
